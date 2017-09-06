@@ -1,2 +1,1 @@
-this is a text file for testing!
-yes, first test
+this is a text file for testing.
