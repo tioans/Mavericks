@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  14 SEP 2017 14:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  14 SEP 2017 15:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1512,25 +1512,25 @@ LaTeX Font Warning: Font shape `OMS/pplx/m/n' undefined
 \titlepageleftcolumnwidth=\skip87
 \titlepagerightcolumnwidth=\skip88
 
-<figures/aau_logo_en.pdf, id=67, 115.43124pt x 77.28876pt>
+<figures/aau_logo_en.pdf, id=63, 115.43124pt x 77.28876pt>
 File: figures/aau_logo_en.pdf Graphic file (type pdf)
 
 <use figures/aau_logo_en.pdf>
-Package pdftex.def Info: figures/aau_logo_en.pdf used on input line 31.
+Package pdftex.def Info: figures/aau_logo_en.pdf used on input line 32.
 (pdftex.def)             Requested size: 194.59193pt x 130.30179pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--31
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
 
  []
 
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 31.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 32.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/pplx/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/pplx/b/n' tried instead on input line 31.
+(Font)              Font shape `T1/pplx/b/n' tried instead on input line 32.
 
-Overfull \hbox (3.18648pt too wide) in paragraph at lines 31--31
+Overfull \hbox (3.18648pt too wide) in paragraph at lines 32--32
 [] 
  []
 
@@ -1540,51 +1540,19 @@ Overfull \hbox (3.18648pt too wide) in paragraph at lines 31--31
 
 
 
-]
-Package babel Info: Redefining danish shorthand "|
-(babel)             in language  on input line 35.
-Package babel Info: Redefining danish shorthand "~
-(babel)             in language  on input line 35.
-
-<figures/aau_logo_da.pdf, id=84, 121.45375pt x 77.28876pt>
-File: figures/aau_logo_da.pdf Graphic file (type pdf)
-
-<use figures/aau_logo_da.pdf>
-Package pdftex.def Info: figures/aau_logo_da.pdf used on input line 65.
-(pdftex.def)             Requested size: 194.59193pt x 123.8308pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--65
-
- []
-
-
-Overfull \hbox (3.18648pt too wide) in paragraph at lines 65--65
-[] 
- []
-
-Package babel Info: Redefining danish shorthand "|
-(babel)             in language  on input line 65.
-Package babel Info: Redefining danish shorthand "~
-(babel)             in language  on input line 65.
-Package babel Info: Redefining danish shorthand "|
-(babel)             in language  on input line 65.
-Package babel Info: Redefining danish shorthand "~
-(babel)             in language  on input line 65.
-[5 <./figures/aau_logo_da.pdf>]) [6
-
-
-
-]
+])
 LaTeX Font Info:    Font shape `T1/pplx/bx/n' in size <20.74> not available
 (Font)              Font shape `T1/pplx/b/n' tried instead on input line 31.
  (./master.toc)
 \tf@toc=\write7
 \openout7 = `master.toc'.
 
- [7
+ [5
 
 
-] [8
+
+
+] [6
 
 
 ] (./master.tdo)
@@ -1592,10 +1560,10 @@ LaTeX Font Info:    Font shape `T1/pplx/bx/n' in size <20.74> not available
 \openout8 = `master.tdo'.
 
 
-(./sections/preface.tex [9] [10
+(./sections/preface.tex [7] [8
 
 
-]) [11] [12
+]) [9] [10
 
 
 ] (./sections/introduction.tex
@@ -1668,7 +1636,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 44.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 44.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 44.
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: 1C5710B4E15FBCDC0BEA814F9631195D;716.
+(rerunfilecheck)             Checksum: C15E48A9A9795F3DC2D8F6EA98DC53A4;652.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1686,13 +1654,13 @@ Package logreq Info: Writing requests to 'master.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26406 strings out of 492995
- 479443 string characters out of 6132705
- 894754 words of memory out of 5000000
- 29381 multiletter control sequences out of 15000+600000
+ 26391 strings out of 492995
+ 479178 string characters out of 6132705
+ 894556 words of memory out of 5000000
+ 29370 multiletter control sequences out of 15000+600000
  48959 words of font info for 83 fonts, out of 8000000 for 9000
  1146 hyphenation exceptions out of 8191
- 64i,14n,80p,894b,1855s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,14n,80p,894b,1713s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
 live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texli
@@ -1704,10 +1672,10 @@ exmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2017/tex
 mf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2017/texmf-dist
 /fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/
 type1/urw/palatino/uplri8a.pfb>
-Output written on master.pdf (19 pages, 154032 bytes).
+Output written on master.pdf (17 pages, 143040 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 191 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
- 119 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 207 PDF objects out of 1000 (max. 8388607)
+ 176 compressed objects within 2 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
