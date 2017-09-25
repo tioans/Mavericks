@@ -3,6 +3,7 @@
 # NOTE: this example requires PyAudio because it uses the Microphone class
 
 import speech_recognition as sr
+from datetime import datetime
 
 # obtain audio from the microphone
 r = sr.Recognizer()
@@ -15,7 +16,7 @@ try:
     # for testing purposes, we're just using the default API key
     # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
     # instead of `r.recognize_google(audio)`
-    print("Google Speech Recognition thinks you said " + r.recognize_google(audio))
+    print( r.recognize_google(audio) )
 
 except sr.UnknownValueError:
     print("Google Speech Recognition could not understand audio")
@@ -25,4 +26,11 @@ except sr.RequestError as e:
 with open("output.txt", "w") as text_file:
     text_file.write("{0}".format(r.recognize_google(audio)))
 
-    
+with open('output.txt', 'r') as myfile:
+    data=myfile.read().replace('\n', '')
+    print("data: " + data)
+
+if data=="what is the time":
+	print( "the time is: " + str( datetime.now() ) )
+else:
+	exit()
