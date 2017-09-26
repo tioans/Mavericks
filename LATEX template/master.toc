@@ -24,6 +24,10 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.1}.WAV}{5}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Conclusion}{7}{chapter.4}
+\contentsline {chapter}{\numberline {4}Machine Learning}{7}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Appendix A name}{9}{appendix.A}
+\contentsline {section}{\numberline {4.1}Speech Recognition with Deep Learning}{7}{section.4.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Conclusion}{9}{chapter.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Appendix A name}{11}{appendix.A}
