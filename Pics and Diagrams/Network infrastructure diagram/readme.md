@@ -3,4 +3,4 @@
   - Speech Recognition Diagram:[https://creately.com/app?diagid=j81o3a9z](https://creately.com/app?diagid=j81o3a9z)
   
   
-  ![Diagram](relative/path/to/img.jpg?raw=true "Title")
+  ![Diagram](Mavericks/Pics and Diagrams/Network infrastructure diagram/speech recognition diagram-4 copy.png x"Title")
