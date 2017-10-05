@@ -1,8 +1,6 @@
 # Mavericks
 ED5-speech-recognition
 
-
-
 - **LATEX template**
   - This is where we write our report 
 - **Links**
