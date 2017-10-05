@@ -3,6 +3,7 @@
   - Speech Recognition Diagram:[https://creately.com/app?diagid=j81o3a9z](https://creately.com/app?diagid=j81o3a9z)
   
   
-  ![Alt text](Mavericks/Pics and Diagrams/Network infrastructure diagram/speech recognition diagram-4 copy.png?raw=true)
+  ![Alt text](https://github.com/epiicme/Mavericks/blob/master/Pics%20and%20Diagrams/Network%20infrastructure%20diagram/speech%20recognition%20diagram-4%20copy.png?raw=true)
   
-  ![ScreenShot](https://raw.github.com/{username}/{repository}/{branch}/{path})
+  ![ScreenShot](https://github.com/epiicme/Mavericks/blob/master/Pics%20and%20Diagrams/Network%20infrastructure%20diagram/speech%20recognition%20diagram-4%20copy.png)
+
