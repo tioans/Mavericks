@@ -1,8 +1,7 @@
 ->Report writing
 
-(Youtube Link):
-[How to Write a Great Research](https://www.youtube.com/watch?v=g3dkRsTqdDA)
-
+Video on How to Write a Great Research:
+[https://www.youtube.com/watch?v=g3dkRsTqdDA](https://www.youtube.com/watch?v=g3dkRsTqdDA)
 
 ->Research:
 
