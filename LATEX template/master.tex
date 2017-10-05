@@ -1,7 +1,9 @@
+%--------------------------------------------------------------%
 \input{setup/preamble.tex}% package inclusion and set up of the document
 \input{setup/hyphenations.tex}% 
 \input{setup/macros.tex}% my new macros
 
+%--------------------------------------------------------------%
 \begin{document}
 	%frontmatter
 	\pagestyle{empty} %disable headers and footers
@@ -21,19 +23,24 @@
 	
 	%mainmatter
 	\pagenumbering{arabic} %use arabic page numbering in the mainmatter
-	
+	%---------------------------------------------------------%
 	\input{sections/introduction.tex}
 	
 	\input{sections/problem_description.tex}
 	
+	\input{sections/distributed_speech_recognizer.tex}
+	
+	\input{sections/knowledge_based_IR_system.tex}
+	
 	\input{sections/machine_learning.tex}
 
-	%\input{sections/results.tex}
+	\input{sections/discussion.tex}
 	
 	\input{sections/conclusion.tex}
-	
+	%---------------------------------------------------------%
 	\printbibliography[heading=bibintoc]
 	\label{bib:mybiblio}
 	\appendix
 	\input{sections/appAname.tex}
 \end{document}
+%--------------------------------------------------------------%
