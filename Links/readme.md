@@ -1,10 +1,16 @@
-(Youtube Link):
+->Report writing
 
+(Youtube Link):
 [How to Write a Great Research](https://www.youtube.com/watch?v=g3dkRsTqdDA)
 
 
-(Research):
+->Research:
 
-[SpeechRecognition 3.7.1 (Python)](https://pypi.python.org/pypi/SpeechRecognition/)
+SpeechRecognition 3.7.1 (I installed python v2.7.13):
+[https://pypi.python.org/pypi/SpeechRecognition/](https://pypi.python.org/pypi/SpeechRecognition/)
+
+Fuzzy Logic:
+[http://whatis.techtarget.com/definition/fuzzy-logic](http://whatis.techtarget.com/definition/fuzzy-logic)
+
 
 
