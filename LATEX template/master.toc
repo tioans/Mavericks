@@ -40,9 +40,17 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Machine Learning}{9}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Deep Learning}{9}{section.5.1}
+\contentsline {section}{\numberline {5.1}TensorFlow}{9}{section.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Recurrent Neural Nerwork}{9}{section.5.2}
+\contentsline {subsection}{\numberline {5.1.1}Tensors}{9}{subsection.5.1.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1.2}TensorFlow Core}{10}{subsection.5.1.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1.3}tf.estimator}{10}{subsection.5.1.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}Deep Learning}{10}{section.5.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.3}Recurrent Neural Nerwork}{10}{section.5.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {6}Discussion}{11}{chapter.6}
 \defcounter {refsection}{0}\relax 
