@@ -9,20 +9,21 @@
 \BOOKMARK [0][-]{chapter.2}{2 Problem Description}{}% 9
 \BOOKMARK [1][-]{section.2.1}{2.1 Problem Description}{chapter.2}% 10
 \BOOKMARK [1][-]{section.2.2}{2.2 Problem Delimitation}{chapter.2}% 11
-\BOOKMARK [0][-]{chapter.3}{3 Distributed speech recognizer}{}% 12
-\BOOKMARK [1][-]{section.3.1}{3.1 The DSR system}{chapter.3}% 13
-\BOOKMARK [1][-]{section.3.2}{3.2 Acoutic models}{chapter.3}% 14
-\BOOKMARK [1][-]{section.3.3}{3.3 Language model}{chapter.3}% 15
-\BOOKMARK [0][-]{chapter.4}{4 Knowledge-based IR system}{}% 16
-\BOOKMARK [1][-]{section.4.1}{4.1 The document retrieval system}{chapter.4}% 17
-\BOOKMARK [1][-]{section.4.2}{4.2 The question answering system}{chapter.4}% 18
-\BOOKMARK [0][-]{chapter.5}{5 Machine Learning}{}% 19
-\BOOKMARK [1][-]{section.5.1}{5.1 TensorFlow}{chapter.5}% 20
-\BOOKMARK [2][-]{subsection.5.1.1}{5.1.1 Tensors}{section.5.1}% 21
-\BOOKMARK [2][-]{subsection.5.1.2}{5.1.2 TensorFlow Core}{section.5.1}% 22
-\BOOKMARK [2][-]{subsection.5.1.3}{5.1.3 tf.estimator}{section.5.1}% 23
-\BOOKMARK [1][-]{section.5.2}{5.2 Deep Learning}{chapter.5}% 24
-\BOOKMARK [1][-]{section.5.3}{5.3 Recurrent Neural Nerwork}{chapter.5}% 25
-\BOOKMARK [0][-]{chapter.6}{6 Discussion}{}% 26
-\BOOKMARK [0][-]{chapter.7}{7 Conclusion}{}% 27
-\BOOKMARK [0][-]{appendix.A}{A Appendix A name}{}% 28
+\BOOKMARK [0][-]{chapter.3}{3 Machine Learning for Speech}{}% 12
+\BOOKMARK [1][-]{section.3.1}{3.1 TensorFlow}{chapter.3}% 13
+\BOOKMARK [2][-]{subsection.3.1.1}{3.1.1 Tensors}{section.3.1}% 14
+\BOOKMARK [2][-]{subsection.3.1.2}{3.1.2 TensorFlow Core}{section.3.1}% 15
+\BOOKMARK [2][-]{subsection.3.1.3}{3.1.3 tf.estimator}{section.3.1}% 16
+\BOOKMARK [1][-]{section.3.2}{3.2 Deep neural network for speech}{chapter.3}% 17
+\BOOKMARK [2][-]{subsection.3.2.1}{3.2.1 Deep Feed Forward \(DFF\)}{section.3.2}% 18
+\BOOKMARK [2][-]{subsection.3.2.2}{3.2.2 Recurrent Neural Nerwork \(RNN\)}{section.3.2}% 19
+\BOOKMARK [0][-]{chapter.4}{4 Distributed speech recognizer}{}% 20
+\BOOKMARK [1][-]{section.4.1}{4.1 The DSR system}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.2}{4.2 Acoutic models}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.3}{4.3 Language model}{chapter.4}% 23
+\BOOKMARK [0][-]{chapter.5}{5 Knowledge-based IR system}{}% 24
+\BOOKMARK [1][-]{section.5.1}{5.1 The document retrieval system}{chapter.5}% 25
+\BOOKMARK [1][-]{section.5.2}{5.2 The question answering system}{chapter.5}% 26
+\BOOKMARK [0][-]{chapter.6}{6 Discussion}{}% 27
+\BOOKMARK [0][-]{chapter.7}{7 Conclusion}{}% 28
+\BOOKMARK [0][-]{appendix.A}{A Appendix A name}{}% 29
