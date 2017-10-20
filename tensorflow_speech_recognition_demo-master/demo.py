@@ -29,7 +29,7 @@ for x in col:
     tf.add_to_collection(tf.GraphKeys.VARIABLES, x ) 
 
 
-model = tflearn.DNN(net, tensorboard_verbose=0)
+model = tflearn.DNN(net, tensorboard_verbose=3)
 while 1: #training_iters
   model.fit(trainX, trainY, n_epoch=10, validation_set=(testX, testY), show_metric=True,
           batch_size=batch_size)
