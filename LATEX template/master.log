@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  7 OCT 2017 20:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  20 OCT 2017 13:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1540,7 +1540,7 @@ LaTeX Font Warning: Font shape `OMS/pplx/m/n' undefined
 \titlepageleftcolumnwidth=\skip87
 \titlepagerightcolumnwidth=\skip88
 
-<figures/aau_logo_en.pdf, id=131, 115.43124pt x 77.28876pt>
+<figures/aau_logo_en.pdf, id=135, 115.43124pt x 77.28876pt>
 File: figures/aau_logo_en.pdf Graphic file (type pdf)
 
 <use figures/aau_logo_en.pdf>
@@ -1632,7 +1632,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [2]
 Chapter 2.
-) (./sections/distributed_speech_recognizer.tex [3
+) (./sections/machine_learning.tex [3
 
 
 ] [4
@@ -1640,16 +1640,6 @@ Chapter 2.
 
 ]
 Chapter 3.
-) (./sections/knowledge_based_IR_system.tex [5] [6
-
-
-]
-Chapter 4.
-) (./sections/machine_learning.tex [7] [8
-
-
-]
-Chapter 5.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
 (Font)              scaled to size 5.21004pt on input line 4.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
@@ -1702,19 +1692,57 @@ Overfull \hbox (65.2899pt too wide) in paragraph at lines 15--16
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) (./sections/discussion.tex [9]
+
+Overfull \hbox (17.66272pt too wide) in paragraph at lines 28--28
+\OT1/zplm/m/n/8 //\OML/zplm/m/it/8 www\OT1/pplx/m/n/8 .\OML/zplm/m/it/8 allerin
+\OT1/pplx/m/n/8 .\OML/zplm/m/it/8 com\OT1/zplm/m/n/8 /\OML/zplm/m/it/8 blog\OT1
+/zplm/m/n/8 /\OML/zplm/m/it/8 six \OMS/zplm/m/n/8 ^^@ 
+ []
+
+
+Overfull \hbox (17.66272pt too wide) in paragraph at lines 28--28
+\OT1/zplm/m/n/8 //\OML/zplm/m/it/8 www\OT1/pplx/m/n/8 .\OML/zplm/m/it/8 allerin
+\OT1/pplx/m/n/8 .\OML/zplm/m/it/8 com\OT1/zplm/m/n/8 /\OML/zplm/m/it/8 blog\OT1
+/zplm/m/n/8 /\OML/zplm/m/it/8 six \OMS/zplm/m/n/8 ^^@ 
+ []
+
+
+Overfull \hbox (17.66272pt too wide) in paragraph at lines 28--28
+\OT1/zplm/m/n/8 //\OML/zplm/m/it/8 www\OT1/pplx/m/n/8 .\OML/zplm/m/it/8 allerin
+\OT1/pplx/m/n/8 .\OML/zplm/m/it/8 com\OT1/zplm/m/n/8 /\OML/zplm/m/it/8 blog\OT1
+/zplm/m/n/8 /\OML/zplm/m/it/8 six \OMS/zplm/m/n/8 ^^@ 
+ []
+
+
+Overfull \hbox (17.66272pt too wide) in paragraph at lines 28--28
+\OT1/zplm/m/n/8 //\OML/zplm/m/it/8 www\OT1/pplx/m/n/8 .\OML/zplm/m/it/8 allerin
+\OT1/pplx/m/n/8 .\OML/zplm/m/it/8 com\OT1/zplm/m/n/8 /\OML/zplm/m/it/8 blog\OT1
+/zplm/m/n/8 /\OML/zplm/m/it/8 six \OMS/zplm/m/n/8 ^^@ 
+ []
+
+[5]) (./sections/distributed_speech_recognizer.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10]
+[6]
+Chapter 4.
+) (./sections/knowledge_based_IR_system.tex [7
+
+
+] [8
+
+
+]
+Chapter 5.
+) (./sections/discussion.tex [9] [10
+
+
+]
 Chapter 6.
-) (./sections/conclusion.tex [11
-
-
-] [12
+) (./sections/conclusion.tex [11] [12
 
 
 ]
@@ -1741,7 +1769,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 45.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 45.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 45.
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: 84BCE351CEB07B58ECA7AA7304BBB4A4;1799.
+(rerunfilecheck)             Checksum: 3846C130CEFC9A48D76AD3B1B997AA82;1929.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1751,11 +1779,11 @@ Package logreq Info: Writing requests to 'master.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27885 strings out of 492995
- 497956 string characters out of 6132705
- 925419 words of memory out of 5000000
- 30801 multiletter control sequences out of 15000+600000
- 55179 words of font info for 99 fonts, out of 8000000 for 9000
+ 27908 strings out of 492995
+ 498421 string characters out of 6132705
+ 930419 words of memory out of 5000000
+ 30818 multiletter control sequences out of 15000+600000
+ 55693 words of font info for 101 fonts, out of 8000000 for 9000
  1146 hyphenation exceptions out of 8191
  64i,14n,80p,929b,1864s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
@@ -1769,10 +1797,10 @@ exmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2017/tex
 mf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2017/texmf-dist
 /fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/
 type1/urw/palatino/uplri8a.pfb>
-Output written on master.pdf (25 pages, 152878 bytes).
+Output written on master.pdf (25 pages, 156039 bytes).
 PDF statistics:
- 340 PDF objects out of 1000 (max. 8388607)
- 300 compressed objects within 3 object streams
- 71 named destinations out of 1000 (max. 500000)
- 242 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 354 PDF objects out of 1000 (max. 8388607)
+ 313 compressed objects within 4 object streams
+ 75 named destinations out of 1000 (max. 500000)
+ 250 words of extra memory for PDF output out of 10000 (max. 10000000)
 

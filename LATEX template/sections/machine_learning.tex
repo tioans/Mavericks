@@ -1,4 +1,4 @@
-\chapter{Machine Learning}\label{ch:machine_learning}
+\chapter{Machine Learning for Speech}\label{ch:machine_learning}
 
 \section{TensorFlow}
 TensorFlow provides multiple Aplication Programming Interfaces (APIs) for machine learning. The lowest level API "TensorFlow Core" provides complete programming control.\todo{remember to cite here $https://www.tensorflow.org/get_started/get_started$} For those who require fine levels of control over their models, TensorFlow Core is well-suited tool for the job. There are higher level APIs that are built on top of TensorFlow Core. These higher level APIs are typically easier to learn and use than Tensorflow Core \todo{remember to cite here same link as above} In addition, the higher level APIs such as "tf.estimator" helps with managing data sets, estimators, training and infereces (testing your trained network), as well as, making repetitive tasks easier and more consistent.\todo{remember to cite here same link as above}\\
@@ -21,8 +21,15 @@ The central unit of data in TensorFlow is the tensor. A tensor consists of a set
 \subsection{tf.estimator}
 
 
-\section{Deep Learning}
+\section{Deep neural network for speech}
 
-\section{Recurrent Neural Nerwork}
+\subsection{Deep Feed Forward (DFF)}
+The simplest of all neural nerworks, the feedforward neural nerwork, moves information in one direction only. Data moves from the input nodes to the ouput nodes, passing through hidden nodes (if any). The feedforward neural network has no cycles or loops in its network.
+\todo{reference this part with $https://www.allerin.com/blog/six-types-of-neural-networks$}
+
+\subsection{Recurrent Neural Nerwork (RNN)}
+The recurrent neural network, unlike the feedforward neural network, is a neural network that allows for a bi-directional flow of data. The network between the connected units forms a directed cycle. Such a nertwork allows for dynamic temporal behavior to be exhibited. The recurrent neural network is capable of using its internal memory to process arvitrary sequence of inputs. This neural network is a popular choice for tasks such as handwriting and speech recognition.\todo{link this part with link above}
+
+\subsubsection{Long/Short Term Memory (LSTM)}
 
 
