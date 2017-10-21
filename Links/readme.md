@@ -5,6 +5,9 @@
 - **Research:**
   - SpeechRecognition 3.7.1 (I installed python v2.7.13): [https://pypi.python.org/pypi/SpeechRecognition/](https://pypi.python.org/pypi/SpeechRecognition/)
   - Fuzzy Logic: [http://whatis.techtarget.com/definition/fuzzy-logic](http://whatis.techtarget.com/definition/fuzzy-logic)
+  
+  
+- **Tensorflow**
 
-
-
+  - Tutorials: [https://www.tensorflow.org/versions/master/tutorials/](https://www.tensorflow.org/versions/master/tutorials/)
+  - Simple Audio Recognition: [https://www.tensorflow.org/versions/master/tutorials/audio_recognition](https://www.tensorflow.org/versions/master/tutorials/audio_recognition)
