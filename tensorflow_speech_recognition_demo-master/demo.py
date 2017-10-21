@@ -3,8 +3,8 @@ import tflearn
 import speech_data
 import tensorflow as tf
 
-learning_rate = 0.0001
-training_iters = 300000  # steps
+learning_rate = 0.0005 #0.0001
+training_iters = 150000  # steps 300000
 batch_size = 64
 
 width = 20  # mfcc features
