@@ -1,5 +1,6 @@
 - **Report Writing**
   - Video on How to Write a Great Research: [https://www.youtube.com/watch?v=g3dkRsTqdDA](https://www.youtube.com/watch?v=g3dkRsTqdDA)
+  - Writing a Thesis With LATEX: [http://tug.org/pracjourn/2008-1/mori/mori.pdf](http://tug.org/pracjourn/2008-1/mori/mori.pdf)
 
 - **Research:**
   - SpeechRecognition 3.7.1 (I installed python v2.7.13): [https://pypi.python.org/pypi/SpeechRecognition/](https://pypi.python.org/pypi/SpeechRecognition/)
