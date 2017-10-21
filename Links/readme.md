@@ -14,3 +14,4 @@
   - Tutorials: [https://www.tensorflow.org/versions/master/tutorials/](https://www.tensorflow.org/versions/master/tutorials/)
   - Simple Audio Recognition: [https://www.tensorflow.org/versions/master/tutorials/audio_recognition](https://www.tensorflow.org/versions/master/tutorials/audio_recognition)
   - Lecture 7 | Introduction to Tensorflow: [https://www.youtube.com/watch?v=PicxU81owCs](https://www.youtube.com/watch?v=PicxU81owCs)
+  - TensorFlow Tutorial | Deep Learning Using TensorFlow | TensorFlow Tutorial Python | Edureka: [https://www.youtube.com/watch?v=yX8KuPZCAMo](https://www.youtube.com/watch?v=yX8KuPZCAMo)
