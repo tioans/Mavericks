@@ -6,10 +6,11 @@
   - SpeechRecognition 3.7.1 (I installed python v2.7.13): [https://pypi.python.org/pypi/SpeechRecognition/](https://pypi.python.org/pypi/SpeechRecognition/)
   - Fuzzy Logic: [http://whatis.techtarget.com/definition/fuzzy-logic](http://whatis.techtarget.com/definition/fuzzy-logic)
   - Lecture 1 | Natural Language Processing with Deep Learning: [https://www.youtube.com/watch?v=OQQ-W_63UgQ](https://www.youtube.com/watch?v=OQQ-W_63UgQ)
+  - Lecure 8 | Recurrent Neural Networks and Language Models [https://www.youtube.com/watch?v=Keqep_PKrY8](https://www.youtube.com/watch?v=Keqep_PKrY8)
   
   
 - **Tensorflow**
 
   - Tutorials: [https://www.tensorflow.org/versions/master/tutorials/](https://www.tensorflow.org/versions/master/tutorials/)
   - Simple Audio Recognition: [https://www.tensorflow.org/versions/master/tutorials/audio_recognition](https://www.tensorflow.org/versions/master/tutorials/audio_recognition)
-  - Introduction to Tensorflow: [https://www.youtube.com/watch?v=PicxU81owCs](https://www.youtube.com/watch?v=PicxU81owCs)
+  - Lecture 7 | Introduction to Tensorflow: [https://www.youtube.com/watch?v=PicxU81owCs](https://www.youtube.com/watch?v=PicxU81owCs)
