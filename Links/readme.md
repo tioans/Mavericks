@@ -6,8 +6,8 @@
   - SpeechRecognition 3.7.1 (I installed python v2.7.13): [https://pypi.python.org/pypi/SpeechRecognition/](https://pypi.python.org/pypi/SpeechRecognition/)
   - Fuzzy Logic: [http://whatis.techtarget.com/definition/fuzzy-logic](http://whatis.techtarget.com/definition/fuzzy-logic)
   - Lecture 1 | Natural Language Processing with Deep Learning: [https://www.youtube.com/watch?v=OQQ-W_63UgQ](https://www.youtube.com/watch?v=OQQ-W_63UgQ)
-  - Lecure 8 | Recurrent Neural Networks and Language Models [https://www.youtube.com/watch?v=Keqep_PKrY8](https://www.youtube.com/watch?v=Keqep_PKrY8)
-  
+  - Lecure 8 | Recurrent Neural Networks and Language Models: [https://www.youtube.com/watch?v=Keqep_PKrY8](https://www.youtube.com/watch?v=Keqep_PKrY8)
+  - An Introduction to LSTMs in Tensorflow: [https://www.youtube.com/watch?v=l4X-kZjl1gs](https://www.youtube.com/watch?v=l4X-kZjl1gs)
   
 - **Tensorflow**
 
