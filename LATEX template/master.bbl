@@ -53,31 +53,28 @@
     \field{year}{2010}
   \endentry
 
-  \entry{tanenbaum1987operating}{book}{}
-    \name{author}{2}{}{%
-      {{hash=TAS}{%
-         family={Tanenbaum},
-         familyi={T\bibinitperiod},
-         given={Andrew\bibnamedelima S},
-         giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod},
-      }}%
-      {{hash=WAS}{%
-         family={Woodhull},
-         familyi={W\bibinitperiod},
-         given={Albert\bibnamedelima S},
-         giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod},
+  \entry{callan2003artificial}{book}{}
+    \name{author}{1}{}{%
+      {{hash=CR}{%
+         family={Callan},
+         familyi={C\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
       }}%
     }
     \list{publisher}{1}{%
-      {Prentice-Hall Englewood Cliffs, NJ}%
+      {Macmillan Education UK}%
     }
-    \strng{namehash}{TASWAS1}
-    \strng{fullhash}{TASWAS1}
+    \strng{namehash}{CR1}
+    \strng{fullhash}{CR1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{Operating systems: design and implementation}
-    \field{volume}{2}
-    \field{year}{1987}
+    \field{isbn}{9780333801369}
+    \field{title}{Artificial Intelligence}
+    \verb{url}
+    \verb https://books.google.dk/books?id=S1N0QgAACAAJ
+    \endverb
+    \field{year}{2003}
   \endentry
 
   \entry{tensorflow2015-whitepaper}{misc}{}
