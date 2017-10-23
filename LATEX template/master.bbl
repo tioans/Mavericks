@@ -53,6 +53,33 @@
     \field{year}{2010}
   \endentry
 
+  \entry{tanenbaum1987operating}{book}{}
+    \name{author}{2}{}{%
+      {{hash=TAS}{%
+         family={Tanenbaum},
+         familyi={T\bibinitperiod},
+         given={Andrew\bibnamedelima S},
+         giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=WAS}{%
+         family={Woodhull},
+         familyi={W\bibinitperiod},
+         given={Albert\bibnamedelima S},
+         giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Prentice-Hall Englewood Cliffs, NJ}%
+    }
+    \strng{namehash}{TASWAS1}
+    \strng{fullhash}{TASWAS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Operating systems: design and implementation}
+    \field{volume}{2}
+    \field{year}{1987}
+  \endentry
+
   \entry{tensorflow2015-whitepaper}{misc}{}
     \name{author}{40}{}{%
       {{hash=AM}{%
