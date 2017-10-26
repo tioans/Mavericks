@@ -22,10 +22,9 @@ adder_node = a + b   # shortcut for tf.add(a,b)
 print(sess.run(adder_node, {a: 3, b: 4.5}))
 print(sess.run(adder_node, {a: [1, 3], b: [2, 4]}))
 
-y=tf.placeholder(tf.float32)
-#add_and_triple = adder_node * 3.
-add_and_triple = adder_node * y
-print(sess.run(add_and_triple, {a: 3, b: 4.5, y: 3}))
+add_and_triple = adder_node * 3.
+
+print(sess.run(add_and_triple, {a: 3, b: 4.5}))
 
 # variables
 W = tf.Variable([.3], dtype=tf.float32)
