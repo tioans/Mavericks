@@ -4,16 +4,19 @@ Speech is an effortless and highly efficient form of communication. Continuous s
 
 Words are carried as sound waves, which are analogue signals. In order for the speech to be processed it needs to be run through a signal processor that selects the frequencies and amplitude of the signal. Further on, the signal is mapped to individual sound units called phones. These phones need to be identified and grouped in such a way to ensure that each word has a different phonetic structure, otherwise words would be impossible to distinguish from one another. \\
 
-\begin{center}
-\begin{tabular}{ c c  }
- [ay] & iris\\ 
- [b] & bin\\  
- [er] & bird\\
- [l] & lip\\
- [p] & pin\\
- [th] & thin
+\begin{table}[]
+\centering
+\caption{Phones}
+\label{my-label}
+\begin{tabular}{ll}
+{[}ay{]} & iris \\
+{[}b{]}  & bin  \\
+{[}er{]} & bird \\
+{[}l{]}  & lip  \\
+{[}p{]}  & pin  \\
+{[}th{]} & thin
 \end{tabular}
-\end{center}
+\end{table}
 
 Phones can have different sounds depending on context. For example, the phone th in the word \textit{three} has a different to th in \textit{then}. To overcome this different variations of the same phones, it is better to abstract the phones into a generalized grouping called a \textbf{phoneme}. Phonemes are written inside forward slashes
 (\textit{/th/}) and they will have a specific pronunciation for each sound, depending on the context. These phonemes are used as a transitional layer when trying to convert speech to text and vice versa when speech needs to be synthesised.\\
