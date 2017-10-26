@@ -30,7 +30,8 @@ print(sess.run(add_and_triple, {a: 3, b: 4.5}))
 W = tf.Variable([.3], dtype=tf.float32)
 b = tf.Variable([-.3], dtype=tf.float32)
 x = tf.placeholder(tf.float32)
-linear_model = W*x+b
+
+linear_model = tf.multiply(W, x) + b
 
 # variables are only initialized when you call:
 init = tf.global_variables_initializer()
