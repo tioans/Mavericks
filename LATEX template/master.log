@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  23 OCT 2017 14:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  26 OCT 2017 12:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1640,10 +1640,45 @@ Chapter 2.
 
 ]
 Chapter 3.
-) (./sections/machine_learning.tex [5] [6
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
 
 
-]
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 7.
+
+LaTeX Font Info:    Font shape `T1/pplx/bx/n' in size <9> not available
+(Font)              Font shape `T1/pplx/b/n' tried instead on input line 9.
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--23
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
+
+ []
+
+) (./sections/machine_learning.tex
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[6]
 Chapter 4.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
@@ -1697,7 +1732,10 @@ Overfull \hbox (17.66272pt too wide) in paragraph at lines 28--28
 /zplm/m/n/8 /\OML/zplm/m/it/8 six \OMS/zplm/m/n/8 ^^@ 
  []
 
-[7]) (./sections/distributed_speech_recognizer.tex
+[7
+
+
+]) (./sections/distributed_speech_recognizer.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -1752,23 +1790,26 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 49.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 49.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: 7ECBA44B303DC6C9F4A2BE995DCA8698;2133.
+(rerunfilecheck)             Checksum: 169A0494D8CCC8D3AAA6443DBC1C584C;2102.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package logreq Info: Writing requests to 'master.run.xml'.
 \openout1 = `master.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28097 strings out of 492995
- 502159 string characters out of 6132705
+ 28115 strings out of 492995
+ 502389 string characters out of 6132705
  921443 words of memory out of 5000000
- 30995 multiletter control sequences out of 15000+600000
- 59253 words of font info for 101 fonts, out of 8000000 for 9000
+ 31009 multiletter control sequences out of 15000+600000
+ 61560 words of font info for 104 fonts, out of 8000000 for 9000
  1146 hyphenation exceptions out of 8191
- 64i,14n,80p,894b,1864s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,14n,80p,1028b,1864s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/t
 exlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/tex
 live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texli
@@ -1781,10 +1822,10 @@ t/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2017/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on master.pdf (29 pages, 172693 bytes).
+Output written on master.pdf (29 pages, 175206 bytes).
 PDF statistics:
- 401 PDF objects out of 1000 (max. 8388607)
- 355 compressed objects within 4 object streams
- 83 named destinations out of 1000 (max. 500000)
+ 404 PDF objects out of 1000 (max. 8388607)
+ 358 compressed objects within 4 object streams
+ 85 named destinations out of 1000 (max. 500000)
  274 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -26,7 +26,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Speech Processing}{5}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}The basic units that make up the sounds of words}{5}{section.3.1}
+\contentsline {section}{\numberline {3.1}Signal processing}{6}{section.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{ Fourier transform}{6}{subsubsection*.10}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Machine Learning for Speech}{7}{chapter.4}
 \defcounter {refsection}{0}\relax 
@@ -44,7 +46,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.2.2}Recurrent Neural Nerwork (RNN)}{8}{subsection.4.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Long/Short Term Memory (LSTM)}{8}{subsubsection*.11}
+\contentsline {subsubsection}{Long/Short Term Memory (LSTM)}{8}{subsubsection*.13}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Distributed speech recognizer}{9}{chapter.5}
 \defcounter {refsection}{0}\relax 
@@ -64,6 +66,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {8}Conclusion}{15}{chapter.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{17}{chapter*.12}
+\contentsline {chapter}{Bibliography}{17}{chapter*.14}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {A}Appendix A name}{19}{appendix.A}
