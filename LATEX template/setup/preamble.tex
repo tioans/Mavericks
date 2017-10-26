@@ -31,6 +31,9 @@
 % encoding of your files by selecting "save as"
 % an select the desired input encoding. 
 \usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+
 % Make latex understand and use the typographic
 % rules of the language used in the document.
 \usepackage[danish,english]{babel}
@@ -123,8 +126,7 @@
 % http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[backend=bibtex,
-  bibencoding=utf8
-  ]{biblatex}
+bibencoding=utf8, sorting=none]{biblatex}
 \addbibresource{bib/mybib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

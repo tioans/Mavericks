@@ -1,0 +1,33 @@
+\chapter{Machine Learning for Speech}\label{ch:machine_learning}
+
+\section{TensorFlow}
+TensorFlow provides multiple Application Programming Interfaces (APIs) for machine learning. The lowest level API "TensorFlow Core" provides complete programming control \cite{tensorflow2015-whitepaper}. For those who require fine levels of control over their models, TensorFlow Core is a well-suited tool for the job. There are higher level APIs that are built on top of TensorFlow Core. These higher level APIs are typically easier to learn and use than Tensorflow Core \cite{tensorflow2015-whitepaper}. In addition, the higher level APIs such as "tf.estimator" helps with managing data sets, estimators, training and inferences (testing your trained network), as well as, making repetitive tasks easier and more consistent \cite{tensorflow2015-whitepaper}.\\
+
+The subsection below will start with TensorFlow Core. In order to gain an understanding of the basic principles that TensorFlow has to offer, a model shall be made. In the subsection after that, the same model will be implemented with tf.estimator. Knowing TensorFlow Core principles will give us a great mental model of how things are working internally when we use the more compact higher level API.
+
+\subsection{Tensors}
+The central unit of data in TensorFlow is the tensor. A tensor consists of a set of primitive values shaped into an array of any number of dimensions. A tensor's rank is its number of dimensions. Here are some examples of tensors:
+
+\begin{lstlisting}
+3 # a rank 0 tensor; this is a scalar with shape []
+[1., 2., 3.] # a rank 1 tensor; this is a vector with shape [3]
+[[1., 2., 3.], [4., 5., 6.]] # a rank 2 tensor; a matrix with shape [2, 3]
+[[[1., 2., 3.]], [[7., 8., 9.]]] # a rank 3 tensor with shape [2, 1, 3]
+\end{lstlisting}
+
+\subsection{TensorFlow Core}
+
+
+\subsection{tf.estimator}
+
+
+\section{Deep neural network for speech}
+
+\subsection{Deep Feed Forward (DFF)}
+The simplest of all neural networks, the feedforward neural network, moves information in one direction only. Data moves from the input nodes to the output nodes, passing through hidden nodes (if any). The feedforward neural network has no cycles or loops in its network.
+\todo{reference this part with $https://www.allerin.com/blog/six-types-of-neural-networks$}
+
+\subsection{Recurrent Neural Nerwork (RNN)}
+The recurrent neural network, unlike the feedforward neural network, is a neural network that allows for a bi-directional flow of data. The network between the connected units forms a directed cycle. Such a network allows for dynamic temporal behavior to be exhibited. The recurrent neural network is capable of using its internal memory to process arbitrary sequence of inputs. This neural network is a popular choice for tasks such as handwriting and speech recognition.\todo{link this part with link above}
+
+\subsubsection{Long/Short Term Memory (LSTM)}
