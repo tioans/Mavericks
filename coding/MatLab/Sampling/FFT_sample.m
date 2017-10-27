@@ -2,11 +2,14 @@
 %Loading the "Hello" sample
 [y,Fs] = audioread('microphone-results.wav');
 sound(y,Fs);
-figure ();
-plot(y);
+    dt = 1/Fs;
+    t = 0:dt:(length(y)*dt)-dt;
+    figure();
+    plot(t,y); xlabel('Seconds'); ylabel('Amplitude');
+
 
 %--------------------------------------------------------
-%Computing the FFT
+
 N = length(y);
 NEFT = 2^nextpow2(N)
 Xk=fft(y, NEFT)/N;                % perform N-point DFT of signal
@@ -16,9 +19,9 @@ plot(fa, 2*abs(Xk(1:NEFT/2+1)));
 title('FFT Spectrum Estimates / Power Spectral Density');
 xlabel('Frequency Index'),
 ylabel('Amplitude');
-
-%--------------------------------------------------------
-%Creating the Spectrogram
+% 
+% --------------------------------------------------------
+% % % % % % Creating the Spectrogram
 figure();
 s = spectrogram(y, 25);
 spectrogram(y,'yaxis')
