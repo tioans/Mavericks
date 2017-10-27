@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  26 OCT 2017 15:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  27 OCT 2017 11:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1668,6 +1668,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 27--28
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
 
  []
 

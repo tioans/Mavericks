@@ -15,3 +15,14 @@
   - Simple Audio Recognition: [https://www.tensorflow.org/versions/master/tutorials/audio_recognition](https://www.tensorflow.org/versions/master/tutorials/audio_recognition)
   - Lecture 7 | Introduction to Tensorflow: [https://www.youtube.com/watch?v=PicxU81owCs](https://www.youtube.com/watch?v=PicxU81owCs)
   - TensorFlow Tutorial | Deep Learning Using TensorFlow | TensorFlow Tutorial Python | Edureka: [https://www.youtube.com/watch?v=yX8KuPZCAMo](https://www.youtube.com/watch?v=yX8KuPZCAMo)
+  - Gentlest Introduction to Tensorflow | Part 1: 
+    - [Video | Gentlest Introduction to Tensorflow: Part1](https://www.youtube.com/watch?v=dYhrCUFN0eM&index=9&list=PL-TuajVMUhrkua3Sgwc7y7wnjvs6ejL2x) 
+    - [Artcle#1 | Gentlest Introduction to Tensorflow](https://medium.com/all-of-us-are-belong-to-machines/the-gentlest-introduction-to-tensorflow-248dc871a224)
+  - Gentlest Introduction to Tensorflow | Part 2: 
+    - [Video | Gentlest Introduction to Tensorflow: Part 2](https://www.youtube.com/watch?v=Trc52FvMLEg&t=15s) 
+    - [Artcle#2 | Gentlest Introduction to Tensorflow](https://medium.com/all-of-us-are-belong-to-machines/gentlest-introduction-to-tensorflow-part-2-ed2a0a7a624f)
+  - Gentlest Introduction to Tensorflow | Part 3: 
+    - [Video | Gentlest Introduction to Tensorflow: Part 3](https://www.youtube.com/watch?v=F8g_6TXKlxw&t=527s) 
+    - [Artcle#3 | Matrices & Multi-feature Linear Regression](https://medium.com/all-of-us-are-belong-to-machines/gentlest-intro-to-tensorflow-part-3-matrices-multi-feature-linear-regression-30a81ebaaa6c)
+    - [Artcle#4 | Logistic Regression](https://medium.com/all-of-us-are-belong-to-machines/gentlest-intro-to-tensorflow-4-logistic-regression-2afd0cabc54)
+  
