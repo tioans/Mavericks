@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.27)  27 OCT 2017 11:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.27)  27 OCT 2017 12:30
 entering extended mode
 **./master.tex
 (master.tex
@@ -1315,12 +1315,12 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 
 Package hyperref Warning: Option `pdfpagelabels' has already been used,
-(hyperref)                setting the option has no effect on input line 170.
+(hyperref)                setting the option has no effect on input line 171.
 
-Package hyperref Info: Option `plainpages' set `false' on input line 170.
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 170.
+Package hyperref Info: Option `plainpages' set `false' on input line 171.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 171.
 
-Package hyperref Info: Option `colorlinks' set `false' on input line 170.
+Package hyperref Info: Option `colorlinks' set `false' on input line 171.
 ) (setup/hyphenations.tex) (setup/macros.tex
 \c@currexactr=\count340
 \c@endexactr=\count341
@@ -1659,20 +1659,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
 
+<figures/FFTpicture2.png, id=267, 421.575pt x 315.42844pt>
+File: figures/FFTpicture2.png Graphic file (type png)
 
-! LaTeX Error: File `FFTpicture' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.34 \includegraphics[scale=1]{FFTpicture}
-                                          
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+<use figures/FFTpicture2.png>
+Package pdftex.def Info: figures/FFTpicture2.png used on input line 35.
+(pdftex.def)             Requested size: 337.26045pt x 252.34308pt.
 ) (sections/machine_learning.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1681,6 +1673,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [6]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[7 <./figures/FFTpicture2.png (PNG copy)>] [8
+
+
+]
 Chapter 4.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
@@ -1734,37 +1736,34 @@ Overfull \hbox (17.66272pt too wide) in paragraph at lines 28--28
 /zplm/m/n/8 /\OML/zplm/m/it/8 six \OMS/zplm/m/n/8   
  []
 
-[7
-
-
-]) (sections/distributed_speech_recognizer.tex
+[9]) (sections/distributed_speech_recognizer.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8]
+[10]
 Chapter 5.
-) (sections/knowledge_based_IR_system.tex [9
+) (sections/knowledge_based_IR_system.tex [11
 
 
-] [10
+] [12
 
 
 ]
 Chapter 6.
-) (sections/discussion.tex [11] [12
+) (sections/discussion.tex [13] [14
 
 
 ]
 Chapter 7.
-) (sections/conclusion.tex [13] [14
+) (sections/conclusion.tex [15] [16
 
 
 ]
 Chapter 8.
-) [15] [16
+) [17] [18
 
 
 ]
@@ -1774,7 +1773,7 @@ ce\T1/pplx/m/n/10.95 . Macmil-lan Ed-u-ca-tion UK, 2003. \T1/pplx/m/sc/10.95 is
 bn\T1/pplx/m/n/10.95 : 9780333801369.
  []
 
-(sections/appAname.tex [17] [18
+(sections/appAname.tex [19] [20
 
 
 ]
@@ -1785,14 +1784,14 @@ Appendix A.
 
  
 AED: lastpage setting LastPage
-[19]
+[21]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 49.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 49.
  (master.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 49.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: 3A11BFB5C08BB5018B1FDD923E9CEBA3;2134.
+(rerunfilecheck)             Checksum: D7F795646E6EB1B534BC8CCC15757AC8;2134.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1802,10 +1801,10 @@ Package logreq Info: Writing requests to 'master.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28134 strings out of 493323
- 500124 string characters out of 3139050
- 921116 words of memory out of 3000000
- 30997 multiletter control sequences out of 15000+200000
+ 28132 strings out of 493323
+ 500260 string characters out of 3139050
+ 921130 words of memory out of 3000000
+ 31003 multiletter control sequences out of 15000+200000
  61560 words of font info for 104 fonts, out of 3000000 for 9000
  1146 hyphenation exceptions out of 8191
  64i,14n,80p,1030b,1864s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1820,9 +1819,9 @@ y10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmri.pfb><C:
 MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/p
 alatino/uplri8a.pfb>
-Output written on master.pdf (29 pages, 180647 bytes).
+Output written on master.pdf (31 pages, 198881 bytes).
 PDF statistics:
- 471 PDF objects out of 1000 (max. 8388607)
- 85 named destinations out of 1000 (max. 500000)
- 274 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 483 PDF objects out of 1000 (max. 8388607)
+ 88 named destinations out of 1000 (max. 500000)
+ 279 words of extra memory for PDF output out of 10000 (max. 10000000)
 
