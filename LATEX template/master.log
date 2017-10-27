@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.27)  27 OCT 2017 12:30
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.27)  27 OCT 2017 13:54
+>>>>>>> origin/branch-Stef
 entering extended mode
 **./master.tex
 (master.tex
@@ -1646,17 +1650,22 @@ LaTeX Warning: No positions in optional float specifier.
 LaTeX Font Info:    Font shape `T1/pplx/bx/n' in size <9> not available
 (Font)              Font shape `T1/pplx/b/n' tried instead on input line 9.
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--23
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 26--27
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 28--29
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
 
  []
 
@@ -1664,8 +1673,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
 File: figures/FFTpicture2.png Graphic file (type png)
 
 <use figures/FFTpicture2.png>
-Package pdftex.def Info: figures/FFTpicture2.png used on input line 35.
-(pdftex.def)             Requested size: 337.26045pt x 252.34308pt.
+Package pdftex.def Info: figures/FFTpicture2.png used on input line 36.
+(pdftex.def)             Requested size: 421.57396pt x 315.42766pt.
+
+Overfull \hbox (20.39009pt too wide) in paragraph at lines 36--38
+ [][] 
+ []
+
 ) (sections/machine_learning.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1808,7 +1822,7 @@ Here is how much of TeX's memory you used:
  31003 multiletter control sequences out of 15000+200000
  61560 words of font info for 104 fonts, out of 3000000 for 9000
  1146 hyphenation exceptions out of 8191
- 64i,14n,80p,1030b,1864s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 64i,14n,80p,1026b,1864s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc} <C:\Users\localadmi
 n\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1095.pk> <C:\
 Users\localadmin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ec
@@ -1820,12 +1834,13 @@ y10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmri.pfb><C:
 MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/p
 alatino/uplri8a.pfb>
-Output written on master.pdf (31 pages, 198881 bytes).
+Output written on master.pdf (31 pages, 199132 bytes).
 PDF statistics:
  483 PDF objects out of 1000 (max. 8388607)
  88 named destinations out of 1000 (max. 500000)
  279 words of extra memory for PDF output out of 10000 (max. 10000000)
 
+<<<<<<< HEAD
 =======
 This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  27 OCT 2017 11:48
 entering extended mode
@@ -3661,3 +3676,5 @@ PDF statistics:
  274 words of extra memory for PDF output out of 10000 (max. 10000000)
 
 >>>>>>> master
+=======
+>>>>>>> origin/branch-Stef
