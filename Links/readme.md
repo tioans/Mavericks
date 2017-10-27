@@ -16,6 +16,6 @@
   - Lecture 7 | Introduction to Tensorflow: [https://www.youtube.com/watch?v=PicxU81owCs](https://www.youtube.com/watch?v=PicxU81owCs)
   - TensorFlow Tutorial | Deep Learning Using TensorFlow | TensorFlow Tutorial Python | Edureka: [https://www.youtube.com/watch?v=yX8KuPZCAMo](https://www.youtube.com/watch?v=yX8KuPZCAMo)
   - Gentlest Introduction to Tensorflow | Part 1: 
-  [https://www.youtube.com/watch?v=dYhrCUFN0eM&index=9&list=PL-TuajVMUhrkua3Sgwc7y7wnjvs6ejL2x](https://www.youtube.com/watch?v=dYhrCUFN0eM&index=9&list=PL-TuajVMUhrkua3Sgwc7y7wnjvs6ejL2x) 
-  [https://medium.com/all-of-us-are-belong-to-machines/the-gentlest-introduction-to-tensorflow-248dc871a224](https://medium.com/all-of-us-are-belong-to-machines/the-gentlest-introduction-to-tensorflow-248dc871a224)
+    - [Video](https://www.youtube.com/watch?v=dYhrCUFN0eM&index=9&list=PL-TuajVMUhrkua3Sgwc7y7wnjvs6ejL2x) 
+    - [Artcle](https://medium.com/all-of-us-are-belong-to-machines/the-gentlest-introduction-to-tensorflow-248dc871a224)
   
