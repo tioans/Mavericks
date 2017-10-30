@@ -17,42 +17,6 @@
 \endgroup
 
 \sortlist[entry]{none/global/}
-  \entry{Oetiker2010}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=OT}{%
-         family={Oetiker},
-         familyi={O\bibinitperiod},
-         given={Tobias},
-         giveni={T\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{OT1}
-    \strng{fullhash}{OT1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{howpublished}{\url{http://tobi.oetiker.ch/lshort/lshort.pdf}}
-    \field{title}{The Not So Short A Introduction to {LaTeX2e}}
-    \field{year}{2010}
-  \endentry
-
-  \entry{Madsen2010}{booklet}{}
-    \name{author}{1}{}{%
-      {{hash=ML}{%
-         family={Madsen},
-         familyi={M\bibinitperiod},
-         given={Lars},
-         giveni={L\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{ML1}
-    \strng{fullhash}{ML1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{howpublished}{\url{http://www.imf.au.dk/system/latex/bog/}}
-    \field{title}{Introduktion til {LaTeX}}
-    \field{year}{2010}
-  \endentry
-
   \entry{callan2003artificial}{book}{}
     \name{author}{1}{}{%
       {{hash=CR}{%
