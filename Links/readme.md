@@ -25,4 +25,5 @@
     - [Video | Gentlest Introduction to Tensorflow: Part 3](https://www.youtube.com/watch?v=F8g_6TXKlxw&t=527s) 
     - [Artcle#3 | Matrices & Multi-feature Linear Regression](https://medium.com/all-of-us-are-belong-to-machines/gentlest-intro-to-tensorflow-part-3-matrices-multi-feature-linear-regression-30a81ebaaa6c)
     - [Artcle#4 | Logistic Regression](https://medium.com/all-of-us-are-belong-to-machines/gentlest-intro-to-tensorflow-4-logistic-regression-2afd0cabc54)
+  - Large-Scale Machine Learning on Heterogeneous Distributed Systems: [http://download.tensorflow.org/paper/whitepaper2015.pdf](http://download.tensorflow.org/paper/whitepaper2015.pdf)
   
