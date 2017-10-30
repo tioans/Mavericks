@@ -77,6 +77,49 @@
     \field{year}{2003}
   \endentry
 
+  \entry{Alexa}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=ED}{%
+         family={Etherington},
+         familyi={E\bibinitperiod},
+         given={Darrell},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ED1}
+    \strng{fullhash}{ED1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{https://techcrunch.com/2014/11/06/amazon-echo/}}
+    \field{note}{Accessed: 2017-10-30}
+    \field{title}{Alexa}
+  \endentry
+
+  \entry{Cortana}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{https://support.microsoft.com/en-us/help/17214}}
+    \field{note}{Accessed: 2017-10-30}
+    \field{title}{Cortana}
+  \endentry
+
+  \entry{Speed}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=OA}{%
+         family={Ogranovich},
+         familyi={O\bibinitperiod},
+         given={Arie},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{OA1}
+    \strng{fullhash}{OA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+  \field{howpublished}{\url{https://www.quora.com/Can-we-type-in-English-faster-than-we-speak}}
+    \field{note}{Accessed: 2017-10-30}
+    \field{title}{Speed}
+  \endentry
+
   \entry{tensorflow2015-whitepaper}{misc}{}
     \name{author}{40}{}{%
       {{hash=AM}{%
