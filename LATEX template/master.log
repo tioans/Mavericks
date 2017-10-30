@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  27 OCT 2017 16:26
 =======
 <<<<<<< HEAD
@@ -8,6 +9,9 @@ This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preload
 =======
 This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.27)  27 OCT 2017 13:54
 >>>>>>> origin/branch-Stef
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.27)  30 OCT 2017 14:36
+>>>>>>> master
 =======
 This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.27)  30 OCT 2017 14:36
 >>>>>>> master
@@ -1668,8 +1672,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
 
 LaTeX Warning: Reference `fig:Waveform' on page 6 undefined on input line 32.
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> master
 Underfull \hbox (badness 10000) in paragraph at lines 43--44
 
  []
@@ -1836,6 +1845,7 @@ ts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/p
 alatino/uplri8a.pfb>
 Output written on master.pdf (31 pages, 190698 bytes).
 PDF statistics:
+<<<<<<< HEAD
 <<<<<<< HEAD
  483 PDF objects out of 1000 (max. 8388607)
  88 named destinations out of 1000 (max. 500000)
@@ -3771,8 +3781,13 @@ PDF statistics:
 >>>>>>> origin/branch-Stef
 >>>>>>> master
 =======
+=======
+>>>>>>> master
  504 PDF objects out of 1000 (max. 8388607)
  93 named destinations out of 1000 (max. 500000)
  274 words of extra memory for PDF output out of 10000 (max. 10000000)
 
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
