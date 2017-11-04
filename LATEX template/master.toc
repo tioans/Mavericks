@@ -8,15 +8,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.1}Examples}{1}{section.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.2}How Does Sections, Subsections, and Subsections Look?}{1}{section.1.2}
+\contentsline {paragraph}{A Paragraph}{1}{paragraph*.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2.1}This is a Subsection}{1}{subsection.1.2.1}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{This is a Subsubsection}{1}{subsubsection*.4}
-\defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{A Paragraph}{1}{paragraph*.5}
-\defcounter {refsection}{0}\relax 
-\contentsline {subparagraph}{A Subparagraph}{2}{subparagraph*.6}
+\contentsline {subparagraph}{A Subparagraph}{1}{subparagraph*.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Problem Description}{3}{chapter.2}
 \defcounter {refsection}{0}\relax 
@@ -28,11 +22,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.1}Signal processing}{6}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{ Preprocessing}{6}{subsubsection*.10}
+\contentsline {subsubsection}{ Preprocessing}{6}{subsubsection*.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{ Fourier transform}{7}{subsubsection*.11}
+\contentsline {subsubsection}{ Fourier transform}{7}{subsubsection*.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{ Spectrogram}{7}{subsubsection*.12}
+\contentsline {subsubsection}{ Spectrogram}{7}{subsubsection*.11}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Machine Learning for Speech}{9}{chapter.4}
 \defcounter {refsection}{0}\relax 
@@ -42,7 +36,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.1.2}TensorFlow Core}{10}{subsection.4.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.3}tf.estimator}{10}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.3}tf.train API}{10}{subsection.4.1.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.4}tf.estimator API}{10}{subsection.4.1.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.2}Deep neural network for speech}{10}{section.4.2}
 \defcounter {refsection}{0}\relax 
