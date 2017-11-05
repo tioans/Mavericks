@@ -30,5 +30,6 @@
   
 - **Article**
   - Attention and Augmented Recurrent Neural Networks: [https://distill.pub/2016/augmented-rnns/](https://distill.pub/2016/augmented-rnns/)
+  - Understanding LSTM Networks -- colah's blog: [http://colah.github.io/posts/2015-08-Understanding-LSTMs/](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
    
   
