@@ -27,6 +27,7 @@
     - [Artcle#4 | Logistic Regression](https://medium.com/all-of-us-are-belong-to-machines/gentlest-intro-to-tensorflow-4-logistic-regression-2afd0cabc54)
   - Large-Scale Machine Learning on Heterogeneous Distributed Systems: [http://download.tensorflow.org/paper/whitepaper2015.pdf](http://download.tensorflow.org/paper/whitepaper2015.pdf)
   - Hands-on TensorBoard: [https://www.youtube.com/watch?v=eBbEDRsCmv4](https://www.youtube.com/watch?v=eBbEDRsCmv4)
+  - Sequence MOdels and the RNN API: [https://www.youtube.com/watch?list=PLOU2XLYxmsIKGc_NBoIhTn2Qhraji53cv&time_continue=848&v=RIR_-Xlbp7s](https://www.youtube.com/watch?list=PLOU2XLYxmsIKGc_NBoIhTn2Qhraji53cv&time_continue=848&v=RIR_-Xlbp7s)
   
 - **Article**
   - Attention and Augmented Recurrent Neural Networks: [https://distill.pub/2016/augmented-rnns/](https://distill.pub/2016/augmented-rnns/)
