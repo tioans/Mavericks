@@ -28,3 +28,7 @@
   - Large-Scale Machine Learning on Heterogeneous Distributed Systems: [http://download.tensorflow.org/paper/whitepaper2015.pdf](http://download.tensorflow.org/paper/whitepaper2015.pdf)
   - Hands-on TensorBoard: [https://www.youtube.com/watch?v=eBbEDRsCmv4](https://www.youtube.com/watch?v=eBbEDRsCmv4)
   
+- **Article**
+  - Attention and Augmented Recurrent Neural Networks: [https://distill.pub/2016/augmented-rnns/](https://distill.pub/2016/augmented-rnns/)
+   
+  
