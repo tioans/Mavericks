@@ -34,3 +34,6 @@
   - Understanding LSTM Networks -- colah's blog: [http://colah.github.io/posts/2015-08-Understanding-LSTMs/](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
   - TensorFlow RNN Tutorial | Silicon Valley Data Science: [https://svds.com/tensorflow-rnn-tutorial/](https://svds.com/tensorflow-rnn-tutorial/) 
   
+- **Code Example**
+  - simple lstm speech recognizer, with 100GB training data: [https://github.com/pannous/tensorflow-speech-recognition](https://github.com/pannous/tensorflow-speech-recognition)
+  - Recurrent Neural Networks | A Short TensorFlow Tutorial: [https://github.com/silicon-valley-data-science/RNN-Tutorial](https://github.com/silicon-valley-data-science/RNN-Tutorial)
