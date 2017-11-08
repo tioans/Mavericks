@@ -26,4 +26,15 @@
     - [Artcle#3 | Matrices & Multi-feature Linear Regression](https://medium.com/all-of-us-are-belong-to-machines/gentlest-intro-to-tensorflow-part-3-matrices-multi-feature-linear-regression-30a81ebaaa6c)
     - [Artcle#4 | Logistic Regression](https://medium.com/all-of-us-are-belong-to-machines/gentlest-intro-to-tensorflow-4-logistic-regression-2afd0cabc54)
   - Large-Scale Machine Learning on Heterogeneous Distributed Systems: [http://download.tensorflow.org/paper/whitepaper2015.pdf](http://download.tensorflow.org/paper/whitepaper2015.pdf)
+  - Hands-on TensorBoard (TensorFlow Dev Summit 2017): [https://www.youtube.com/watch?v=eBbEDRsCmv4](https://www.youtube.com/watch?v=eBbEDRsCmv4)
+  - Sequence Models and the RNN API (TensorFlow Dev Summit 2017): [https://www.youtube.com/watch?list=PLOU2XLYxmsIKGc_NBoIhTn2Qhraji53cv&time_continue=848&v=RIR_-Xlbp7s](https://www.youtube.com/watch?list=PLOU2XLYxmsIKGc_NBoIhTn2Qhraji53cv&time_continue=848&v=RIR_-Xlbp7s)
   
+- **Article**
+  - Attention and Augmented Recurrent Neural Networks: [https://distill.pub/2016/augmented-rnns/](https://distill.pub/2016/augmented-rnns/)
+  - Understanding LSTM Networks -- colah's blog (w): [http://colah.github.io/posts/2015-08-Understanding-LSTMs/](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+  - TensorFlow RNN Tutorial | Silicon Valley Data Science (w): [https://svds.com/tensorflow-rnn-tutorial/](https://svds.com/tensorflow-rnn-tutorial/) 
+  - Speech Recognition using Artificial Neural Network (w): [http://iieng.org/images/proceedings_pdf/U01160026.pdf](http://iieng.org/images/proceedings_pdf/U01160026.pdf)
+  
+- **Code Example**
+  - simple lstm speech recognizer, with 100GB training data: [https://github.com/pannous/tensorflow-speech-recognition](https://github.com/pannous/tensorflow-speech-recognition)
+  - Recurrent Neural Networks | A Short TensorFlow Tutorial: [https://github.com/silicon-valley-data-science/RNN-Tutorial](https://github.com/silicon-valley-data-science/RNN-Tutorial)
