@@ -32,5 +32,5 @@
 - **Article**
   - Attention and Augmented Recurrent Neural Networks: [https://distill.pub/2016/augmented-rnns/](https://distill.pub/2016/augmented-rnns/)
   - Understanding LSTM Networks -- colah's blog: [http://colah.github.io/posts/2015-08-Understanding-LSTMs/](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
-   
+  - TensorFlow RNN Tutorial - Silicon Valley Data Science: [https://svds.com/tensorflow-rnn-tutorial/](https://svds.com/tensorflow-rnn-tutorial/) 
   
