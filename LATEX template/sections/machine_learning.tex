@@ -19,9 +19,30 @@ The central unit of data in TensorFlow is the tensor. A tensor consists of a set
 
 
 \subsection{TensorFlow Core}
+Getting Started With TensorFlow is done by using the import statement. This gives Python access to all of TensorFlow's classes, methods, and symbols and is called by the following statement:
+
+\begin{lstlisting}
+import tensorflow as tf
+\end{lstlisting}
+
+All the programs written with the help of TensorFlow core are built around computational graphs. They are a series of operations arranged into a graph and connected by nodes. To see the outcome of a such a program, firstly the computational graph needs to be created and after that it needs to be run. This provides a contrast to normal code written in python and to display this, the print function for a tensorflow constant is called bellow.
+\begin{lstlisting}
+node1 = tf.constant(3.0, dtype=tf.float32)
+node2 = tf.constant(4.0) # also tf.float32 implicitly
+print(node1, node2)
+Tensor("Const:0", shape=(), dtype=float32) Tensor("Const_1:0", shape=(), dtype=float32) 
+\end{lstlisting}
+
+As seen above, printing an element does not show the value that it holds and it rather shows the technical details behind, such as the element being a constant of type float32. To investigate the contents of any element in tensorflow, an object of type session needs to be defined. When the new object is run, a new session is generated and the content of the element can be seen. All code written is tensorflow core follows this basic principle.
+ \begin{lstlisting}
+ sess = tf.Session()
+print(sess.run([node1, node2]))
+[3.0]
+\end{lstlisting}
+Other basic elements in tensorflow are placeholders(tf.placeholder), they can be changed to accept external inputs and variables. Variables allow the system to change its outputs while keeping the seame inputs, this allows the model to be trainable. 
 
 \subsection{tf.train API}
-
+The tf.train API holds optimizers that change each variable to minimize the loss function. One of the simplest optimizers used to train neural networks is gradient descent. Each variable is modified by the magnitude of the derivative of loss with respect to that variable. Using a computer to gain these gradients is far less prone to error than doing it by hand. Each of the gradients will point towards the minimum of the loss function and when solving for the gradient a step needs to be determined as the rate of change. It is important to  have a small step as to not jump over the valley where the function takes its minimum value, but in the beginning to reduce time and processing power a bigger step could be used. One solution to this problem is to use a variable step input that changes as the gradients are determined. TensorFlow can automatically produce derivatives given only a description of the model using the function tf.gradients. For simplicity, optimizers typically do this for us.
 \subsection{tf.estimator API}
 
 \section{Deep neural network for speech}
