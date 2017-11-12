@@ -32,34 +32,34 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.1.3}tf.train API}{10}{subsection.4.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.4}tf.estimator API}{10}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.4}tf.estimator API}{11}{subsection.4.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Deep neural network for speech}{10}{section.4.2}
+\contentsline {section}{\numberline {4.2}Deep neural network for speech}{11}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.1}Deep Feed Forward (DFF)}{10}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.1}Deep Feed Forward (DFF)}{11}{subsection.4.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.2}Recurrent Neural Nerwork (RNN)}{10}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.2}Recurrent Neural Nerwork (RNN)}{11}{subsection.4.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Long/Short Term Memory (LSTM)}{10}{subsubsection*.12}
+\contentsline {subsubsection}{Long/Short Term Memory (LSTM)}{11}{subsubsection*.13}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Distributed speech recognizer}{11}{chapter.5}
+\contentsline {chapter}{\numberline {5}Distributed speech recognizer}{13}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}The DSR system}{11}{section.5.1}
+\contentsline {section}{\numberline {5.1}The DSR system}{13}{section.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Acoutic models}{11}{section.5.2}
+\contentsline {section}{\numberline {5.2}Acoutic models}{13}{section.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Language model}{11}{section.5.3}
+\contentsline {section}{\numberline {5.3}Language model}{13}{section.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Knowledge-based IR system}{13}{chapter.6}
+\contentsline {chapter}{\numberline {6}Knowledge-based IR system}{15}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}The document retrieval system}{13}{section.6.1}
+\contentsline {section}{\numberline {6.1}The document retrieval system}{15}{section.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}The question answering system}{13}{section.6.2}
+\contentsline {section}{\numberline {6.2}The question answering system}{15}{section.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {7}Discussion}{15}{chapter.7}
+\contentsline {chapter}{\numberline {7}Discussion}{17}{chapter.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {8}Conclusion}{17}{chapter.8}
+\contentsline {chapter}{\numberline {8}Conclusion}{19}{chapter.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{19}{chapter*.13}
+\contentsline {chapter}{Bibliography}{21}{chapter*.14}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Appendix A name}{21}{appendix.A}
+\contentsline {chapter}{\numberline {A}Appendix A name}{23}{appendix.A}

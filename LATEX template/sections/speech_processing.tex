@@ -56,5 +56,26 @@ In Figure \ref{fig:FFT}, a visual representation of the FFT is shown and it can 
 
 The spectrogram of the signal was computed from the FFT and it shows a visual representation of the spectrum of frequencies marked by the intensity of the color. After the spectrogram is sliced into 25 ms chunks, it is feed as the input to the network. A neural network can find patterns in this data more easily than raw sound waves because audio data and patterns can be seen in the graph.
 
+\begin{figure}[htbp]
+\centering
+\begin{minipage}[b]{0.48\textwidth}
+\centering
+\includegraphics[width=1.00\textwidth]{figures/Hello_waveform.pdf} % Left picture
+\end{minipage}%
+\hfill
+\begin{minipage}[b]{0.48\textwidth}
+\centering
+\includegraphics[width=1.00\textwidth]{figures/FFTpicture.pdf} % Right picture
+\end{minipage} \\ % Captions og labels
+\begin{minipage}[t]{0.48\textwidth}
+\caption{Left caption.} % Left caption and label
+\label{fig:leftlabel}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\caption{Right caption.} % Right caption and label
+\label{fig:rightlabel}
+\end{minipage}
+\end{figure}
 
 \todo{The figures are on GitHub, need to figure out how they work in LaTeX}
