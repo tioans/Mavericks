@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  14 NOV 2017 10:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  14 NOV 2017 15:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1709,7 +1709,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--81
 LaTeX Warning: Reference `fig:FFT' on page 7 undefined on input line 82.
 
 
-<figures/speech_processing/00_Hello_waveform.png, id=305, 1299.85625pt x 596.22
+<figures/speech_processing/00_Hello_waveform.png, id=307, 1299.85625pt x 596.22
 75pt>
 File: figures/speech_processing/00_Hello_waveform.png Graphic file (type png)
  <use figures/speech_processing/00_Hello_waveform.png>
@@ -1717,7 +1717,7 @@ Package pdftex.def Info: figures/speech_processing/00_Hello_waveform.png used o
 n input line 107.
 (pdftex.def)             Requested size: 200.5831pt x 118.29723pt.
 
-<figures/speech_processing/01_FFT_Of_Hello.png, id=307, 421.575pt x 315.42844pt
+<figures/speech_processing/01_FFT_Of_Hello.png, id=309, 421.575pt x 315.42844pt
 >
 File: figures/speech_processing/01_FFT_Of_Hello.png Graphic file (type png)
  <use figures/speech_processing/01_FFT_Of_Hello.png>
@@ -1743,7 +1743,7 @@ Chapter 4.
 LaTeX Font Info:    Font shape `T1/pplx/bx/n' in size <12> not available
 (Font)              Font shape `T1/pplx/b/n' tried instead on input line 5.
 
-<figures/machine_learning/00_Basic_Artificial_Neuron0.pdf, id=321, 1035.87pt x 
+<figures/machine_learning/00_Basic_Artificial_Neuron0.pdf, id=323, 1035.87pt x 
 578.16pt>
 File: figures/machine_learning/00_Basic_Artificial_Neuron0.pdf Graphic file (ty
 pe pdf)
@@ -1885,56 +1885,41 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 49.
  (./master.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 49.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
+Package rerunfilecheck Info: File `master.out' has not changed.
+(rerunfilecheck)             Checksum: 110B84753827C0B30AD3F63989D5AAD4;2693.
 
-
-Package rerunfilecheck Warning: File `master.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `master.out':
-(rerunfilecheck)             Before: 61974403738BE7ADFB956470F7906762;2693
-(rerunfilecheck)             After:  110B84753827C0B30AD3F63989D5AAD4;2693.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package logreq Info: Writing requests to 'master.run.xml'.
 \openout1 = `master.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28708 strings out of 492995
- 512920 string characters out of 6132705
+ 28702 strings out of 492995
+ 512838 string characters out of 6132705
  937438 words of memory out of 5000000
- 31532 multiletter control sequences out of 15000+600000
+ 31528 multiletter control sequences out of 15000+600000
  61560 words of font info for 104 fonts, out of 8000000 for 9000
  1146 hyphenation exceptions out of 8191
  64i,14n,92p,894b,1861s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{section*.11} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.15} has been referenced but does not exist
-, replaced by a fixed one
-
-{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/
-usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texli
-ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
-e/2017/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2017/t
-exmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2017/tex
-mf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2017/texmf
--dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2017/texmf-d
-ist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2017/texmf-dist/fon
-ts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type
-1/urw/palatino/uplri8a.pfb>
-Output written on master.pdf (35 pages, 580759 bytes).
+{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
+live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
+ive/2017/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2017
+/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2017/t
+exmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2017/tex
+mf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2017/texmf
+-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2017/texmf-dist/f
+onts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/ty
+pe1/urw/palatino/uplri8a.pfb>
+Output written on master.pdf (35 pages, 580805 bytes).
 PDF statistics:
- 506 PDF objects out of 1000 (max. 8388607)
- 448 compressed objects within 5 object streams
- 122 named destinations out of 1000 (max. 500000)
+ 504 PDF objects out of 1000 (max. 8388607)
+ 446 compressed objects within 5 object streams
+ 120 named destinations out of 1000 (max. 500000)
  345 words of extra memory for PDF output out of 10000 (max. 10000000)
 
