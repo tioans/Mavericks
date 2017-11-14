@@ -58,7 +58,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.4.2}Recurrent Neural Nerwork (RNN)}{13}{subsection.4.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Long/Short Term Memory (LSTM)}{13}{subsubsection*.14}
+\contentsline {subsubsection}{Long/Short Term Memory (LSTM)}{13}{subsubsection*.15}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Distributed speech recognizer}{15}{chapter.5}
 \defcounter {refsection}{0}\relax 
@@ -78,6 +78,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {8}Conclusion}{21}{chapter.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{23}{chapter*.15}
+\contentsline {chapter}{Bibliography}{23}{chapter*.16}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {A}Appendix A name}{25}{appendix.A}

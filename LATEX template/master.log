@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  13 NOV 2017 22:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  14 NOV 2017 10:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1749,14 +1749,14 @@ File: figures/machine_learning/00_Basic_Artificial_Neuron0.pdf Graphic file (ty
 pe pdf)
  <use figures/machine_learning/00_Basic_Artificial_Neuron0.pdf>
 Package pdftex.def Info: figures/machine_learning/00_Basic_Artificial_Neuron0.p
-df used on input line 28.
+df used on input line 34.
 (pdftex.def)             Requested size: 401.18387pt x 223.92pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 46--56
+Underfull \hbox (badness 10000) in paragraph at lines 52--62
 
  []
 
@@ -1768,17 +1768,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [10 <./figures/machine_learning/00_Basic_Artificial_Neuron0.pdf>]
-Overfull \hbox (12.72948pt too wide) in paragraph at lines 71--72
+Overfull \hbox (12.72948pt too wide) in paragraph at lines 77--78
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (85.00006pt too wide) in paragraph at lines 72--73
+Overfull \hbox (85.00006pt too wide) in paragraph at lines 78--79
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (65.2899pt too wide) in paragraph at lines 73--74
+Overfull \hbox (65.2899pt too wide) in paragraph at lines 79--80
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
@@ -1790,32 +1790,32 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [11]
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 146.
+(Font)              scaled to size 5.21004pt on input line 152.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 146.
+(Font)              scaled to size 5.21004pt on input line 152.
 
-Overfull \hbox (17.66272pt too wide) in paragraph at lines 146--146
+Overfull \hbox (17.66272pt too wide) in paragraph at lines 152--152
 \OT1/zplm/m/n/8 //\OML/zplm/m/it/8 www\OT1/pplx/m/n/8 .\OML/zplm/m/it/8 allerin
 \OT1/pplx/m/n/8 .\OML/zplm/m/it/8 com\OT1/zplm/m/n/8 /\OML/zplm/m/it/8 blog\OT1
 /zplm/m/n/8 /\OML/zplm/m/it/8 six \OMS/zplm/m/n/8 ^^@ 
  []
 
 
-Overfull \hbox (17.66272pt too wide) in paragraph at lines 146--146
+Overfull \hbox (17.66272pt too wide) in paragraph at lines 152--152
 \OT1/zplm/m/n/8 //\OML/zplm/m/it/8 www\OT1/pplx/m/n/8 .\OML/zplm/m/it/8 allerin
 \OT1/pplx/m/n/8 .\OML/zplm/m/it/8 com\OT1/zplm/m/n/8 /\OML/zplm/m/it/8 blog\OT1
 /zplm/m/n/8 /\OML/zplm/m/it/8 six \OMS/zplm/m/n/8 ^^@ 
  []
 
 
-Overfull \hbox (17.66272pt too wide) in paragraph at lines 146--146
+Overfull \hbox (17.66272pt too wide) in paragraph at lines 152--152
 \OT1/zplm/m/n/8 //\OML/zplm/m/it/8 www\OT1/pplx/m/n/8 .\OML/zplm/m/it/8 allerin
 \OT1/pplx/m/n/8 .\OML/zplm/m/it/8 com\OT1/zplm/m/n/8 /\OML/zplm/m/it/8 blog\OT1
 /zplm/m/n/8 /\OML/zplm/m/it/8 six \OMS/zplm/m/n/8 ^^@ 
  []
 
 
-Overfull \hbox (17.66272pt too wide) in paragraph at lines 146--146
+Overfull \hbox (17.66272pt too wide) in paragraph at lines 152--152
 \OT1/zplm/m/n/8 //\OML/zplm/m/it/8 www\OT1/pplx/m/n/8 .\OML/zplm/m/it/8 allerin
 \OT1/pplx/m/n/8 .\OML/zplm/m/it/8 com\OT1/zplm/m/n/8 /\OML/zplm/m/it/8 blog\OT1
 /zplm/m/n/8 /\OML/zplm/m/it/8 six \OMS/zplm/m/n/8 ^^@ 
@@ -1885,41 +1885,56 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 49.
  (./master.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 49.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
-Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: 61974403738BE7ADFB956470F7906762;2693.
 
+
+Package rerunfilecheck Warning: File `master.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `master.out':
+(rerunfilecheck)             Before: 61974403738BE7ADFB956470F7906762;2693
+(rerunfilecheck)             After:  110B84753827C0B30AD3F63989D5AAD4;2693.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package logreq Info: Writing requests to 'master.run.xml'.
 \openout1 = `master.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28693 strings out of 492995
- 512642 string characters out of 6132705
- 935438 words of memory out of 5000000
- 31520 multiletter control sequences out of 15000+600000
+ 28708 strings out of 492995
+ 512920 string characters out of 6132705
+ 937438 words of memory out of 5000000
+ 31532 multiletter control sequences out of 15000+600000
  61560 words of font info for 104 fonts, out of 8000000 for 9000
  1146 hyphenation exceptions out of 8191
  64i,14n,92p,894b,1861s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
-live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
-ive/2017/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2017
-/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2017/t
-exmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2017/tex
-mf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2017/texmf
--dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2017/texmf-dist/f
-onts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/ty
-pe1/urw/palatino/uplri8a.pfb>
-Output written on master.pdf (35 pages, 580168 bytes).
+pdfTeX warning (dest): name{section*.11} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.15} has been referenced but does not exist
+, replaced by a fixed one
+
+{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/
+usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texli
+ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2017/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2017/t
+exmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2017/tex
+mf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2017/texmf
+-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2017/texmf-d
+ist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2017/texmf-dist/fon
+ts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type
+1/urw/palatino/uplri8a.pfb>
+Output written on master.pdf (35 pages, 580759 bytes).
 PDF statistics:
- 502 PDF objects out of 1000 (max. 8388607)
- 444 compressed objects within 5 object streams
- 119 named destinations out of 1000 (max. 500000)
+ 506 PDF objects out of 1000 (max. 8388607)
+ 448 compressed objects within 5 object streams
+ 122 named destinations out of 1000 (max. 500000)
  345 words of extra memory for PDF output out of 10000 (max. 10000000)
 
