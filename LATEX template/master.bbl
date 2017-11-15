@@ -355,5 +355,39 @@
     \field{note}{Accessed: 2017-10-30}
     \field{title}{Speed}
   \endentry
+
+  \entry{Silva2016}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=SI}{%
+         family={Silva},
+         familyi={S\bibinitperiod},
+         given={Ivan},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {English}%
+    }
+    \strng{namehash}{SI1}
+    \strng{fullhash}{SI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Artificial Neural Networks}
+    \field{isbn}{978-3-319-43162-8}
+    \field{title}{Artificial Neural Networks}
+    \verb{url}
+    \verb http://sfx.aub.aau.dk/sfxaub?sid=FirstSearch:WorldCat&isbn=9783319431
+    \verb 628&title=Artificial+neural+networks+:+a+practical+course&date=2016&a
+    \verb ulast=Silva&aufirst=Ivan&id=doi:&pid=958070105<fssessid>0</fssessid>&
+    \verb url\%5fver=Z39.88-2004&rfr\%5fid=info:sid/firstsearch.oclc.org:WorldC
+    \verb at&rft\%5fval\%5ffmt=info:ofi/fmt:kev:mtx:book&rft.genre=unknown&req\
+    \verb %5fdat=<sessionid>0</sessionid>&rfe\%5fdat=<accessionnumber>958070105
+    \verb </accessionnumber>&rft\%5fid=info:oclcnum/958070105&rft\%5fid=urn:ISB
+    \verb N:9783319431628&rft.aulast=Silva&rft.aufirst=Ivan&rft.title=Artificia
+    \verb l+neural+networks+:+a+practical+course&rft.date=2016&rft.isbn=9783319
+    \verb 431628&rft.genre=unknown
+    \endverb
+    \field{year}{2016}
+  \endentry
 \endsortlist
 \endinput
