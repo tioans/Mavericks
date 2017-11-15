@@ -355,5 +355,10 @@
     \field{note}{Accessed: 2017-10-30}
     \field{title}{Speed}
   \endentry
+
+  \entry{Estimator}{misc}{}
+  \field{howpublished}{\url{https://www.tensorflow.org/get_started/get_started}}
+    \field{note}{Accessed: 2017-11-15}
+  \endentry
 \endsortlist
 \endinput
