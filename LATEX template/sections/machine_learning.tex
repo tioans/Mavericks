@@ -54,7 +54,33 @@ tackled by the network, as well as the quantity and quality of the available dat
 Another key element is the fact that the outputs of the neurons  are used for feedback inputs to the other neurons.
 This feature makes the network great for time-variant systems where the new outputs can benefit from previous information.
 
-\subsection{Long Short-term memory}
+\subsection{Long Short Term Memory}
+Long Short Term Memory networks, for short “LSTMs”, are a special case of recurrent neural network that is capable of learning long-term dependencies.
+Firstly used in 1997 by Sepp Hochreiter and Jürgen Schmidhuber \cite{Father} and refined by Felix Gers and his team \cite{Gers99}.
+Nowadays, after further refinement,
+LSTMs work incredibly well on various problems and give better results for most problems that require RNNs.
+They remember information for long periods of time by default, making them the perfect fit to avoid long-term dependency problems. 
+
+LSTMs have a chain like structure, with repeating modules and layers interacting in a specific way.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{machine_learning/00_LSTM_DIAGRAM}
+\caption{LSTM Diagram.}
+\label{fig:BAN}
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{machine_learning/01_LSTM2_notation}
+\caption{Diagram legend.}
+\label{fig:BAN}
+\end{figure}
+
+From the legend above, the lines represent vectors that pass from the output of the previous note to the input of the current one. The pink dot denotes pointwise operations, and the yellow box represents trained network layers.
+
+The first step in our LSTM is to decide what information we’re going to throw away from the cell state. This decision is made by a sigmoid layer called the “forget gate layer.” It looks at ht−1ht−1 and xtxt, and outputs a number between 00 and 11 for each number in the cell state Ct−1Ct−1. A 11 represents “completely keep this” while a 00 represents “completely get rid of this.”
+
+Let’s go back to our example of a language model trying to predict the next word based on all the previous ones. In such a problem, the cell state might include the gender of the present subject, so that the correct pronouns can be used. When we see a new subject, we want to forget the gender of the old subject.
+
 
 %---------------------------------------------------
 
