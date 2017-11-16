@@ -357,6 +357,35 @@
   \endentry
 
 <<<<<<< HEAD
+  \entry{Father}{article}{}
+    \name{author}{2}{}{%
+      {{hash=HS}{%
+         family={Hochreiter},
+         familyi={H\bibinitperiod},
+         given={Sepp},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Schmidhuber},
+         familyi={S\bibinitperiod},
+         given={Jürgen},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HSSJ1}
+    \strng{fullhash}{HSSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Neural computation}
+    \field{pages}{1735\bibrangedash 80}
+    \field{title}{Long Short-term Memory}
+    \field{volume}{9}
+    \field{month}{12}
+    \field{year}{1997}
+  \endentry
+
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -408,6 +437,7 @@
     \field{note}{Accessed: 2017-11-15}
 >>>>>>> master
 =======
+>>>>>>> 557ae99bc03bdbfb88aa3b05d7dc0a10c3d7e46c
   \entry{Estimator}{misc}{}
   \field{howpublished}{\url{https://www.tensorflow.org/get_started/get_started}}
     \field{note}{Accessed: 2017-11-15}
