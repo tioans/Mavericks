@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  16 NOV 2017 10:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  16 NOV 2017 10:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1795,7 +1795,7 @@ LaTeX Warning: Citation 'Silva2016' on page 9 undefined on input line 22.
 
 [9]
 
-LaTeX Warning: Citation 'Silva2016' on page 10 undefined on input line 39.
+LaTeX Warning: Citation 'Silva2016' on page 10 undefined on input line 38.
 
 
 <figures/machine_learning/00_Basic_Artificial_Neuron0.pdf, id=305, 1035.87pt x 
@@ -1804,7 +1804,7 @@ File: figures/machine_learning/00_Basic_Artificial_Neuron0.pdf Graphic file (ty
 pe pdf)
  <use figures/machine_learning/00_Basic_Artificial_Neuron0.pdf>
 Package pdftex.def Info: figures/machine_learning/00_Basic_Artificial_Neuron0.p
-df used on input line 44.
+df used on input line 43.
 (pdftex.def)             Requested size: 401.18387pt x 223.92pt.
 
 
@@ -1816,24 +1816,24 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [10 <./figures/machine_learning/00_Basic_Artificial_Neuron0.pdf>]
 
 LaTeX Warning: Citation 'tensorflow2015-whitepaper' on page 11 undefined on inp
-ut line 88.
+ut line 87.
 
 
 LaTeX Warning: Citation 'tensorflow2015-whitepaper' on page 11 undefined on inp
-ut line 91.
+ut line 90.
 
 
 LaTeX Warning: Citation 'tensorflow2015-whitepaper' on page 11 undefined on inp
-ut line 95.
+ut line 94.
 
 
-Overfull \hbox (47.85298pt too wide) in paragraph at lines 86--96
+Overfull \hbox (47.85298pt too wide) in paragraph at lines 85--95
 \T1/pplx/m/n/10.95 APIs are typ-i-cally eas-ier to learn and use than Ten-sor-f
 low Core [[]].
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--96
+Underfull \hbox (badness 10000) in paragraph at lines 85--95
 
  []
 
@@ -1844,17 +1844,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [11]
-Overfull \hbox (12.72948pt too wide) in paragraph at lines 111--112
+Overfull \hbox (12.72948pt too wide) in paragraph at lines 110--111
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (85.00006pt too wide) in paragraph at lines 112--113
+Overfull \hbox (85.00006pt too wide) in paragraph at lines 111--112
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (65.2899pt too wide) in paragraph at lines 113--114
+Overfull \hbox (65.2899pt too wide) in paragraph at lines 112--113
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
@@ -1866,7 +1866,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [12]
 
-LaTeX Warning: Citation 'Estimator' on page 13 undefined on input line 192.
+LaTeX Warning: Citation 'Estimator' on page 13 undefined on input line 191.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1875,107 +1875,107 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [13]
-Overfull \hbox (98.14017pt too wide) in paragraph at lines 199--200
+Overfull \hbox (98.14017pt too wide) in paragraph at lines 198--199
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (6.15942pt too wide) in paragraph at lines 200--201
+Overfull \hbox (6.15942pt too wide) in paragraph at lines 199--200
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (45.57974pt too wide) in paragraph at lines 201--203
+Overfull \hbox (45.57974pt too wide) in paragraph at lines 200--202
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (91.57011pt too wide) in paragraph at lines 203--204
+Overfull \hbox (91.57011pt too wide) in paragraph at lines 202--203
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (58.71985pt too wide) in paragraph at lines 204--205
+Overfull \hbox (58.71985pt too wide) in paragraph at lines 203--204
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (98.14017pt too wide) in paragraph at lines 205--207
+Overfull \hbox (98.14017pt too wide) in paragraph at lines 204--206
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (65.2899pt too wide) in paragraph at lines 207--208
+Overfull \hbox (65.2899pt too wide) in paragraph at lines 206--207
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (78.43001pt too wide) in paragraph at lines 208--210
+Overfull \hbox (78.43001pt too wide) in paragraph at lines 207--209
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (65.2899pt too wide) in paragraph at lines 210--211
+Overfull \hbox (65.2899pt too wide) in paragraph at lines 209--210
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (45.57974pt too wide) in paragraph at lines 211--212
+Overfull \hbox (45.57974pt too wide) in paragraph at lines 210--211
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (19.29953pt too wide) in paragraph at lines 213--214
+Overfull \hbox (19.29953pt too wide) in paragraph at lines 212--213
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (78.43001pt too wide) in paragraph at lines 219--220
+Overfull \hbox (78.43001pt too wide) in paragraph at lines 218--219
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (85.00006pt too wide) in paragraph at lines 221--222
+Overfull \hbox (85.00006pt too wide) in paragraph at lines 220--221
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (71.85995pt too wide) in paragraph at lines 223--225
+Overfull \hbox (71.85995pt too wide) in paragraph at lines 222--224
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (91.57011pt too wide) in paragraph at lines 225--226
+Overfull \hbox (91.57011pt too wide) in paragraph at lines 224--225
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 245.
+(Font)              scaled to size 5.21004pt on input line 244.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 245.
+(Font)              scaled to size 5.21004pt on input line 244.
 
-Overfull \hbox (17.66272pt too wide) in paragraph at lines 245--245
+Overfull \hbox (17.66272pt too wide) in paragraph at lines 244--244
 \OT1/zplm/m/n/8 //\OML/zplm/m/it/8 www\OT1/pplx/m/n/8 .\OML/zplm/m/it/8 allerin
 \OT1/pplx/m/n/8 .\OML/zplm/m/it/8 com\OT1/zplm/m/n/8 /\OML/zplm/m/it/8 blog\OT1
 /zplm/m/n/8 /\OML/zplm/m/it/8 six \OMS/zplm/m/n/8 ^^@ 
  []
 
 
-Overfull \hbox (17.66272pt too wide) in paragraph at lines 245--245
+Overfull \hbox (17.66272pt too wide) in paragraph at lines 244--244
 \OT1/zplm/m/n/8 //\OML/zplm/m/it/8 www\OT1/pplx/m/n/8 .\OML/zplm/m/it/8 allerin
 \OT1/pplx/m/n/8 .\OML/zplm/m/it/8 com\OT1/zplm/m/n/8 /\OML/zplm/m/it/8 blog\OT1
 /zplm/m/n/8 /\OML/zplm/m/it/8 six \OMS/zplm/m/n/8 ^^@ 
  []
 
 
-Overfull \hbox (17.66272pt too wide) in paragraph at lines 245--245
+Overfull \hbox (17.66272pt too wide) in paragraph at lines 244--244
 \OT1/zplm/m/n/8 //\OML/zplm/m/it/8 www\OT1/pplx/m/n/8 .\OML/zplm/m/it/8 allerin
 \OT1/pplx/m/n/8 .\OML/zplm/m/it/8 com\OT1/zplm/m/n/8 /\OML/zplm/m/it/8 blog\OT1
 /zplm/m/n/8 /\OML/zplm/m/it/8 six \OMS/zplm/m/n/8 ^^@ 
  []
 
 
-Overfull \hbox (17.66272pt too wide) in paragraph at lines 245--245
+Overfull \hbox (17.66272pt too wide) in paragraph at lines 244--244
 \OT1/zplm/m/n/8 //\OML/zplm/m/it/8 www\OT1/pplx/m/n/8 .\OML/zplm/m/it/8 allerin
 \OT1/pplx/m/n/8 .\OML/zplm/m/it/8 com\OT1/zplm/m/n/8 /\OML/zplm/m/it/8 blog\OT1
 /zplm/m/n/8 /\OML/zplm/m/it/8 six \OMS/zplm/m/n/8 ^^@ 
@@ -2056,7 +2056,7 @@ Package logreq Info: Writing requests to 'p5_report.run.xml'.
 Here is how much of TeX's memory you used:
  28682 strings out of 492995
  511919 string characters out of 6132705
- 1012447 words of memory out of 5000000
+ 1013447 words of memory out of 5000000
  31482 multiletter control sequences out of 15000+600000
  56861 words of font info for 100 fonts, out of 8000000 for 9000
  1146 hyphenation exceptions out of 8191
@@ -2069,7 +2069,7 @@ e/2017/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/
 2017/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2017/te
 xmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2017/texmf-dis
 t/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on p5_report.pdf (35 pages, 548625 bytes).
+Output written on p5_report.pdf (35 pages, 548689 bytes).
 PDF statistics:
  513 PDF objects out of 1000 (max. 8388607)
  457 compressed objects within 5 object streams
