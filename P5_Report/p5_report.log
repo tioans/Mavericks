@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  16 NOV 2017 09:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  16 NOV 2017 10:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2045,9 +2045,6 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                p5_report
 (biblatex)                and rerun LaTeX afterwards.
@@ -2072,7 +2069,7 @@ e/2017/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/
 2017/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2017/te
 xmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2017/texmf-dis
 t/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on p5_report.pdf (35 pages, 548624 bytes).
+Output written on p5_report.pdf (35 pages, 548625 bytes).
 PDF statistics:
  513 PDF objects out of 1000 (max. 8388607)
  457 compressed objects within 5 object streams
