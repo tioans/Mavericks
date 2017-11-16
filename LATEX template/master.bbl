@@ -358,6 +358,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   \entry{Silva2016}{misc}{}
     \name{author}{1}{}{%
       {{hash=SI}{%
@@ -390,6 +391,11 @@
     \verb 431628&rft.genre=unknown
     \endverb
     \field{year}{2016}
+=======
+  \entry{Estimator}{misc}{}
+  \field{howpublished}{\url{https://www.tensorflow.org/get_started/get_started}}
+    \field{note}{Accessed: 2017-11-15}
+>>>>>>> master
 =======
   \entry{Estimator}{misc}{}
   \field{howpublished}{\url{https://www.tensorflow.org/get_started/get_started}}
