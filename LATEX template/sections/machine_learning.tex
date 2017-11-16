@@ -1,34 +1,56 @@
 \chapter{Machine Learning for Speech}\label{ch:machine_learning}
 
+\section{Historical Overview}
+Markov Model, ETC...\\\\
+Rise of Artificial Neural Network...\\\\
+This brain modeling approach is a less technical way to develop machine learning solutions, but it is known to be more efficient and accurate than previous traditional approaches,
+such as the Hidden Markov Model (HMM). 
+
 \section{Artificial Neural Networks}
 %---------------------------------------------------
 \subsection{What is an Artificial Neural Network?}
-Artificial Neural Networks are nothing but a computerized representation of the human brain.
-The human brain learns from its experiences,
-creating new neural pathways and adopts new habits by increasing or decreasing certain neural interconnections.
-This brain modeling approach is a less technical way to develop machine learning solutions, but it is known to be more efficient and accurate that previous traditional approaches,
-such as the Hidden Markov Model (HMM). 
+Artificial Neural Networks are nothing but a computerized representation of the human brain. 
+They have the ability to acquire and maintain knowledge (information based) and can be defined as a set of processing units, represented by artificial neurons,
+interlinked by a lot of interconnections
+(artificial synapses) \cite[p.~5]{Silva2016}.\\\\
+The human brain learns from its experiences, creating new neural pathways. These interconneted chains of neurons are stronger than others and can be modulated, or changed,
+following learning or during behavioral modifications.
+The strongness of a neural connection is given by a weighted value, called synaptic weights.
 
 \subsection{Artificial Neuron}
-The term "Neural" is derived from the basic funtional unit
-"Neuron" which typically comprises of these four parts:
+The Artificial neuron is the processing unit of an artificial neural network, which is simplified model of biological neuron.
+This model was inspired by the analysis of how a cell membrane of a neuron generates and propagates electrical impulses(Hodgkin and Huxley 1952) \cite[p.~11]{Silva2016}.
+The purpose of artificial neurons is to simulate the basic function of biological ones,
+which are typically comprised of four parts:
 
 \begin{enumerate}
-  \item Dendrites: Accept inputs
-  \item Soma: Process the inputs
-  \item Axon: Turn the processed inputs into outputs
-  \item Synapses: The electrochemical connections between neurons 
+	\item Dendrites: Accept inputs
+	\item Soma(Cell body): Process the inputs
+	\item Axon: Turn the processed inputs into outputs
+	\item Synapses: The electrochemical connections between neurons 
 \end{enumerate}
 
-The connections can be inhibitory (decreasing strength) or
-excitory (increasing strength) in nature.
+
+
+The artificial neurons used in artificial neural networks are nonlinear, usually providing continuous outputs,
+and performing simple functions,
+such as gathering signals available on their inputs,
+assembling them according to their operational functions,
+and producing a response considering their innate activation functions \cite[p.~11]{Silva2016}. 
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth]{machine_learning/00_Basic_Artificial_Neuron0.pdf}
-\caption{Basic Artificial Neuron.}
-\label{fig:BAN}
+	\includegraphics[width=\textwidth]
+	{machine_learning/00_Basic_Artificial_Neuron0.pdf}
+	\caption{The artificial neuron.}
+	\label{fig:AN}
 \end{figure}
+
+Each neuron from a network can be implemented as shown in Fig.
+\ref{fig:AN}. The multiple input signals coming from the external environment are represented by the set
+$\left\{i1,i2,i3,...,in \right\}$, analogous to the external electrical impulses gathered by the dendrites in the biological neuron.
+\todo{re-write}
+
 %---------------------------------------------------
 
 \section{Types of Artificial Neural Networks}

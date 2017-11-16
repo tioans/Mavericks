@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
 \select@language {english}
@@ -76,4 +78,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Bibliography}{25}{chapter*.17}
 \defcounter {refsection}{0}\relax 
+<<<<<<< HEAD
 \contentsline {chapter}{\numberline {A}Appendix A name}{27}{appendix.A}
+=======
+\contentsline {chapter}{\numberline {A}Appendix A name}{25}{appendix.A}
+>>>>>>> master
+>>>>>>> 557ae99bc03bdbfb88aa3b05d7dc0a10c3d7e46c
