@@ -3,6 +3,8 @@
 \BOOKMARK [0][-]{label:contents.0}{Contents}{}% 3
 \BOOKMARK [0][-]{chapter*.3}{Preface}{}% 4
 \BOOKMARK [0][-]{chapter.1}{1 Introduction}{}% 5
+<<<<<<< HEAD
+=======
 \BOOKMARK [0][-]{chapter.2}{2 Problem Description}{}% 6
 \BOOKMARK [1][-]{section.2.1}{2.1 Problem Description}{chapter.2}% 7
 \BOOKMARK [1][-]{section.2.2}{2.2 Problem Delimitation}{chapter.2}% 8
@@ -35,3 +37,7 @@
 \BOOKMARK [0][-]{chapter.8}{8 Conclusion}{}% 35
 \BOOKMARK [0][-]{chapter*.15}{Bibliography}{}% 36
 \BOOKMARK [0][-]{appendix.A}{A Appendix A name}{}% 37
+<<<<<<< HEAD
+>>>>>>> master
+=======
+>>>>>>> master
