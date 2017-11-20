@@ -82,7 +82,7 @@ Nowadays, after further refinement,
 LSTMs work incredibly well on various problems and give better results for most problems that require RNNs.
 They remember information for long periods of time by default, making them the perfect fit to avoid long-term dependency problems. 
 
-LSTMs have a chain like structure, with repeating modules and layers interacting in a specific way.
+LSTMs have a chain like structure of four layers, with repeating modules that interact in a specific way.
 
 \todo{maybe get color version of pictures}
 \begin{figure}[h]
@@ -104,21 +104,63 @@ LSTMs have a chain like structure, with repeating modules and layers interacting
 From the legend above, the lines represent
 vectors that pass from the output of the
 previous note to the input of the current one.
-The pink dot denotes pointwise operations, 
-and the yellow box represents trained network
+The dot denotes point wise operations, 
+and the rectangle represents trained network
 layers.
+
 \todo{Recreate the gates as mathematical functions and explain them}
-The first step in our LSTM is to decide what information we’re going to throw away from 
-the cell state. This decision is made by a
-sigmoid layer called the "forget gate layer".
-It looks at $ht-1ht-1$ and xtxt, and outputs a number between $00$ and $11$ for each number
-in the cell state $Ct-1Ct-1$. A 11 represents
-“completely keep this” while a $00$ represents
-“completely get rid of this.”
 
-Let’s go back to our example of a language model trying to predict the next word based on all the previous ones. In such a problem, the cell state might include the gender of the present subject, so that the correct pronouns can be used. When we see a new subject, we want to forget the gender of the old subject.
+A side by side description of the each layer of a LSTM and it`s mathematical formulation can be seen below.
+The first layer represents the forget gate. This is where we decide which information to keep and which to discard. The layer outputs a value between zero and one for each input because of the sigmoid function(represented as sigma in the equations below), meaning that a value of zero represents data that will be complicity erased and so forth, while an absolute value of one represents data that will be left unchanged for the next iteration.    
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]		
+	{machine_learning/03_RForget}
+	\begin{equation}
+		 f= \sigma*(X.W_f+b_f) 
+	\end{equation}	
+	\caption{Forget Gate for concatenated inputs.}
+	\label{fig:Forget}
+\end{figure}
 
+Similar to the forget gate, the LSTM structure also uses an update gate, to add new information to the system.
+As seen in Figure \ref{fig:Update}, the update gate generates the new values that will be used. This takes place by multiplying the update gate to the input layer, represented by X` where a  hyperbolic tangent is used as the activation function. This is given as an example, as the Rectified Linear Unit(ReLU) or the softmax activation work perfectly fine as well.  
+From the above mentioned gates a new internal state C can be computed as:
+\begin{equation}
+C_t= f * C_t-1 + u*X` 
+\end{equation}
+Where the current state ($C_t$) is determined by what we want to forget ($f$), multiplied by the previous state ($C_t-1$) and added together with the update gate ($r$) times the input layer ($X`$).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]		
+	{machine_learning/04_Update}
+	\begin{equation}
+		 f= \sigma*(X.W_u+b_u) 
+	\end{equation}	
+	\begin{equation}	 
+		 X`=tanh*(X.W_c+b_c)
+	 \end{equation}
+	\caption{Update gate with the current state description.}
+	\label{fig:Update}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]		
+	{machine_learning/05_Result}
+	\begin{equation}
+		 r= \sigma*(X.W_r+b_r) 
+	\end{equation}	
+	\caption{Result gate added to the output function.}
+	\label{fig:Result}
+\end{figure}
+
+The third and last gate is the result gate ($r$), which uses the previous internal state of the LSTM to generate a new internal state. As such, the output of the neural network can be written as:
+\begin{equation}
+Y_t=softmax(H_t.W+b)
+\end{equation}
 %---------------------------------------------------
 
 

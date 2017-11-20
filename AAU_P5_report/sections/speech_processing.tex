@@ -67,14 +67,9 @@ No matter how powerful and how advanced a computer is,
 it still works in discrete time.
 In order to represent an analogue signal on the computer we have to sample it according to the Nyquist–Shannon sampling theorem,
 which states that the sampling frequency has to be at least double the frequency of the original signal in order to replicate the original signal without aliasing.
-For a better understanding of the process, a visual representation of the word "Hello" as it is formed for the input of the neural network is shown in figure\ref{fig:Waveform} where it is sampled at 8000 Hz.
+For a better understanding of the process, a visual representation of the word "Hello" as it is formed for the input of the neural network is shown in Figure\ref{fig:prob1_6_2} where it is sampled at 8000 Hz.
 
-%\begin{figure}[h!]
-%\includegraphics[trim={35 15 15 15},clip]{Hello_waveform}
-%\centering
-%\caption{Waveform for the word: "Hello"}
-%\label{fig:Waveform}
-%\end{figure}
+
 
 \subsubsection{ Fourier transform}
 
@@ -83,7 +78,7 @@ This allows us to convert the signal in the frequency domain and deconstruct it 
 These sine waves have specific amplitudes and frequencies and while plotting the FFT of the signal, 
 the dominant waves can be identified by the intensity of the amplitude.\\
 
-In Figure \ref{fig:FFT}, a visual representation of the FFT is shown. 
+In Figure \ref{fig:prob1_6_1}, a visual representation of the FFT is shown. 
 It can be seen that there are a lot of frequencies that make up the word "Hello". 
 The dominant ones are in the range of 500Hz. 
 Considering that this recording has a minimum amount of noise,
@@ -91,12 +86,6 @@ we have to consider the full range of the frequencies,
 from zero and up to 3500Hz.
 
 
-%\begin{figure}[h]
-%\includegraphics[trim={15 4 7 7},clip]{FFTpicture2}
-%\centering
-%\caption{Example of the FFT function computed for the word "Hello"}
-%\label{fig:FFT}
-%\end{figure}
 
 \subsubsection{ Spectrogram}
 
