@@ -157,12 +157,13 @@ Where the current state ($C_t$) is determined by what we want to forget ($f$), m
 	\label{fig:Result}
 \end{figure}
 
-The third and last gate is the result gate ($r$), which uses the previous internal state of the LSTM to generate a new internal state. As such, the output of the neural network can be written as:
+The third and last gate is the result gate ($r$), which uses the previous internal state of the LSTM to generate a new internal state.
+As such, the output of the neural network can be written as:
 \begin{equation}
 Y_t=softmax(H_t.W+b)
 \end{equation}
 %---------------------------------------------------
-
+\subsection{Fitting}
 
 \section{TensorFlow}
 %---------------------------------------------------
@@ -317,7 +318,7 @@ print("eval metrics: %r"% eval_metrics)
 \end{lstlisting}
 \end{adjustbox}
 
-\section{Deep neural network for speech}
+ \section{Deep neural network for speech}
 %---------------------------------------------------
 \subsection{Deep Feed Forward (DFF)}
 The simplest of all neural networks, the feedforward neural network, moves information in one direction only.
