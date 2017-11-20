@@ -46,9 +46,24 @@ and producing a response considering their innate activation functions \cite[p.~
 \end{figure}
 
 Each neuron from a network can be implemented as shown in Fig.
-\ref{fig:AN}. The multiple input signals coming from the external environment are represented by the set
-$\left\{i1,i2,i3,...,in \right\}$, analogous to the external electrical impulses gathered by the dendrites in the biological neuron.
-\todo{re-write}
+\ref{fig:AN}. The multiple input signals coming from
+the external environment are represented by the set
+$\left\{i1,i2,i3,...,in \right\}$, analogous to the
+external electrical impulses gathered by the dendrites
+in the biological neuron \cite[p.~12]{Silva2016}.
+
+
+The weighing carried out by the synaptic junctions of the
+network are implemented on the artificial neuron as a set
+of synaptic weights $\left\{w1,w2,w3,...,wn \right\}$.
+Analogously, the relevance of each of the
+$\left\{xi \right\}$ neuron inputs is calculated by
+multiplying them by their corresponding synaptic weight
+$\left\{wi \right\}$, thus weighting all the external 
+information arriving to the neuron.
+Therefore, it is possible to verify that the output of the
+artificial cellular body, denoted by u, is the weighted sum
+of its inputs.
 
 %---------------------------------------------------
 
