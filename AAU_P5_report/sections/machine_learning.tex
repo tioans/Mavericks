@@ -76,7 +76,7 @@ Another key element is the fact that the outputs of the neurons  are used for fe
 This feature makes the network great for time-variant systems where the new outputs can benefit from previous information.
 
 \subsection{Long Short Term Memory}
-Long Short Term Memory networks, for short “LSTMs”, are a special case of recurrent neural network that is capable of learning long-term dependencies.
+Long Short Term Memory networks, for short “LSTMs”, are a special case of recurrent neural network that  capable of learning long-term dependencies.
 Firstly used in 1997 by Sepp Hochreiter and Jürgen Schmidhuber \cite{Father} and refined by Felix Gers and his team \cite{Gers99}.
 Nowadays, after further refinement,
 LSTMs work incredibly well on various problems and give better results for most problems that require RNNs.
@@ -106,7 +106,7 @@ previous note to the input of the current one.
 The pink dot denotes pointwise operations, 
 and the yellow box represents trained network
 layers.
-
+\todo{Recreate the gates as mathematical functions and explain them}
 The first step in our LSTM is to decide what information we’re going to throw away from 
 the cell state. This decision is made by a
 sigmoid layer called the "forget gate layer".
