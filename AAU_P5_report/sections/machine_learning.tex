@@ -164,9 +164,53 @@ As such, the output of the neural network can be written as:
 Y_t=softmax(H_t.W+b)
 \end{equation}
 %---------------------------------------------------
-\subsection{Fitting}
+\subsection{Dropout}
+Dropout is a regularization technique that involves shooting the neurons.
+It is applied after the activation function of each layer with the notable exception of the input and output layer.
+A percentage is used to determine the number of neurons that will remain in the networks.
+For example, a .75 value in the dropout function means that only 75 percent of the neurons will remain active during the training phase.
+At the test time all the neurons have to be present, meaning that a value of 1 has to be given to the dropout function to ensure a high accuracy rating.
+This helps the network understand the information it is given as it cannot presume that other neurons in the same layer have been activated and it prevents the network from just memorizing the values that were given as inputs.
+The snipped below shows how dropout is used in TensorFlow for a layer of a neural network, where pkeep is the percentage of the neurons that will remain active and the call for the dropout is made after the activation function, in this case the ReLU.
+\begin{lstlisting}
+pkeep = tf.palceholder(tf.float32)
+YF = tf.nn.relu(tf.matmul(X, W)+ b)
+Y = tf.nn.dropout(Yf, pkeep)
+\end{lstlisting} 
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/06_Dropout}
+
+	\caption{Dropout used on a generic network.}
+	\label{fig:Result}
+\end{figure}
+
+
+%---------------------------------------------------
+\subsection{Batch normalisation}
+Compute statistics on each batch
+compute average and standard deviation
+substracting the average and dividing by the stdev to rescale and recentre the values epsilon for numerical stability, avoid division by 0
+add two degrees of freedom per neuron
+Statistics can be computed for each batch that is fed to the neural network so the average and the standard deviation can be computed. After computing them, substracting the average and dividing by the standard deviation rescales and recentre the output. 
+In the equation, epsilon is added to avoid numerical problems as dividing by zero.
+\begin{equation}
+X= \dfrac{x - avg(x)}{stdev(x) + \epsilon} 
+\end{equation}
+
+The recentre and rescaling of the values can cause problems to the network for cases where data needs to be squeezed over to one side of the spectrum.
+To solve those cases, two degrees of freedom are added for each neuron $\alpha$ and $\beta$.
+\begin{equation}
+BN(x) = \alpha * X + \beta
+\end{equation}
+With the two constant
+
+
+%---------------------------------------------------
 \section{TensorFlow}
+
 %---------------------------------------------------
 TensorFlow provides multiple Application Programming Interfaces
 (APIs) for machine learning. 
