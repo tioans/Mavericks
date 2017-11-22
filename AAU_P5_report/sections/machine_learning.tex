@@ -13,8 +13,8 @@ Artificial Neural Networks are nothing but a computerized representation of the 
 They have the ability to acquire and maintain knowledge (information based) and can be defined as a set of processing units, represented by artificial neurons,
 interlinked by a lot of interconnections
 (artificial synapses) \cite[p.~5]{Silva2016}.\\\\
-The human brain learns from its experiences, creating new neural pathways. These interconneted chains of neurons are stronger than others and can be modulated, or changed,
-following learning or during behavioral modifications.
+The human brain learns from its experiences, creating new neural pathways. These interconnected chains of neurons are stronger than others and can be modulated, or changed,
+following learning or during behavioural modifications.
 The strongness of a neural connection is given by a weighted value, called synaptic weights.
 
 \subsection{Artificial Neuron}
@@ -31,7 +31,7 @@ which are typically comprised of four parts:
 \end{enumerate}
 The following figure illustrates the four main functions of a biological neuron, represented on the artificial one. 
 
-The artificial neurons used in artificial neural networks are nonlinear, usually providing continuous outputs,
+The artificial neurons used in artificial neural networks are non-linear, usually providing continuous outputs,
 and performing simple functions,
 such as gathering signals available on their inputs,
 assembling them according to their operational functions,
@@ -55,7 +55,7 @@ $\left\{i1,i2,i3,...,in \right\}$, analogous to the external electrical impulses
 \section{Types of Artificial Neural Networks}
 %---------------------------------------------------
  
-\subsection{Feedforward Network}
+\subsection{Feed forward Network}
 
 
 This type of simple neural network is comprised of one input
@@ -66,7 +66,7 @@ pattern classification and linear filtering problems.
 The Perceptron and the ADALINE architectures are among the most recognised feed-forward neural networks and they work well with Hebb`s rule and the Delta rule for training.
 
 \subsection{Deep Recurrent Neural Network}
-To explain how a deep recurrent neural network looks like first we will see what a deep neural network is made of and after that the recurrent part will be added to form a more complex and and powerful network.
+To explain how a deep recurrent neural network(RNN) looks like first we will see what a deep neural network is made of and after that the recurrent part will be added to form a more complex and and powerful network.
 
 Networks with multiple layers are have one or more hidden neural layers. Such a network will always have one input layer with multiple samples and a series of variable layers.
 In contrast to the simple feed-forward network, these hidden layers are not constrained to have the same size as the input layer. This means
@@ -83,9 +83,9 @@ Nowadays, after further refinement,
 LSTMs work incredibly well on various problems and give better results for most problems that require RNNs.
 They remember information for long periods of time by default, making them the perfect fit to avoid long-term dependency problems. 
 
-LSTMs have a chain like structure of four layers, with repeating modules that interact in a specific way.
+LSTMs have a chain like structure of four layers, with repeating modules that interact in  specific ways. For simplicity, in the following explanation of the internal states of a LSTM, the input X will represent the normal input to the network concatenated with the previous state $h_{t-1}$.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]	
 	{machine_learning/01_Lstm_Diagram}
@@ -93,7 +93,7 @@ LSTMs have a chain like structure of four layers, with repeating modules that in
 	\label{fig:LSTM1}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]		
 	{machine_learning/02_Lstm_Notation}
@@ -257,7 +257,7 @@ Here are some examples of tensors:
 \end{lstlisting} 
 \end{adjustbox}
 
-\todo{customize colors}
+\todo{I dont think the color option works well with the lstlisting}
 
 \subsection{TensorFlow Core}
 Getting Started With TensorFlow is done by using the import statement. 
