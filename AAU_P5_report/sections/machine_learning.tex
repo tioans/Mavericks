@@ -6,6 +6,12 @@ Rise of Artificial Neural Network...\\\\
 This brain modeling approach is a less technical way to develop machine learning solutions, but it is known to be more efficient and accurate than previous traditional approaches,
 such as the Hidden Markov Model (HMM). 
 
+\subsubsection{Hidden Markov Model}
+HMM takes it`s name from the fact that the state of the machine is always hidden from the user. 
+The forward and backward recursions used in HMM  were created by Ruslan L. Stratonovich in 1960 \cite{stratonovich1960conditional}.
+HMM takes it`s name from the fact that the state of the machine is always hidden from the user. One of the first applications of HMMs was speech recognition, starting in the mid-1970s
+
+
 \section{Artificial Neural Networks}
 %---------------------------------------------------
 \subsection{What is an Artificial Neural Network?}
@@ -83,7 +89,7 @@ Nowadays, after further refinement,
 LSTMs work incredibly well on various problems and give better results for most problems that require RNNs.
 They remember information for long periods of time by default, making them the perfect fit to avoid long-term dependency problems. 
 
-LSTMs have a chain like structure of four layers, with repeating modules that interact in  specific ways. For simplicity, in the following explanation of the internal states of a LSTM, the input X will represent the normal input to the network concatenated with the previous state $h_{t-1}$.
+LSTMs have a chain like structure of four layers, with repeating modules that interact in  specific ways. For simplicity, in the following explanation of the internal states of a LSTM, the input X will represent the normal input to the network concatenated with the previous state, $X = x_i | h_{t-1}$.
 
 \begin{figure}[H]
 	\centering
