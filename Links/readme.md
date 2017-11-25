@@ -36,6 +36,7 @@
   - TensorFlow RNN Tutorial | Silicon Valley Data Science (w): [https://svds.com/tensorflow-rnn-tutorial/](https://svds.com/tensorflow-rnn-tutorial/) 
   - Speech Recognition using Artificial Neural Network (w): [http://iieng.org/images/proceedings_pdf/U01160026.pdf](http://iieng.org/images/proceedings_pdf/U01160026.pdf)
   - Reccurent Neural Networks for Speech (w): [http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6638947]
+  - Speech processing variations : [http://www.ijcaonline.org/volume10/number3/pxc3871976.pdf]
   
 - **Code Example**
   - simple lstm speech recognizer, with 100GB training data: [https://github.com/pannous/tensorflow-speech-recognition](https://github.com/pannous/tensorflow-speech-recognition)
