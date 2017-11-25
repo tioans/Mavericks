@@ -38,7 +38,16 @@
 \usepackage{float}
 \usepackage{color}
 %graphs
+\usepackage{tikz}
 
+%circles and colors definition
+\newcommand{\tikzcircle}[2][red,fill=red]{\tikz[baseline=-0.5ex]\draw[#1,radius=#2] (0,0) circle;}%
+\definecolor{orange}{RGB}{237, 114, 71}
+\definecolor{blue}{RGB}{57, 113, 163}
+\definecolor{lightblue}{RGB}{135, 206, 250}
+\definecolor{pink}{RGB}{232, 81, 136}
+\definecolor{red}{RGB}{191, 42, 22}
+\definecolor{turquoise}{RGB}{87, 175, 148}
 
 % Make latex understand and use the typographic
 % rules of the language used in the document.

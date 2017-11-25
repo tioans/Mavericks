@@ -395,12 +395,279 @@ print("eval metrics: %r"% eval_metrics)
 \end{adjustbox}
 %---------------------------------------------------
 
-\section{Batch Size, Learing Rate and Dropout Comparison}
+\section{Batch Size, Dropout and Learning Rate Comparison}
 
 Here we used nahahahahahahahhahahaha code to see and understand the effects of the performace of a given model (in this case BiRNN model) by changing the Batch Size, Learing Rate and Dropout parameters.
 
 
-\todo{put graphs and tables here}
+\tikzcircle[orange, fill=orange]{3pt}
+\tikzcircle[blue, fill=blue]{3pt}
+\tikzcircle[lightblue, fill=lightblue]{3pt}
+\tikzcircle[pink, fill=pink]{3pt}
+\tikzcircle[red, fill=red]{3pt}
+\tikzcircle[turquoise, fill=turquoise]{3pt}
+
+
+\begin{center}
+\begin{tabular}
+{ | l | c | c | c | c | c | c | c |} 
+\hline
+Parameters & 
+Test1 -\tikzcircle[orange, fill=orange]{3pt}- &
+Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+Test3 -\tikzcircle[red, fill=red]{3pt}- &
+Test4 -\tikzcircle[lightblue, fill=lightblue]{3pt}- &
+Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- \\ 
+\hline
+Batch Size (train, eval., test) & 
+2 \hfill 2 \hfill 2 & 
+20 \hfill 20 \hfill 20 & 
+20 \hfill 20 \hfill 20 &
+20 \hfill 20 \hfill 20 &
+50 \hfill 20 \hfill 20 &
+50 \hfill 20 \hfill 20 \\
+\hline
+Dropout & 
+0.05 & 0.05 & 0.00 & 0.50 & 0.05 & 0.05 \\
+\hline
+Learning Rate & 
+0.001 & 0.001 & 0.001 & 0.001 & 0.001 & 0.010 \\ 
+\hline
+\end{tabular}
+\end{center}
+
+
+
+
+\subsection{Batch Size Test}
+%-----------------------------------------------------
+%Batch Size Test
+	%-------------------------------------------------
+	%test error rate
+\subsubsection{Accuracy}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/batch_test/test_error_rate}
+	\caption{Test error rate.}
+	\label{fig:batch_test_error}
+\end{figure}
+	%results
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]		
+	{machine_learning/graph_tests/batch_test/test_error_rate_values}
+	\caption{Test error rate results.}
+	\label{fig:batch_test_error_val}
+\end{figure}
+	%-------------------------------------------------
+	%training error rate
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/batch_test/train_error_rate}
+	\caption{Training error rate.}
+	\label{fig:batch_val_error}
+\end{figure}
+	%results
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]		
+	{machine_learning/graph_tests/batch_test/train_error_rate_values}
+	\caption{Training error rate results.}
+	\label{fig:batch_test_error_val}
+\end{figure}
+	%-------------------------------------------------
+	%validation error rate
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/batch_test/validation_error_rate}
+	\caption{Validation error rate.}
+	\label{fig:batch_train_loss}
+\end{figure}
+	%results
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]		
+	{machine_learning/graph_tests/batch_test/train_error_rate_values}
+	\caption{Validation error rate results.}
+	\label{fig:batch_test_error_val}
+\end{figure}
+	%-------------------------------------------------
+	%training avarage loss
+\subsubsection{Loss}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/batch_test/train_avg_loss}
+	\caption{Training Avarage loss.}
+	\label{fig:batch_train_loss}
+\end{figure}
+	%results
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]		
+	{machine_learning/graph_tests/batch_test/train_avg_loss_values}
+	\caption{Training Avarage loss results.}
+	\label{fig:batch_test_error_val}
+\end{figure}
+	%-------------------------------------------------
+%-----------------------------------------------------
+
+\subsection{Dropout Test}
+%-----------------------------------------------------
+%Dropout Test
+	%-------------------------------------------------
+	%test error rate
+\subsubsection{Accuracy}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/dropout_test/test_error_rate}
+	\caption{Test error rate.}
+	\label{fig:batch_test_error}
+\end{figure}
+	%results
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]		
+	{machine_learning/graph_tests/dropout_test/test_error_rate_values}
+	\caption{Test error rate results.}
+	\label{fig:batch_test_error_val}
+\end{figure}
+	%-------------------------------------------------
+	%training error rate
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/dropout_test/train_error_rate}
+	\caption{Training error rate.}
+	\label{fig:batch_val_error}
+\end{figure}
+	%results
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]		
+	{machine_learning/graph_tests/dropout_test/train_error_rate_values}
+	\caption{Training error rate results.}
+	\label{fig:batch_test_error_val}
+\end{figure}
+	%-------------------------------------------------
+	%validation error rate
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/dropout_test/validation_error_rate}
+	\caption{Validation error rate.}
+	\label{fig:batch_train_loss}
+\end{figure}
+	%results
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]		
+	{machine_learning/graph_tests/dropout_test/train_error_rate_values}
+	\caption{Validation error rate results.}
+	\label{fig:batch_test_error_val}
+\end{figure}
+	%-------------------------------------------------
+	%training avarage loss
+\subsubsection{Loss}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/dropout_test/train_avg_loss}
+	\caption{Training Avarage loss.}
+	\label{fig:batch_train_loss}
+\end{figure}
+	%results
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]		
+	{machine_learning/graph_tests/dropout_test/train_avg_loss_values}
+	\caption{Training Avarage loss results.}
+	\label{fig:batch_test_error_val}
+\end{figure}
+	%-------------------------------------------------
+%-----------------------------------------------------
+
+\subsection{Learning Rate Test}
+%-----------------------------------------------------
+%Learning Rate Test
+	%-------------------------------------------------
+	%test error rate
+\subsubsection{Accuracy}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/learning_rate_test/test_error_rate}
+	\caption{Test error rate.}
+	\label{fig:batch_test_error}
+\end{figure}
+	%results
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]		
+	{machine_learning/graph_tests/learning_rate_test/test_error_rate_values}
+	\caption{Test error rate results.}
+	\label{fig:batch_test_error_val}
+\end{figure}
+	%-------------------------------------------------
+	%training error rate
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/learning_rate_test/train_error_rate}
+	\caption{Training error rate.}
+	\label{fig:batch_val_error}
+\end{figure}
+	%results
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]		
+	{machine_learning/graph_tests/learning_rate_test/train_error_rate_values}
+	\caption{Training error rate results.}
+	\label{fig:batch_test_error_val}
+\end{figure}
+	%-------------------------------------------------
+	%validation error rate
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/learning_rate_test/validation_error_rate}
+	\caption{Validation error rate.}
+	\label{fig:batch_train_loss}
+\end{figure}
+	%results
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]		
+	{machine_learning/graph_tests/learning_rate_test/train_error_rate_values}
+	\caption{Validation error rate results.}
+	\label{fig:batch_test_error_val}
+\end{figure}
+	%-------------------------------------------------
+	%training avarage loss
+\subsubsection{Loss}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/learning_rate_test/train_avg_loss}
+	\caption{Training Avarage loss.}
+	\label{fig:batch_train_loss}
+\end{figure}
+	%results
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]		
+	{machine_learning/graph_tests/learning_rate_test/train_avg_loss_values}
+	\caption{Training Avarage loss results.}
+	\label{fig:batch_test_error_val}
+\end{figure}
+	%-------------------------------------------------
+%-----------------------------------------------------
+
 
 %---------------------------------------------------
 
