@@ -1,26 +1,27 @@
 \chapter{Machine Learning for Speech}\label{ch:machine_learning}
 
 \section{Historical Overview}
-Markov Model, ETC...\\\\
-Rise of Artificial Neural Network...\\\\
-This brain modeling approach is a less technical way to develop machine learning solutions, but it is known to be more efficient and accurate than previous traditional approaches,
-such as the Hidden Markov Model (HMM). 
+The following section will encapsulate different methods that can be used in the field of speech processing and recognition. Starting with statistical models and mapping algorithms, further leading to knowledge based systems that render greater efficiency when large data sets are available.
 
 \subsubsection{Hidden Markov Model}
-HMM takes it`s name from the fact that the state of the machine is always hidden from the user. 
-The forward and backward recursions used in HMM  were created by Ruslan L. Stratonovich in 1960 \cite{stratonovich1960conditional}.
-HMM takes it`s name from the fact that the state of the machine is always hidden from the user. One of the first applications of HMMs was speech recognition, starting in the mid-1970s.
 
-HMM – Hidden Markov Modelling (HMM) is the most
-successfully used pattern recognition technique for speech
-recognition. It is a mathematical model signalized on the
-Markov Model and a set of output distribution. This technique
-is more general and has a secure mathematical foundation as 
-compared to knowledge based approach and template based
-approach. In this method, speech is split into smaller audible
-entities and these entities represent a state in the Markov
-Model. According to the probabilities of transition, there
-exists a transition from one state to another [10]. 
+The forward and backward recursions used in HMM  were created by Ruslan L. Stratonovich in 1960 \cite{stratonovich1960conditional}. 
+It is the most successfully used pattern recognition technique used for speech recognition. 
+In contrast to knowledge based approaches, this model has a strong and secure
+mathematical foundation where a mathematical model is signalized on the Markov Model
+and a set of output distribution.
+Speech is divided into smaller audible samples where each sample represents a state in the Markov Model. By the probabilities of transition, there will be a shift from on state to another.\cite[p.~2]{gaikwad2010review}\cite{togneri1990speech}
+
+\subsubsection{Dynamic Time Warping}
+
+Dynamic Time Warping (DTW) is an algorithm that compares words with pre-given reference words.
+ It measures the patterns between two sequences that will vary in time or speed.\cite{togneri1990speech}
+ To output speech, the algorithm tries to alter the time variable of the unknown speech until it matches on of the reference words.
+
+\subsubsection{Vector Quantization}
+
+Vector Quantization (VQ) is used to map vectors from a big vector space to a finite region in space. It needs compact code-blocks for reference models and codebook searcher in place of more costly evaluation methods. Each word receives a VQ codebook that is based on repeated sequences of the word. The test data is evaluated on all codebooks and the automated speech recogniser picks the codebook with the lowest distance measured.\cite[p.~20-21]{togneri1990speech}
+
 
 \section{Artificial Neural Networks}
 %---------------------------------------------------

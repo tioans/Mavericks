@@ -86,6 +86,22 @@ Considering that this recording has a minimum amount of noise,
 we have to consider the full range of the frequencies,
 from zero and up to 3500Hz.
 
+\subsubsection{ Mel Frequency Cepstrum Coefficients}
+
+Mel-frequency cepstral coefficients (MFCCs) are coefficients that collectively make up an MFC. 
+They are taken from a cepstral representation of the audio clip by finding the spectrum of the spectrum of the original audio file.
+ Compared to normal cepstrum, in MFC, the frequency bands are spaced at equal distances on the mel scale.
+ This mimics a humans response to sound better that a linearly represented frequency band.
+
+To obtain the coefficients the following steps have to be taken:
+\begin{itemize}
+	\item Take the Fourier transform of windowed signal.
+	\item Use triangular overlapping windows to map the powers of the spectrum
+	\item Take the logs of the powers at each of the mel frequencies.
+	\item Take the discrete cosine transform of the list of mel log powers
+	\item The MFCCs are the amplitudes of the resulting spectrum.
+
+\end{itemize}
 
 
 \subsubsection{ Spectrogram}
