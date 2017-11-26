@@ -65,7 +65,7 @@ such as gathering signals available on their inputs,
 assembling them according to their operational functions,
 and producing a response considering their innate activation functions \cite[p.~11]{Silva2016}. 
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 	\includegraphics[width=\textwidth]
 	{machine_learning/00_Artificial_Neuron}
@@ -118,7 +118,6 @@ LSTMs have a chain like structure of four layers, with repeating modules that in
 	\includegraphics[width=\textwidth]	
 	{machine_learning/01_Lstm_Diagram}
 	\caption{LSTM Diagram.}
-	\label{fig:LSTM1}
 \end{figure}
 
 \begin{figure}[H]
@@ -126,15 +125,12 @@ LSTMs have a chain like structure of four layers, with repeating modules that in
 	\includegraphics[width=\textwidth]		
 	{machine_learning/02_Lstm_Notation}
 	\caption{Diagram legend.}
-	\label{fig:LSTM2}
 \end{figure}
 
-From the legend above, the lines represent
-vectors that pass from the output of the
-previous note to the input of the current one.
-The dot denotes point wise operations, 
-and the rectangle represents trained network
-layers.
+From the legend above, the lines represent vectors that pass
+from the output of the previous note to the input of the 
+current one. The dot denotes point wise operations, 
+and the rectangle represents trained network layers.
 
 
 A side by side description of the each layer of a LSTM and it`s mathematical formulation can be seen below, where the dot represents matrix multiplication.
@@ -161,14 +157,14 @@ Where the current state ($C_t$) is determined by what we want to forget ($f$), m
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]		
-	{machine_learning/04_Update}
-	\begin{equation}
-		 f= \sigma*(X.W_u+b_u) 
-	\end{equation}	
-	\begin{equation}	 
-		 X`=tanh*(X.W_c+b_c)
-	 \end{equation}
+		\includegraphics[width=0.5\textwidth]		
+		{machine_learning/04_Update}
+		\begin{equation}
+		 	f= \sigma*(X.W_u+b_u) 
+		\end{equation}	
+		\begin{equation}	 
+			 X`=tanh*(X.W_c+b_c)
+	 	\end{equation}
 	\caption{Update gate with the current state description.}
 	\label{fig:Update}
 \end{figure}
@@ -199,6 +195,7 @@ For example, a .75 value in the dropout function means that only 75 percent of t
 At the test time all the neurons have to be present, meaning that a value of 1 has to be given to the dropout function to ensure a high accuracy rating.
 This helps the network understand the information it is given as it cannot presume that other neurons in the same layer have been activated and it prevents the network from just memorizing the values that were given as inputs.
 The snipped below shows how dropout is used in TensorFlow for a layer of a neural network, where pkeep is the percentage of the neurons that will remain active and the call for the dropout is made after the activation function, in this case the ReLU.
+
 \begin{lstlisting}
 pkeep = tf.palceholder(tf.float32)
 YF = tf.nn.relu(tf.matmul(X, W)+ b)
@@ -209,44 +206,58 @@ Y = tf.nn.dropout(Yf, pkeep)
 	\centering
 	\includegraphics[width=\textwidth]		
 	{machine_learning/06_Dropout}
-
 	\caption{Dropout used on a generic network.}
-	\label{fig:Result}
 \end{figure}
-
 
 %---------------------------------------------------
 \subsection{Batch normalisation}
 
 Statistics can be computed for each batch that is fed to the neural network so the average and the standard deviation can be computed. After computing them, subtracting the average and dividing by the standard deviation rescales and recentre the output. 
 In the equation, epsilon is added to avoid numerical problems as dividing by zero.
+
 \begin{equation}
-X= \dfrac{x - avg(x)}{stdev(x) + \epsilon} 
+	X= \dfrac{x - avg(x)}{stdev(x) + \epsilon} 
 \end{equation}
 
-The recentre and rescaling of the values can cause problems to the network for cases where data needs to be squeezed over to one side of the spectrum.
-To solve those cases, two degrees of freedom are added, $\alpha$ and $\beta$, for each neuron. 
-By assigning the $\alpha$ value to the $stdev(x)$ and the $\beta$ to $-avg(x)$ there will always be a case where the batch normalised value of x can be reverted to the original value.
-\begin{equation}
-BN(x) = \alpha * X + \beta
-\end{equation}
-Batch normalisation(BN) is added before the activation function because it takes use of the current weights and biases to compute the average and standard deviation. 
-The average and standard deviation is always computed on the current weights and biases so the batch normalisation layer is called between the weighted sum performed by the neurons and the activation function.
-Because of the new values added by BN, biases are no longer useful.
-The $\beta$ value can take the value of the bias if no better value was found.
-In contrast to the ReLU, when using a sigmoid, the scale parameter has to be used to make sure that the data fits in the useful part of the activation function. A representation of how to choose the right coefficients is given in Table \ref{tab:Parameters}.
+The recentre and rescaling of the values can cause problems to
+the network for cases where data needs to be squeezed over 
+to one side of the spectrum.
+To solve those cases, two degrees of freedom are added, 
+$\alpha$ and $\beta$, for each neuron. 
+By assigning the $\alpha$ value to the $stdev(x)$ and the
+$\beta$ to $-avg(x)$ there will always be a case where the batch
+normalised value of x can be reverted to the original value.
 
+\begin{equation}
+	BN(x) = \alpha * X + \beta
+\end{equation}
+
+Batch normalisation(BN) is added before the activation function
+because it takes use of the current weights and biases to
+compute the average and standard deviation. 
+The average and standard deviation is always computed on the
+current weights and biases so the batch normalisation layer is
+called between the weighted sum performed by the neurons and the
+activation function. Because of the new values added by BN,
+biases are no longer useful.
+The $\beta$ value can take the value of the bias if no better
+value was found.
+In contrast to the ReLU, when using a sigmoid,
+the scale parameter has to be used to make sure that
+the data fits in the useful part of the activation function.
+A representation of how to choose the right coefficients is
+given in Table \ref{tab:Parameters}.
 
 \begin{table}[htbp]
 \centering
-\begin{tabular}{lcc}
-\toprule
-  & ReLU & Sigmoid \\\midrule
-Without BN &b & b  \\
-With BN & $\beta$ & $\alpha$, $\beta$  \\
-\bottomrule
-\end{tabular}
-\caption{Parameters for different activation functions.}
+	\caption{Parameters for different activation functions.}
+	\begin{tabular}{l c c}
+	\toprule
+  		& ReLU & Sigmoid \\\midrule
+		Without BN &b & b  \\
+		With BN & $\beta$ & $\alpha$, $\beta$  \\
+	\bottomrule
+	\end{tabular}
 \label{tab:Parameters}
 \end{table}
 
@@ -328,9 +339,11 @@ Output:
 [3.0]
 \end{lstlisting}
 
-Other basic elements in tensorflow are placeholders(tf.placeholder), 
-they can be changed to accept external inputs and variables.
-Variables allow the system to change its outputs while keeping the seame inputs, this allows the model to be trainable. 
+Other basic elements in tensorflow are
+placeholders(tf.placeholder), they can be changed to accept 
+external inputs and variables. Variables allow the system to
+change its outputs while keeping the seame inputs,
+this allows the model to be trainable. 
 
 \subsection{tf.train API}
 The tf.train API holds optimizers that change each variable to minimize the loss function.
@@ -359,8 +372,7 @@ It helps the user with running training and evaluation loops, managing data sets
 Making the entire process of writing an algorithm and maintaining it be less tedious.
 Although the estimator library has a set of predefined models to make things easier, a custom model can be created while keeping the high
 level abstraction of the data set, training and feeding.
-A linear regression algorithm built with tf.estimator is included below
-to show how the library works \cite{Estimator}:
+A linear regression algorithm built with tf.estimator is included below to show how the library works \cite{Estimator}:
 
 \begin{adjustbox}{width=\textwidth}
 \begin{lstlisting}
@@ -425,7 +437,7 @@ This experiment consists of six test trials. For each test trail different param
 		Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
 		Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- \\ 
 	\hline
-		Batch Size (train, eval., test) & 
+		Batch Size & 
 		2 \hfill 2 \hfill 2 & 
 		20 \hfill 20 \hfill 20 & 
 		20 \hfill 20 \hfill 20 &
@@ -441,12 +453,17 @@ This experiment consists of six test trials. For each test trail different param
 	\hline
 	\end{tabular}
 \end{table}
+
+info: batch size: (train, evaluation, test)\\
 %-------------------------------------------------------
 
-The tests ran on a Bi-Directional Recurrent Neural Network model found on github ()
+The tests were ran on a Bi-Directional Recurrent Neural Network
+model found on the silicon valley data science GitHub repository
+. The software we’re using is a mix of borrowed and inspired code from existing open source projects. 
 
-\todo{continue}
+%\cite{rubashkin2017}
 
+\todo{figure out citing}
 
 \subsection{Batch Size Test}
 %-----------------------------------------------------
@@ -481,7 +498,6 @@ The tests ran on a Bi-Directional Recurrent Neural Network model found on github
 	\includegraphics[width=\textwidth]		
 	{machine_learning/graph_tests/batch_test/test_error_rate}
 	\caption{Test error rate.}
-	\label{fig:batch_test_error}
 \end{figure}
 	%results
 \begin{table}[H]
@@ -509,7 +525,6 @@ The tests ran on a Bi-Directional Recurrent Neural Network model found on github
 	\includegraphics[width=\textwidth]		
 	{machine_learning/graph_tests/batch_test/train_error_rate}
 	\caption{Training error rate.}
-	\label{fig:batch_val_error}
 \end{figure}
 	%results
 \begin{table}[H]
@@ -566,7 +581,6 @@ The tests ran on a Bi-Directional Recurrent Neural Network model found on github
 	\includegraphics[width=\textwidth]		
 	{machine_learning/graph_tests/dropout_test/test_error_rate}
 	\caption{Test error rate.}
-	\label{fig:batch_test_error}
 \end{figure}
 	%results
 \begin{table}[H]
@@ -594,7 +608,6 @@ The tests ran on a Bi-Directional Recurrent Neural Network model found on github
 	\includegraphics[width=\textwidth]		
 	{machine_learning/graph_tests/dropout_test/train_error_rate}
 	\caption{Training error rate.}
-	\label{fig:batch_val_error}
 \end{figure}
 	%results
 \begin{table}[H]
@@ -647,7 +660,6 @@ The tests ran on a Bi-Directional Recurrent Neural Network model found on github
 	\includegraphics[width=\textwidth]		
 	{machine_learning/graph_tests/learning_rate_test/test_error_rate}
 	\caption{Test error rate.}
-	\label{fig:batch_test_error}
 \end{figure}
 	%results
 \begin{table}[H]
@@ -672,7 +684,6 @@ The tests ran on a Bi-Directional Recurrent Neural Network model found on github
 	\includegraphics[width=\textwidth]		
 	{machine_learning/graph_tests/learning_rate_test/train_error_rate}
 	\caption{Training error rate.}
-	\label{fig:batch_val_error}
 \end{figure}
 	%results
 \begin{table}[H]
