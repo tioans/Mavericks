@@ -75,8 +75,9 @@ and producing a response considering their innate activation functions \cite[p.~
 
 Each neuron from a network can be implemented as shown in Fig.
 \ref{fig:AN}. The multiple input signals coming from the external environment are represented by the set
-$\left\{i_1,i_2,i_3,...,i_n \right\}$, analogous to the external electrical impulses gathered by the dendrites in the biological neuron.
-\todo{re-write}
+$\left\{i_1,i_2,i_3,...,i_n \right\}$, representative of the electrical
+signals received by the dendrites.
+
 Those inputs are then multiplied with a weight vector, seen as:
  $\left\{w_1,w_2,w_3,...,w_n \right\}$. This is how each input gains a 
  different relevance that will affect the output of the neuron.
@@ -214,7 +215,7 @@ Y = tf.nn.dropout(Yf, pkeep)
 	\centering
 	\includegraphics[width=\textwidth]		
 	{machine_learning/06_Dropout}
-	\caption{A $0.5$ dropout rate on a four layer network.}
+	\caption{A $0.4$ dropout rate on a four layer network.}
 \end{figure}
 
 %---------------------------------------------------
@@ -304,7 +305,7 @@ Here are some examples of tensors:
 \end{lstlisting} 
 \end{adjustbox}
 
-\todo{I dont think the color option works well with the lstlisting}
+
 
 \subsection{TensorFlow Core}
 Getting Started With TensorFlow is done by using the import statement. 
@@ -471,7 +472,6 @@ model found on the silicon valley data science GitHub repository
 
 %\cite{rubashkin2017}
 
-\todo{figure out citing}
 
 \subsection{Batch Size Test}
 %-----------------------------------------------------
