@@ -43,7 +43,7 @@ interlinked by a lot of interconnections
 (artificial synapses) \cite[p.~5]{Silva2016}.\\\\
 The human brain learns from its experiences, creating new neural pathways. These interconnected chains of neurons are stronger than others and can be modulated, or changed,
 following learning or during behavioural modifications.
-The strongness of a neural connection is given by a weighted value, called synaptic weights.
+The power of a neural connection is given by a weighted value, called synaptic weights.
 
 \subsection{Artificial Neuron}
 The Artificial neuron is the processing unit of an artificial neural network, which is a simplified model of the biological neuron.
@@ -57,7 +57,7 @@ which are typically comprised of four parts:
 	\item Axon: Turn the processed inputs into outputs
 	\item Synapses: The electrochemical connections between neurons 
 \end{enumerate}
-The following figure illustrates the four main functions of a biological neuron, represented on the artificial one. 
+Figure \ref{fig:AN} illustrates the four main functions of a biological neuron, represented on the artificial one. 
 
 The artificial neurons used in artificial neural networks are non-linear, usually providing continuous outputs,
 and performing simple functions,
@@ -75,8 +75,16 @@ and producing a response considering their innate activation functions \cite[p.~
 
 Each neuron from a network can be implemented as shown in Fig.
 \ref{fig:AN}. The multiple input signals coming from the external environment are represented by the set
-$\left\{i1,i2,i3,...,in \right\}$, analogous to the external electrical impulses gathered by the dendrites in the biological neuron.
+$\left\{i_1,i_2,i_3,...,i_n \right\}$, analogous to the external electrical impulses gathered by the dendrites in the biological neuron.
 \todo{re-write}
+Those inputs are then multiplied with a weight vector, seen as:
+ $\left\{w_1,w_2,w_3,...,w_n \right\}$. This is how each input gains a 
+ different relevance that will affect the output of the neuron.
+ From x, it can be seen that the neuron computes a weighted sum of all
+ its weights and biases, which then are passed onto the activation 
+ function to be mapped. This process is repeated for each neuron found 
+ in any layer of a neural network.
+
 
 %---------------------------------------------------
 
