@@ -11,7 +11,11 @@ The final set is made of 30 GB of "other" speech, representing approx. 500 hours
 The corpus also contains smaller sets for validation and testing.\\
 
 \subsubsection{Data processing}
-As presented above, the OpenSLR corpus provides many features for training neural networks. It is especially efficient for speech recognition systems. However, the current implementation was designed to use .wav files as input
+As presented above, the OpenSLR corpus provides many features for training neural networks. It is especially efficient for speech recognition systems. However, the current implementation was designed to use pairs of .wav files and .txt files as input. Each .wav file represents the audio information that is encoded into the corresponding .txt file, more specifically short paragraphs.\\
+
+Unfortunately, this data set is prepared in a different format. There is a single .txt file that corresponds to many .wav files and these are organized in bigger sets. Because of this, the data in its original form is not usable for the current neural network. To prepare the data, certain scripts were implemented in Python.\\
+The first algorithm is designed to navigate a folder path and its sub-folders to convert all .flac files to .wav. It uses the os and pydub libraries.  \\
+The second 
 
 
 
