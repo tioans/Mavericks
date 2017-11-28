@@ -493,13 +493,15 @@ results in appendix \ref{ch:appAlabel} with slightly scaled up
 graphs for a more detailed analysis. Here the goal is to
 visualize and compare the different graph curves and final
 results shown in the respective tables.
+For consistency all the tests ran for 25 Epochs. 
 
 \subsection{Batch Size Test}
 %-----------------------------------------------------
-From Table \ref{tab:six_tests_tab}, three tests of been picked as showen in Table \ref{tab:batch_tests_tab}.
+In this subsection three test from Table \ref{tab:six_tests_tab}  
+will be used for the batch size test as shown in Table \ref{tab:batch_tests_tab}. For each trial test only the batch size parameter as been changed.
 
+	%Batch Size Test table
 	%-------------------------------------------------
-	%Batch Size Test
 \begin{table}[H]
 \centering
 	\caption{Three tests with different batch size values.}
@@ -525,18 +527,24 @@ From Table \ref{tab:six_tests_tab}, three tests of been picked as showen in Tabl
 	\label{tab:batch_tests_tab}
 \end{table}
 	%-------------------------------------------------
-	
-	
-	
-	%test error rate
+
+Figure \ref{fig:batch_test_error_fig} and Table \ref{tab:batch_test_error_tab} represent the graphical and the 
+
+	\ref{fig:batch_test_error_fig}
+	\ref{tab:batch_test_error_tab}
+
+	%Batch Size Test error rate graph
 	%-------------------------------------------------
 \begin{figure}[H]
+	%-------------------------------------------------
 	\centering
 	\includegraphics[width=\textwidth]		
 	{machine_learning/graph_tests/batch_test/test_error_rate}
 	\caption{Test error rate.}
+	\label{fig:batch_test_error_fig}
 \end{figure}
-	%results
+	%Batch Size Test error rate table
+	%-------------------------------------------------
 \begin{table}[H]
 \centering
 	\caption{Test error rate results.}
@@ -554,19 +562,25 @@ From Table \ref{tab:six_tests_tab}, three tests of been picked as showen in Tabl
 		0.000 & 25.00 & 0s\\
 	\hline
 	\end{tabular}
+	\label{tab:batch_test_error_tab}
 \end{table}
 	%-------------------------------------------------
 	
+	\ref{fig:batch_train_error_fig}
+	\ref{tab:batch_train_error_tab}
 	
-	%training error rate
+	%Batch Size training error rate graph
 	%-------------------------------------------------
 \begin{figure}[H]
+	%-------------------------------------------------
 	\centering
 	\includegraphics[width=\textwidth]		
 	{machine_learning/graph_tests/batch_test/train_error_rate}
 	\caption{Training error rate.}
+	\label{fig:batch_train_error_fig}
 \end{figure}
-	%results
+	%Batch Size training error rate table
+	%-------------------------------------------------
 \begin{table}[H]
 \centering
 	\caption{Training error rate results.}
@@ -584,15 +598,20 @@ From Table \ref{tab:six_tests_tab}, three tests of been picked as showen in Tabl
 		5.1858e-4 & 24.00 & 14m 50s\\
 	\hline
 	\end{tabular}
+	\label{tab:batch_train_error_tab}
 \end{table}	
-	%-------------------------------------------------
+	%-------------------------------------------------	
+	
 	
 	
 %-----------------------------------------------------
 
 \subsection{Dropout Test}
-%-----------------------------------------------------
-%Dropout Test
+
+	\ref{tab:drop_tests_tab}
+
+	%Dropout Test table
+	%-------------------------------------------------
 \begin{table}[H]
 \centering
 	\caption{Three tests with different dropout values.}
@@ -615,16 +634,25 @@ From Table \ref{tab:six_tests_tab}, three tests of been picked as showen in Tabl
 		0.001 & 0.001 & 0.001 \\ 
 	\hline
 	\end{tabular}
+	\label{tab:drop_tests_tab}
 \end{table}
 	%-------------------------------------------------
-	%test error rate
+	
+	\ref{fig:drop_test_error_fig}
+	\ref{tab:drop_test_error_tab}
+	
+	%Dropout Test error rate graph
+	%-------------------------------------------------
 \begin{figure}[H]
+	%-------------------------------------------------
 	\centering
 	\includegraphics[width=\textwidth]		
 	{machine_learning/graph_tests/dropout_test/test_error_rate}
 	\caption{Test error rate.}
+	\label{fig:drop_test_error_fig}
 \end{figure}
-	%results
+	%Dropout Test error rate table
+	%-------------------------------------------------	
 \begin{table}[H]
 \centering
 	\caption{Test error rate results.}
@@ -642,16 +670,24 @@ From Table \ref{tab:six_tests_tab}, three tests of been picked as showen in Tabl
 		0.020 & 25.00 & 0s\\
 	\hline
 	\end{tabular}
+	\label{tab:drop_test_error_tab}
 \end{table}		
 	%-------------------------------------------------
-	%training error rate
+
+	\ref{fig:drop_train_error_fig}
+	\ref{tab:drop_train_error_tab}	
+	
+	%Dropout Training error rate graph
 \begin{figure}[H]
+	%-------------------------------------------------
 	\centering
 	\includegraphics[width=\textwidth]		
 	{machine_learning/graph_tests/dropout_test/train_error_rate}
 	\caption{Training error rate.}
+	\label{fig:drop_train_error_fig}
 \end{figure}
-	%results
+	%Dropout Training error rate table
+	%-------------------------------------------------
 \begin{table}[H]
 \centering
 	\caption{Training error rate results.}
@@ -669,13 +705,20 @@ From Table \ref{tab:six_tests_tab}, three tests of been picked as showen in Tabl
 		6.3331e-3 & 24.00 & 18m 10s\\
 	\hline
 	\end{tabular}
+	\label{tab:drop_train_error_tab}
 \end{table}		
 	%-------------------------------------------------
+	
+	
 %-----------------------------------------------------
 
 \subsection{Learning Rate Test}
-%-----------------------------------------------------
-%Learning Rate Test
+
+
+	\ref{tab:learning_tests_tab}
+
+	%Learning Test table
+	%-------------------------------------------------
 \begin{table}[H]
 \centering
 	\caption{Two tests with different learning rate values.}
@@ -694,16 +737,25 @@ From Table \ref{tab:six_tests_tab}, three tests of been picked as showen in Tabl
 		Learning Rate & 0.001 & 0.010 \\ 
 	\hline
 	\end{tabular}
+	\label{tab:learning_tests_tab}
 \end{table}
 	%-------------------------------------------------
-	%test error rate
+	
+	\ref{fig:learning_test_error_fig}
+	\ref{tab:learning_test_error_tab}
+	
+	%Learning Test error rate graph
+	%-------------------------------------------------
 \begin{figure}[H]
+	%-------------------------------------------------
 	\centering
 	\includegraphics[width=\textwidth]		
 	{machine_learning/graph_tests/learning_rate_test/test_error_rate}
 	\caption{Test error rate.}
+	\label{fig:learning_test_error_fig}
 \end{figure}
-	%results
+	%Learning Test error rate table
+	%-------------------------------------------------
 \begin{table}[H]
 \centering
 	\caption{Test error rate results.}
@@ -718,16 +770,25 @@ From Table \ref{tab:six_tests_tab}, three tests of been picked as showen in Tabl
 		0.8992 & 25.00 & 0s\\
 	\hline
 	\end{tabular}
+	\label{tab:learning_test_error_tab}
 \end{table}		
 	%-------------------------------------------------
-	%training error rate
+	
+	\ref{fig:learning_train_error_fig}
+	\ref{tab:learning_train_error_tab}
+	
+	%Learning Training error rate graph
+	%-------------------------------------------------
 \begin{figure}[H]
+	%-------------------------------------------------
 	\centering
 	\includegraphics[width=\textwidth]		
 	{machine_learning/graph_tests/learning_rate_test/train_error_rate}
 	\caption{Training error rate.}
+	\label{fig:learning_train_error_fig}
 \end{figure}
-	%results
+	%Learning Training error rate table
+	%-------------------------------------------------
 \begin{table}[H]
 \centering
 	\caption{Training error rate results.}
@@ -742,7 +803,11 @@ From Table \ref{tab:six_tests_tab}, three tests of been picked as showen in Tabl
 		0.9188 & 24.00 & 12m 29s\\
 	\hline
 	\end{tabular}
+	\label{tab:learning_train_error_tab}
 \end{table}		
 	%-------------------------------------------------
+	
+	
+	
+	
 %---------------------------------------------------
-
