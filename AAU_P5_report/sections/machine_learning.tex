@@ -75,16 +75,13 @@ and producing a response considering their innate activation functions \cite[p.~
 
 Each neuron from a network can be implemented as shown in Fig.
 \ref{fig:AN}. The multiple input signals coming from the external environment are represented by the set
-$\left\{i_1,i_2,i_3,...,i_n \right\}$, representative of the electrical
-signals received by the dendrites.
-
+$\left\{i_1,i_2,i_3,...,i_n \right\}$, representative of the electrical signals received by the dendrites.\\\\
 Those inputs are then multiplied with a weight vector, seen as:
- $\left\{w_1,w_2,w_3,...,w_n \right\}$. This is how each input gains a 
- different relevance that will affect the output of the neuron.
- From x, it can be seen that the neuron computes a weighted sum of all
- its weights and biases, which then are passed onto the activation 
- function to be mapped. This process is repeated for each neuron found 
- in any layer of a neural network.
+$\left\{w_1,w_2,w_3,...,w_n \right\}$. 
+This is how each input gains a different relevance that will affect the output of the neuron.
+From $x$, it can be seen that the neuron computes a weighted sum 	of all its weights and biases, which then are passed onto the activation function to be mapped, analagous to the biological
+basic function of the Soma and Axon respectively.
+This process is repeated for each neuron found in any layer of a neural network.
 
 
 %---------------------------------------------------
@@ -207,7 +204,7 @@ At the test time all the neurons have to be present, meaning that a value of 1 h
 This helps the network understand the information it is given as it cannot presume that other neurons in the same layer have been activated and it prevents the network from just memorizing the values that were given as inputs.
 The snipped below shows how dropout is used in TensorFlow for a layer of a neural network, where pkeep is the percentage of the neurons that will remain active and the call for the dropout is made after the activation function, in this case the ReLU.
 
-\begin{lstlisting}[language=Python]
+\begin{lstlisting}[language=Python, caption=Dropout for single network layer.]
 pkeep = tf.palceholder(tf.float32)
 YF = tf.nn.relu(tf.matmul(X, W)+ b)
 Y = tf.nn.dropout(Yf, pkeep)
@@ -363,11 +360,13 @@ but in the beginning to reduce time and processing power a bigger step could be 
 One solution to this problem is to use a variable step input that changes as the gradients are determined.
 TensorFlow can automatically produce derivatives given only a description of the model using the function tf.gradients.
 For simplicity, optimizers typically do this for us.
+
 \begin{lstlisting}[language=Python, caption=The gradient descent optimizer.]
 optimizer = tf.train.GradientDescentOptimizer(0.01)
 train = optimizer.minimize(loss)
 sess.run(train)
 \end{lstlisting}
+
 The gradient descent optimizer takes an input, defined at 0.01 in the example above,
 that represents the step input or the rate of change for the gradients.
 
@@ -425,9 +424,10 @@ print("eval metrics: %r"% eval_metrics)
 
 \section{Batch Size, Dropout and Learning Rate Comparison}
 In order to gain a better understanding on how the different parameter values(batch size, dropout and learning rate) may effect the performance(training duration and test accuracy) of a neural network model, a small experiment was conducted.\\\\
-This experiment consists of six test trials. For each test trial different parameter values were chosen, as shown in the table below.
+This experiment consists of six test trials. For each test trial different parameter values were chosen, as shown in table \ref{tab:six_tests_tab}.
+
 %-------------------------------------------------------
-%Table of Tests
+%Table with the six Tests
 \begin{table}[H]
 \centering
 	\caption{Six tests with different Parameter values.}
@@ -456,20 +456,36 @@ This experiment consists of six test trials. For each test trial different param
 		0.001 & 0.001 & 0.001 & 0.001 & 0.001 & 0.010 \\
 	\hline
 	\end{tabular}
-	
+	\label{tab:six_tests_tab}
 	%adding notes
 	\raggedright{Batch Size: (train data, evaluation data, test data)} 
 
 \end{table}
 %-------------------------------------------------------
 
-Note that the batch size is represented by the training, evaluation and testing data and will be represented this way for all the following tables.\\\\
-The tests were ran on a model designed by the Silicon Valley Data Science company, which is based on the TensorFlow implementation of Baidu's DeepSpeech architecture on the Mozillas DeepSpeech repository. The github repositories (silicon-valley-data-science and mozilla) can be found respectively in the following citations: \cite{rubashkin2017, mozilla2017}. The model consists of a Bi-Directional Recurrent Neural Network with three fully connected layers before it and a fully connected layer with an activation layer after it.
+Note that the batch size is represented by the training, evaluation and testing data and will be represented this way
+for all the following tables.\\\\
+The tests were ran on a model designed by the Silicon Valley
+Data Science company, which is based on the TensorFlow
+implementation of Baidu's DeepSpeech architecture on
+the Mozillas DeepSpeech repository.
+The github repositories (silicon-valley-data-science and mozilla)
+can be found respectively in the following citations:
+\cite{rubashkin2017, mozilla2017}.
+The model consists of a Bi-Directional Recurrent Neural Network
+with three fully connected layers before it and a fully connected
+layer with an activation layer after it.\\
 
+The data used on the model refered above was a small set for wav files consisting of recorded audio of the numbers:
+$\left\{zero, one, two, three, four, five, six, seven, eight, nine \right\}$, and their respective lables in txt format.
 
 \subsection{Batch Size Test}
 %-----------------------------------------------------
-%Batch Size Test
+
+
+
+	%-------------------------------------------------
+	%Batch Size Test
 \begin{table}[H]
 \centering
 	\caption{Three tests with different batch size values.}
@@ -492,9 +508,14 @@ The tests were ran on a model designed by the Silicon Valley Data Science compan
 		0.001 & 0.001 & 0.001 \\ 
 	\hline
 	\end{tabular}
+	\label{tab:batch_tests_tab}
 \end{table}
 	%-------------------------------------------------
+	
+	
+	
 	%test error rate
+	%-------------------------------------------------
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]		
@@ -521,7 +542,10 @@ The tests were ran on a model designed by the Silicon Valley Data Science compan
 	\end{tabular}
 \end{table}
 	%-------------------------------------------------
+	
+	
 	%training error rate
+	%-------------------------------------------------
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]		
@@ -548,6 +572,8 @@ The tests were ran on a model designed by the Silicon Valley Data Science compan
 	\end{tabular}
 \end{table}	
 	%-------------------------------------------------
+	
+	
 %-----------------------------------------------------
 
 \subsection{Dropout Test}
