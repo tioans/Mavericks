@@ -3,14 +3,13 @@
 %---------------------------------------------------------
 \section{Problem Description}
 
-As mentioned above, the final goal for this project is to develope a distributed
-speech recognition(DSR) system.
-In order to achieve this goal we need to gain a fundamental understanding in the field of machine learning and networks.
+As mentioned above, the final goal for this project is to develop a distributed speech recognition (DSR) system.
+In order to achieve this goal we need to gain a fundamental understanding in the field of machine learning and computer networks.
 
 %---------------------------------------------------------
 \section{Tools}
-The following information is a selection of the relevant hardware, software tools used to implement the GPU accelerated training:
-
+The following information is a selection of the relevant hardware and software tools used to implement the Graphics Processing Unit (GPU) accelerated training:
+\todo{detailed description, gpu stuff}
 \subsubsection{Software Tools}
 \begin{itemize}
 	\item TensorFlow 1.3.0
@@ -24,11 +23,13 @@ The following information is a selection of the relevant hardware, software tool
 
 \subsubsection{Hardware Tools}
 \begin{itemize}
-	\item Computer
+	\item Intel Computer
 	\item Nvidia Geforce GTX 1070 
 \end{itemize}
 
-\todo{organize better}
+\subsubsection{Setup}
+
+\todo{organize better,}
 
 
 
@@ -39,37 +40,29 @@ specific success criteria are formed which will be
 evaluated during the final stages of the report.
 The following list of requirements are the desired
 success criteria, where the focus will be on reaching
-the given goals.
+the given goals:
 
 \begin{itemize}
 	\item Data mining
 	\item Choose a filter
 	\item Design a deep neural network model
-	\item Create a Client/Server frame-work
-	%\item Create command prompt layout
-	\item Implement and test the model on frame-work
+	\item Train for the English language
+	\item Create a Client/Server framework
+	\item Implement the distributed model
 \end{itemize}
 
-The best way to increase the performance of our project is to find and used as large of data sets as possible. As open-source, compatible, training sets are hard to come by we will create a data mining algorithm
-that will allow us to convert data sets to fit the needs of our project.
+A key component of neural networks is data. To increase their performance, using a large data set is necessary. As open-source, compatible, training data sets are hard to come by, data mining algorithms are created. This will allow the available data to fit the needs of the developed model.\\
 
-Any real life sequence of recorded speech has some amount of noise in 
-it. This makes it harder for the network to understand the words that
-were spoken and can lead to error that alter the word beyond 
-recognition. To ameliorate this problem, a filter that mimics the human
-ear is the best fit for such a project.
+Any real life sequence of recorded speech has some amount of noise, making it harder for the neural network to understand spoken words.
+This can lead to errors that alter the word beyond recognition. 
+To ameliorate this problem, a filter that mimics the human
+ear is the best fit for such a project.\\
 
 Along the report, a historical analysis of different knowledge
-based solutions to the recognition of human speech is made.  By studying
-the existing literature and comparing open-source projects, a neural 
-network can be built, with the scope of reducing the error rate as much
-as possible.
+based solutions to the recognition of human speech is made.
+By studying the existing literature and comparing open-source projects, a neural network can be built, with the scope of reducing the error rate and training time as much
+as possible.\\
 
-A Client/Server frame-work allows for the heavy computing to be done
-remotely, by the server. This allows the any user to send the 
-information to a remote location and await a reply, cutting down time
-and making it possible for multiple interactions.
-
-\todo{I dont know the frame-work of the client server yet, left it open for now}
-
+A Client/Server setup allows for running different parts of the DSR system, on multiple, internet connected machines. This allows for the more demanding tasks to be processed remotely, minimizing the impact for the end-user.
+\todo{Write about the final bullet point}
 %---------------------------------------------------------

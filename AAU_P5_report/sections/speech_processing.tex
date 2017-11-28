@@ -1,14 +1,15 @@
 \chapter{Speech Processing}\label{ch:speech_processing}
-
 Speech is an effortless and highly efficient form of communication.
 Continuous speech recognition software is readily available from stores and it allows the user to interact with its surrounding without the need of written commands
 \cite[p.~396]{callan2003artificial}. Amazon`s Alexa 
 \cite{Alexa} and Microsoft`s Cortana 
 \cite{Cortana} are perfect examples of home companions that are able to perform basic tasks received via voice commands.
-As speech recognition increases in accuracy to the high nineties, reaching a performance of 99\% means that this technology will make the leap from being annoying to use to becoming the main way we interact with computers. 
+As speech recognition increases in accuracy to the high nineties, reaching a performance of 99\%, \todo{find reference for 99} means that this technology will make the leap from being annoying to use, to becoming the main way we interact with computers. 
 This idea is further backed up by the fact that people tend to speak much faster than they are able to type \cite{Speed}.
-In some cases, speech can be three times faster in conveying information than typing and for professional debaters,
+In some cases, speech can be three times faster in conveying information than typing, and for professional debaters,
 speaking can be even six times faster. \\
+
+\todo{We look over until here...}
 
 Words are carried as sound waves, which are analog signals.
 In order for the speech to be processed,
@@ -65,14 +66,11 @@ These steps are expanded upon in the following subsections.
 
 No matter how powerful and how advanced a computer is,
 it still works in discrete time.
-In order to represent an analogue signal on the computer we have to sample it according to the Nyquist–Shannon sampling theorem,
-which states that the sampling frequency has to be at least double the frequency of the original signal in order to replicate the original signal without aliasing.
+In order to represent an analogue signal on the computer, it has to be sampled according to the Nyquist–Shannon sampling theorem.
+This theorem states that the sampling frequency has to be at least double the frequency of the original signal in order to replicate the original signal without aliasing.
 For a better understanding of the process, a visual representation of the word "Hello" as it is formed for the input of the neural network is shown in Figure\ref{fig:prob1_6_2} where it is sampled at 8000 Hz.
 
-
-
 \subsubsection{ Fourier transform}
-
 
 To analyse a discrete signal we use the Fourier transform. 
 This allows us to convert the signal in the frequency domain and deconstruct it in a series of simple sine waves. 
@@ -86,7 +84,7 @@ Considering that this recording has a minimum amount of noise,
 we have to consider the full range of the frequencies,
 from zero and up to 3500Hz.
 
-\subsubsection{ Mel Frequency Cepstrum Coefficients}
+\subsubsection{Mel Frequency Cepstrum Coefficients}
 
 Mel-frequency cepstral coefficients (MFCCs) are coefficients that collectively make up an MFC. 
 They are taken from a cepstral representation of the audio clip by finding the spectrum of the spectrum of the original audio file.
@@ -94,15 +92,14 @@ They are taken from a cepstral representation of the audio clip by finding the s
  This mimics a humans response to sound better that a linearly represented frequency band.
 
 To obtain the coefficients the following steps have to be taken:
+
 \begin{itemize}
 	\item Take the Fourier transform of windowed signal.
 	\item Use triangular overlapping windows to map the powers of the spectrum
 	\item Take the logs of the powers at each of the mel frequencies.
 	\item Take the discrete cosine transform of the list of mel log powers
 	\item The MFCCs are the amplitudes of the resulting spectrum.
-
 \end{itemize}
-
 
 \subsubsection{ Spectrogram}
 
