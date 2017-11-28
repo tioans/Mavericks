@@ -476,13 +476,27 @@ The model consists of a Bi-Directional Recurrent Neural Network
 with three fully connected layers before it and a fully connected
 layer with an activation layer after it.\\
 
-The data used on the model refered above was a small set for wav files consisting of recorded audio of the numbers:
+The data used on the model refered above was a small set of wav files consisting of recorded audio of the numbers:
 $\left\{zero, one, two, three, four, five, six, seven, eight, nine \right\}$, and their respective lables in txt format.
+The data is separated into folders:
+
+\begin{itemize}
+	\item Train: train-clean-100-wav
+	\item Test: test-clean-wav
+	\item Dev: dev-clean-wav
+\end{itemize}
+
+In this section the train and test results given in graphs/tables
+form will be refered. However, for the interested
+reader, we have included all three train, test and evaluation
+results in appendix \ref{ch:appAlabel} with slightly scaled up
+graphs for a more detailed analysis. Here the goal is to
+visualize and compare the different graph curves and final
+results shown in the respective tables.
 
 \subsection{Batch Size Test}
 %-----------------------------------------------------
-
-
+From Table \ref{tab:six_tests_tab}, three tests of been picked as showen in Table \ref{tab:batch_tests_tab}.
 
 	%-------------------------------------------------
 	%Batch Size Test
