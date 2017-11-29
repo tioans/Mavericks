@@ -148,13 +148,15 @@ The first layer represents the forget gate. This is where we decide which inform
 	\centering
 	\includegraphics[width=0.5\textwidth]		
 	{machine_learning/03_RForget}
-	\begin{equation}
-		 f= \sigma*(X.W_f+b_f) 
-	\end{equation}	
+	
 	\caption{Forget Gate for concatenated inputs.}
 	\label{fig:Forget}
 \end{figure}
 
+\begin{equation}
+		 f= \sigma*(X.W_f+b_f) 
+\end{equation}	
+	
 Similar to the forget gate, the LSTM structure also uses an update gate, to add new information to the system.
 As seen in Figure \ref{fig:Update}, the update gate generates the new values that will be used. This takes place by multiplying the update gate to the input layer, represented by X` where a  hyperbolic tangent is used as the activation function. This is given as an example, as the Rectified Linear Unit(ReLU) or the softmax activation work perfectly fine as well.  
 From the above mentioned gates a new internal state C can be computed as:
@@ -167,26 +169,29 @@ Where the current state ($C_t$) is determined by what we want to forget ($f$), m
 	\centering
 		\includegraphics[width=0.5\textwidth]		
 		{machine_learning/04_Update}
+	\caption{Update gate with the current state description.}
+	\label{fig:Update}
+\end{figure}
+
 		\begin{equation}
-		 	f= \sigma*(X.W_u+b_u) 
+		 	U= \sigma*(X.W_u+b_u) 
 		\end{equation}	
 		\begin{equation}	 
 			 X`=tanh*(X.W_c+b_c)
 	 	\end{equation}
-	\caption{Update gate with the current state description.}
-	\label{fig:Update}
-\end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]		
 	{machine_learning/05_Result}
-	\begin{equation}
-		 r= \sigma*(X.W_r+b_r) 
-	\end{equation}	
+
 	\caption{Result gate added to the output function.}
 	\label{fig:Result}
 \end{figure}
+
+	\begin{equation}
+		 r= \sigma*(X.W_r+b_r) 
+	\end{equation}	
 
 The third and last gate is the result gate ($r$), which uses the previous internal state of the LSTM to generate a new internal state.
 As such, the output of the neural network can be written as:
