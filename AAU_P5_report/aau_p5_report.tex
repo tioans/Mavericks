@@ -9,7 +9,7 @@
 	%frontmatter
 	\pagestyle{empty} %disable headers and footers
 	\pagenumbering{roman} %use roman page numbering in the frontmatter
-	
+			
 	\input{sections/frontpage.tex}
 	\input{sections/colophon.tex}
 	\input{sections/titlepages.tex}
@@ -19,11 +19,14 @@
 	\tableofcontents
 	\listoftodos
 	
-	\input{sections/preface.tex}
+	\input{sections/preface.tex}	
+	\input{sections/acronyms.tex}
+			
 	\cleardoublepage
 	%mainmatter
 	\pagenumbering{arabic} %use arabic page numbering in the mainmatter
-	%---------------------------------------------------------%
+
+		%---------------------------------------------------------%
 	\input{sections/introduction.tex}
 	
 	\input{sections/problem_description.tex}
@@ -45,12 +48,15 @@
 	\printbibliography[heading=bibintoc]
 	\label{bib:mybiblio}
 	
+	%gets rid of blank pages bellow
+	\let\cleardoublepage\clearpage
+	
 	\appendix
 	\renewcommand\chaptername{Appendix}
 	\input{sections/appendixA.tex}
 	\input{sections/appendixB.tex}
 	\input{sections/appendixC.tex}
 	\input{sections/appendixD.tex}
-	
+		
 \end{document}
 %--------------------------------------------------------------%

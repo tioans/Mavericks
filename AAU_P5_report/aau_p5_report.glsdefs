@@ -1,0 +1,30 @@
+\ifglsentryexists{tf}{}%
+{%
+\gls@defglossaryentry{tf}%
+{%
+name={TF},%
+sort={TF},%
+type={acronym},%
+first={TensorFlow\glsspace (TF)},%
+firstplural={TensorFlows\glsspace (TFs)},%
+text={TF},%
+plural={TFs},%
+description={TensorFlow},%
+descriptionplural={TensorFlow\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={TensorFlow},%
+longplural={TensorFlows},%
+short={TF},%
+shortplural={TFs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
