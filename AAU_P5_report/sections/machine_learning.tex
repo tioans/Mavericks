@@ -532,7 +532,7 @@ The following graph (Fig. \ref{fig:batch_test_error_fig}) and
 table (Tab. \ref{tab:batch_test_error_tab}) represent the error
 rate for the test data set (the one that is used to test the
 models accuracy after trainig). The results show that Test1 has
-$\sim 0.1308\%$ word error rate (WER) while Test2 and Test3 is
+$\sim 13\%$ word error rate (WER) while Test2 and Test3 is
 $\sim 0\%$ WER.
 
 	%Batch Size Test error rate graph
@@ -571,7 +571,9 @@ $\sim 0\%$ WER.
 The following graph (Fig. \ref{fig:batch_train_error_fig}) and
 table (Tab. \ref{tab:batch_train_error_tab}) represent the error
 rate for the train data set (the one that is used to train the
-model). The results show that Test1 took a duration of $\sim 1h 26m 13s$ for the trainig while Test2 and Test3 is $\sim 18m 50s$ and $\sim 14m 50s$ respectively.
+model). The results show that Test1 took a duration of 
+$\sim 1h 26m 13s$ for the trainig while Test2 and Test3 is 
+$\sim 18m 50s$ and $\sim 14m 50s$ respectively.
 		
 	%Batch Size training error rate graph
 	%-------------------------------------------------
@@ -612,7 +614,9 @@ The final results show that Test1 with the smaller batch size took significantly
 
 \subsection{Dropout Test}
 
-	\ref{tab:drop_tests_tab}
+In this subsection three test from Table \ref{tab:six_tests_tab}  
+will be used for the batch size test as shown in Table \ref{tab:drop_tests_tab}. For each trial test only the dropout
+parameter as been changed.
 
 	%Dropout Test table
 	%-------------------------------------------------
@@ -642,8 +646,11 @@ The final results show that Test1 with the smaller batch size took significantly
 \end{table}
 	%-------------------------------------------------
 	
-	\ref{fig:drop_test_error_fig}
-	\ref{tab:drop_test_error_tab}
+The following graph (Fig. \ref{fig:drop_test_error_fig}) and
+table (Tab. \ref{tab:drop_test_error_tab}) represent the error
+rate for the test data set. The results show that Test2 has
+$\sim 0\%$ word error rate (WER) while Test3 and Test4 is
+$\sim 3\%$ and $\sim 2\%$ WER respectively.
 	
 	%Dropout Test error rate graph
 	%-------------------------------------------------
@@ -677,10 +684,12 @@ The final results show that Test1 with the smaller batch size took significantly
 	\label{tab:drop_test_error_tab}
 \end{table}		
 	%-------------------------------------------------
-
-	\ref{fig:drop_train_error_fig}
-	\ref{tab:drop_train_error_tab}	
 	
+The following graph (Fig. \ref{fig:drop_train_error_fig}) and
+table (Tab. \ref{tab:drop_train_error_tab}) represent the error
+rate for the train data set. The results show that Test2 took a duration of $\sim 18m 50s$ while Test2 and Test3 took 
+$\sim 18m 5s$ and $\sim 18m 10s$ respectively.
+
 	%Dropout Training error rate graph
 \begin{figure}[H]
 	%-------------------------------------------------
@@ -713,13 +722,16 @@ The final results show that Test1 with the smaller batch size took significantly
 \end{table}		
 	%-------------------------------------------------
 	
+The final results show that Test3 with no dropout and Test4 with a hight droupout of $50\%$ had a slightly faster triainig time, However, the test error rate were slightly worse than Test2 with a dropout of $5\%$. Overall all three tests performed very well.
 	
 %-----------------------------------------------------
 
 \subsection{Learning Rate Test}
 
-
-	\ref{tab:learning_tests_tab}
+In this subsection two test from Table \ref{tab:six_tests_tab}  
+will be used for the batch size test as shown in Table
+\ref{tab:learning_tests_tab}. For each trial test only the
+learning rate parameter as been changed.
 
 	%Learning Test table
 	%-------------------------------------------------
@@ -744,9 +756,10 @@ The final results show that Test1 with the smaller batch size took significantly
 	\label{tab:learning_tests_tab}
 \end{table}
 	%-------------------------------------------------
-	
-	\ref{fig:learning_test_error_fig}
-	\ref{tab:learning_test_error_tab}
+
+The following graph (Fig. \ref{fig:learning_test_error_fig}) and
+table (Tab. \ref{tab:learning_test_error_tab}) represent the error rate for the test data set. The results show that Test5 has
+$\sim 0\%$ word error rate (WER) while Test6 is $\sim 89\%$ WER.
 	
 	%Learning Test error rate graph
 	%-------------------------------------------------
@@ -778,8 +791,9 @@ The final results show that Test1 with the smaller batch size took significantly
 \end{table}		
 	%-------------------------------------------------
 	
-	\ref{fig:learning_train_error_fig}
-	\ref{tab:learning_train_error_tab}
+The following graph (Fig. \ref{fig:learning_train_error_fig} and
+table (Tab. \ref{tab:learning_train_error_tab}) represent the error rate for the train data set. The results show that Test5 took a duration of $\sim 14m 50s$ while Test6 took 
+$\sim 12m 29s$.
 	
 	%Learning Training error rate graph
 	%-------------------------------------------------
@@ -811,7 +825,6 @@ The final results show that Test1 with the smaller batch size took significantly
 \end{table}		
 	%-------------------------------------------------
 	
-	
-	
-	
-%---------------------------------------------------
+The final results show that Test5 with no learning rate of 
+$0.1\%$ outperformend Test6 with a learning rate of $1\%$ by a long shot. The graph clearly shows while training didn't really converge to zero at all unlike Test5, meaning it didn't learn anything during training.
+%----------------------------------------------------
