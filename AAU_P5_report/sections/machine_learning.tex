@@ -527,11 +527,13 @@ will be used for the batch size test as shown in Table \ref{tab:batch_tests_tab}
 	\label{tab:batch_tests_tab}
 \end{table}
 	%-------------------------------------------------
-
-Figure \ref{fig:batch_test_error_fig} and Table \ref{tab:batch_test_error_tab} represent the graphical and the 
-
-	\ref{fig:batch_test_error_fig}
-	\ref{tab:batch_test_error_tab}
+	
+The following graph (Fig. \ref{fig:batch_test_error_fig}) and
+table (Tab. \ref{tab:batch_test_error_tab}) represent the error
+rate for the test data set (the one that is used to test the
+models accuracy after trainig). The results show that Test1 has
+$\sim 0.1308\%$ word error rate (WER) while Test2 and Test3 is
+$\sim 0\%$ WER.
 
 	%Batch Size Test error rate graph
 	%-------------------------------------------------
@@ -566,9 +568,11 @@ Figure \ref{fig:batch_test_error_fig} and Table \ref{tab:batch_test_error_tab} r
 \end{table}
 	%-------------------------------------------------
 	
-	\ref{fig:batch_train_error_fig}
-	\ref{tab:batch_train_error_tab}
-	
+The following graph (Fig. \ref{fig:batch_train_error_fig}) and
+table (Tab. \ref{tab:batch_train_error_tab}) represent the error
+rate for the train data set (the one that is used to train the
+model). The results show that Test1 took a duration of $\sim 1h 26m 13s$ for the trainig while Test2 and Test3 is $\sim 18m 50s$ and $\sim 14m 50s$ respectively.
+		
 	%Batch Size training error rate graph
 	%-------------------------------------------------
 \begin{figure}[H]
@@ -601,8 +605,8 @@ Figure \ref{fig:batch_test_error_fig} and Table \ref{tab:batch_test_error_tab} r
 	\label{tab:batch_train_error_tab}
 \end{table}	
 	%-------------------------------------------------	
-	
-	
+
+The final results show that Test1 with the smaller batch size took significantly longer to train and had the worst accuracy. However, Test3 with the larger batch size took the least time and had the same accuracy as Test2.
 	
 %-----------------------------------------------------
 
