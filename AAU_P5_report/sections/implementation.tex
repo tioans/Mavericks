@@ -14,16 +14,24 @@ The corpus also contains smaller sets for validation and testing.\\
 As presented above, the OpenSLR corpus provides many features for training neural networks. It is especially efficient for speech recognition systems. However, the current implementation was designed to use pairs of .wav files and .txt files as input. Each .wav file represents the audio information that is encoded into the corresponding .txt file, more specifically short paragraphs.\\
 
 Unfortunately, this data set is prepared in a different format. There is a single .txt file that corresponds to many .wav files and these are organized in bigger sets. Because of this, the data in its original form is not usable for the current neural network. To prepare the data, certain scripts were implemented in Python.\\
+
 The first algorithm is designed to navigate a folder path and its sub-folders to convert all .flac files to .wav. It uses the os and pydub libraries.  \\
-The second 
+To access every sub-folder in the path, os.walk is used. This function returns the root folder and a list of files and directories in root. 
 
+\lstinputlisting[language=Python, firstline=37, lastline=51]{code/FlacToWavPy.py}
 
+The conversion is handled by another function that uses the pydub library to load the .flac, parse the name and   export the converted .wav file.
 
-%code snippents
-\lstinputlisting[language=Python, firstline=5, lastline=15]{code/FlacToWavPy.py}
+\lstinputlisting[language=Python, firstline=25, lastline=35]{code/FlacToWavPy.py}
 
-\lstinputlisting[language=Python, firstline=100, lastline=110]{code/txtFileMaker.py}
+The second algorithm navigates the folders in the same way, by using the os.walk method. Then it checks for .txt files by parsing their name. 
 
+\lstinputlisting[language=Python, firstline=13, lastline=22]{code/txtFileMaker.py}
+
+The format of the text files in this audio set is known. Using this information, the file name and content is parsed, creating new text files for every paragraph that corresponds to a flac file. This is achieved by exploiting the file name in relation to the beginning and end of each paragraph inside the file.
+ 
+\lstinputlisting[language=Python, firstline=42, lastline=53]{code/txtFileMaker.py} 
+ 
 \section{Model Implementation}
 
 
