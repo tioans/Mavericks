@@ -28,3 +28,153 @@ parent={},%
 %
 }%
 }%
+\ifglsentryexists{dsrs}{}%
+{%
+\gls@defglossaryentry{dsrs}%
+{%
+name={DSRS},%
+sort={DSRS},%
+type={acronym},%
+first={Distributed Speech Recognition System\glsspace (DSRS)},%
+firstplural={Distributed Speech Recognition Systems\glsspace (DSRSs)},%
+text={DSRS},%
+plural={DSRSs},%
+description={Distributed Speech Recognition System},%
+descriptionplural={Distributed Speech Recognition System\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Distributed Speech Recognition System},%
+longplural={Distributed Speech Recognition Systems},%
+short={DSRS},%
+shortplural={DSRSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ann}{}%
+{%
+\gls@defglossaryentry{ann}%
+{%
+name={ANN},%
+sort={ANN},%
+type={acronym},%
+first={Artificial Neural Networks\glsspace (ANN)},%
+firstplural={Artificial Neural Networkss\glsspace (ANNs)},%
+text={ANN},%
+plural={ANNs},%
+description={Artificial Neural Networks},%
+descriptionplural={Artificial Neural Networks\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Artificial Neural Networks},%
+longplural={Artificial Neural Networkss},%
+short={ANN},%
+shortplural={ANNs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{lstm}{}%
+{%
+\gls@defglossaryentry{lstm}%
+{%
+name={LSTM},%
+sort={LSTM},%
+type={acronym},%
+first={Long-Short Term Memory\glsspace (LSTM)},%
+firstplural={Long-Short Term Memorys\glsspace (LSTMs)},%
+text={LSTM},%
+plural={LSTMs},%
+description={Long-Short Term Memory},%
+descriptionplural={Long-Short Term Memory\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Long-Short Term Memory},%
+longplural={Long-Short Term Memorys},%
+short={LSTM},%
+shortplural={LSTMs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{mfcc}{}%
+{%
+\gls@defglossaryentry{mfcc}%
+{%
+name={MFCC},%
+sort={MFCC},%
+type={acronym},%
+first={Mel-Frequency Cepstral Coefficients\glsspace (MFCC)},%
+firstplural={Mel-Frequency Cepstral Coefficientss\glsspace (MFCCs)},%
+text={MFCC},%
+plural={MFCCs},%
+description={Mel-Frequency Cepstral Coefficients},%
+descriptionplural={Mel-Frequency Cepstral Coefficients\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Mel-Frequency Cepstral Coefficients},%
+longplural={Mel-Frequency Cepstral Coefficientss},%
+short={MFCC},%
+shortplural={MFCCs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{dm}{}%
+{%
+\gls@defglossaryentry{dm}%
+{%
+name={DM},%
+sort={DM},%
+type={acronym},%
+first={Data Mining\glsspace (DM)},%
+firstplural={Data Minings\glsspace (DMs)},%
+text={DM},%
+plural={DMs},%
+description={Data Mining},%
+descriptionplural={Data Mining\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Data Mining},%
+longplural={Data Minings},%
+short={DM},%
+shortplural={DMs},%
+counter={page},%
+parent={},%
+%
+}%
+}%

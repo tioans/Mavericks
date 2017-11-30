@@ -1,15 +1,23 @@
-% Acronym definitions
-\newacronym{tf}{TF}{TensorFlow}
+\chapter*{Acronyms}\label{ch:acronyms}
 
+\newcommand{\abbrlabel}[1]{\makebox[3cm][l]{\textbf{#1}\ \dotfill}}
+\newenvironment{abbreviations}{\begin{list}{}{\renewcommand{\makelabel}{\abbrlabel}}}{\end{list}}
 
-
-
-
-
-%Print the glossary
-\printglossary[type=\acronymtype,title=Acronyms]
-
-
-%	long -\acrlong{tf} - TensorFlow
-%	short -\acrshort{tf} - TF
-%	full -\acrfull{tf} - TensorFlow (TF)
+\begin{abbreviations}
+	\item[TF] TensorFlow
+	\item[DSR] Distributed Speech Recognition
+	\item[MCFF] Mel-Frequency Cesptral Coeffitiens
+	\item[GPU] Graphics Processing Unit
+	\item[CTC] Connectionist Temporal Classification
+	\item[DTW] Dynamic Time Warping
+	\item[VQ] Vector Quantization
+	\item[ANN] Artificial Neural Networks
+	\item[AN] Artificial Neuron
+	\item[RNN] Recurrent Neural Network
+	\item[LSTM] Long Short Term Memory
+	\item[BN] Batch Normalisation
+	\item[API] Application Programming Interface
+	\item[WER] Word Error Rate
+	\item[VPN] Virtual Private Network
+	\item[ASR] Automatic Speech Recognizer
+\end{abbreviations}

@@ -32,16 +32,12 @@
 % an select the desired input encoding. 
 \usepackage[utf8]{inputenc}
 
-% Load the package with the acronym option
-\usepackage[acronym,nonumberlist]{glossaries}
-% Generate the glossary
-\makeglossaries
-
 %code formating 
 \usepackage{listings}
 \usepackage{adjustbox}
 \usepackage{float}
-\usepackage{color}
+%\usepackage{color}
+\usepackage[usenames,dvipsnames]{xcolor}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -66,12 +62,10 @@
     showtabs=false,                  
     tabsize=2
 }
- 
 \lstset{style=mystyle}
 
 %graphs
 \usepackage{tikz}
-
 %circles and colors definition
 \newcommand{\tikzcircle}[2][red,fill=red]{\tikz[baseline=-0.5ex]\draw[#1,radius=#2] (0,0) circle;}%
 \definecolor{orange}{RGB}{237, 114, 71}
@@ -95,8 +89,11 @@
 % http://en.wikibooks.org/wiki/LaTeX/Tables
 % http://en.wikibooks.org/wiki/LaTeX/Colors
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % load a colour package
-\usepackage{xcolor}
+%\usepackage{xcolor}
+%\usepackage[usenames,dvipsnames]{xcolor}
+
 \definecolor{aaublue}{RGB}{33,26,82}% dark blue
 % The standard graphics inclusion package
 \usepackage{graphicx}
@@ -178,6 +175,7 @@
 \addbibresource{bib/mybib}
 
 \usepackage{csquotes}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Misc
