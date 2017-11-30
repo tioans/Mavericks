@@ -174,7 +174,10 @@ for time_slice in range(train_inputs.shape[0]):
     
 \end{lstlisting}
 
-Because speech sounds do not occur in isolation and do not have a one-to-one mapping to characters, we can capture the effects of co-articulation (the articulation of one sound influencing the articulation of another) by training the network on overlapping windows (10s of milliseconds) of audio data that captures sound from before and after the current time index. Example code of how to obtain MFCC features, and how to create windows of audio data is shown below:\\
+Speech is a continuous action, where the present utterance will affect the future one. Combined with the fact that the English language is not a phonetic means that a direct
+representation of each character to their sound is impossible. To overcome this problem, the neural network is trained on overlapping windows both before and after the current speech sample.
+
+In the model developed by us, nine slices of audio are used before and after the current index, adding up to $19$ time points for each window. With $26$ cepstral coefficients, this gives $494$ data points per $25ms$ observation.
 For our RNN example, we use 9 time slices before and 9 after, for a total of 19 time points per window.With 26 cepstral coefficients, this is 494 data points per 25 ms observation. Depending on the data sampling rate, we recommend 26 cepstral features for 16,000 Hz and 13 cepstral features for 8,000 hz. Below is an example of data loading windows on 8,000 Hz data:
  
 \subsection{Connectionist Temporal Classification loss function}
