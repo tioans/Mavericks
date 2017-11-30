@@ -9,6 +9,7 @@
   - Lecure 8 | Recurrent Neural Networks and Language Models: [https://www.youtube.com/watch?v=Keqep_PKrY8](https://www.youtube.com/watch?v=Keqep_PKrY8)
   - An Introduction to LSTMs in Tensorflow: [https://www.youtube.com/watch?v=l4X-kZjl1gs](https://www.youtube.com/watch?v=l4X-kZjl1gs)
   - MFCC filter: [https://dsp.stackexchange.com/questions/19574/mel-filter-in-mfcc-is-it-necessary](https://dsp.stackexchange.com/questions/19574/mel-filter-in-mfcc-is-it-necessary)
+  - LSTM basics : https://deeplearning4j.org/lstm.html
   
 - **Tensorflow**
 
