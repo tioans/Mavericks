@@ -124,9 +124,9 @@ for time_slice in range(train_inputs.shape[0]):
     assert(len(empty_source_past) + len(data_source_past) == numcontext)
     
 \end{lstlisting}
-\todo{Explain how the windows work and the non-isolationist behaviour of human speech.}
 
-Either 13 or 26 different cepstral features, as input for the model. After this transformation the data is stored as a matrix of frequency coefficients (rows) over time (columns).
+Because speech sounds do not occur in isolation and do not have a one-to-one mapping to characters, we can capture the effects of co-articulation (the articulation of one sound influencing the articulation of another) by training the network on overlapping windows (10s of milliseconds) of audio data that captures sound from before and after the current time index. Example code of how to obtain MFCC features, and how to create windows of audio data is shown below:\\
+For our RNN example, we use 9 time slices before and 9 after, for a total of 19 time points per window.With 26 cepstral coefficients, this is 494 data points per 25 ms observation. Depending on the data sampling rate, we recommend 26 cepstral features for 16,000 Hz and 13 cepstral features for 8,000 hz. Below is an example of data loading windows on 8,000 Hz data:
 \subsubsection{Spectrogram}
 
 The spectrogram of the signal was computed from the FFT and it shows a visual representation of the spectrum of frequencies marked by the intensity of the color.
@@ -142,6 +142,40 @@ furthermore a word to phoneme dictionary.
  Even though these models can be made more accurate when speech data is correlated with phoneme transcriptions, this is a gargantuan task to be attempted by hand. This makes 
  phoneme-level transcriptions less likely to be used on large data sets.
   Both  speech recognizers of the past and today  rely on segmenting sound waves, but word based processing is far more efficient in modern speech recognizer (SR) systems.
+  
+\subsubsection{Mel Frequency Cepstrum Coefficients}
+
+Mel-frequency cepstral coefficients (MFCCs) are coefficients that collectively make up an MFC. 
+They are taken from a cepstral representation of the audio clip by finding the spectrum of the spectrum of the original audio file.
+ Compared to normal cepstrum, in MFC, the frequency bands are spaced at equal distances on the mel scale.
+ This mimics a humans response to sound better that a linearly represented frequency band \cite{sahidullah2012design}.
+Conversely, the coefficient can be obtained by using the following snippet of code 
+from listing \ref{lst:MFCC}:
+
+
+\begin{lstlisting}[language = Python, label=lst:MFCC, caption = Example code to obtain MFCC features.]
+# Load wav files
+fs, audio = wav.read(audio_filename)
+ 
+# Get mfcc coefficients
+orig_inputs = mfcc(audio, samplerate=fs, numcep=numcep)
+ 
+# For each time slice of the training set, we need to copy the context this makes
+train_inputs = np.array([], np.float32)
+train_inputs.resize((orig_inputs.shape[0], numcep + 2 * numcep * numcontext))
+ 
+for time_slice in range(train_inputs.shape[0]):
+    # Pick up to numcontext time slices in the past,
+    # And complete with empty mfcc features
+    need_empty_past = max(0, ((time_slices[0] + numcontext) - time_slice))
+    empty_source_past = list(empty_mfcc for empty_slots in range(need_empty_past))
+    data_source_past = orig_inputs[max(0, time_slice - numcontext):time_slice]
+    assert(len(empty_source_past) + len(data_source_past) == numcontext)
+    
+\end{lstlisting}
+
+Because speech sounds do not occur in isolation and do not have a one-to-one mapping to characters, we can capture the effects of co-articulation (the articulation of one sound influencing the articulation of another) by training the network on overlapping windows (10s of milliseconds) of audio data that captures sound from before and after the current time index. Example code of how to obtain MFCC features, and how to create windows of audio data is shown below:\\
+For our RNN example, we use 9 time slices before and 9 after, for a total of 19 time points per window.With 26 cepstral coefficients, this is 494 data points per 25 ms observation. Depending on the data sampling rate, we recommend 26 cepstral features for 16,000 Hz and 13 cepstral features for 8,000 hz. Below is an example of data loading windows on 8,000 Hz data:
  
 \subsection{Connectionist Temporal Classification loss function}
  Discarding the use of phonemes for neural networks can be done by switching to an
