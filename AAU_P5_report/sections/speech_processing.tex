@@ -12,7 +12,7 @@ In some cases, speech can be three times faster in conveying information than ty
 speaking can be even six times faster. \\
 
 \todo{We look over until here...}
-
+\section{Classical overview}
 Words are carried as sound waves, which are analogue signals.
 In order for the speech to be processed,
 it needs to be run through a signal processor that selects the frequencies and amplitude of the signal.
@@ -70,7 +70,7 @@ No matter how powerful and how advanced a computer is,
 it still works in discrete time.
 In order to represent an analogue signal on the computer, it has to be sampled according to the Nyquist–Shannon sampling theorem.
 This theorem states that the sampling frequency has to be at least double the frequency of the original signal in order to replicate the original signal without aliasing.
-For a better understanding of the process, a visual representation of the word "Hello" as it is formed for the input of the neural network is shown in the upper part of Figure\ref{fig:cyka} where it is sampled at 8000 Hz.
+For a better understanding of the process, a visual representation of the word "Hello" as it is formed for the input of the neural network is shown in the upper part of Figure\ref{fig:cyka}.
 
 \subsubsection{ Fourier transform}
 
@@ -94,39 +94,6 @@ from zero and up to 3500Hz.
 	\label{fig:cyka}
 \end{figure}
 
-\subsubsection{Mel Frequency Cepstrum Coefficients}
-
-Mel-frequency cepstral coefficients (MFCCs) are coefficients that collectively make up an MFC. 
-They are taken from a cepstral representation of the audio clip by finding the spectrum of the spectrum of the original audio file.
- Compared to normal cepstrum, in MFC, the frequency bands are spaced at equal distances on the mel scale.
- This mimics a humans response to sound better that a linearly represented frequency band \cite{sahidullah2012design}.
-Conversely, the coefficient can be obtained by using the following snippet of code 
-from listing \ref{lst:MFCC}:
-
-
-\begin{lstlisting}[language = Python, label=lst:MFCC, caption = Example code to obtain MFCC features.]
-# Load wav files
-fs, audio = wav.read(audio_filename)
- 
-# Get mfcc coefficients
-orig_inputs = mfcc(audio, samplerate=fs, numcep=numcep)
- 
-# For each time slice of the training set, we need to copy the context this makes
-train_inputs = np.array([], np.float32)
-train_inputs.resize((orig_inputs.shape[0], numcep + 2 * numcep * numcontext))
- 
-for time_slice in range(train_inputs.shape[0]):
-    # Pick up to numcontext time slices in the past,
-    # And complete with empty mfcc features
-    need_empty_past = max(0, ((time_slices[0] + numcontext) - time_slice))
-    empty_source_past = list(empty_mfcc for empty_slots in range(need_empty_past))
-    data_source_past = orig_inputs[max(0, time_slice - numcontext):time_slice]
-    assert(len(empty_source_past) + len(data_source_past) == numcontext)
-    
-\end{lstlisting}
-
-Because speech sounds do not occur in isolation and do not have a one-to-one mapping to characters, we can capture the effects of co-articulation (the articulation of one sound influencing the articulation of another) by training the network on overlapping windows (10s of milliseconds) of audio data that captures sound from before and after the current time index. Example code of how to obtain MFCC features, and how to create windows of audio data is shown below:\\
-For our RNN example, we use 9 time slices before and 9 after, for a total of 19 time points per window.With 26 cepstral coefficients, this is 494 data points per 25 ms observation. Depending on the data sampling rate, we recommend 26 cepstral features for 16,000 Hz and 13 cepstral features for 8,000 hz. Below is an example of data loading windows on 8,000 Hz data:
 \subsubsection{Spectrogram}
 
 The spectrogram of the signal was computed from the FFT and it shows a visual representation of the spectrum of frequencies marked by the intensity of the color.
@@ -145,13 +112,16 @@ furthermore a word to phoneme dictionary.
   
 \subsubsection{Mel Frequency Cepstrum Coefficients}
 
-Mel-frequency cepstral coefficients (MFCCs) are coefficients that collectively make up an MFC. 
+Mel-frequency cepstral coefficients (MFCCs) are coefficients that collectively make up a Mel-frequency cepstral (MFC). 
 They are taken from a cepstral representation of the audio clip by finding the spectrum of the spectrum of the original audio file.
  Compared to normal cepstrum, in MFC, the frequency bands are spaced at equal distances on the mel scale.
- This mimics a humans response to sound better that a linearly represented frequency band \cite{sahidullah2012design}.
-Conversely, the coefficient can be obtained by using the following snippet of code 
-from listing \ref{lst:MFCC}:
+ This mimics a humans response to sound better that a linearly represented frequency band \cite{sahidullah2012design}.\\
 
+Speech is a continuous action, where the present utterance will affect the future one. Combined with the fact that the English language is not a phonetic means that a direct
+representation of each character to their sound is impossible. To overcome this problem, the neural network is trained on overlapping windows both before and after the current speech sample.\\
+
+In the model developed by us, nine slices of audio are used before and after the current index, adding up to $19$ time points for each window. With $26$ cepstral coefficients, this gives $494$ data points per $25ms$ observation.
+For our RNN example, we use 9 time slices before and 9 after, for a total of 19 time points per window. With 26 cepstral coefficients, this is 494 data points per 25 ms observation. Depending on the data sampling rate, $26$ cepstral features are used for $16 000 Hz$, seen in \ref{lst:MFCC}.
 
 \begin{lstlisting}[language = Python, label=lst:MFCC, caption = Example code to obtain MFCC features.]
 # Load wav files
@@ -173,12 +143,6 @@ for time_slice in range(train_inputs.shape[0]):
     assert(len(empty_source_past) + len(data_source_past) == numcontext)
     
 \end{lstlisting}
-
-Speech is a continuous action, where the present utterance will affect the future one. Combined with the fact that the English language is not a phonetic means that a direct
-representation of each character to their sound is impossible. To overcome this problem, the neural network is trained on overlapping windows both before and after the current speech sample.
-
-In the model developed by us, nine slices of audio are used before and after the current index, adding up to $19$ time points for each window. With $26$ cepstral coefficients, this gives $494$ data points per $25ms$ observation.
-For our RNN example, we use 9 time slices before and 9 after, for a total of 19 time points per window.With 26 cepstral coefficients, this is 494 data points per 25 ms observation. Depending on the data sampling rate, we recommend 26 cepstral features for 16,000 Hz and 13 cepstral features for 8,000 hz. Below is an example of data loading windows on 8,000 Hz data:
  
 \subsection{Connectionist Temporal Classification loss function}
  Discarding the use of phonemes for neural networks can be done by switching to an
