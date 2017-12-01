@@ -236,37 +236,36 @@ A dropout rate of $40\%$ given to the neural network on the left hand side, whic
 
 %---------------------------------------------------
 \subsection{Batch normalisation}
-
-Statistics can be computed for each batch that is fed to the neural network so the average and the standard deviation can be computed. After computing them, subtracting the average and dividing by the standard deviation rescales and recentre the output. 
+Statistics can be computed for each batch that is fed to the neural network so the average and the standard deviation can be computed. After computing them, subtracting the average and dividing by the standard deviation rescales and recenters the output. 
 In the equation, epsilon is added to avoid numerical problems as dividing by zero.
 
 \begin{equation}
-	X= \dfrac{x - avg(x)}{stdev(x) + \epsilon} 
+    X= \dfrac{x - avg(x)}{stdev(x) + \epsilon} 
 \end{equation}
 
-The recentre and rescaling of the values can cause problems to
+The recentering and rescaling of the values can cause problems to
 the network for cases where data needs to be squeezed over 
 to one side of the spectrum.
 To solve those cases, two degrees of freedom are added, 
 $\alpha$ and $\beta$, for each neuron. 
 By assigning the $\alpha$ value to the $stdev(x)$ and the
 $\beta$ to $-avg(x)$ there will always be a case where the batch
-normalised value of x can be reverted to the original value.
+normalized value of x can be reverted to the original value.
 
 \begin{equation}
-	BN(x) = \alpha * X + \beta
+    BN(x) = \alpha * X + \beta
 \end{equation}
 
-Batch normalisation(BN) is added before the activation function
-because it takes use of the current weights and biases to
+Batch normalization (BN) is added before the activation function
+because it makes use of the current weights and biases to
 compute the average and standard deviation. 
 The average and standard deviation is always computed on the
-current weights and biases so the batch normalisation layer is
+current weights and biases so the batch normalization layer is
 called between the weighted sum performed by the neurons and the
 activation function. Because of the new values added by BN,
 biases are no longer useful.
 The $\beta$ value can take the value of the bias if no better
-value was found.
+values were found.
 In contrast to the ReLU, when using a sigmoid,
 the scale parameter has to be used to make sure that
 the data fits in the useful part of the activation function.
@@ -275,21 +274,19 @@ given in Table \ref{tab:Parameters}.
 
 \begin{table}[htbp]
 \centering
-	\caption{Parameters for different activation functions.}
-	\begin{tabular}{l c c}
-	\toprule
-  		& ReLU & Sigmoid \\\midrule
-		Without BN &b & b  \\
-		With BN & $\beta$ & $\alpha$, $\beta$  \\
-	\bottomrule
-	\end{tabular}
+    \caption{Parameters for different activation functions.}
+    \begin{tabular}{l c c}
+    \toprule
+          & ReLU & Sigmoid \\\midrule
+        Without BN &b & b  \\
+        With BN & $\beta$ & $\alpha$, $\beta$  \\
+    \bottomrule
+    \end{tabular}
 \label{tab:Parameters}
 \end{table}
 
 %---------------------------------------------------
 \section{TensorFlow}
-
-%---------------------------------------------------
 TensorFlow provides multiple Application Programming Interfaces
 (APIs) for machine learning. 
 The lowest level API "TensorFlow Core" provides complete programming control \cite{tensorflow2015-whitepaper}. 
@@ -320,9 +317,9 @@ Here are some examples of tensors:
 \end{lstlisting} 
 
 \subsection{TensorFlow Core}
-Getting Started With TensorFlow is done by using the import statement. 
+Getting started with TensorFlow is done by using the import statement. 
 This gives Python access to all of TensorFlow's classes,
-methods, and symbols and is called by the following statement:
+methods and symbols. It is called by the following statement:
 
 \begin{lstlisting}[language=Python, caption=Importing Tensorflow library.]
 import tensorflow as tf
@@ -330,8 +327,8 @@ import tensorflow as tf
 
 All the programs written with the help of TensorFlow core are built around computational graphs. 
 They are a series of operations arranged into a graph and connected by nodes. 
-To see the outcome of a such a program, 
-firstly the computational graph needs to be created and after that it needs to be run. 
+To see the outcome of such a program, 
+firstly the computational graph needs to be created and after that, it needs to be run. 
 This provides a contrast to normal code written in python and to display this, 
 the print function for a tensorflow constant is called bellow.
 
@@ -350,7 +347,7 @@ such as the element being a constant of type float32.
 To investigate the contents of any element in tensorflow,
 an object of type session needs to be defined.
 When the new object is run, a new session is generated and the content of the element can be seen.
-All code written is tensorflow core follows this basic principle.
+All code written in tensorflow core follows this basic principle.
 
 \begin{lstlisting}[language=Python, caption=Printing output with sess.run().]
 sess = tf.Session()
@@ -361,9 +358,8 @@ Output:
 \end{lstlisting}
 
 Other basic elements in tensorflow are
-placeholders(tf.placeholder), they can be changed to accept 
-external inputs and variables. Variables allow the system to
-change its outputs while keeping the seame inputs,
+placeholders(tf.placeholder), they can be changed to accept external inputs and variables. Variables allow the system to
+change its outputs while keeping the same inputs,
 this allows the model to be trainable. 
 
 \subsection{tf.train API}
@@ -371,7 +367,7 @@ The tf.train API holds optimizers that change each variable to minimize the loss
 One of the simplest optimizers used to train neural networks is gradient descent.
 Each variable is modified by the magnitude of the derivative of loss with respect to that variable.
 Using a computer to gain these gradients is far less prone to error than doing it by hand.
-Each of the gradients will point towards the minimum of the loss function and when solving for the gradient a step needs to be determined as the rate of change.
+Each of the gradients will point towards the minimum of the loss function and when solving for the gradient a step needs to be determined by the rate of change.
 It is important to  have a small step as to not jump over the valley where the function takes its minimum value,
 but in the beginning to reduce time and processing power a bigger step could be used.
 One solution to this problem is to use a variable step input that changes as the gradients are determined.
@@ -384,7 +380,7 @@ train = optimizer.minimize(loss)
 sess.run(train)
 \end{lstlisting}
 
-The gradient descent optimizer takes an input, defined at 0.01 in the example above,
+The gradient descent optimizer takes an input, defined as 0.01 in the example above,
 that represents the step input or the rate of change for the gradients.
 
 \subsection{tf.estimator API}
@@ -394,7 +390,7 @@ tf.estimator can be used as a higher-level library within Tensorflow.
 It helps the user with running training and evaluation loops, managing data sets and much more. 
 Making the entire process of writing an algorithm and maintaining it be less tedious.
 Although the estimator library has a set of predefined models to make things easier, a custom model can be created while keeping the high
-level abstraction of the data set, training and feeding.
+level abstraction of the data set, training, and feeding.
 A linear regression algorithm built with tf.estimator is included below to show how the library works \cite{Estimator}:
 
 \begin{lstlisting}[language=Python, caption=Linear regression algorithm built with tf.estimator.]
@@ -438,115 +434,111 @@ print("train metrics: %r"% train_metrics)
 print("eval metrics: %r"% eval_metrics)
 \end{lstlisting}
 %---------------------------------------------------
-
 \section{Batch Size, Dropout and Learning Rate Comparison}
-In order to gain a better understanding on how the different parameter values(batch size, dropout and learning rate) may effect the performance(training duration and test accuracy) of a neural network model, a small experiment was conducted.\\\\
+In order to gain a better understanding on how the different parameter values (batch size, dropout and learning rate) may affect the performance (training duration and test accuracy) of a neural network model, a small experiment was conducted.\\\\
 This experiment consists of six test trials. For each test trial different parameter values were chosen, as shown in table \ref{tab:six_tests_tab}.
 
 %-------------------------------------------------------
 %Table with the six Tests
 \begin{table}[H]
 \centering
-	\caption{Six tests with different Parameter values.}
-	\begin{tabular}{| l | c | c | c | c | c | c | c |} 
-	\hline
-		Parameters & 
-		Test1 -\tikzcircle[orange, fill=orange]{3pt}- &
-		Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
-		Test3 -\tikzcircle[red, fill=red]{3pt}- &
-		Test4 -\tikzcircle[lightblue, fill=lightblue]{3pt}- &
-		Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
-		Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- \\ 
-	\hline
-		Batch Size & 
-		2 \hfill 2 \hfill 2 & 
-		20 \hfill 20 \hfill 20 & 
-		20 \hfill 20 \hfill 20 &
-		20 \hfill 20 \hfill 20 &
-		50 \hfill 20 \hfill 20 &
-		50 \hfill 20 \hfill 20 \\
-	\hline
-		Dropout & 
-		0.05 & 0.05 & 0.00 & 0.50 & 0.05 & 0.05 \\
-	\hline
-		Learning Rate & 
-		0.001 & 0.001 & 0.001 & 0.001 & 0.001 & 0.010 \\
-	\hline
-	\end{tabular}
-	\label{tab:six_tests_tab}
-	%adding notes
-	\raggedright{Batch Size: (train data, evaluation data, test data)} 
+    \caption{Six tests with different Parameter values.}
+    \begin{tabular}{| l | c | c | c | c | c | c | c |} 
+    \hline
+        Parameters & 
+        Test1 -\tikzcircle[orange, fill=orange]{3pt}- &
+        Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+        Test3 -\tikzcircle[red, fill=red]{3pt}- &
+        Test4 -\tikzcircle[lightblue, fill=lightblue]{3pt}- &
+        Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+        Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- \\ 
+    \hline
+        Batch Size & 
+        2 \hfill 2 \hfill 2 & 
+        20 \hfill 20 \hfill 20 & 
+        20 \hfill 20 \hfill 20 &
+        20 \hfill 20 \hfill 20 &
+        50 \hfill 20 \hfill 20 &
+        50 \hfill 20 \hfill 20 \\
+    \hline
+        Dropout & 
+        0.05 & 0.05 & 0.00 & 0.50 & 0.05 & 0.05 \\
+    \hline
+        Learning Rate & 
+        0.001 & 0.001 & 0.001 & 0.001 & 0.001 & 0.010 \\
+    \hline
+    \end{tabular}
+    \label{tab:six_tests_tab}
+    %adding notes
+    \raggedright{Batch Size: (train data, evaluation data, test data)} 
 
 \end{table}
 %-------------------------------------------------------
 
 Note that the batch size is represented by the training, evaluation and testing data and will be represented this way
 for all the following tables.\\\\
-The tests were ran on a model designed by the Silicon Valley
+The tests were run on a model designed by the Silicon Valley
 Data Science company, which is based on the TensorFlow
 implementation of Baidu's DeepSpeech architecture on
-the Mozillas DeepSpeech repository.
-The github repositories (silicon-valley-data-science and mozilla)
+the Mozilla' DeepSpeech repository.
+The GitHub repositories (silicon-valley-data-science and Mozilla)
 can be found respectively in the following citations:
 \cite{rubashkin2017, mozilla2017}.
 The model consists of a Bi-Directional Recurrent Neural Network
 with three fully connected layers before it and a fully connected
 layer with an activation layer after it.\\
 
-The data used on the model refered above was a small set of wav files consisting of recorded audio of the numbers:\\
+The data used in the model referred above was a small set of WAV files consisting of recorded audio of the numbers:\\
 
 $\left\{zero, one, two, three, four, five, six, seven, eight, nine \right\}$,\\\\
-and their respective lables in txt format.
+and their respective labels in text format.
 The data is separated into folders:
 
 \begin{itemize}
-	\item Train: train-clean-100-wav
-	\item Test: test-clean-wav
-	\item Dev: dev-clean-wav
+    \item Train: train-clean-100-wav
+    \item Test: test-clean-wav
+    \item Dev: dev-clean-wav
 \end{itemize}
 
-In this section the train and test results given in graphs/tables
-form will be refered. However, for the interested
-reader, we have included all three train, test and evaluation
-results in appendix \ref{ch:appAlabel} with slightly scaled up
-graphs for a more detailed analysis. Here the goal is to
-visualize and compare the different graph curves and final
-results shown in the respective tables.
-For consistency all the tests ran for 25 Epochs. 
+In this section, the train and test results given in the following graphs and tables will be referred. However, for the interested
+reader, all three train, test, and evaluation
+results have been included in appendix \ref{ch:appAlabel} with slightly scaled up graphs for a more detailed analysis.
+Here the goal is to visualize and compare the different graph curves and final results shown in the respective tables.
+For consistency, all the tests are run for 25 Epochs. 
 
 \subsection{Batch Size Test}
 %-----------------------------------------------------
 In this subsection three test from Table \ref{tab:six_tests_tab}  
 will be used for the batch size test as shown in Table \ref{tab:batch_tests_tab}. For each trial test only the batch size parameter as been changed.
 
-	%Batch Size Test table
-	%-------------------------------------------------
+    %Batch Size Test table
+    %-------------------------------------------------
 \begin{table}[H]
 \centering
-	\caption{Three tests with different batch size values.}
-	\begin{tabular}{| l | c | c | c | c |} 
-	\hline
-		Parameters & 
-		Test1 -\tikzcircle[orange, fill=orange]{3pt}- &
-		Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
-		Test5 -\tikzcircle[pink, fill=pink]{3pt}- \\
-	\hline
-		Batch Size & 
-		2 \hfill 2 \hfill 2 & 
-		20 \hfill 20 \hfill 20 & 
-		50 \hfill 20 \hfill 20 \\
-	\hline
-		Dropout & 
-		0.05 & 0.05 & 0.05 \\
-	\hline
-		Learning Rate & 
-		0.001 & 0.001 & 0.001 \\ 
-	\hline
-	\end{tabular}
-	\label{tab:batch_tests_tab}
+    \caption{Three tests with different batch size values.}
+    \begin{tabular}{| l | c | c | c | c |} 
+    \hline
+        Parameters & 
+        Test1 -\tikzcircle[orange, fill=orange]{3pt}- &
+        Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+        Test5 -\tikzcircle[pink, fill=pink]{3pt}- \\
+    \hline
+        Batch Size & 
+        2 \hfill 2 \hfill 2 & 
+        20 \hfill 20 \hfill 20 & 
+        50 \hfill 20 \hfill 20 \\
+    \hline
+        Dropout & 
+        0.05 & 0.05 & 0.05 \\
+    \hline
+        Learning Rate & 
+        0.001 & 0.001 & 0.001 \\ 
+    \hline
+    \end{tabular}
+    \label{tab:batch_tests_tab}
 \end{table}
-	%-------------------------------------------------
-	
+    %-------------------------------------------------
+    
 The following graph (Fig. \ref{fig:batch_test_error_fig}) and
 table (Tab. \ref{tab:batch_test_error_tab}) represent the error
 rate for the test data set (the one that is used to test the
@@ -554,296 +546,296 @@ models accuracy after trainig). The results show that Test1 has
 $\sim 13\%$ word error rate (WER) while Test2 and Test3 is
 $\sim 0\%$ WER.
 
-	%Batch Size Test error rate graph
-	%-------------------------------------------------
+    %Batch Size Test error rate graph
+    %-------------------------------------------------
 \begin{figure}[H]
-	%-------------------------------------------------
-	\centering
-	\includegraphics[width=\textwidth]		
-	{machine_learning/graph_tests/batch_test/test_error_rate}
-	\caption{Test error rate.}
-	\label{fig:batch_test_error_fig}
+    %-------------------------------------------------
+    \centering
+    \includegraphics[width=\textwidth]        
+    {machine_learning/graph_tests/batch_test/test_error_rate}
+    \caption{Test error rate.}
+    \label{fig:batch_test_error_fig}
 \end{figure}
-	%Batch Size Test error rate table
-	%-------------------------------------------------
+    %Batch Size Test error rate table
+    %-------------------------------------------------
 \begin{table}[H]
 \centering
-	\caption{Test error rate results.}
-	\begin{tabular}{| l | c | c | c |}
-	\hline
-		Tests & Value & Epoch & Duration \\
-	\hline
-		Test1 -\tikzcircle[orange, fill=orange]{3pt}- &
-		0.1308 & 25.00 & 0s\\
-	\hline
-		Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
-		0.000 & 25.00 & 0s\\
-	\hline
-		Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
-		0.000 & 25.00 & 0s\\
-	\hline
-	\end{tabular}
-	\label{tab:batch_test_error_tab}
+    \caption{Test error rate results.}
+    \begin{tabular}{| l | c | c | c |}
+    \hline
+        Tests & Value & Epoch & Duration \\
+    \hline
+        Test1 -\tikzcircle[orange, fill=orange]{3pt}- &
+        0.1308 & 25.00 & 0s\\
+    \hline
+        Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+        0.000 & 25.00 & 0s\\
+    \hline
+        Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+        0.000 & 25.00 & 0s\\
+    \hline
+    \end{tabular}
+    \label{tab:batch_test_error_tab}
 \end{table}
-	%-------------------------------------------------
-	
+    %-------------------------------------------------
+    
 The following graph (Fig. \ref{fig:batch_train_error_fig}) and
 table (Tab. \ref{tab:batch_train_error_tab}) represent the error
 rate for the train data set (the one that is used to train the
 model). The results show that Test1 took a duration of 
 $\sim 1h 26m 13s$ for the trainig while Test2 and Test3 is 
 $\sim 18m 50s$ and $\sim 14m 50s$ respectively.
-		
-	%Batch Size training error rate graph
-	%-------------------------------------------------
+        
+    %Batch Size training error rate graph
+    %-------------------------------------------------
 \begin{figure}[H]
-	%-------------------------------------------------
-	\centering
-	\includegraphics[width=\textwidth]		
-	{machine_learning/graph_tests/batch_test/train_error_rate}
-	\caption{Training error rate.}
-	\label{fig:batch_train_error_fig}
+    %-------------------------------------------------
+    \centering
+    \includegraphics[width=\textwidth]        
+    {machine_learning/graph_tests/batch_test/train_error_rate}
+    \caption{Training error rate.}
+    \label{fig:batch_train_error_fig}
 \end{figure}
-	%Batch Size training error rate table
-	%-------------------------------------------------
+    %Batch Size training error rate table
+    %-------------------------------------------------
 \begin{table}[H]
 \centering
-	\caption{Training error rate results.}
-	\begin{tabular}{| l | c | c | c |}
-	\hline
-		Tests & Value & Epoch & Duration \\
-	\hline
-		Test1 -\tikzcircle[orange, fill=orange]{3pt}- &
-		0.1148 & 24.00 & 1h 26m 13s\\
-	\hline
-		Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
-		9.5073e-4 & 24.00 & 18m 50s\\
-	\hline
-		Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
-		5.1858e-4 & 24.00 & 14m 50s\\
-	\hline
-	\end{tabular}
-	\label{tab:batch_train_error_tab}
-\end{table}	
-	%-------------------------------------------------	
+    \caption{Training error rate results.}
+    \begin{tabular}{| l | c | c | c |}
+    \hline
+        Tests & Value & Epoch & Duration \\
+    \hline
+        Test1 -\tikzcircle[orange, fill=orange]{3pt}- &
+        0.1148 & 24.00 & 1h 26m 13s\\
+    \hline
+        Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+        9.5073e-4 & 24.00 & 18m 50s\\
+    \hline
+        Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+        5.1858e-4 & 24.00 & 14m 50s\\
+    \hline
+    \end{tabular}
+    \label{tab:batch_train_error_tab}
+\end{table}    
+    %-------------------------------------------------    
 
 The final results show that Test1 with the smaller batch size took significantly longer to train and had the worst accuracy. However, Test3 with the larger batch size took the least time and had the same accuracy as Test2.
-	
+    
 %-----------------------------------------------------
 
 \subsection{Dropout Test}
 
 In this subsection three test from Table \ref{tab:six_tests_tab}  
-will be used for the batch size test as shown in Table \ref{tab:drop_tests_tab}. For each trial test only the dropout
-parameter as been changed.
+will be used for the batch size test as shown in Table \ref{tab:drop_tests_tab}. For each trial test, only the dropout
+parameter has been changed.
 
-	%Dropout Test table
-	%-------------------------------------------------
+    %Dropout Test table
+    %-------------------------------------------------
 \begin{table}[H]
 \centering
-	\caption{Three tests with different dropout values.}
-	\begin{tabular}{| l | c | c | c | c |} 
-	\hline
-		Parameters & 
-		Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
-		Test3 -\tikzcircle[red, fill=red]{3pt}- &
-		Test4 -\tikzcircle[lightblue, fill=lightblue]{3pt}- \\
-	\hline
-		Batch Size & 
-		20 \hfill 20 \hfill 20 & 
-		20 \hfill 20 \hfill 20 &
-		20 \hfill 20 \hfill 20 \\
-	\hline
-		Dropout & 
-		0.05 & 0.00 & 0.50 \\
-	\hline
-		Learning Rate & 
-		0.001 & 0.001 & 0.001 \\ 
-	\hline
-	\end{tabular}
-	\label{tab:drop_tests_tab}
+    \caption{Three tests with different dropout values.}
+    \begin{tabular}{| l | c | c | c | c |} 
+    \hline
+        Parameters & 
+        Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+        Test3 -\tikzcircle[red, fill=red]{3pt}- &
+        Test4 -\tikzcircle[lightblue, fill=lightblue]{3pt}- \\
+    \hline
+        Batch Size & 
+        20 \hfill 20 \hfill 20 & 
+        20 \hfill 20 \hfill 20 &
+        20 \hfill 20 \hfill 20 \\
+    \hline
+        Dropout & 
+        0.05 & 0.00 & 0.50 \\
+    \hline
+        Learning Rate & 
+        0.001 & 0.001 & 0.001 \\ 
+    \hline
+    \end{tabular}
+    \label{tab:drop_tests_tab}
 \end{table}
-	%-------------------------------------------------
-	
+    %-------------------------------------------------
+    
 The following graph (Fig. \ref{fig:drop_test_error_fig}) and
 table (Tab. \ref{tab:drop_test_error_tab}) represent the error
 rate for the test data set. The results show that Test2 has
 $\sim 0\%$ word error rate (WER) while Test3 and Test4 is
 $\sim 3\%$ and $\sim 2\%$ WER respectively.
-	
-	%Dropout Test error rate graph
-	%-------------------------------------------------
+    
+    %Dropout Test error rate graph
+    %-------------------------------------------------
 \begin{figure}[H]
-	%-------------------------------------------------
-	\centering
-	\includegraphics[width=\textwidth]		
-	{machine_learning/graph_tests/dropout_test/test_error_rate}
-	\caption{Test error rate.}
-	\label{fig:drop_test_error_fig}
+    %-------------------------------------------------
+    \centering
+    \includegraphics[width=\textwidth]        
+    {machine_learning/graph_tests/dropout_test/test_error_rate}
+    \caption{Test error rate.}
+    \label{fig:drop_test_error_fig}
 \end{figure}
-	%Dropout Test error rate table
-	%-------------------------------------------------	
+    %Dropout Test error rate table
+    %-------------------------------------------------    
 \begin{table}[H]
 \centering
-	\caption{Test error rate results.}
-	\begin{tabular}{| l | c | c | c |}
-	\hline
-		Tests & Value & Epoch & Duration \\
-	\hline
-		Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
-		0.000 & 25.00 & 0s\\
-	\hline
-		Test3 -\tikzcircle[red, fill=red]{3pt}- &
-		0.030 & 25.00 & 0s\\
-	\hline
-		Test4 -\tikzcircle[lightblue, fill=lightblue]{3pt}- &
-		0.020 & 25.00 & 0s\\
-	\hline
-	\end{tabular}
-	\label{tab:drop_test_error_tab}
-\end{table}		
-	%-------------------------------------------------
-	
+    \caption{Test error rate results.}
+    \begin{tabular}{| l | c | c | c |}
+    \hline
+        Tests & Value & Epoch & Duration \\
+    \hline
+        Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+        0.000 & 25.00 & 0s\\
+    \hline
+        Test3 -\tikzcircle[red, fill=red]{3pt}- &
+        0.030 & 25.00 & 0s\\
+    \hline
+        Test4 -\tikzcircle[lightblue, fill=lightblue]{3pt}- &
+        0.020 & 25.00 & 0s\\
+    \hline
+    \end{tabular}
+    \label{tab:drop_test_error_tab}
+\end{table}        
+    %-------------------------------------------------
+    
 The following graph (Fig. \ref{fig:drop_train_error_fig}) and
 table (Tab. \ref{tab:drop_train_error_tab}) represent the error
 rate for the train data set. The results show that Test2 took a duration of $\sim 18m 50s$ while Test2 and Test3 took 
 $\sim 18m 5s$ and $\sim 18m 10s$ respectively.
 
-	%Dropout Training error rate graph
+    %Dropout Training error rate graph
 \begin{figure}[H]
-	%-------------------------------------------------
-	\centering
-	\includegraphics[width=\textwidth]		
-	{machine_learning/graph_tests/dropout_test/train_error_rate}
-	\caption{Training error rate.}
-	\label{fig:drop_train_error_fig}
+    %-------------------------------------------------
+    \centering
+    \includegraphics[width=\textwidth]        
+    {machine_learning/graph_tests/dropout_test/train_error_rate}
+    \caption{Training error rate.}
+    \label{fig:drop_train_error_fig}
 \end{figure}
-	%Dropout Training error rate table
-	%-------------------------------------------------
+    %Dropout Training error rate table
+    %-------------------------------------------------
 \begin{table}[H]
 \centering
-	\caption{Training error rate results.}
-	\begin{tabular}{| l | c | c | c |}
-	\hline
-		Tests & Value & Epoch & Duration \\
-	\hline
-		Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
-		9.5973e-4 & 24.00 & 18m 50s\\
-	\hline
-		Test3 -\tikzcircle[red, fill=red]{3pt}- &
-		0.000 & 24.00 & 18m 5s\\
-	\hline
-		Test4 -\tikzcircle[lightblue, fill=lightblue]{3pt}- &
-		6.3331e-3 & 24.00 & 18m 10s\\
-	\hline
-	\end{tabular}
-	\label{tab:drop_train_error_tab}
-\end{table}		
-	%-------------------------------------------------
-	
-The final results show that Test3 with no dropout and Test4 with a hight droupout of $50\%$ had a slightly faster triainig time, However, the test error rate were slightly worse than Test2 with a dropout of $5\%$. Overall all three tests performed very well.
-	
+    \caption{Training error rate results.}
+    \begin{tabular}{| l | c | c | c |}
+    \hline
+        Tests & Value & Epoch & Duration \\
+    \hline
+        Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+        9.5973e-4 & 24.00 & 18m 50s\\
+    \hline
+        Test3 -\tikzcircle[red, fill=red]{3pt}- &
+        0.000 & 24.00 & 18m 5s\\
+    \hline
+        Test4 -\tikzcircle[lightblue, fill=lightblue]{3pt}- &
+        6.3331e-3 & 24.00 & 18m 10s\\
+    \hline
+    \end{tabular}
+    \label{tab:drop_train_error_tab}
+\end{table}        
+    %-------------------------------------------------
+    
+The final results show that Test3 with no dropout and Test4 with a high dropout of $50\%$ had a slightly faster training time, However, the test error rate was slightly worse than Test2 with a dropout of $5\%$. Overall all three tests performed very well. \todo{check dropout percentage}
+    
 %-----------------------------------------------------
 
 \subsection{Learning Rate Test}
 
 In this subsection two test from Table \ref{tab:six_tests_tab}  
 will be used for the batch size test as shown in Table
-\ref{tab:learning_tests_tab}. For each trial test only the
-learning rate parameter as been changed.
+\ref{tab:learning_tests_tab}. For each trial test, only the
+learning rate parameter has been changed.
 
-	%Learning Test table
-	%-------------------------------------------------
+    %Learning Test table
+    %-------------------------------------------------
 \begin{table}[H]
 \centering
-	\caption{Two tests with different learning rate values.}
-	\begin{tabular}{| l | c | c | c |} 
-	\hline
-		Parameters & 
-		Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
-		Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- \\ 
-	\hline
-		Batch Size & 
-		50 \hfill 20 \hfill 20 &
-		50 \hfill 20 \hfill 20 \\
-	\hline
-		Dropout & 0.05 & 0.05 \\
-	\hline
-		Learning Rate & 0.001 & 0.010 \\ 
-	\hline
-	\end{tabular}
-	\label{tab:learning_tests_tab}
+    \caption{Two tests with different learning rate values.}
+    \begin{tabular}{| l | c | c | c |} 
+    \hline
+        Parameters & 
+        Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+        Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- \\ 
+    \hline
+        Batch Size & 
+        50 \hfill 20 \hfill 20 &
+        50 \hfill 20 \hfill 20 \\
+    \hline
+        Dropout & 0.05 & 0.05 \\
+    \hline
+        Learning Rate & 0.001 & 0.010 \\ 
+    \hline
+    \end{tabular}
+    \label{tab:learning_tests_tab}
 \end{table}
-	%-------------------------------------------------
+    %-------------------------------------------------
 
 The following graph (Fig. \ref{fig:learning_test_error_fig}) and
 table (Tab. \ref{tab:learning_test_error_tab}) represent the error rate for the test data set. The results show that Test5 has
 $\sim 0\%$ word error rate (WER) while Test6 is $\sim 89\%$ WER.
-	
-	%Learning Test error rate graph
-	%-------------------------------------------------
+    
+    %Learning Test error rate graph
+    %-------------------------------------------------
 \begin{figure}[H]
-	%-------------------------------------------------
-	\centering
-	\includegraphics[width=\textwidth]		
-	{machine_learning/graph_tests/learning_rate_test/test_error_rate}
-	\caption{Test error rate.}
-	\label{fig:learning_test_error_fig}
+    %-------------------------------------------------
+    \centering
+    \includegraphics[width=\textwidth]        
+    {machine_learning/graph_tests/learning_rate_test/test_error_rate}
+    \caption{Test error rate.}
+    \label{fig:learning_test_error_fig}
 \end{figure}
-	%Learning Test error rate table
-	%-------------------------------------------------
+    %Learning Test error rate table
+    %-------------------------------------------------
 \begin{table}[H]
 \centering
-	\caption{Test error rate results.}
-	\begin{tabular}{| l | c | c | c |}
-	\hline
-		Tests & Value & Epoch & Duration \\
-	\hline
-		Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
-		0.000 & 25.00 & 0s\\
-	\hline
-		Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
-		0.8992 & 25.00 & 0s\\
-	\hline
-	\end{tabular}
-	\label{tab:learning_test_error_tab}
-\end{table}		
-	%-------------------------------------------------
-	
+    \caption{Test error rate results.}
+    \begin{tabular}{| l | c | c | c |}
+    \hline
+        Tests & Value & Epoch & Duration \\
+    \hline
+        Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+        0.000 & 25.00 & 0s\\
+    \hline
+        Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
+        0.8992 & 25.00 & 0s\\
+    \hline
+    \end{tabular}
+    \label{tab:learning_test_error_tab}
+\end{table}        
+    %-------------------------------------------------
+    
 The following graph (Fig. \ref{fig:learning_train_error_fig} and
 table (Tab. \ref{tab:learning_train_error_tab}) represent the error rate for the train data set. The results show that Test5 took a duration of $\sim 14m 50s$ while Test6 took 
 $\sim 12m 29s$.
-	
-	%Learning Training error rate graph
-	%-------------------------------------------------
+    
+    %Learning Training error rate graph
+    %-------------------------------------------------
 \begin{figure}[H]
-	%-------------------------------------------------
-	\centering
-	\includegraphics[width=\textwidth]		
-	{machine_learning/graph_tests/learning_rate_test/train_error_rate}
-	\caption{Training error rate.}
-	\label{fig:learning_train_error_fig}
+    %-------------------------------------------------
+    \centering
+    \includegraphics[width=\textwidth]        
+    {machine_learning/graph_tests/learning_rate_test/train_error_rate}
+    \caption{Training error rate.}
+    \label{fig:learning_train_error_fig}
 \end{figure}
-	%Learning Training error rate table
-	%-------------------------------------------------
+    %Learning Training error rate table
+    %-------------------------------------------------
 \begin{table}[H]
 \centering
-	\caption{Training error rate results.}
-	\begin{tabular}{| l | c | c | c |}
-	\hline
-		Tests & Value & Epoch & Duration \\
-	\hline
-		Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
-		5.1858e-4 & 24.00 & 14m 50s\\
-	\hline
-		Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
-		0.9188 & 24.00 & 12m 29s\\
-	\hline
-	\end{tabular}
-	\label{tab:learning_train_error_tab}
-\end{table}		
-	%-------------------------------------------------
-	
+    \caption{Training error rate results.}
+    \begin{tabular}{| l | c | c | c |}
+    \hline
+        Tests & Value & Epoch & Duration \\
+    \hline
+        Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+        5.1858e-4 & 24.00 & 14m 50s\\
+    \hline
+        Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
+        0.9188 & 24.00 & 12m 29s\\
+    \hline
+    \end{tabular}
+    \label{tab:learning_train_error_tab}
+\end{table}        
+    %-------------------------------------------------
+    
 The final results show that Test5 with no learning rate of 
-$0.1\%$ outperformend Test6 with a learning rate of $1\%$ by a long shot. The graph clearly shows while training didn't really converge to zero at all unlike Test5, meaning it didn't learn anything during training.
+$0.1\%$ outperformed Test6 with a learning rate of $1\%$ by a long shot. The graph clearly shows while training didn't really converge to zero at all, unlike Test5, meaning it didn't learn anything during training.
 %----------------------------------------------------
