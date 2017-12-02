@@ -53,21 +53,18 @@ The Artificial neuron is the processing unit of an artificial neural network, wh
 This model was inspired by the analysis of how a cell membrane of a neuron generates and propagates electrical impulses (Hodgkin and Huxley 1952) \cite[p.~11]{Silva2016}.
 The purpose of artificial neurons is to simulate the basic function of biological ones,
 which are typically comprised of four parts:
-
 \begin{enumerate}
     \item Dendrites: Accept inputs
     \item Soma(Cell body): Process the inputs
     \item Axon: Turn the processed inputs into outputs
     \item Synapses: The electrochemical connections between neurons 
 \end{enumerate}
-Figure \ref{fig:AN} illustrates the four main functions of a biological neuron, represented by the artificial one.\\ 
-
+Figure \ref{fig:AN} illustrates the four main functions of a biological neuron, represented by the artificial one.\\\\
 The artificial neurons used in artificial neural networks are non-linear, usually providing continuous outputs,
 and performing simple functions,
 such as gathering signals available on their inputs,
 assembling them according to their operational functions,
 and producing a response considering their innate activation functions \cite[p.~11]{Silva2016}. 
-
 \begin{figure}[H]
 \centering
     \includegraphics[width=\textwidth]
@@ -75,7 +72,6 @@ and producing a response considering their innate activation functions \cite[p.~
     \caption{The artificial neuron.}
     \label{fig:AN}
 \end{figure}
-
 Each neuron from a network can be implemented as shown in Fig.
 \ref{fig:AN}. The multiple input signals coming from the external environment are represented by the set
 $\left\{i_1,i_2,i_3,...,i_n \right\}$, analogous to the electrical signals received by the dendrites from the biological neuron.\\\\
@@ -98,13 +94,11 @@ pattern classification and linear filtering problems.
 The Perceptron and the ADALINE architectures are among the most recognized feed-forward neural networks and they work well with Hebb's rule and the Delta rule for training.
 
 \subsection{Deep Recurrent Neural Network}
-To explain how a deep recurrent neural network (RNN) looks like first we will see what a deep neural network is made of and after that, the recurrent part will be added to form a more complex and powerful network.\\
-
+To explain how a deep recurrent neural network (RNN) looks like first we will see what a deep neural network is made of and after that, the recurrent part will be added to form a more complex and powerful network.\\\\
 Networks with multiple layers have one or more hidden neural layers. Such a network will always have one input layer with multiple samples and a series of variable layers.
 In contrast to the simple feed-forward network, these hidden layers are not constrained to have the same size as the input layer. This means
 that the size can depend on the complexity of the problem being
-tackled by the network, as well as the quantity and quality of the available data. The last layer still occupies a double role as both a neuron layer and output layer.\\
-
+tackled by the network, as well as the quantity and quality of the available data. The last layer still occupies a double role as both a neuron layer and output layer.\\\\
 Another key element is the fact that the outputs of the neurons are used for feedback inputs to the other neurons.
 This feature makes the network great for time-variant systems where the new outputs can benefit from the previous information.
 
@@ -115,22 +109,18 @@ Firstly used in 1997 by Sepp Hochreiter and Jürgen Schmidhuber
  \cite{Gers99learningto}.
 Nowadays, after further refinement,
 LSTMs work incredibly well on various problems and give better results for most problems that require RNNs.
-They remember information for long periods of time by default, making them the perfect fit to avoid long-term dependency problems.\\
-
+They remember information for long periods of time by default, making them the perfect fit to avoid long-term dependency problems.\\\\
 LSTMs have a chain-like structure of four layers, with repeating modules that interact in specific ways. For simplicity, in the following explanation of the internal states of an LSTM, the input $X$ will represent the normal input to the network concatenated with the previous state, $X = x_i | h_{t-1}$.
-
 \begin{figure}[H]
 \centering
     \includegraphics[width=\textwidth]    
     {machine_learning/01_Lstm_Diagram}
     \caption{LSTM Diagram.}
 \end{figure}
-
 From Figure \ref{fig:diagram_legend}, 
 the lines represent vectors that pass
 from the output of the previous note \todo{do you mean note or node?} to the input of the current one. The circle denotes point wise operations, 
 and the rectangle represents trained network layers.
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]        
@@ -138,7 +128,6 @@ and the rectangle represents trained network layers.
     \caption{Diagram legend.}
     \label{fig:diagram_legend}
 \end{figure}
-
 A side by side description of each layer of an LSTM and
 it`s mathematical formulation can be seen in the
 following figures, where the dot represents matrix
@@ -151,7 +140,6 @@ meaning that a value of zero represents data that will be
 complicity erased and so forth, while an absolute value
 of one represents data that will be left unchanged for
 the next iteration.    
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]        
@@ -159,21 +147,16 @@ the next iteration.
     \caption{Forget Gate for concatenated inputs.}
     \label{fig:Forget}
 \end{figure}
-
 \begin{equation}
          f= \sigma*(X.W_f+b_f) 
 \end{equation}
-
 Similar to the forget gate, the LSTM structure also uses an update gate, to add new information to the system.
 As seen in Figure \ref{fig:Update}, the update gate generates the new values that will be used. This takes place by multiplying the update gate to the input layer, represented by $X`$ where a hyperbolic tangent is used as the activation function. This is given as an example, as the Rectified Linear Unit (ReLU) or the softmax activation work perfectly fine as well.  
 From the above mentioned gates a new internal state C can be computed as:
-
 \begin{equation}
 	C_t= f * C_{t-1} + u*X` 
 \end{equation}
-
 Where the current state ($C_t$) is determined by what we want to forget ($f$), multiplied by the previous state ($C_t-1$) and added together with the update gate ($r$) times the input layer ($X`$).
-
 \begin{figure}[H]
     \centering
         \includegraphics[width=0.5\textwidth]        
@@ -181,32 +164,26 @@ Where the current state ($C_t$) is determined by what we want to forget ($f$), m
     		\caption{Update gate with the current state description.}
     		\label{fig:Update}
 \end{figure}
-
 \begin{equation}
 	U= \sigma*(X.W_u+b_u)
 \end{equation}    
 \begin{equation}     
 	X`=tanh*(X.W_c+b_c)
 \end{equation}
-
 \begin{figure}[H]
     \centering
     		\includegraphics[width=0.5\textwidth]    					{machine_learning/05_Result}
     		\caption{Result gate added to the output function.}
     		\label{fig:Result}
 \end{figure}
-
-    \begin{equation}
-         r= \sigma*(X.W_r+b_r) 
-    \end{equation}    
-
+\begin{equation}
+	r= \sigma*(X.W_r+b_r) 
+\end{equation}    
 The third and last gate is the result gate ($r$), which uses the previous internal state of the LSTM to generate a new internal state.
 As such, the output of the neural network can be written as:
-
 \begin{equation}
 	Y_t=softmax(H_t.W+b)
 \end{equation}
-
 %---------------------------------------------------
 \subsection{Dropout}
 Dropout is a regularization technique that involves shooting the neurons.
@@ -214,19 +191,15 @@ It is applied after the activation function of each layer with the notable excep
 A percentage is used to determine the number of neurons that will remain in the networks.
 For example, a .75 value in the dropout function means that only 75 percent of the neurons will remain active during the training phase. \todo{do you mean 75 percent of the neurons will be randomly excluded from each update cycle?}\\\\
 For the testing phase, all the neurons have to be present, meaning that a value of one has to be given to the dropout function to ensure a high accuracy rating.
-This helps the network understand the information it is given as it cannot presume that other neurons in the same layer have been activated and it prevents the network from just memorizing the values that were given as inputs.\\
-
+This helps the network understand the information it is given as it cannot presume that other neurons in the same layer have been activated and it prevents the network from just memorizing the values that were given as inputs.\\\\
 The snippet of code below shows how dropout is used in TensorFlow for a layer of a neural network, where "pkeep" is the percentage of the neurons that will remain active and the call for the dropout is made after the activation function, in this case, the ReLU.
-
 \begin{lstlisting}[language=Python, caption=Dropout for single network layer.]
 pkeep = tf.palceholder(tf.float32)
 YF = tf.nn.relu(tf.matmul(X, W)+ b)
 Y = tf.nn.dropout(Yf, pkeep)
 \end{lstlisting}
-
 For a visual representation of a dropout rate given to a neural network, it can be seen Figure \ref{fig:.4_dropout_rate}.
 A dropout rate of $40\%$ given to the neural network on the left hand side, which can be seen in the the neural network on the right hand side.
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]		
@@ -239,11 +212,9 @@ A dropout rate of $40\%$ given to the neural network on the left hand side, whic
 \subsection{Batch normalisation}
 Statistics can be computed for each batch that is fed to the neural network so the average and the standard deviation can be computed. After computing them, subtracting the average and dividing by the standard deviation rescales and recenters the output. 
 In the equation, epsilon is added to avoid numerical problems as dividing by zero.
-
 \begin{equation}
     X= \dfrac{x - avg(x)}{stdev(x) + \epsilon} 
 \end{equation}
-
 The recentering and rescaling of the values can cause problems to
 the network for cases where data needs to be squeezed over 
 to one side of the spectrum.
@@ -252,11 +223,9 @@ $\alpha$ and $\beta$, for each neuron.
 By assigning the $\alpha$ value to the $stdev(x)$ and the
 $\beta$ to $-avg(x)$ there will always be a case where the batch
 normalized value of x can be reverted to the original value.
-
 \begin{equation}
     BN(x) = \alpha * X + \beta
 \end{equation}
-
 Batch normalization (BN) is added before the activation function
 because it makes use of the current weights and biases to
 compute the average and standard deviation. 
@@ -272,7 +241,6 @@ the scale parameter has to be used to make sure that
 the data fits in the useful part of the activation function.
 A representation of how to choose the right coefficients is
 given in Table \ref{tab:Parameters}.
-
 \begin{table}[htbp]
 \centering
     \caption{Parameters for different activation functions.}
@@ -297,8 +265,7 @@ These higher level APIs are typically easier to learn and use than Tensorflow Co
 In addition, the higher level APIs such as "tf.estimator" helps with managing data sets, estimators,
 training and inferences (testing your trained network),
 as well as, making repetitive tasks easier and more consistent
-\cite{tensorflow2015-whitepaper}.\\
-
+\cite{tensorflow2015-whitepaper}.\\\\
 The subsection below will start with TensorFlow Core. 
 In order to gain an understanding of the basic principles that TensorFlow has to offer, a model shall be made. 
 In the subsection after that, the same model will be implemented with tf.estimator. 
@@ -309,7 +276,6 @@ The central unit of data in TensorFlow is the tensor.
 A tensor consists of a set of primitive values shaped into an array of any number of dimensions. 
 A tensor's rank is its number of dimensions. 
 Here are some examples of tensors:
-
 \begin{lstlisting}[language=Python, caption=Tensor examples.]
 3 # a rank 0 tensor; this is a scalar with shape []
 [1., 2., 3.] # a rank 1 tensor; this is a vector with shape [3]
@@ -321,18 +287,15 @@ Here are some examples of tensors:
 Getting started with TensorFlow is done by using the import statement. 
 This gives Python access to all of TensorFlow's classes,
 methods and symbols. It is called by the following statement:
-
 \begin{lstlisting}[language=Python, caption=Importing Tensorflow library.]
 import tensorflow as tf
 \end{lstlisting}
-
 All the programs written with the help of TensorFlow core are built around computational graphs. 
 They are a series of operations arranged into a graph and connected by nodes. 
 To see the outcome of such a program, 
 firstly the computational graph needs to be created and after that, it needs to be run. 
 This provides a contrast to normal code written in python and to display this, 
 the print function for a tensorflow constant is called bellow.
-
 \begin{lstlisting}[language=Python, caption=Printing output without sess.run().]
 node1 = tf.constant(3.0, dtype=tf.float32)
 node2 = tf.constant(4.0) # also tf.float32 implicitly
@@ -342,14 +305,12 @@ Output:
 Tensor("Const:0", shape=(), dtype=float32)
 Tensor("Const_1:0", shape=(), dtype=float32) 
 \end{lstlisting}
-
 As seen above, printing an element does not show the value that it holds and it rather shows the technical details behind,
 such as the element being a constant of type float32.
 To investigate the contents of any element in tensorflow,
 an object of type session needs to be defined.
 When the new object is run, a new session is generated and the content of the element can be seen.
 All code written in tensorflow core follows this basic principle.
-
 \begin{lstlisting}[language=Python, caption=Printing output with sess.run().]
 sess = tf.Session()
 print(sess.run([node1, node2]))
@@ -357,7 +318,6 @@ print(sess.run([node1, node2]))
 Output:
 [3.0]
 \end{lstlisting}
-
 Other basic elements in tensorflow are
 placeholders(tf.placeholder), they can be changed to accept external inputs and variables. Variables allow the system to
 change its outputs while keeping the same inputs,
@@ -374,13 +334,11 @@ but in the beginning to reduce time and processing power a bigger step could be 
 One solution to this problem is to use a variable step input that changes as the gradients are determined.
 TensorFlow can automatically produce derivatives given only a description of the model using the function tf.gradients.
 For simplicity, optimizers typically do this for us.
-
 \begin{lstlisting}[language=Python, caption=The gradient descent optimizer.]
 optimizer = tf.train.GradientDescentOptimizer(0.01)
 train = optimizer.minimize(loss)
 sess.run(train)
 \end{lstlisting}
-
 The gradient descent optimizer takes an input, defined as 0.01 in the example above,
 that represents the step input or the rate of change for the gradients.
 
@@ -393,7 +351,6 @@ Making the entire process of writing an algorithm and maintaining it be less ted
 Although the estimator library has a set of predefined models to make things easier, a custom model can be created while keeping the high
 level abstraction of the data set, training, and feeding.
 A linear regression algorithm built with tf.estimator is included below to show how the library works \cite{Estimator}:
-
 \begin{lstlisting}[language=Python, caption=Linear regression algorithm built with tf.estimator.]
 import numpy as np
 import tensorflow as tf
@@ -434,14 +391,13 @@ eval_metrics = estimator.evaluate(input_fn=eval_input_fn)
 print("train metrics: %r"% train_metrics)
 print("eval metrics: %r"% eval_metrics)
 \end{lstlisting}
+
 %---------------------------------------------------
 \section{Batch Size, Dropout and Learning Rate Comparison}
 In order to gain a better understanding on how the different parameter values (batch size, dropout and learning rate) may affect the performance (training duration and test accuracy) of a neural network model, a small experiment was conducted.\\\\
 This experiment consists of six test trials. For each test trial different parameter values were chosen, as shown in table \ref{tab:six_tests_tab}.
-
-%-------------------------------------------------------
-%Table with the six Tests
 \begin{table}[H]
+%Table with the six Tests
 \centering
     \caption{Six tests with different Parameter values.}
     \begin{tabular}{| l | c | c | c | c | c | c | c |} 
@@ -472,10 +428,7 @@ This experiment consists of six test trials. For each test trial different param
     \label{tab:six_tests_tab}
     %adding notes
     \raggedright{Batch Size: (train data, evaluation data, test data)} 
-
 \end{table}
-%-------------------------------------------------------
-
 Note that the batch size is represented by the training, evaluation and testing data and will be represented this way
 for all the following tables.\\\\
 The tests were run on a model designed by the Silicon Valley
@@ -487,20 +440,15 @@ can be found respectively in the following citations:
 \cite{rubashkin2017, mozilla2017}.
 The model consists of a Bi-Directional Recurrent Neural Network
 with three fully connected layers before it and a fully connected
-layer with an activation layer after it.\\
-
-The data used in the model referred above was a small set of WAV files consisting of recorded audio of the numbers:\\
-
+layer with an activation layer after it.\\\\
+The data used in the model referred above was a small set of WAV files consisting of recorded audio of the numbers:\\\\
 $\left\{zero, one, two, three, four, five, six, seven, eight, nine \right\}$,\\\\
-and their respective labels in text format.
-The data is separated into folders:
-
+and their respective labels in text format. The data is separated into folders:
 \begin{itemize}
     \item Train: train-clean-100-wav
     \item Test: test-clean-wav
     \item Dev: dev-clean-wav
 \end{itemize}
-
 In this section, the train and test results given in the following graphs and tables will be referred. However, for the interested
 reader, all three train, test, and evaluation
 results have been included in appendix \ref{ch:appAlabel} with slightly scaled up graphs for a more detailed analysis.
@@ -539,7 +487,6 @@ will be used for the batch size test as shown in Table \ref{tab:batch_tests_tab}
     \label{tab:batch_tests_tab}
 \end{table}
     %-------------------------------------------------
-    
 The following graph (Fig. \ref{fig:batch_test_error_fig}) and
 table (Tab. \ref{tab:batch_test_error_tab}) represent the error
 rate for the test data set (the one that is used to test the
@@ -579,14 +526,12 @@ $\sim 0\%$ WER.
     \label{tab:batch_test_error_tab}
 \end{table}
     %-------------------------------------------------
-    
 The following graph (Fig. \ref{fig:batch_train_error_fig}) and
 table (Tab. \ref{tab:batch_train_error_tab}) represent the error
 rate for the train data set (the one that is used to train the
 model). The results show that Test1 took a duration of 
 $\sim 1h 26m 13s$ for the trainig while Test2 and Test3 is 
-$\sim 18m 50s$ and $\sim 14m 50s$ respectively.
-        
+$\sim 18m 50s$ and $\sim 14m 50s$ respectively. 
     %Batch Size training error rate graph
     %-------------------------------------------------
 \begin{figure}[H]
@@ -619,17 +564,13 @@ $\sim 18m 50s$ and $\sim 14m 50s$ respectively.
     \label{tab:batch_train_error_tab}
 \end{table}    
     %-------------------------------------------------    
-
 The final results show that Test1 with the smaller batch size took significantly longer to train and had the worst accuracy. However, Test3 with the larger batch size took the least time and had the same accuracy as Test2.
-    
 %-----------------------------------------------------
 
 \subsection{Dropout Test}
-
 In this subsection three test from Table \ref{tab:six_tests_tab}  
 will be used for the batch size test as shown in Table \ref{tab:drop_tests_tab}. For each trial test, only the dropout
 parameter has been changed.
-
     %Dropout Test table
     %-------------------------------------------------
 \begin{table}[H]
@@ -657,13 +598,11 @@ parameter has been changed.
     \label{tab:drop_tests_tab}
 \end{table}
     %-------------------------------------------------
-    
 The following graph (Fig. \ref{fig:drop_test_error_fig}) and
 table (Tab. \ref{tab:drop_test_error_tab}) represent the error
 rate for the test data set. The results show that Test2 has
 $\sim 0\%$ word error rate (WER) while Test3 and Test4 is
 $\sim 3\%$ and $\sim 2\%$ WER respectively.
-    
     %Dropout Test error rate graph
     %-------------------------------------------------
 \begin{figure}[H]
@@ -696,12 +635,10 @@ $\sim 3\%$ and $\sim 2\%$ WER respectively.
     \label{tab:drop_test_error_tab}
 \end{table}        
     %-------------------------------------------------
-    
 The following graph (Fig. \ref{fig:drop_train_error_fig}) and
 table (Tab. \ref{tab:drop_train_error_tab}) represent the error
 rate for the train data set. The results show that Test2 took a duration of $\sim 18m 50s$ while Test2 and Test3 took 
 $\sim 18m 5s$ and $\sim 18m 10s$ respectively.
-
     %Dropout Training error rate graph
 \begin{figure}[H]
     %-------------------------------------------------
@@ -733,18 +670,14 @@ $\sim 18m 5s$ and $\sim 18m 10s$ respectively.
     \label{tab:drop_train_error_tab}
 \end{table}        
     %-------------------------------------------------
-    
 The final results show that Test3 with no dropout and Test4 with a high dropout of $50\%$ had a slightly faster training time, However, the test error rate was slightly worse than Test2 with a dropout of $5\%$. Overall all three tests performed very well. \todo{check dropout percentage}
-    
 %-----------------------------------------------------
 
 \subsection{Learning Rate Test}
-
 In this subsection two test from Table \ref{tab:six_tests_tab}  
 will be used for the batch size test as shown in Table
 \ref{tab:learning_tests_tab}. For each trial test, only the
 learning rate parameter has been changed.
-
     %Learning Test table
     %-------------------------------------------------
 \begin{table}[H]
@@ -768,11 +701,9 @@ learning rate parameter has been changed.
     \label{tab:learning_tests_tab}
 \end{table}
     %-------------------------------------------------
-
 The following graph (Fig. \ref{fig:learning_test_error_fig}) and
 table (Tab. \ref{tab:learning_test_error_tab}) represent the error rate for the test data set. The results show that Test5 has
 $\sim 0\%$ word error rate (WER) while Test6 is $\sim 89\%$ WER.
-    
     %Learning Test error rate graph
     %-------------------------------------------------
 \begin{figure}[H]
@@ -802,11 +733,9 @@ $\sim 0\%$ word error rate (WER) while Test6 is $\sim 89\%$ WER.
     \label{tab:learning_test_error_tab}
 \end{table}        
     %-------------------------------------------------
-    
 The following graph (Fig. \ref{fig:learning_train_error_fig} and
 table (Tab. \ref{tab:learning_train_error_tab}) represent the error rate for the train data set. The results show that Test5 took a duration of $\sim 14m 50s$ while Test6 took 
 $\sim 12m 29s$.
-    
     %Learning Training error rate graph
     %-------------------------------------------------
 \begin{figure}[H]
@@ -836,7 +765,6 @@ $\sim 12m 29s$.
     \label{tab:learning_train_error_tab}
 \end{table}        
     %-------------------------------------------------
-    
 The final results show that Test5 with no learning rate of 
 $0.1\%$ outperformed Test6 with a learning rate of $1\%$ by a long shot. The graph clearly shows while training didn't really converge to zero at all, unlike Test5, meaning it didn't learn anything during training.
 %----------------------------------------------------
