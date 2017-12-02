@@ -17,39 +17,60 @@
 \pdfbookmark[0]{Front page}{label:frontpage}%
 \begin{titlepage}
   \addtolength{\hoffset}{0.5\evensidemargin-0.5\oddsidemargin} %set equal margins on the frontpage - remove this line if you want default margins
-  \noindent%
-  \begin{tabular}{@{}p{\textwidth}@{}}
-    \toprule[2pt]
-    \midrule
-    \vspace{0.2cm}
-    \begin{center}
-    \Huge{\textbf{
-      Speech Recognition% insert your title here
-    }}
-    \end{center}
-    \begin{center}
-      \Large{
-        - With Artificial Neural Networks -% insert your subtitle here
-      }
-    \end{center}
-    \vspace{0.2cm}\\
-    \midrule
-    \toprule[2pt]
-  \end{tabular}
-  \vspace{4 cm}
-  \begin{center}
-    {\large
-      Project Report%Insert document type (e.g., Project Report)
-    }\\
-    \vspace{0.2cm}
+
+%picture
+\begin{center}
+{%
+\includegraphics[width=.7\textwidth]{figures/aau_logo_en}
+}
+\end{center}
+%Group name
+\begin{center}
     {\Large
       ED5-1-E17%Insert your group name or real names here
     }
-  \end{center}
-  \vfill
-  \begin{center}
-  Aalborg University\\
-  Electronics and IT
-  \end{center}
+\end{center}
+
+%Title
+\noindent%
+\begin{tabular}{@{}p{\textwidth}@{}}
+\toprule[1.5pt]
+\vspace{0.1cm}
+\begin{center}
+	\Huge{\textbf{Distributed Speech Recognition System}}
+\end{center}
+\begin{center}
+	\Large{- Using Artificial Neural Networks -}
+\end{center}
+\vspace{0.1cm}\\
+\toprule[1.5pt]
+\end{tabular}
+
+%Students and Supervisors
+\centering
+\begin{minipage}{.5\textwidth}
+	\textit{Students:}\\
+	Stefan Bîrs\\
+	Tiberiu-Ioan Szatmari\\
+	Kamran Thomas Alimagham
+\end{minipage}% This must go next to `\end{minipage}`
+\begin{minipage}{.5\textwidth}
+	\begin{flushright}%
+  		\setlength{\rightskip}{0em}%
+  		\textit{Supervisors:}\\
+  		Daniel Ortiz-Arroyo\\
+		D. M. Akbar Hussain
+	\end{flushright}
+\end{minipage}
+
+\vfill
+  
+  
+\begin{center}
+	Electronics and Computer Engineering\\
+	\today
+\end{center}
+
+
 \end{titlepage}
 \clearpage

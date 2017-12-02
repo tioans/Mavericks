@@ -1,5 +1,9 @@
 % AAU_P5_report
-%--------------------------------------------------------------%
+%--------------------------------------------------------------
+%
+%gets rid of blank pages bellow
+\let\cleardoublepage\clearpage
+	
 \input{setup/preamble.tex}% package inclusion and set up of the document
 \input{setup/hyphenations.tex}% 
 \input{setup/macros.tex}% my new macros
@@ -47,10 +51,7 @@
 	%---------------------------------------------------------%	
 	\printbibliography[heading=bibintoc]
 	\label{bib:mybiblio}
-	
-	%gets rid of blank pages bellow
-	\let\cleardoublepage\clearpage
-	
+		
 	\appendix
 	\renewcommand\chaptername{Appendix}
 	\input{sections/appendixA.tex}

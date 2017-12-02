@@ -14,7 +14,7 @@
 %
 %  You can find the GNU General Public License at <http://www.gnu.org/licenses/>.
 %
-\documentclass[11pt,twoside,a4paper,openright]{report}
+\documentclass[12pt,twoside,a4paper,openright]{report}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Language, Encoding and Fonts
 % http://en.wikibooks.org/wiki/LaTeX/Internationalization
@@ -36,7 +36,6 @@
 \usepackage{listings}
 \usepackage{adjustbox}
 \usepackage{float}
-%\usepackage{color}
 \usepackage[usenames,dvipsnames]{xcolor}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -132,12 +131,24 @@
 % Change margins, papersize, etc of the document
 \usepackage[
   inner=28mm,% left margin on an odd page
-  outer=41mm,% right margin on an odd page
+  outer=28mm,% right margin on an odd page
   ]{geometry}
+  
+%\usepackage[
+%  a4paper,
+%  textwidth=150mm,
+%  textheight=225mm,
+%  heightrounded,
+%]{geometry}
+
+\usepackage[T1]{fontenc} % <-- don't forget  
+  
 % Modify how \chapter, \section, etc. look
 % The titlesec package is very configureable
 \usepackage{titlesec}
+
 \titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+
 \titleformat*{\section}{\normalfont\Large\bfseries}
 \titleformat*{\subsection}{\normalfont\large\bfseries}
 \titleformat*{\subsubsection}{\normalfont\normalsize\bfseries}
@@ -145,12 +156,12 @@
 %\titleformat*{\subparagraph}{\normalfont\normalsize\bfseries}
 
 % Clear empty pages between chapters
-\let\origdoublepage\cleardoublepage
-\newcommand{\clearemptydoublepage}{%
-  \clearpage
-  {\pagestyle{empty}\origdoublepage}%
-}
-\let\cleardoublepage\clearemptydoublepage
+%\let\origdoublepage\cleardoublepage
+%\newcommand{\clearemptydoublepage}{%
+%  \clearpage
+%  {\pagestyle{empty}\origdoublepage}%
+%}
+%\let\cleardoublepage\clearemptydoublepage
 
 % Change the headers and footers
 \usepackage{fancyhdr}
