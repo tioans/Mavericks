@@ -27,7 +27,7 @@ By the probabilities of transition, there will be a shift from one state to anot
 Dynamic Time Warping (DTW) is an algorithm that compares words with pre-given reference words.
 It measures the patterns between two sequences that will vary in time or speed.\cite{togneri1990speech}
 To output speech, the algorithm tries to alter the time variable of the unknown speech until it matches one of the reference words.
-
+\todo{pagenumber}
 \subsubsection{Vector Quantization}
 
 Vector Quantization (VQ) is used to map vectors from a big vector space to a finite region in space. 
@@ -37,7 +37,7 @@ The test data is evaluated on all codebooks and the automated speech recognizer 
 \cite[p.~20-21]{togneri1990speech}.
 
 
-\section{Artificial Neural Networks}
+\section{Artificial Neural Networks}\label{sec:ANN}
 %---------------------------------------------------
 \subsection{What is an Artificial Neural Network?}
 Artificial Neural Networks are nothing but a computerized representation of the human brain. 
@@ -102,7 +102,7 @@ tackled by the network, as well as the quantity and quality of the available dat
 Another key element is the fact that the outputs of the neurons are used for feedback inputs to the other neurons.
 This feature makes the network great for time-variant systems where the new outputs can benefit from the previous information.
 
-\subsection{Long Short-Term Memory}
+\subsection{Long Short-Term Memory}\label{sub:LSTM}
 Long Short-Term Memory networks, for short “LSTMs”, are a special case of the recurrent neural network, that is capable of learning long-term dependencies.
 Firstly used in 1997 by Sepp Hochreiter and Jürgen Schmidhuber
  \cite{Father} and refined by Felix Gers and his team
@@ -148,7 +148,7 @@ the next iteration.
     \label{fig:Forget}
 \end{figure}
 \begin{equation}
-         f= \sigma*(X.W_f+b_f) 
+         f= \sigma(X.W_f+b_f) 
 \end{equation}
 Similar to the forget gate, the LSTM structure also uses an update gate, to add new information to the system.
 As seen in Figure \ref{fig:Update}, the update gate generates the new values that will be used. This takes place by multiplying the update gate to the input layer, represented by $X`$ where a hyperbolic tangent is used as the activation function. This is given as an example, as the Rectified Linear Unit (ReLU) or the softmax activation work perfectly fine as well.  
@@ -165,10 +165,10 @@ Where the current state ($C_t$) is determined by what we want to forget ($f$), m
     		\label{fig:Update}
 \end{figure}
 \begin{equation}
-	U= \sigma*(X.W_u+b_u)
+	U= \sigma(X.W_u+b_u)
 \end{equation}    
 \begin{equation}     
-	X`=tanh*(X.W_c+b_c)
+	X`=\tanh(X.W_c+b_c)
 \end{equation}
 \begin{figure}[H]
     \centering
@@ -177,15 +177,64 @@ Where the current state ($C_t$) is determined by what we want to forget ($f$), m
     		\label{fig:Result}
 \end{figure}
 \begin{equation}
-	r= \sigma*(X.W_r+b_r) 
+	r= \sigma(X.W_r+b_r) 
 \end{equation}    
 The third and last gate is the result gate ($r$), which uses the previous internal state of the LSTM to generate a new internal state.
 As such, the output of the neural network can be written as:
 \begin{equation}
-	Y_t=softmax(H_t.W+b)
+	Y_t=\text{softmax}(H_t.W+b)
+\end{equation}
+%---------------------------------------------------
+\subsection{Bidirectional networks}
+
+Bidirectional Recurrent Neural Networks (BRNN) are used to increase the 
+input information available to the network. As data flows in one direction, standard neural networks have inherited restrictions where 
+the future input cannot be accessed by the current state \cite{graves2005bidirectional}. Conversely,
+BRNNs do not require their input data to be fixed. Furthermore, their 
+future input information is available at the current state. This is done
+by connecting two hidden layers of opposite directions to the same output.
+
+For an input sequence like: X=$\left\{x_1,x_2,x_3,...,x_n \right\}$, a 
+neural network computes the hidden vector layer 
+h= $\left\{h_1,h_2,h_3,...,h_n \right\}$ and output vector 
+y= $\left\{y_1,y_2,y_3,...,y_n \right\}$ by iterating over  $1<t<n$ to generate the following equations:
+\begin{equation}
+h_t=\sigma(W_{xh}*x_t + W_{hh}*h_{t-1} + b_h)
+\end{equation}
+
+\begin{equation}
+y_t = W_{hy}*h_t + b_y
+\end{equation}
+
+These equation expand on Section \ref{sec:ANN} and show how the neurons output a weighted sum of all the inputs and biases.
+Because of the promising results given by simple LSTM networks, combining them with the benefits given by BRNN, the gates showcased in 
+Subsection \ref{sub:LSTM} become:
+\begin{align}
+i_t &= \sigma(W_{xy} * x_t + W_{hi} * h_{t-1} + W_{ci} * c_{t-1} + b_i)
+\\
+f_t &= \sigma(W_{xf} * x_t + W_{hf} * h_{t-1} + W_{cf} * c_{t-1} + b_f) \\
+c_t &= f_t * c_{t-1} + i_{t} * \tanh(W_{xc} * x_t + W_{hc} *  h_{t-1} + b_c)
+\\
+o_t &= \sigma(W_{xo} * x_t + W_{ho} * h_{t-1} + W_{co} * c_t +b_o))
+\\
+h_t &= o_t * \tanh(c_t)
+\end{align}
+\todo{Align eq by the equal sign, add picture}
+Where i, f, o and c are the input gate, forget gate, output gate and cell activation vector. Because speech is a continuous action and hole utterances happen at once, simple RNNs fall behind in performance by only accessing previous information. Bidirectional RNNs process data in
+two directions, with one layer iterating  forward (from t = 1 to n) and one layer iterating backwards (from t = n to 1)\cite{graves2013hybrid}. As such, the forward layer is described in Equation \ref{eq:Forward} while the backwards layer is described in Equation \ref{eq:Backwards} and the updated output layer, Equation \ref{eq:Output}, becomes:
+
+\begin{equation}\label{eq:Forward}
+\overrightarrow{h}_t = \sigma(W_{x\overrightarrow{h}} * x_t + W_{\overrightarrow{h}\overrightarrow{h}} * \overrightarrow{h}_{t-1}+ b_{\overrightarrow{h}})
+\end{equation}
+\begin{equation}\label{eq:Backwards}
+\overleftarrow{h}_t = \sigma(W_{x\overleftarrow{h}} * x_t + W_{\overleftarrow{h}\overleftarrow{h}} * \overleftarrow{h}_{t-1}+ b_{\overleftarrow{h}})
+\end{equation}
+\begin{equation}\label{eq:Output}
+y_t = W_{\overrightarrow{h}y} * \overrightarrow{h}_t + W_{\overleftarrow{h}y} * \overleftarrow{h}_t +b_y
 \end{equation}
 %---------------------------------------------------
 \subsection{Dropout}
+
 Dropout is a regularization technique that involves shooting the neurons.
 It is applied after the activation function of each layer with the notable exception of the input and output layer.
 A percentage is used to determine the number of neurons that will remain in the networks.
@@ -504,6 +553,7 @@ $\sim 0\%$ WER.
     \caption{Test error rate.}
     \label{fig:batch_test_error_fig}
 \end{figure}
+\todo{pic}
     %Batch Size Test error rate table
     %-------------------------------------------------
 \begin{table}[H]
