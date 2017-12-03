@@ -42,3 +42,6 @@
 - **Code Example**
   - simple lstm speech recognizer, with 100GB training data: [https://github.com/pannous/tensorflow-speech-recognition](https://github.com/pannous/tensorflow-speech-recognition)
   - Recurrent Neural Networks | A Short TensorFlow Tutorial: [https://github.com/silicon-valley-data-science/RNN-Tutorial](https://github.com/silicon-valley-data-science/RNN-Tutorial)
+  
+- **Slides**
+  - "preparing data for modeling in hard" [https://www.slideshare.net/jpatanooga/deep-learning-and-recurrent-neural-networks-in-the-enterprise](https://www.slideshare.net/jpatanooga/deep-learning-and-recurrent-neural-networks-in-the-enterprise)
