@@ -3,33 +3,37 @@
 %-------------------------------------------------------
 %Table of Tests
 \begin{table}[H]
+%Table with the six Tests
 \centering
-	\caption{Six tests with different Parameter values.}
-	\begin{tabular}{| l | c | c | c | c | c | c | c |} 
-	\hline
-	Parameters & 
-	Test1 -\tikzcircle[orange, fill=orange]{3pt}- &
-	Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
-	Test3 -\tikzcircle[red, fill=red]{3pt}- &
-	Test4 -\tikzcircle[lightblue, fill=lightblue]{3pt}- &
-	Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
-	Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- \\ 
-	\hline
-	Batch Size (train, eval., test) & 
-	2 \hfill 2 \hfill 2 & 
-	20 \hfill 20 \hfill 20 & 
-	20 \hfill 20 \hfill 20 &
-	20 \hfill 20 \hfill 20 &
-	50 \hfill 20 \hfill 20 &
-	50 \hfill 20 \hfill 20 \\
-	\hline
-	Dropout & 
-	0.05 & 0.05 & 0.00 & 0.50 & 0.05 & 0.05 \\
-	\hline
-	Learning Rate & 
-	0.001 & 0.001 & 0.001 & 0.001 & 0.001 & 0.010 \\ 
-	\hline
-	\end{tabular}
+    \caption{Six tests with different Parameter values.}
+    \begin{tabular}{| l | c | c | c | c | c | c | c |} 
+    \hline
+        Parameters & 
+        Test1 -\tikzcircle[orange, fill=orange]{3pt}- &
+        Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+        Test3 -\tikzcircle[red, fill=red]{3pt}- &
+        Test4 -\tikzcircle[lightblue, fill=lightblue]{3pt}- &
+        Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+        Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- \\ 
+    \hline
+        Batch Size & 
+        2 \hfill 2 \hfill 2 & 
+        20 \hfill 20 \hfill 20 & 
+        20 \hfill 20 \hfill 20 &
+        20 \hfill 20 \hfill 20 &
+        50 \hfill 20 \hfill 20 &
+        50 \hfill 20 \hfill 20 \\
+    \hline
+        Dropout & 
+        0.05 & 0.05 & 0.00 & 0.50 & 0.05 & 0.05 \\
+    \hline
+        Learning Rate & 
+        0.001 & 0.001 & 0.001 & 0.001 & 0.001 & 0.010 \\
+    \hline
+    \end{tabular}
+    \label{tab:six_tests_tab}
+    %adding notes
+    \raggedright{Batch Size: (train data, evaluation data, test data)} 
 \end{table}
 %-------------------------------------------------------
 
