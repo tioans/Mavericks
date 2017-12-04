@@ -198,10 +198,8 @@ For an input sequence like: X=$\left\{x_1,x_2,x_3,...,x_n \right\}$, a
 neural network computes the hidden vector layer 
 h= $\left\{h_1,h_2,h_3,...,h_n \right\}$ and output vector 
 y= $\left\{y_1,y_2,y_3,...,y_n \right\}$ by iterating over  $1<t<n$ to generate the following equations:
-
 \begin{align}
 h_t &= \sigma(W_{xh}*x_t + W_{hh}*h_{t-1} + b_h)
-\\
 y_t &= W_{hy}*h_t + b_y
 \end{align}
 
@@ -219,6 +217,7 @@ o_t &= \sigma(W_{xo} * x_t + W_{ho} * h_{t-1} + W_{co} * c_t +b_o))
 h_t &= o_t * \tanh(c_t)
 \end{align}
 
+<<<<<<< HEAD
 Where i, f, o and c are the input gate, forget gate, output gate and cell activation vector. Because speech is a continuous action and entire utterances happen at once, simple RNNs fall behind in performance by only accessing previous information. Bidirectional RNNs process data in
 two directions, with one layer iterating  forward (from t = 1 to n) and one layer iterating backwards (from t = n to 1), seen in Figure \ref{fig:BiRNN} \cite{graves2013hybrid}. As such, the forward layer is described in Equation \ref{eq:Forward} while the backwards layer is described in Equation \ref{eq:Backward} and the updated output layer, Equation \ref{eq:Output}, becomes:
 \begin{align}
@@ -236,6 +235,20 @@ y_t &= W_{\overrightarrow{h}y} * \overrightarrow{h}_t + W_{\overleftarrow{h}y} *
 	\caption{Visual representation of the hidden layers of one BiRNN}
 	\label{fig:BiRNN}
 \end{figure}
+=======
+Where i, f, o and c are the input gate, forget gate, output gate and cell activation vector. Because speech is a continuous action and hole utterances happen at once, simple RNNs fall behind in performance by only accessing previous information. Bidirectional RNNs process data in
+two directions, with one layer iterating  forward (from t = 1 to n) and one layer iterating backwards (from t = n to 1)\cite{graves2013hybrid}. As such, the forward layer is described in Equation \ref{eq:Forward} while the backwards layer is described in Equation \ref{eq:Backwards} and the updated output layer, Equation \ref{eq:Output}, becomes:
+
+\begin{equation}\label{eq:Forward}
+\overrightarrow{h}_t = \sigma(W_{x\overrightarrow{h}} * x_t + W_{\overrightarrow{h}\overrightarrow{h}} * \overrightarrow{h}_{t-1}+ b_{\overrightarrow{h}})
+\end{equation}
+\begin{equation}\label{eq:Backwards}
+\overleftarrow{h}_t = \sigma(W_{x\overleftarrow{h}} * x_t + W_{\overleftarrow{h}\overleftarrow{h}} * \overleftarrow{h}_{t-1}+ b_{\overleftarrow{h}})
+\end{equation}
+\begin{equation}\label{eq:Output}
+y_t = W_{\overrightarrow{h}y} * \overrightarrow{h}_t + W_{\overleftarrow{h}y} * \overleftarrow{h}_t +b_y
+\end{equation}
+>>>>>>> f4c0266e9f540aeb7217f9da1de5ce7bb4333a22
 %---------------------------------------------------
 \subsection{Dropout}
 
@@ -253,18 +266,17 @@ Y = tf.nn.dropout(Yf, pkeep)
 \end{lstlisting}
 For a visual representation of a dropout rate given to a neural network, it can be seen Figure \ref{fig:.4_dropout_rate}.
 A dropout rate of $40\%$ given to the neural network on the left hand side, which can be seen in the the neural network on the right hand side.
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]		
-	{machine_learning/06_Dropoutpdf}
+	{machine_learning/06_Dropout}
 	\caption{A $0.4$ dropout rate on a four layer network.}
 	\label{fig:.4_dropout_rate}
 \end{figure}
-\todo{The new dropout picture is a PDF}
+
 %---------------------------------------------------
 \subsection{Batch normalisation}
-Statistics can be computed for each batch that is fed to the neural network so the average and the standard deviation can be computed. After computing them, subtracting the average and dividing by the standard deviation rescales and recentre the output. 
+Statistics can be computed for each batch that is fed to the neural network so the average and the standard deviation can be computed. After computing them, subtracting the average and dividing by the standard deviation rescales and recenters the output. 
 In the equation, epsilon is added to avoid numerical problems as dividing by zero.
 \begin{equation}
     X= \dfrac{x - avg(x)}{stdev(x) + \epsilon} 
@@ -332,9 +344,9 @@ A tensor's rank is its number of dimensions.
 Here are some examples of tensors:
 \begin{lstlisting}[language=Python, caption=Tensor examples.]
 3 # a rank 0 tensor; this is a scalar with shape []
-[1., 2., 3.] # a rank 1 tensor; this is a vector with shape [3]
-[[1., 2., 3.], [4., 5., 6.]] # a rank 2 tensor; a matrix with shape [2, 3]
-[[[1., 2., 3.]], [[7., 8., 9.]]] # a rank 3 tensor with shape [2, 1, 3]
+[1.,2.,3.] # a rank 1 tensor; this is a vector with shape [3]
+[[1.,2.,3.], [4., 5., 6.]] # a rank 2 tensor; a matrix with shape [2,3]
+[[[1.,2.,3.]], [[7.,8.,9.]]] # a rank 3 tensor with shape [2,1,3]
 \end{lstlisting} 
 
 \subsection{TensorFlow Core}
@@ -558,7 +570,10 @@ $\sim 0\%$ WER.
     \caption{Test error rate.}
     \label{fig:batch_test_error_fig}
 \end{figure}
+<<<<<<< HEAD
 
+=======
+>>>>>>> f4c0266e9f540aeb7217f9da1de5ce7bb4333a22
     %Batch Size Test error rate table
     %-------------------------------------------------
 \begin{table}[H]
