@@ -218,7 +218,7 @@ o_t &= \sigma(W_{xo} * x_t + W_{ho} * h_{t-1} + W_{co} * c_t +b_o))
 \\
 h_t &= o_t * \tanh(c_t)
 \end{align}
-\todo{Align eq by the equal sign, add picture}
+
 Where i, f, o and c are the input gate, forget gate, output gate and cell activation vector. Because speech is a continuous action and hole utterances happen at once, simple RNNs fall behind in performance by only accessing previous information. Bidirectional RNNs process data in
 two directions, with one layer iterating  forward (from t = 1 to n) and one layer iterating backwards (from t = n to 1)\cite{graves2013hybrid}. As such, the forward layer is described in Equation \ref{eq:Forward} while the backwards layer is described in Equation \ref{eq:Backwards} and the updated output layer, Equation \ref{eq:Output}, becomes:
 \begin{align}
