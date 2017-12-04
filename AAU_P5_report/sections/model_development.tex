@@ -75,8 +75,26 @@ the same data used in Chapter \ref{ch:machine_learning} for the parameter compar
 
 \section{Model Description}
 
-Model3 (BiRNN) is better therefore we go into more detail about it...
+One of the goals for this project was to research, design and compare different neural network topologies. 
+Some of these were feed-forward, convolutional and recurrent. 
+Continuing, some neural networks were made deep, first by adding fully connected layers to the existing type (feed-forward, CNN or RNN), and later, by changing the type (LSTM, GRU or BiRNN) and/or adding more main layers. 
+Many such configurations were tested, some proving to be efficient for achieving designated goals, and some less so. \\\\
+As shown in a previous chapter,\todo{reference which chapter we talk about} the model that is used in this DSR system is a recurrent neural network. 
+This recurrent network is based on the standard LSTM cell, but used as a bidirectional layer. 
+The purpose is to recognize the context of the text, to improve the prediction. 
+The complete topology for the network is as follows: \\\\
+\todo{INSERT NICE PICTURE DESCRIPTION HERE} \\\\
+Described in figure X is the complete topology of the network used in the current implementation. It has a structure of 2-BiRNN-1-logits. In the beginning it has 2 fully connected layers, each consisting of 1024 neurons.
+\lstinputlisting[language=Python, firstline=36, lastline=51]{code/txtFileMaker.py} 
+Further on, the input is reshaped to be compatible with the BiRNN layer, consisting of two LSTM cells, each with 1024 neurons.
+One cell is used in the "forward" direction, and the other one in the "backward" direction, with the goal of understanding the current context.
+Following this step, the input is reshaped again and sent to the next fully connected layer.
+The final layer, the logits layer, is used as output of the network. At this point, the original input is transformed by every layer and sent for decoding.
+\todo{add caption}
+\todo{clarify types of nn}
 
+Model3 (BiRNN) is better therefore we go into more detail about it...
+\todo{Make full page png}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]		

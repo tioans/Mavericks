@@ -198,13 +198,10 @@ For an input sequence like: X=$\left\{x_1,x_2,x_3,...,x_n \right\}$, a
 neural network computes the hidden vector layer 
 h= $\left\{h_1,h_2,h_3,...,h_n \right\}$ and output vector 
 y= $\left\{y_1,y_2,y_3,...,y_n \right\}$ by iterating over  $1<t<n$ to generate the following equations:
-\begin{equation}
-h_t=\sigma(W_{xh}*x_t + W_{hh}*h_{t-1} + b_h)
-\end{equation}
-
-\begin{equation}
-y_t = W_{hy}*h_t + b_y
-\end{equation}
+\begin{align}
+h_t &= \sigma(W_{xh}*x_t + W_{hh}*h_{t-1} + b_h)
+y_t &= W_{hy}*h_t + b_y
+\end{align}
 
 These equation expand on Section \ref{sec:ANN} and show how the neurons output a weighted sum of all the inputs and biases.
 Because of the promising results given by simple LSTM networks, combining them with the benefits given by BRNN, the gates showcased in 
@@ -238,7 +235,7 @@ y_t = W_{\overrightarrow{h}y} * \overrightarrow{h}_t + W_{\overleftarrow{h}y} * 
 Dropout is a regularization technique that involves shooting the neurons.
 It is applied after the activation function of each layer with the notable exception of the input and output layer.
 A percentage is used to determine the number of neurons that will remain in the networks.
-For example, a .75 value in the dropout function means that only 75 percent of the neurons will remain active during the training phase. \todo{do you mean 75 percent of the neurons will be randomly excluded from each update cycle?}\\\\
+For example, a .75 pkeep value in the dropout function means that only 75 percent of the neurons will remain active during the training phase. \\\\\
 For the testing phase, all the neurons have to be present, meaning that a value of one has to be given to the dropout function to ensure a high accuracy rating.
 This helps the network understand the information it is given as it cannot presume that other neurons in the same layer have been activated and it prevents the network from just memorizing the values that were given as inputs.\\\\
 The snippet of code below shows how dropout is used in TensorFlow for a layer of a neural network, where "pkeep" is the percentage of the neurons that will remain active and the call for the dropout is made after the activation function, in this case, the ReLU.
