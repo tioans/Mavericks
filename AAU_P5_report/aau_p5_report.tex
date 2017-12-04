@@ -1,5 +1,9 @@
 % AAU_P5_report
-%--------------------------------------------------------------%
+%--------------------------------------------------------------
+%
+%gets rid of blank pages bellow
+\let\cleardoublepage\clearpage
+	
 \input{setup/preamble.tex}% package inclusion and set up of the document
 \input{setup/hyphenations.tex}% 
 \input{setup/macros.tex}% my new macros
@@ -35,9 +39,9 @@
 	
 	\input{sections/machine_learning.tex}
 	
-	\input{sections/distributed_speech_recognizer.tex}
-	
 	\input{sections/model_development.tex}
+	
+	\input{sections/distributed_speech_recognizer.tex}
 	
 	\input{sections/implementation.tex}
 	
@@ -47,10 +51,7 @@
 	%---------------------------------------------------------%	
 	\printbibliography[heading=bibintoc]
 	\label{bib:mybiblio}
-	
-	%gets rid of blank pages bellow
-	\let\cleardoublepage\clearpage
-	
+		
 	\appendix
 	\renewcommand\chaptername{Appendix}
 	\input{sections/appendixA.tex}
