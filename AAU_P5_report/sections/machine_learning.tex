@@ -119,7 +119,7 @@ LSTMs have a chain-like structure of four layers, with repeating modules that in
 \end{figure}
 From Figure \ref{fig:diagram_legend}, 
 the lines represent vectors that pass
-from the output of the previous note \todo{do you mean note or node?} to the input of the current one. The circle denotes point wise operations, 
+from the output of the previous node to the input of the current one. The circle denotes point wise operations, 
 and the rectangle represents trained network layers.
 \begin{figure}[H]
     \centering
@@ -187,7 +187,7 @@ As such, the output of the neural network can be written as:
 %---------------------------------------------------
 \subsection{Bidirectional networks}
 
-Bidirectional Recurrent Neural Networks (BRNN) are used to increase the 
+Bidirectional Recurrent Neural Networks (BiRNN) are used to increase the 
 input information available to the network. As data flows in one direction, standard neural networks have inherited restrictions where 
 the future input cannot be accessed by the current state \cite{graves2005bidirectional}. Conversely,
 BRNNs do not require their input data to be fixed. Furthermore, their 
@@ -199,7 +199,7 @@ neural network computes the hidden vector layer
 $h=\left\{h_1,h_2,h_3,...,h_n \right\}$ and output vector 
 $y=\left\{y_1,y_2,y_3,...,y_n \right\}$ by iterating over  $1<t<n$ to generate the following equations:
 \begin{align}
-h_t &= \sigma(W_{xh}*x_t + W_{hh}*h_{t-1} + b_h)
+h_t &= \sigma(W_{xh}*x_t + W_{hh}*h_{t-1} + b_h)\\
 y_t &= W_{hy}*h_t + b_y
 \end{align}
 
@@ -216,19 +216,23 @@ o_t &= \sigma(W_{xo} * x_t + W_{ho} * h_{t-1} + W_{co} * c_t +b_o))
 \\
 h_t &= o_t * \tanh(c_t)
 \end{align}
-\todo{Align eq by the equal sign, add picture}
-Where i, f, o and c are the input gate, forget gate, output gate and cell activation vector. Because speech is a continuous action and hole utterances happen at once, simple RNNs fall behind in performance by only accessing previous information. Bidirectional RNNs process data in
-two directions, with one layer iterating  forward (from t = 1 to n) and one layer iterating backwards (from t = n to 1)\cite{graves2013hybrid}. As such, the forward layer is described in Equation \ref{eq:Forward} while the backwards layer is described in Equation \ref{eq:Backwards} and the updated output layer, Equation \ref{eq:Output}, becomes:
+Where i, f, o and c are the input gate, forget gate, output gate and cell activation vector. Because speech is a continuous action and entire utterances happen at once, simple RNNs fall behind in performance by only accessing previous information. Bidirectional RNNs process data in
+two directions, with one layer iterating  forward (from t = 1 to n) and one layer iterating backwards (from t = n to 1), seen in Figure \ref{fig:BiRNN} \cite{graves2013hybrid}. As such, the forward layer is described in Equation \ref{eq:Forward} while the backwards layer is described in Equation \ref{eq:Backward} and the updated output layer, Equation \ref{eq:Output}, becomes:
+\begin{align}
+\overrightarrow{h}_t &= \sigma(W_{x\overrightarrow{h}} * x_t + W_{\overrightarrow{h}\overrightarrow{h}} * \overrightarrow{h}_{t-1}+ b_{\overrightarrow{h}}) \label{eq:Forward}
+\\
+\overleftarrow{h}_t &= \sigma(W_{x\overleftarrow{h}} * x_t + W_{\overleftarrow{h}\overleftarrow{h}} * \overleftarrow{h}_{t-1}+ b_{\overleftarrow{h}}) \label{eq:Backward}
+\\
+y_t &= W_{\overrightarrow{h}y} * \overrightarrow{h}_t + W_{\overleftarrow{h}y} * \overleftarrow{h}_t + b_y \label{eq:Output}
+\end{align}
 
-\begin{equation}\label{eq:Forward}
-\overrightarrow{h}_t = \sigma(W_{x\overrightarrow{h}} * x_t + W_{\overrightarrow{h}\overrightarrow{h}} * \overrightarrow{h}_{t-1}+ b_{\overrightarrow{h}})
-\end{equation}
-\begin{equation}\label{eq:Backwards}
-\overleftarrow{h}_t = \sigma(W_{x\overleftarrow{h}} * x_t + W_{\overleftarrow{h}\overleftarrow{h}} * \overleftarrow{h}_{t-1}+ b_{\overleftarrow{h}})
-\end{equation}
-\begin{equation}\label{eq:Output}
-y_t = W_{\overrightarrow{h}y} * \overrightarrow{h}_t + W_{\overleftarrow{h}y} * \overleftarrow{h}_t +b_y
-\end{equation}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]		
+	{machine_learning/07_BiRNN}
+	\caption{Visual representation of the hidden layers of one BiRNN}
+	\label{fig:BiRNN}
+\end{figure}
 %---------------------------------------------------
 \subsection{Dropout}
 
@@ -248,8 +252,8 @@ For a visual representation of a dropout rate given to a neural network, it can 
 A dropout rate of $40\%$ given to the neural network on the left hand side, which can be seen in the the neural network on the right hand side.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]		
-	{machine_learning/06_Dropout}
+	\includegraphics[width=\textwidth, height = 0.3\textheight]		
+	{machine_learning/06_Dropoutpng}
 	\caption{A $0.4$ dropout rate on a four layer network.}
 	\label{fig:.4_dropout_rate}
 \end{figure}
@@ -268,17 +272,13 @@ To solve those cases, two degrees of freedom are added,
 $\alpha$ and $\beta$, for each neuron. 
 By assigning the $\alpha$ value to the $stdev(x)$ and the
 $\beta$ to $-avg(x)$ there will always be a case where the batch
-normalized value of x can be reverted to the original value.
+normalized value of x can be reverted to the original value \cite{MonDieu}.
 \begin{equation}
     BN(x) = \alpha * X + \beta
 \end{equation}
-Batch normalization (BN) is added before the activation function
+Batch normalization (BN) is added as a layer before the activation function
 because it makes use of the current weights and biases to
-compute the average and standard deviation. 
-The average and standard deviation is always computed on the
-current weights and biases so the batch normalization layer is
-called between the weighted sum performed by the neurons and the
-activation function. Because of the new values added by BN,
+compute the average and standard deviation. Because of the new values added by BN,
 biases are no longer useful.
 The $\beta$ value can take the value of the bias if no better
 values were found.
