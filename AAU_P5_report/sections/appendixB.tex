@@ -1,239 +1,528 @@
-\chapter{Data Mining Code}\label{ch:appBlabel}
+\chapter{Batch Size, Dropout and Learning Rate Comparison Data}\label{ch:appBlabel}
 
-\section{FlacToWavPy}
-\begin{lstlisting}[language=Python, caption=FlacToWavPy code.]
-# Designed to work with the OpenSLR LibriSpeech ASR corpus (which is in .flac)
-# Requires pydub
-# Script that goes in a folder and all subfolders and converts .flac files into .wav files. Can be imported as module or run directly from command line.
-# Input format on cmd line: "python FlacToWavPy.py 'source' 'dest'"         
-# Source and dest(without apostrphes) are absolute paths to the folder containing the .flac files and the folder to put the converted .wav files respecively 
+%-------------------------------------------------------
+%Table of Tests
+\begin{table}[H]
+%Table with the six Tests
+\centering
+    \caption{Six tests with different Parameter values.}
+    \begin{tabular}{| l | c | c | c | c | c | c | c |} 
+    \hline
+        Parameters & 
+        Test1 -\tikzcircle[orange, fill=orange]{3pt}- &
+        Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+        Test3 -\tikzcircle[red, fill=red]{3pt}- &
+        Test4 -\tikzcircle[lightblue, fill=lightblue]{3pt}- &
+        Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+        Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- \\ 
+    \hline
+        Batch Size & 
+        2 \hfill 2 \hfill 2 & 
+        20 \hfill 20 \hfill 20 & 
+        20 \hfill 20 \hfill 20 &
+        20 \hfill 20 \hfill 20 &
+        50 \hfill 20 \hfill 20 &
+        50 \hfill 20 \hfill 20 \\
+    \hline
+        Dropout & 
+        0.05 & 0.05 & 0.00 & 0.50 & 0.05 & 0.05 \\
+    \hline
+        Learning Rate & 
+        0.001 & 0.001 & 0.001 & 0.001 & 0.001 & 0.010 \\
+    \hline
+    \end{tabular}
+    \label{tab:six_tests_tab}
+    %adding notes
+    \raggedright{Batch Size: (train data, evaluation data, test data)} 
+\end{table}
+%-------------------------------------------------------
 
-import os
-import sys
-from pydub import AudioSegment
+\section{Batch Size Test}
+%-----------------------------------------------------
+%Batch Size Test
+\begin{table}[H]
+\centering
+	\caption{Three tests with different batch size values.}
+	\begin{tabular}{| l | c | c | c | c |} 
+	\hline
+	Parameters & 
+	Test1 -\tikzcircle[orange, fill=orange]{3pt}- &
+	Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+	Test5 -\tikzcircle[pink, fill=pink]{3pt}- \\
+	\hline
+	Batch Size & 
+	2 \hfill 2 \hfill 2 & 
+	20 \hfill 20 \hfill 20 & 
+	50 \hfill 20 \hfill 20 \\
+	\hline
+	Dropout & 
+	0.05 & 0.05 & 0.05 \\
+	\hline
+	Learning Rate & 
+	0.001 & 0.001 & 0.001 \\ 
+	\hline
+	\end{tabular}
+\end{table}
+	%-------------------------------------------------
+	%test error rate
+\subsubsection{Accuracy}
+\begin{figure}[H]
+\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/batch_test/test_error_rate}
+	\caption{Test error rate.}
+\end{figure}
+	%results
+\begin{table}[H]
+\centering
+	\caption{Test error rate results.}
+	\begin{tabular}{| l | c | c | c |}
+	\hline
+	Tests & Value & Epoch & Duration \\
+	\hline
+	Test1 -\tikzcircle[orange, fill=orange]{3pt}- &
+	0.1308 & 25.00 & 0s\\
+	\hline
+	Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+	0.000 & 25.00 & 0s\\
+	\hline
+	Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+	0.000 & 25.00 & 0s\\
+	\hline
+	\end{tabular}
+\end{table}
+	
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=.5\textwidth]		
+%	{machine_learning/graph_tests/batch_test/test_error_rate_values}
+%	\caption{Test error rate results.}
+%	\label{fig:batch_test_error_val}
+%\end{figure}
+	%-------------------------------------------------
+	%training error rate
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/batch_test/train_error_rate}
+	\caption{Training error rate.}
+\end{figure}
+	%results
+\begin{table}[H]
+\centering
+	\caption{Training error rate results.}
+	\begin{tabular}{| l | c | c | c |}
+	\hline
+	Tests & Value & Epoch & Duration \\
+	\hline
+	Test1 -\tikzcircle[orange, fill=orange]{3pt}- &
+	0.1148 & 24.00 & 1h 26m 13s\\
+	\hline
+	Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+	9.5073e-4 & 24.00 & 18m 50s\\
+	\hline
+	Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+	5.1858e-4 & 24.00 & 14m 50s\\
+	\hline
+	\end{tabular}
+\end{table}
 
-class raiseExcept(Exception):
-    pass
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=.5\textwidth]		
+%	{machine_learning/graph_tests/batch_test/train_error_rate_values}
+%	\caption{Training error rate results.}
+%	\label{fig:batch_test_error_val}
+%\end{figure}
+	%-------------------------------------------------
+	%validation error rate
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/batch_test/validation_error_rate}
+	\caption{Validation error rate.}
+\end{figure}
+	%results
+	
+\begin{table}[H]
+\centering
+	\caption{Validation error rate results.}
+	\begin{tabular}{| l | c | c | c |}
+	\hline
+	Tests & Value & Epoch & Duration \\
+	\hline
+	Test1 -\tikzcircle[orange, fill=orange]{3pt}- &
+	0.1608 & 23.00 & 1h 15m 58s\\
+	\hline
+	Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+	0.05887 & 23.00 & 17m 21s\\
+	\hline
+	Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+	0.05418 & 23.00 & 13m 50s\\
+	\hline
+	\end{tabular}
+\end{table}
 
-def flac_check(input_name):
-    ''' Function that checks if a file is .flac or not. Returns True or False (bool)
-        Parameter: 'input_name' string that has the name of the file(with format). It may work with absolute path and name (maybe) '''    
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=.5\textwidth]		
+%	{machine_learning/graph_tests/batch_test/validation_error_rate_values}
+%	\caption{Validation error rate results.}
+%	\label{fig:batch_test_error_val}
+%\end{figure}
+	%-------------------------------------------------
+	%training avarage loss
+\subsubsection{Loss}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/batch_test/train_avg_loss}
+	\caption{Training average loss.}
+\end{figure}
+	%results
 
-    _, file_extension = os.path.splitext(input_name)
-        
-    if file_extension == '.flac':   
-        return True
-    else:
-        return False
+\begin{table}[H]
+\centering
+	\caption{Training average loss results.}
+	\begin{tabular}{| l | c | c | c |}
+	\hline
+	Tests & Value & Epoch & Duration \\
+	\hline
+	Test1 -\tikzcircle[orange, fill=orange]{3pt}- &
+	1.639 & 24.00 & 1h 26m 13s\\
+	\hline
+	Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+	0.06023 & 24.00 & 18m 50s\\
+	\hline
+	Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+	0.01988 & 24.00 & 14m 50s\\
+	\hline
+	\end{tabular}
+\end{table}	
+	
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=.5\textwidth]		
+%	{machine_learning/graph_tests/batch_test/train_avg_loss_values}
+%	\caption{Training average loss results.}
+%	\label{fig:batch_test_error_val}
+%\end{figure}
+	%-------------------------------------------------
+%-----------------------------------------------------
 
-def flac_to_wav(input_flac,input_name,dest):
-    ''' Function that converts a .flac to a .wav file. Parameter: 'input_flac' - string abs path to a .flac, 
-        'input_name' - string of only the name of the .flac (with format), 'dest' string abs path to destination folder (with a '/' in the end!) '''
+\section{Dropout Test}
+%-----------------------------------------------------
+%Dropout Test
+\begin{table}[H]
+\centering
+	\caption{Three tests with different dropout values.}
+	\begin{tabular}{| l | c | c | c | c |} 
+	\hline
+	Parameters & 
+	Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+	Test3 -\tikzcircle[red, fill=red]{3pt}- &
+	Test4 -\tikzcircle[lightblue, fill=lightblue]{3pt}- \\
+	\hline
+	Batch Size & 
+	20 \hfill 20 \hfill 20 & 
+	20 \hfill 20 \hfill 20 &
+	20 \hfill 20 \hfill 20 \\
+	\hline
+	Dropout & 
+	0.05 & 0.00 & 0.50 \\
+	\hline
+	Learning Rate & 
+	0.001 & 0.001 & 0.001 \\ 
+	\hline
+	\end{tabular}
+\end{table}
+	%-------------------------------------------------
+	%test error rate
+\subsubsection{Accuracy}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/dropout_test/test_error_rate}
+	\caption{Test error rate.}
+\end{figure}
+	%results
+\begin{table}[H]
+\centering
+	\caption{Test error rate results.}
+	\begin{tabular}{| l | c | c | c |}
+	\hline
+	Tests & Value & Epoch & Duration \\
+	\hline
+	Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+	0.000 & 25.00 & 0s\\
+	\hline
+	Test3 -\tikzcircle[red, fill=red]{3pt}- &
+	0.030 & 25.00 & 0s\\
+	\hline
+	Test4 -\tikzcircle[lightblue, fill=lightblue]{3pt}- &
+	0.020 & 25.00 & 0s\\
+	\hline
+	\end{tabular}
+\end{table}	
+	
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=.5\textwidth]		
+%	{machine_learning/graph_tests/dropout_test/test_error_rate_values}
+%	\caption{Test error rate results.}
+%	\label{fig:batch_test_error_val}
+%\end{figure}
+	%-------------------------------------------------
+	%training error rate
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/dropout_test/train_error_rate}
+	\caption{Training error rate.}
+\end{figure}
+	%results
+\begin{table}[H]
+\centering
+	\caption{Training error rate results.}
+	\begin{tabular}{| l | c | c | c |}
+	\hline
+	Tests & Value & Epoch & Duration \\
+	\hline
+	Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+	9.5973e-4 & 24.00 & 18m 50s\\
+	\hline
+	Test3 -\tikzcircle[red, fill=red]{3pt}- &
+	0.000 & 24.00 & 18m 5s\\
+	\hline
+	Test4 -\tikzcircle[lightblue, fill=lightblue]{3pt}- &
+	6.3331e-3 & 24.00 & 18m 10s\\
+	\hline
+	\end{tabular}
+\end{table}		
 
-    audio_file = AudioSegment.from_file(input_flac)
-    temp_name = dest
-    temp_name += input_name
-    temp_name = temp_name[:len(temp_name)-4]
-    temp_name += "wav"
-    audio_file.export(temp_name)
-    print(("File %s conv success!")%(input_name))
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=.5\textwidth]		
+%	{machine_learning/graph_tests/dropout_test/train_error_rate_values}
+%	\caption{Training error rate results.}
+%	\label{fig:batch_test_error_val}
+%\end{figure}
+	%-------------------------------------------------
+	%validation error rate
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/dropout_test/validation_error_rate}
+	\caption{Validation error rate.}
+\end{figure}
+	%results
 
-def folder_navigator_convert(source, dest):
-    ''' Function that goes in a folder and all subfolders and converts .flac files into .wav files.
-        Parameters: 'source' - string, abs path to the root folder, 'dest' - string, abs path to dest folder (both must be with a '/' at the end!) '''
+\begin{table}[H]
+\centering
+	\caption{Validation error rate results.}
+	\begin{tabular}{| l | c | c | c |}
+	\hline
+	Tests & Value & Epoch & Duration \\
+	\hline
+	Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+	0.05887 & 23.00 & 17m 21s\\
+	\hline
+	Test3 -\tikzcircle[red, fill=red]{3pt}- &
+	0.05161 & 23.00 & 16m 36s\\
+	\hline
+	Test4 -\tikzcircle[lightblue, fill=lightblue]{3pt}- &
+	0.02366 & 23.00 & 16m 35s\\
+	\hline
+	\end{tabular}
+\end{table}	
 
-    for root, dirs, files in os.walk(source):
-        for name in files:
-            abs_path = os.path.join(root,name)
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=.5\textwidth]		
+%	{machine_learning/graph_tests/dropout_test/validation_error_rate_values}
+%	\caption{Validation error rate results.}
+%	\label{fig:batch_test_error_val}
+%\end{figure}
+	%-------------------------------------------------
+	%training avarage loss
+\subsubsection{Loss}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/dropout_test/train_avg_loss}
+	\caption{Training average loss.}
+\end{figure}
+	%results
+	
+\begin{table}[H]
+\centering
+	\caption{Training average loss results.}
+	\begin{tabular}{| l | c | c | c |}
+	\hline
+	Tests & Value & Epoch & Duration \\
+	\hline
+	Test2 -\tikzcircle[blue, fill=blue]{3pt}- &
+	0.06023 & 24.00 & 18m 50s\\
+	\hline
+	Test3 -\tikzcircle[red, fill=red]{3pt}- &
+	3.5483e-4 & 24.00 & 18m 5s\\
+	\hline
+	Test4 -\tikzcircle[lightblue, fill=lightblue]{3pt}- &
+	0.09217 & 24.00 & 18m 10s\\
+	\hline
+	\end{tabular}
+\end{table}	
+	
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=.5\textwidth]		
+%	{machine_learning/graph_tests/dropout_test/train_avg_loss_values}
+%	\caption{Training average loss results.}
+%	\label{fig:batch_test_error_val}
+%\end{figure}
+	%-------------------------------------------------
+%-----------------------------------------------------
 
-            if '\\' in abs_path:
-               abs_path = abs_path.replace('\\','/')
+\section{Learning Rate Test}
+%-----------------------------------------------------
+%Learning Rate Test
+\begin{table}[H]
+\centering
+	\caption{Two tests with different learning rate values.}
+	\begin{tabular}{| l | c | c | c |} 
+	\hline
+	Parameters & 
+	Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+	Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- \\ 
+	\hline
+	Batch Size & 
+	50 \hfill 20 \hfill 20 &
+	50 \hfill 20 \hfill 20 \\
+	\hline
+	Dropout & 0.05 & 0.05 \\
+	\hline
+	Learning Rate & 0.001 & 0.010 \\ 
+	\hline
+	\end{tabular}
+\end{table}
+	%-------------------------------------------------
+	%test error rate
+\subsubsection{Accuracy}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/learning_rate_test/test_error_rate}
+	\caption{Test error rate.}
+\end{figure}
+	%results
+\begin{table}[H]
+\centering
+	\caption{Test error rate results.}
+	\begin{tabular}{| l | c | c | c |}
+	\hline
+	Tests & Value & Epoch & Duration \\
+	\hline
+	Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+	0.000 & 25.00 & 0s\\
+	\hline
+	Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
+	0.8992 & 25.00 & 0s\\
+	\hline
+	\end{tabular}
+\end{table}		
+	
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=.5\textwidth]		
+%	{machine_learning/graph_tests/learning_rate_test/test_error_rate_values}
+%	\caption{Test error rate results.}
+%	\label{fig:batch_test_error_val}
+%\end{figure}
+	%-------------------------------------------------
+	%training error rate
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/learning_rate_test/train_error_rate}
+	\caption{Training error rate.}
+\end{figure}
+	%results
+\begin{table}[H]
+\centering
+	\caption{Training error rate results.}
+	\begin{tabular}{| l | c | c | c |}
+	\hline
+	Tests & Value & Epoch & Duration \\
+	\hline
+	Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+	5.1858e-4 & 24.00 & 14m 50s\\
+	\hline
+	Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
+	0.9188 & 24.00 & 12m 29s\\
+	\hline
+	\end{tabular}
+\end{table}		
+	
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=.5\textwidth]		
+%	{machine_learning/graph_tests/learning_rate_test/train_error_rate_values}
+%	\caption{Training error rate results.}
+%	\label{fig:batch_test_error_val}
+%\end{figure}
+	%-------------------------------------------------
+	%validation error rate
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/learning_rate_test/validation_error_rate}
+	\caption{Validation error rate.}
+\end{figure}
+	%results
+	
+\begin{table}[H]
+\centering
+	\caption{Validation error rate results.}
+	\begin{tabular}{| l | c | c | c |}
+	\hline
+	Tests & Value & Epoch & Duration \\
+	\hline
+	Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+	0.02661 & 23.00 & 13m 50s\\
+	\hline
+	Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
+	1.152 & 23.00 & 11m 29s\\
+	\hline
+	\end{tabular}
+\end{table}		
+	
+	%-------------------------------------------------
+	%training avarage loss
+\subsubsection{Loss}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]		
+	{machine_learning/graph_tests/learning_rate_test/train_avg_loss}
+	\caption{Training average loss.}
+\end{figure}
+	%results
 
-            if flac_check(name):
-                flac_to_wav(abs_path,name,dest)
-            else:
-                print(("File %s ignored!")%(name))
+\begin{table}[H]
+\centering
+	\caption{Training average loss results.}
+	\begin{tabular}{| l | c | c | c |}
+	\hline
+	Tests & Value & Epoch & Duration \\
+	\hline
+	Test5 -\tikzcircle[pink, fill=pink]{3pt}- &
+	0.01988 & 24.00 & 14m 50s\\
+	\hline
+	Test6 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
+	12.56 & 24.00 & 12m 29s\\
+	\hline
+	\end{tabular}
+\end{table}		
+	
+	%-------------------------------------------------
+%-----------------------------------------------------
 
-if __name__ == "__main__":
-    
-    try: 
-        numb_of_args=len(sys.argv)-1
-
-        if not numb_of_args == 2: 
-            raise raiseExcept()
-            
-    except(raiseExcept):
-        print("Number of input parameters wrong! Correct format: 'source' 'dest'")
-        sys.exit()
-
-    try: 
-        #source_path  = 'C:\\Users\Mavericks\Documents\GitHub\Mavericks\coding\PyTests\FolderNavTest\Testing_folder'             //these two could be used instead of sys.argv[1] and sys.argv[2]
-        #dest_path = 'C:\\Users\Mavericks\Documents\GitHub\Mavericks\coding\PyTests\FolderNavTest\Results_folder'                // in order to run the code in an IDE or similar 
-        source_path = sys.argv[1]
-        dest_path = sys.argv[2]
-        
-        if '\\' in source_path:
-            source_path = source_path.replace('\\','/')
-
-        if '\\' in dest_path:
-            dest_path = dest_path.replace('\\','/')
-
-        if not os.path.isdir(source_path):
-            raise raiseExcept()
-
-        if not os.path.isdir(dest_path):
-            raise raiseExcept()
-        
-        if source_path[len(source_path)-1:] is not '/':
-            source_path+='/'
-
-        if dest_path[len(dest_path)-1:] is not '/':
-            dest_path+='/'
-
-        folder_navigator_convert(source_path,dest_path)
-
-    except(raiseExcept): 
-        print("Wrong parameter format! Correct format: 'source' 'dest'")
-\end{lstlisting}
-%-------------------------------------------------------------
-
-\section{txtFileMaker}
-\begin{lstlisting}[language=Python, caption=txtFileMaker code.]
-# Designed to work with the OpenSLR LibriSpeech ASR corpus (which is in .flac)
-# Script that goes in a folder and all subfolders and parses one .txt file containg paragraphs to multiple .txt files corresponding to their .wav files
-# The result would be: for every .wav with the standard OpenSLR name, one .txt file with the same name as the .wav (audio corresponds to the paragraph)
-# Input format on cmd line: "python txtFileMaker.py 'source' 'dest'"         
-# Source and dest(without apostrphes) are absolute paths to the folder containing the unsplit .txt files and the folder where the converted .flac to .wav files are respecively 
-
-import os
-import sys
-
-class raiseExcept(Exception):
-    pass
-
-def txt_check(input_name):
-    ''' Function that checks if a file is .txt or not. Returns True or False (bool)
-        Parameter: 'input_name' string, that has the name of the file(with format). It may work with absolute path and name (maybe) '''    
-
-    _, file_extension = os.path.splitext(input_name)
-        
-    if file_extension == '.txt':   
-        return True
-    else:
-        return False
-
-def txt_maker(input_file,input_name,dest):
-    ''' Function that splits a .txt file into multiple .txt files so that the .wav files and .txt files are 1 to 1 pairs. 
-        Parameter: 'input_file' - string abs path to a .txt, 
-        'input_name' - string of only the name of the .txt (with format), 
-        'dest' string abs path to destination folder (with a '/' in the end!) '''    
-
-    new_file_counter = 0
-    temp_len = len(input_name)
-    temp_name = input_name[:temp_len-10]
-    
-    fo = open (input_file,"r")
-    
-    str_temp = fo.read()
-
-    char_to_look_for = " "
-    ctrl_seq_pos = str_temp.find(temp_name)
-    first_space = str_temp.find(char_to_look_for)
-        
-    while ctrl_seq_pos != -1:
-        
-        temp_start_content = first_space+1
-        new_file_name = dest
-        new_file_name += str_temp[ctrl_seq_pos:first_space] + ".txt"     
-        
-        ctrl_seq_pos = str_temp.find(temp_name,ctrl_seq_pos+20)
-                      
-        new_fo = open (new_file_name,"w")
-        new_file_counter+=1
-
-        if ctrl_seq_pos != -1:        
-            new_content = str_temp[temp_start_content:ctrl_seq_pos-1]
-            first_space = str_temp.find(char_to_look_for,ctrl_seq_pos)
-        else:
-            new_content = str_temp[temp_start_content:len(str_temp)]            # could be problematic, maybe
-        
-        new_fo.write(new_content)
-
-        new_fo.close()
-
-    print(("File %s parsed successfully into %i .txt files!") % (input_name, new_file_counter))
-
-    fo.close()
-
-def add_numb_of_files(input):
-    return input+1
-
-# 0 - wav, 1 - txt
-def numb_of_files(input,wav_or_txt,count):
-    ''' Function that counts number of txt files '''
-    if wav_or_txt == 0:
-        if txt_check(input):
-            count = add_numb_of_files(count)
-        
-    elif wav_or_txt == 1:
-        if not txt_check(input):
-            count = add_numb_of_files(count)
-    
-    return count 
-
-def folder_navigator_txt(source, dest):
-    ''' Function that goes in a folder and all subfolders and splits .txt files into multiple .txt files so that the .wav files and .txt files are 1 to 1 pairs.
-        Parameters: 'source' - string, abs path to the root folder, 'dest' - string, abs path to dest folder (both must be with a '/' at the end!) '''
-
-    for root, dirs, files in os.walk(source):
-        for name in files:
-            abs_path = os.path.join(root,name)
-
-            if '\\' in abs_path:
-               abs_path = abs_path.replace('\\','/')
-
-            if txt_check(name):
-                txt_maker(abs_path,name,dest)
-
-if __name__ == "__main__":
-    
-    try: 
-        numb_of_args=len(sys.argv)-1
-
-        if not numb_of_args == 2: 
-            raise raiseExcept()
-            
-    except(raiseExcept):
-        print("Number of input parameters wrong! Correct format: 'source' 'dest'")
-        sys.exit()
-
-    try: 
-        #source_path  = 'C:\\Users\Mavericks\Documents\GitHub\Mavericks\coding\PyTests\FolderNavTest\Testing_folder'           //these two could be used instead of sys.argv[1] and sys.argv[2]
-        #dest_path = 'C:\\Users\Mavericks\Documents\GitHub\Mavericks\coding\PyTests\FolderNavTest\Results_folder'              // in order to run the code in an IDE or similar 
-
-        source_path = sys.argv[1]
-        dest_path = sys.argv[2]
-        
-        if '\\' in source_path:
-            source_path = source_path.replace('\\','/')
-
-        if '\\' in dest_path:
-            dest_path = dest_path.replace('\\','/')
-
-        if not os.path.isdir(source_path):
-            raise raiseExcept()
-
-        if not os.path.isdir(dest_path):
-            raise raiseExcept()
-        
-        if source_path[len(source_path)-1:] is not '/':
-            source_path+='/'
-
-        if dest_path[len(dest_path)-1:] is not '/':
-            dest_path+='/'
-
-        folder_navigator_txt(source_path,dest_path)
-
-    except(raiseExcept): 
-        print("Wrong parameter format! Correct format: 'source' 'dest'")
-\end{lstlisting}

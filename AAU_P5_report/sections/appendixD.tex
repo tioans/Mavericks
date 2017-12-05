@@ -1,153 +1,247 @@
-\chapter{Model Development Comparison Data}\label{ch:appDlabel}
+\chapter{Data Mining Code}\label{ch:appDlabel}
+
+\section{FlacToWavPy}
+\begin{lstlisting}[language=Python, caption=FlacToWavPy code.]
+# Designed to work with the OpenSLR LibriSpeech ASR corpus (which is in .flac)
+# Requires pydub
+# Script that goes in a folder and all subfolders and converts .flac files into .wav files. Can be imported as module or run directly from command line.
+# Input format on cmd line: "python FlacToWavPy.py 'source' 'dest'"         
+# Source and dest(without apostrphes) are absolute paths to the folder containing the .flac files and the folder to put the converted .wav files respecively 
+
+import os
+import sys
+from pydub import AudioSegment
+
+class raiseExcept(Exception):
+    pass
+
+def flac_check(input_name):
+    ''' Function that checks if a file is .flac or not. Returns True or False (bool)
+        Parameter: 'input_name' string that has the name of the file(with format). It may work with absolute path and name (maybe) '''    
+
+    _, file_extension = os.path.splitext(input_name)
+        
+    if file_extension == '.flac':   
+        return True
+    else:
+        return False
+
+def flac_to_wav(input_flac,input_name,dest):
+    ''' Function that converts a .flac to a .wav file. Parameter: 'input_flac' - string abs path to a .flac, 
+        'input_name' - string of only the name of the .flac (with format), 'dest' string abs path to destination folder (with a '/' in the end!) '''
+
+    audio_file = AudioSegment.from_file(input_flac)
+    temp_name = dest
+    temp_name += input_name
+    temp_name = temp_name[:len(temp_name)-4]
+    temp_name += "wav"
+    audio_file.export(temp_name)
+    print(("File %s conv success!")%(input_name))
+
+def folder_navigator_convert(source, dest):
+    ''' Function that goes in a folder and all subfolders and converts .flac files into .wav files.
+        Parameters: 'source' - string, abs path to the root folder, 'dest' - string, abs path to dest folder (both must be with a '/' at the end!) '''
+
+    for root, dirs, files in os.walk(source):
+        for name in files:
+            abs_path = os.path.join(root,name)
+
+            if '\\' in abs_path:
+               abs_path = abs_path.replace('\\','/')
+
+            if flac_check(name):
+                flac_to_wav(abs_path,name,dest)
+            else:
+                print(("File %s ignored!")%(name))
+
+if __name__ == "__main__":
+    
+    try: 
+        numb_of_args=len(sys.argv)-1
+
+        if not numb_of_args == 2: 
+            raise raiseExcept()
+            
+    except(raiseExcept):
+        print("Number of input parameters wrong! Correct format: 'source' 'dest'")
+        sys.exit()
+
+    try: 
+        #source_path  = 'C:\\Users\Mavericks\Documents\GitHub\Mavericks\coding\PyTests\FolderNavTest\Testing_folder'             //these two could be used instead of sys.argv[1] and sys.argv[2]
+        #dest_path = 'C:\\Users\Mavericks\Documents\GitHub\Mavericks\coding\PyTests\FolderNavTest\Results_folder'                // in order to run the code in an IDE or similar 
+        source_path = sys.argv[1]
+        dest_path = sys.argv[2]
+        
+        if '\\' in source_path:
+            source_path = source_path.replace('\\','/')
+
+        if '\\' in dest_path:
+            dest_path = dest_path.replace('\\','/')
+
+        if not os.path.isdir(source_path):
+            raise raiseExcept()
+
+        if not os.path.isdir(dest_path):
+            raise raiseExcept()
+        
+        if source_path[len(source_path)-1:] is not '/':
+            source_path+='/'
+
+        if dest_path[len(dest_path)-1:] is not '/':
+            dest_path+='/'
+
+        folder_navigator_convert(source_path,dest_path)
+
+    except(raiseExcept): 
+        print("Wrong parameter format! Correct format: 'source' 'dest'")
+\end{lstlisting}
+%-------------------------------------------------------------
+
+\section{txtFileMaker}
+\begin{lstlisting}[language=Python, caption=txtFileMaker code.]
+# Designed to work with the OpenSLR LibriSpeech ASR corpus (which is in .flac)
+# Script that goes in a folder and all subfolders and parses one .txt file containg paragraphs to multiple .txt files corresponding to their .wav files
+# The result would be: for every .wav with the standard OpenSLR name, one .txt file with the same name as the .wav (audio corresponds to the paragraph)
+# Input format on cmd line: "python txtFileMaker.py 'source' 'dest'"         
+# Source and dest(without apostrphes) are absolute paths to the folder containing the unsplit .txt files and the folder where the converted .flac to .wav files are respecively 
+
+import os
+import sys
+
+class raiseExcept(Exception):
+    pass
+
+def txt_check(input_name):
+    ''' Function that checks if a file is .txt or not. Returns True or False (bool)
+        Parameter: 'input_name' string, that has the name of the file(with format). It may work with absolute path and name (maybe) '''    
+
+    _, file_extension = os.path.splitext(input_name)
+        
+    if file_extension == '.txt':   
+        return True
+    else:
+        return False
+
+def txt_maker(input_file,input_name,dest):
+    ''' Function that splits a .txt file into multiple .txt files so that the .wav files and .txt files are 1 to 1 pairs. 
+        Parameter: 'input_file' - string abs path to a .txt, 
+        'input_name' - string of only the name of the .txt (with format), 
+        'dest' string abs path to destination folder (with a '/' in the end!) '''    
+
+    new_file_counter = 0
+    temp_len = len(input_name)
+    temp_name = input_name[:temp_len-10]
+    
+    fo = open (input_file,"r")
+    
+    str_temp = fo.read()
+
+    char_to_look_for = " "
+    ctrl_seq_pos = str_temp.find(temp_name)
+    first_space = str_temp.find(char_to_look_for)
+        
+    while ctrl_seq_pos != -1:
+        
+        temp_start_content = first_space+1
+        new_file_name = dest
+        new_file_name += str_temp[ctrl_seq_pos:first_space] + ".txt"     
+        
+        ctrl_seq_pos = str_temp.find(temp_name,ctrl_seq_pos+20)
+                      
+        new_fo = open (new_file_name,"w")
+        new_file_counter+=1
+
+        if ctrl_seq_pos != -1:        
+            new_content = str_temp[temp_start_content:ctrl_seq_pos-1]
+            first_space = str_temp.find(char_to_look_for,ctrl_seq_pos)
+        else:
+            new_content = str_temp[temp_start_content:len(str_temp)]            # could be problematic, maybe
+        
+        new_fo.write(new_content)
+
+        new_fo.close()
+
+    print(("File %s parsed successfully into %i .txt files!") % (input_name, new_file_counter))
+
+    fo.close()
+
+def add_numb_of_files(input):
+    return input+1
+
+# 0 - wav, 1 - txt
+def numb_of_files(input,wav_or_txt,count):
+    ''' Function that counts number of txt files '''
+    if wav_or_txt == 0:
+        if txt_check(input):
+            count = add_numb_of_files(count)
+        
+    elif wav_or_txt == 1:
+        if not txt_check(input):
+            count = add_numb_of_files(count)
+    
+    return count 
+
+def folder_navigator_txt(source, dest):
+    ''' Function that goes in a folder and all subfolders and splits .txt files into multiple .txt files so that the .wav files and .txt files are 1 to 1 pairs.
+        Parameters: 'source' - string, abs path to the root folder, 'dest' - string, abs path to dest folder (both must be with a '/' at the end!) '''
+
+    for root, dirs, files in os.walk(source):
+        for name in files:
+            abs_path = os.path.join(root,name)
+
+            if '\\' in abs_path:
+               abs_path = abs_path.replace('\\','/')
+
+            if txt_check(name):
+                txt_maker(abs_path,name,dest)
+
+if __name__ == "__main__":
+    
+    try: 
+        numb_of_args=len(sys.argv)-1
+
+        if not numb_of_args == 2: 
+            raise raiseExcept()
+            
+    except(raiseExcept):
+        print("Number of input parameters wrong! Correct format: 'source' 'dest'")
+        sys.exit()
+
+    try: 
+        #source_path  = 'C:\\Users\Mavericks\Documents\GitHub\Mavericks\coding\PyTests\FolderNavTest\Testing_folder'           //these two could be used instead of sys.argv[1] and sys.argv[2]
+        #dest_path = 'C:\\Users\Mavericks\Documents\GitHub\Mavericks\coding\PyTests\FolderNavTest\Results_folder'              // in order to run the code in an IDE or similar 
+
+        source_path = sys.argv[1]
+        dest_path = sys.argv[2]
+        
+        if '\\' in source_path:
+            source_path = source_path.replace('\\','/')
+
+        if '\\' in dest_path:
+            dest_path = dest_path.replace('\\','/')
+
+        if not os.path.isdir(source_path):
+            raise raiseExcept()
+
+        if not os.path.isdir(dest_path):
+            raise raiseExcept()
+        
+        if source_path[len(source_path)-1:] is not '/':
+            source_path+='/'
+
+        if dest_path[len(dest_path)-1:] is not '/':
+            dest_path+='/'
+
+        folder_navigator_txt(source_path,dest_path)
+
+    except(raiseExcept): 
+        print("Wrong parameter format! Correct format: 'source' 'dest'")
+\end{lstlisting}
 
 
-\begin{table}[H]
-\centering
-	\caption{Models.}
-	\begin{tabular}{ l  c }
-	Model1 -\tikzcircle[pink, fill=pink]{3pt}- &
-	(Their simpleLSTM Model)\\
-	Model2 -\tikzcircle[red, fill=red]{3pt}- &
-	(Our simpleLSTM Model)\\
-	Model3 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
-	(Our BiRNN Model)\\
-	\end{tabular}
-	\label{tab:3_models}
-\end{table}
 
 
-\begin{table}[H]
-\centering
-    \caption{Parameter values of the three model.}
-    \begin{tabular}{| l | c | c | c | c |} 
-    \hline
-        Parameters & 
-        Model1 -\tikzcircle[pink, fill=pink]{3pt}- &
-        Model2 -\tikzcircle[red, fill=red]{3pt}- &
-        Model3 -\tikzcircle[turquoise, fill=turquoise]{3pt}-\\
-    \hline
-        Batch Size & 
-        50 \hfill 20 \hfill 20 & 
-        50 \hfill 20 \hfill 20 & 
-        50 \hfill 20 \hfill 20 \\
-    \hline
-        Dropout & 
-        0.05 & 0.05 & 0.05 \\
-    \hline
-        Learning Rate & 
-        0.001 & 0.001 & 0.001 \\ 
-    \hline
-    \end{tabular}
-    \label{tab:3models_tab}
-\end{table}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]		
-	{model_development/3models_comparison/test_error_rate_3models}
-	\caption{Test error rate.}
-\end{figure}
 
-\begin{table}[H]
-\centering
-	\caption{Test error rate results.}
-	\begin{tabular}{| l | c | c | c |}
-	\hline
-	Models & Value & Epoch & Duration \\
-	\hline
-	Model1 -\tikzcircle[pink, fill=pink]{3pt}- &
-	0.200 & 25.00 & 0s\\
-	\hline
-	Model2 -\tikzcircle[red, fill=red]{3pt}- &
-	0.080 & 25.00 & 0s\\
-	\hline
-	Model3 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
-	0.000 & 25.00 & 0s\\
-	\hline
-	\end{tabular}
-\end{table}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]		
-	{model_development/3models_comparison/train_error_rate_3models}
-	\caption{Training error rate.}
-\end{figure}
 
-\begin{table}[H]
-\centering
-	\caption{Training error rate results.}
-	\begin{tabular}{| l | c | c | c |}
-	\hline
-	Models & Value & Epoch & Duration \\
-	\hline
-	Model1 -\tikzcircle[pink, fill=pink]{3pt}- &
-	2.0887e-3 & 24.00 & 7m 46s\\
-	\hline
-	Model2 -\tikzcircle[red, fill=red]{3pt}- &
-	5.1642e-3 & 24.00 & 9m 47s\\
-	\hline
-	Model3 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
-	0.000 & 24.00 & 12m 50s\\
-	\hline
-	\end{tabular}
-\end{table}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]		
-	{model_development/3models_comparison/validation_error_rate_3models}
-	\caption{Validation error rate.}
-\end{figure}
-
-\begin{table}[H]
-\centering
-	\caption{Validation error rate results.}
-	\begin{tabular}{| l | c | c | c |}
-	\hline
-	Models & Value & Epoch & Duration \\
-	\hline
-	Model1 -\tikzcircle[pink, fill=pink]{3pt}- &
-	0.1669 & 23.00 & 7m 9s\\
-	\hline
-	Model2 -\tikzcircle[red, fill=red]{3pt}- &
-	0.2030 & 23.00 & 9m 8s\\
-	\hline
-	Model3 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
-	0.01398 & 23.00 & 11m 49s\\
-	\hline
-	\end{tabular}
-\end{table}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]		
-	{model_development/3models_comparison/train_avg_loss_3models}
-	\caption{Training average loss.}
-\end{figure}
-
-\begin{table}[H]
-\centering
-	\caption{Training average loss results.}
-	\begin{tabular}{| l | c | c | c |}
-	\hline
-	Models & Value & Epoch & Duration \\
-	\hline
-	Model1 -\tikzcircle[pink, fill=pink]{3pt}- &
-	0.04573 & 24.00 & 7m 46s\\
-	\hline
-	Model2 -\tikzcircle[red, fill=red]{3pt}- &
-	0.1608 & 24.00 & 9m 47s\\
-	\hline
-	Model3 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
-	1.2939e-3 & 24.00 & 12m 50s\\
-	\hline
-	\end{tabular}
-\end{table}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]		
-	{model_development/birnn_v2_graph}
-	\caption{Our BiRNN model graph.}
-\end{figure}
