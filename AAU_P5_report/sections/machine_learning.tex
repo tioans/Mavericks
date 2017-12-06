@@ -374,25 +374,25 @@ The tf.train API holds optimizers that change each variable to minimize the loss
 One of the simplest optimizers used to train neural networks is gradient descent.
 Each variable is modified by the magnitude of the derivative of loss with respect to that variable.
 Using a computer to gain these gradients is far less prone to error than doing it by hand.
-Each of the gradients will point towards the minimum of the loss function and when solving for the gradient a step needs to be determined by the rate of change.
+Each of the gradients will point towards the minimum of the loss function and when solving for the gradient a step needs to be determined and used as the rate of change.
 It is important to  have a small step as to not jump over the valley where the function takes its minimum value,
 but in the beginning to reduce time and processing power a bigger step could be used.
 One solution to this problem is to use a variable step input that changes as the gradients are determined.
 TensorFlow can automatically produce derivatives given only a description of the model using the function tf.gradients.
 For simplicity, optimizers typically do this for us.
-\begin{lstlisting}[language=Python, caption=The gradient descent optimizer.]
+\begin{lstlisting}[language=Python, label ={lst:Gradient}, caption=The gradient descent optimizer.]
 optimizer = tf.train.GradientDescentOptimizer(0.01)
 train = optimizer.minimize(loss)
 sess.run(train)
 \end{lstlisting}
-The gradient descent optimizer takes an input, defined as 0.01 in the example above,
+The gradient descent optimizer takes an input, defined as 0.01 in the example shown in Listing \ref{lst:Gradient},
 that represents the step input or the rate of change for the gradients.
 
 \subsection{tf.estimator API}
 %---------------------------------------------------
 To simplify the procedure of machine learning,
 tf.estimator can be used as a higher-level library within Tensorflow.
-It helps the user with running training and evaluation loops, managing data sets and much more. 
+It helps the user with running, training and evaluation loops, managing data sets and much more. 
 Making the entire process of writing an algorithm and maintaining it be less tedious.
 Although the estimator library has a set of predefined models to make things easier, a custom model can be created while keeping the high
 level abstraction of the data set, training, and feeding.
@@ -504,7 +504,7 @@ For consistency, all the tests are run for 25 Epochs.
 \subsection{Batch Size Test}
 %-----------------------------------------------------
 In this subsection three test from Table \ref{tab:six_tests_tab}  
-will be used for the batch size test as shown in Table \ref{tab:batch_tests_tab}. For each trial test only the batch size parameter as been changed.
+will be used for the batch size test has shown in Table \ref{tab:batch_tests_tab}. For each trial test only the batch size parameter as been changed.
 
     %Batch Size Test table
     %-------------------------------------------------
@@ -683,7 +683,7 @@ $\sim 3\%$ and $\sim 2\%$ WER respectively.
     %-------------------------------------------------
 The following graph (Fig. \ref{fig:drop_train_error_fig}) and
 table (Tab. \ref{tab:drop_train_error_tab}) represent the error
-rate for the train data set. The results show that Test2 took a duration of $\sim 18m 50s$ while Test2 and Test3 took 
+rate for the train data set. The results show that Test 2 took a duration of $\sim 18m 50s$ while Test2 and Test3 took 
 $\sim 18m 5s$ and $\sim 18m 10s$ respectively.
     %Dropout Training error rate graph
 \begin{figure}[H]
@@ -779,8 +779,8 @@ $\sim 0\%$ word error rate (WER) while Test6 is $\sim 89\%$ WER.
     \label{tab:learning_test_error_tab}
 \end{table}        
     %-------------------------------------------------
-The following graph (Fig. \ref{fig:learning_train_error_fig} and
-table (Tab. \ref{tab:learning_train_error_tab}) represent the error rate for the train data set. The results show that Test5 took a duration of $\sim 14m 50s$ while Test6 took 
+The following graph (Figure \ref{fig:learning_train_error_fig}) and
+Table \ref{tab:learning_train_error_tab} represent the error rate for the train data set. The results show that Test5 took a duration of $\sim 14m 50s$ while Test6 took 
 $\sim 12m 29s$.
     %Learning Training error rate graph
     %-------------------------------------------------
@@ -812,6 +812,6 @@ $\sim 12m 29s$.
 \end{table}        
     %-------------------------------------------------
 The final results show that Test5 with learning rate of 
-$0.1\%$ outperformed Test6 with a learning rate of $1\%$ by a long shot. The graph clearly shows the model didn'tx converge to zero at all, unlike Test5, meaning it didn't learn anything during training.
+$0.1\%$ outperformed Test6 with a learning rate of $1\%$ by a long shot. The graph clearly shows the model didn't converge to zero at all, unlike Test5, meaning it didn't learn anything during training.
 %----------------------------------------------------
 \todo{write a summary about all this}
