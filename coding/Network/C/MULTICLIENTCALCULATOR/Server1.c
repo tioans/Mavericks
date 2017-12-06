@@ -10,6 +10,8 @@ The port number is passed as an argument */
 #include <sys/socket.h>
 #include <netinet/in.h>
 
+#define FILE_TO_SEND "test.wav"
+
 void error(const char *msg)
 {
 
@@ -19,10 +21,15 @@ exit(1);
 
 int main(int argc, char *argv[])
 {
-char operation;
+int client_count = 0;
+int remain_data = 0;
+char file_size[256];
+struct stat file_stat;
+int fd; 
+//char operation;
 int sockfd, newsockfd, portno;
 socklen_t clilen;
-char buffer[256];
+//char buffer[256];
 struct sockaddr_in serv_addr, cli_addr;
 int n;
 
@@ -59,14 +66,42 @@ newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr, &clilen);
 
 if (newsockfd > 0)
 {
+//client_count++;
  if(fork()==0)
 {
-int i,val1,val2,k=0,tmp,size_val2,result,ct,j;
 
-n=write(newsockfd,"Connection initiated, write operation in aopb format:",53);
+//n=send(newsockfd,"Connection initiated, write operation in aopb format:",53);
 printf("Connection initiated!-server side\n");
 fflush(stdout);
 
+fd = open(FILE_TO_SEND, O_RDONLY)
+if (fd == -1)
+	error("ERROR opening file!")
+
+if (fstat(fd, &file_stat) < 0)
+	error("ERROR fstat")
+
+fprintf(stdout, "File Size: \n%d bytes\n", file_stat.st_size);
+
+sprintf(file_size, "%d", file_stat.st_size);
+
+len = send(newsockfd, file_size, sizeof(file_size), 0);
+
+if (len < 0)
+	error("Error on sending greetings")
+
+fprintf(stdout, "Server sent %d bytes for the size\n", len);
+
+offset = 0;
+remain_data = file_stat.st_size;
+/* Sending file data */
+while (((sent_bytes = sendfile(newsockfd, fd, &offset, BUFSIZ)) > 0) && (remain_data > 0))
+{
+        fprintf(stdout, "1. Server sent %d bytes from file's data, offset is now : %d and remaining data = %d\n", sent_bytes, offset, remain_data);
+        remain_data -= sent_bytes;
+        fprintf(stdout, "2. Server sent %d bytes from file's data, offset is now : %d and remaining data = %d\n", sent_bytes, offset, remain_data);
+}
+/*
 do
 {
 n=read(newsockfd,&val1,sizeof(int));
@@ -106,12 +141,13 @@ printf("Here is the message: %d\n",result);
 n = write(newsockfd,&result,sizeof(result));
 }
 while(operation!='E');
+*/
 
 close(newsockfd);
 }
 }
 else
-error("Error accepting client!")'
+error("Error accepting client!")
 
 }while(1);
 
