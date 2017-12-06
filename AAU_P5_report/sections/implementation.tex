@@ -3,11 +3,11 @@
 \section{Data Mining} \label{sec:DataMining}
 \subsubsection{Data Set}
 Any neural network requires data in order to learn and become useful. As such, the training data is an important part of the learning process. For this implementation, the OpenSLR LibriSpeech ASR corpus was imported to provide training data.\\\\
-The LibriSpeech is comprised of approximately 1000 hours of 16kHz English read speech in .flac format, and was prepared by Vassil Panayotov with the assistance of Daniel Povey. It is based on audio books from the LibriVox project that have been segmented and aligned. It contains 3 different sets, differentiated by type and size.\\\\
+The LibriSpeech is comprised of approximately 1000 hours of 16 kHz English read speech in .flac format, and was prepared by Vassil Panayotov with the assistance of Daniel Povey. It is based on audio books from the LibriVox project that have been segmented and aligned. It contains 3 different sets, differentiated by type and size.\\\\
 The first, and smallest one, is made of 6.3 GB of "clean" speech, representing approx. 100 hours. "Clean" speech refers to audio recordings where noise and disturbances that might corrupt their quality were eliminated as much as possible.
 The second set is made of 23 GB of "clean" speech that represents approx. 360 hours.\\\\
 Any neural network requires data in order to learn and become useful. As such, the training data is an important part of the learning process. For this implementation, the OpenSLR LibriSpeech ASR corpus was imported to provide training data.
-The LibriSpeech set is comprised of approximately 1000 hours of 16kHz English read speech in .flac format, and was prepared by Vassil Panayotov with the assistance of Daniel Povey. It is based on audio books from the LibriVox project that have been segmented and aligned. It contains 3 different sets, differentiated by type and size.\\\\
+The LibriSpeech set is comprised of approximately 1000 hours of 16 kHz English read speech in .flac format, and was prepared by Vassil Panayotov with the assistance of Daniel Povey. It is based on audio books from the LibriVox project that have been segmented and aligned. It contains 3 different sets, differentiated by type and size.\\\\
 The first, and smallest one, is made of 6.3 GB of "clean" speech, representing approx. 100 hours. "Clean" speech refers to audio recordings where noise and disturbances that might corrupt their quality were eliminated as much as possible.
 The second set is made of 23 GB of "clean" speech that represents approx. 360 hours.
 The final set is made of 30 GB of "other" speech, representing approx. 500 hours of audio. "Other" speech refers to recordings that contain a certain degree of audio disturbance.
@@ -17,9 +17,9 @@ The corpus also contains smaller sets for validation and testing.
 As presented above, the OpenSLR corpus provides many features for training neural networks. It is especially efficient for speech recognition systems. However, the current implementation was designed to use pairs of .wav and .txt files as input. Each .wav file represents the audio information that is encoded in the corresponding .txt file, more specifically short paragraphs.\\\\
 As presented above, the OpenSLR corpus provides many features for training neural networks. It is especially efficient for speech recognition systems. However, the current implementation was designed to use pairs of \textbf{.wav} files and \textbf{.txt} files as input. Each \textbf{.wav} file represents the audio information that is encoded into the corresponding \textbf{.txt} file, more specifically short paragraphs.\\\\
 Unfortunately, this data set is prepared in a different format. There is a single \textbf{.txt} file that corresponds to many \textbf{.wav} files and these are organized in bigger sets. Because of this, the data in its original form is not usable for the current neural network. To prepare the data, certain scripts were implemented in Python.\\\\
-The first algorithm is designed to navigate a folder path and its sub-folders to convert all \textbf{.flac} files to \textbf{.wav}. It uses the os and pydub libraries. 
-To access every sub-folder in the path, os.walk is used. This function returns the root folder and a list of files and directories in root.\\\\
-The first algorithm is designed to navigate a folder path and its sub-folders to convert all .flac files to .wav. It uses the os and pydub libraries. To access every sub-folder in the path, os.walk is used. This function returns the root folder and a list of files and directories in root, after which an internal folder becomes the new root.
+The first algorithm is designed to navigate a folder path and its sub-folders to convert all \textbf{.flac} files to \textbf{.wav}. It uses the OS and pydub libraries. 
+To access every sub-folder in the path, OS.walk is used. This function returns the root folder and a list of files and directories in root.\\\\
+The first algorithm is designed to navigate a folder path and its sub-folders to convert all .flac files to .wav. It uses the OS and pydub libraries. To access every sub-folder in the path, OS.walk is used. This function returns the root folder and a list of files and directories in root, after which an internal folder becomes the new root.
 
 \lstinputlisting[language=Python, firstline=37, lastline=51]{code/FlacToWavPy.py}
 
@@ -27,7 +27,7 @@ The conversion is handled by another function that uses the pydub library to loa
 
 \lstinputlisting[language=Python, firstline=25, lastline=35]{code/FlacToWavPy.py}
 
-The second algorithm navigates the folders in the same way, by using the os.walk method. Then it checks for .txt files by parsing their name. 
+The second algorithm navigates the folders in the same way, by using the OS.walk method. Then it checks for .txt files by parsing their name. 
 
 \lstinputlisting[language=Python, firstline=13, lastline=22]{code/txtFileMaker.py}
 
