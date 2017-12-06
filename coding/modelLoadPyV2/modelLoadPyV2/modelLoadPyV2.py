@@ -27,7 +27,7 @@ if __name__ == "__main__":
     try: 
         numb_of_args=len(sys.argv)-1
 
-        if numb_of_args > 4: 
+        if numb_of_args > 3 or numb_of_args < 2: 
             raise raiseExcept()
                 
         train_option = int(sys.argv[1]) 
