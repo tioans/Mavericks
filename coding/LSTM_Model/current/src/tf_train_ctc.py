@@ -26,6 +26,8 @@ from models.RNN.rnn import LSTM as LSTM_model
 from models.RNN.rnn import BiRNN_V2 as BiRNN_V2_model
 from models.RNN.rnn import BiRNN_V3 as BiRNN_V3_model
 
+import sys
+
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG,
                             format='%(asctime)s [%(levelname)s] %(name)s: %(message)s')
@@ -59,10 +61,13 @@ class Tf_train_ctc(object):
     def __init__(self,
                  config_file='neural_network.ini',
                  model_name=None,
-                 debug=False):
+                 debug=False,
+                 train_option=True,
+                 server_start=False):
         # set TF logging verbosity
         tf.logging.set_verbosity(tf.logging.INFO)
-
+        self.train_option = train_option
+        self.server_start=server_start
         # Load the configuration file depending on debug True/False
         self.debug = debug
         self.conf_path = get_conf_dir(debug=self.debug)
@@ -154,12 +159,10 @@ class Tf_train_ctc(object):
     def set_up_directories(self, model_name):
         # Set up model directory
         self.model_dir = os.path.join(get_model_dir(), self.model_dir)
-        # summary will contain logs
+        # summary will contain log
         self.SUMMARY_DIR = os.path.join(
             self.model_dir, "summary", self.session_name)
-        ##################
-        #OLD_MODEL_DIR = os.path.join(self.model_dir,"session",model_name,'model.ckpt-2')
-        ##################
+
         # session will contain models
         self.SESSION_DIR = os.path.join(
             self.model_dir, "session", self.session_name)
@@ -168,11 +171,15 @@ class Tf_train_ctc(object):
             os.makedirs(self.SESSION_DIR)
         if not os.path.exists(self.SUMMARY_DIR):
             os.makedirs(self.SUMMARY_DIR)
-
+        
         # set the model name and restore if not None
-        if model_name is not None:
-            self.model_path = os.path.join(self.SESSION_DIR, model_name)
-         #   self.model_path = OLD_MODEL_DIR
+        if model_name != 'None':
+            self.model_path=''
+            self.model_path=os.path.join(self.model_dir,"session",model_name)
+            if not os.path.exists(self.model_path):
+                logger.info("Model doesn't exist! (The name may be wrong)")
+                sys.exit()
+           # self.model_path = os.path.join(self.SESSION_DIR, model_name)
         else:
             self.model_path = None
 
@@ -194,20 +201,21 @@ class Tf_train_ctc(object):
         self.n_batches_per_epoch = int(np.ceil(
             self.n_examples_train / self.batch_size))
 
-        logger.info('''Training model: {}
-        Train examples: {:,}
-        Dev examples: {:,}
-        Test examples: {:,}
-        Epochs: {}
-        Training batch size: {}
-        Batches per epoch: {}'''.format(
-            self.session_name,
-            self.n_examples_train,
-            self.n_examples_dev,
-            self.n_examples_test,
-            self.epochs,
-            self.batch_size,
-            self.n_batches_per_epoch))
+        if self.train_option == True:
+            logger.info('''Training model: {}
+            Train examples: {:,}
+            Dev examples: {:,}
+            Test examples: {:,}
+            Epochs: {}
+            Training batch size: {}
+            Batches per epoch: {}'''.format(
+                self.session_name,
+                self.n_examples_train,
+                self.n_examples_dev,
+                self.n_examples_test,
+                self.epochs,
+                self.batch_size,
+                self.n_batches_per_epoch))
 
     def run_model(self):
         self.graph = tf.Graph()
@@ -232,9 +240,9 @@ class Tf_train_ctc(object):
             
             uc = tf_config.gpu_options.per_process_gpu_memory_fraction = 0.95
 
-            print("###################################################################")
-            print("\n \n \nTHE NUMBER IS: %s \n \n \n" % uc)
-            print("####################################################################")
+            #print("###################################################################")
+            #print("\n \n \nTHE NUMBER IS: %s \n \n \n" % uc)
+            #print("####################################################################")
 
             # create the session
             self.sess = tf.Session(config=tf_config)
@@ -250,27 +258,38 @@ class Tf_train_ctc(object):
             section = '\n{0:=^40}\n'
 
             # If there is a model_path declared, then restore the model
+            #if self.model_path is not None:
             if self.model_path is not None:
-                #self.model_path = self.model_path.replace('\\','/')
-                self.model_path = 'C:/Users/Mavericks/Documents/Simple_LSTM/RNN-Implementation/models/nn/debug_models/session/develop_BiRNN_V2_20171202-155637/model.ckpt-24'
-                #self.model_path = self.model_path.replace('\\','/')
-                #self.saver.restore(self.sess, tf.train.latest_checkpoint(self.model_path))
-                self.saver.restore(self.sess, self.model_path)
-                print("Model restored!")
-                
-            # If there is NOT a model_path declared, build the model from scratch
-            else:
+
+                if self.train_option == True:
+                    self.saver.restore(self.sess, tf.train.latest_checkpoint(self.model_path))
+                    logger.info(section.format('Model loaded successfully for training!'))
+
+                    # MAIN LOGIC for running the training epochs
+                    logger.info(section.format('Run training epoch'))
+                    self.run_training_epochs()
+                    logger.info(section.format('Decoding test data'))
+
+                elif self.train_option == False:
+                    self.saver.restore(self.sess, tf.train.latest_checkpoint(self.model_path))
+                    logger.info(section.format('Model loaded successfully for predictions!'))
+                    logger.info(section.format('Decoding client input data!'))
+
+            elif self.train_option == True and self.model_path is None:
                 # Op to initialize the variables
                 init_op = tf.global_variables_initializer()
 
                 # Initializate the weights and biases
                 self.sess.run(init_op)
-
+                
                 # MAIN LOGIC for running the training epochs
+                logger.info(section.format('New model created!'))
                 logger.info(section.format('Run training epoch'))
                 self.run_training_epochs()
-
-            logger.info(section.format('Decoding test data'))
+                logger.info(section.format('Decoding test data'))
+            else:
+                logger.info(section.format("Model error!"))
+           
             # make the assumption for working on the test data, that the epoch here is the last epoch
 
             _, self.test_ler = self.run_batches(self.data_sets.test, is_training=False,
@@ -278,13 +297,18 @@ class Tf_train_ctc(object):
 
             # Add the final test data to the summary writer
             # (single point on the graph for end of training run)
-            summary_line = self.sess.run(
-                self.test_ler_op, {self.ler_placeholder: self.test_ler})
+            summary_line = self.sess.run(self.test_ler_op, {self.ler_placeholder: self.test_ler})
             self.writer.add_summary(summary_line, self.epochs)
 
-            logger.info('Test Label Error Rate: {}'.format(self.test_ler))
+            if (self.train_option == True and self.model_path is None) or (self.train_option == True and self.model_path is not None):
+                logger.info('Test Label Error Rate: {}'.format(self.test_ler))
 
-            # save train summaries to disk
+            ###############################################################
+
+            #######NUMBER 1
+
+            ###############################################################
+
             self.writer.flush()
 
             self.sess.close()
@@ -528,14 +552,14 @@ class Tf_train_ctc(object):
             if is_training:
                 # avg_loss is the loss_op, optimizer is the train_op;
                 # running these pushes tensors (data) through graph
-                batch_cost, _ = self.sess.run(
-                    [self.avg_loss, self.optimizer], feed)
+                batch_cost, _ = self.sess.run([self.avg_loss, self.optimizer], feed)
                 self.train_cost += batch_cost * dataset._batch_size
                 logger.debug('Batch cost: %.2f | Train cost: %.2f',
                              batch_cost, self.train_cost)
 
             self.train_ler += self.sess.run(self.ler, feed_dict=feed) * dataset._batch_size
-            logger.debug('Label error rate: %.2f', self.train_ler)
+            if self.train_option == True:
+                logger.debug('Label error rate: %.2f', self.train_ler)
 
             # Turn on decode only 1 batch per epoch
             if decode and batch == 0:
@@ -555,9 +579,23 @@ class Tf_train_ctc(object):
                     for orig, decoded_arr in zip(dense_labels, dense_decoded):
                         # convert to strings
                         decoded_str = ndarray_to_text(decoded_arr)
-                        logger.info('Batch {}, file {}'.format(batch, counter))
-                        logger.info('Original: {}'.format(orig))
-                        logger.info('Decoded:  {}'.format(decoded_str))
+                        if self.train_option == True:
+                            
+                            logger.info('Batch {}, file {}'.format(batch, counter))
+                            logger.info('Original: {}'.format(orig))
+                            logger.info('Decoded:  {}'.format(decoded_str))
+
+                        elif self.train_option == False:
+                            logger.info('Decoded:  {}'.format(decoded_str))
+
+                        #################################################################
+                        #logger.info('SERVER START:  {}'.format(self.server_start))
+                        if self.server_start == True:
+                            decoded_str=decoded_str + '\n'
+                            sys.stdout.write(decoded_str)
+                            sys.stdout.flush()
+                        ##################################################################
+
                         counter += 1
 
                 # save out variables for testing
@@ -602,3 +640,34 @@ if __name__ == '__main__':
         tf_train_ctc.run_model()
 
     main()
+
+
+#######################################################Multi usage code ###################################################
+
+#####################################PART1
+# put where it says NUMBER 1 above
+#data = sys.stdin.readline()
+            #while data == "y":
+            #    decoded_str= data + '\n'
+            #    self.data_sets = read_datasets(self.conf_path,
+            #                           self.sets,
+            #                           self.n_input,
+            #                           self.n_context
+            #                           )
+            #    logger.info(section.format('Decoding test data'))
+            #     make the assumption for working on the test data, that the epoch here is the last epoch
+
+            #    _, self.test_ler = self.run_batches(self.data_sets.test, is_training=False,
+            #                                        decode=True, write_to_file=False, epoch=self.epochs)
+
+            #     Add the final test data to the summary writer
+            #     (single point on the graph for end of training run)
+            #    summary_line = self.sess.run(self.test_ler_op, {self.ler_placeholder: self.test_ler})
+            #    self.writer.add_summary(summary_line, self.epochs)
+                
+            #    data = sys.stdin.readline()
+            #    sys.stdout.write(decoded_str)
+            #    sys.stdout.flush()
+
+            # save train summaries to disk
+############################################
