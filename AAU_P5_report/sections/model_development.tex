@@ -1,17 +1,17 @@
 \chapter{Model Development}\label{ch:model_development}
+
 One of the goals for this project was to research, design and compare different neural network topologies. 
-Some of these were feed-forward and recurrent.
-Continuing, some neural networks were made deep, first by adding fully connected layers to the existing type feed-forward, CNN or RNN.
+Continuing, some neural networks were made deep, first by adding fully connected layers to the existing type feed-forward or RNN.
 Different configurations were tested, some proving to be efficient for achieving designated goals, and some less so.
 Subject to further research, we found that recurrent neural networks work best for speech recognition.
 Therefore  the following comparison will be based on different RNNs configurations.\\\\
 
 \section{Neural Network Comparison}\label{sec:NNComparison}
 
-In this chapter two models are developed based on the simple LSTM model from the silicon-valley-data-science RNN tutorial \cite{rubashkin2017}. Firstly these models (including "their simple LSTM model") will be trained and tested on a small data set with the numbers:\\\\
+In this chapter two models are developeded based on the simple LSTM model from the silicon-valley-data-science RNN tutorial \cite{rubashkin2017}. Firstly these models (including "their simple LSTM model") will be trained and tested on a small data set with the numbers:\\\\
 $\left\{zero, one, two, three, four, five, six, seven, eight, nine \right\}$,\\\\
 the same data used in Chapter \ref{ch:machine_learning} for the parameter comparison. After that, the best performing model shall be picked for a more detailed description (with code) and further training with a bigger data set of the English language.\\\\
-Before the comparison of the 3 models, lets take a look at their structure in the following diagrams.
+Before the comparison of the three models, lets take a look at their structure in the following diagrams.
 As mentioned earlier the two models that were developed are based on the silicon-valley-data-science simple LSTM model. Their model consist of two LSTM layers as shown in the diagram below (Figure \ref{fig:simple_LSTM}).
 \begin{figure}[H]
 	\centering
@@ -28,7 +28,7 @@ Based on model above, it was decided among us to make an addition of two fully c
 	\caption{Simple LSTM model with fully connected layers.}
 	\label{fig:simple_LSTMFC}
 \end{figure}
-After that, a decision was made to replace the to LSTM layers in the model above with one Bi-Directional LSTM layers (seen in Figure \ref{fig:BiRNNFC}), again with the desire to make a more accurate model
+After that, a decision was made to replace the two LSTM layers in the model above with one Bi-Directional LSTM layer (seen in Figure \ref{fig:BiRNNFC}), again with the desire to make a more accurate model.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.35\textwidth]		
@@ -143,16 +143,22 @@ Model2 and Model3 is $\sim 9m 8s$ and $\sim 11m 49s$ respectively.
 	\label{tab:validation_error_tab}
 \end{table}
 
-The final results show that Model1 was improved by adding the fully connected layers (Model2) from $\sim 20\%$ to $\sim 8\%$ WER and further improved by the replacing the two LSTMs by one Bi-Directional LSTM layer (Model3) from $\sim 8\%$ to $\sim 0\%$ WER.
+The final results show that Model1 was improved by adding the fully connected layers (Model2) from $\sim 20\%$ to $\sim 8\%$ WER and further improved by replacing the two LSTMs by one Bi-Directional LSTM layer (Model3) from $\sim 8\%$ to $\sim 0\%$ WER.
 The graph for the validation error rate (Figure \ref{fig:validation_error_fig}) clearly shows the three distinct lines in "parallel" with each other. The top line being the least accurate and the bottom one being the most.
 
 \section{Model Description}
+<<<<<<< HEAD
 As shown in Chapter \ref{ch:model_development} under Neural Network Comparison, the model that is used in this DSR system is based on a bidirectional, Long-short Term Memory , recurrent neural network.
 This recurrent network is using the standard TensorFlow implementation of an LSTM cell, called "BasicLSTMCell", and used as a bidirectional layer. 
 There are two cells in the layer, one "forward" direction and one "backward" direction.
 Each cell is unrolled 1024 times, giving the layer 2048 elements. 
 The purpose is to recognize the context of the text, thus improving the prediction accuracy.
 The complete topology for the network is as follows: \\\\
+=======
+
+Model3 (BiRNN) is better therefore we go into more detail about it...
+
+>>>>>>> 562d4317326856541646a66130e93491c102fa49
 \todo{Make full page png}
 \begin{figure}[H]
 	\centering
@@ -160,28 +166,20 @@ The complete topology for the network is as follows: \\\\
 	{model_development/birnn_v2_graph}
 	\caption{Our BiRNN model graph.}
 \end{figure}
-Figure X shows the complete topology of the network used in the current implementation.
-The structure is: 2-BiRNN-1-output.
-In the beginning there are 2 fully connected layers, each consisting of 1024 neurons.\\
-The first layer is designed to accept input from a 2D tensor. However, the input tensor has 3 dimensions.
-To resolve this discrepancy, the input tensor is reshaped into a 2D representation. Two dimensions are merged, thus the 3D tensor becomes 2D, and is ready to be sent through the network.
-After the multiplication, the activation function is applied. 
-For this type of layer, ReLU activation is used. 
-The last operation in the layer applies drop-out on the neurons.
-To visualize elements over time, TensorFlow's TensorBoard utility is used, and various information is saved after every layer.
-\lstinputlisting[language=Python,caption = First fully connected layer, firstline=657, lastline=667]{code/rnn.py}
-The second layer has much of the same functionality as the first. However, they differ in the output dimension size, because the output of this layer is going to be the input for the bidirectional LSTM layer.
-\lstinputlisting[language=Python,caption = Second fully connected layer, firstline=669, lastline=678]{code/rnn.py}
-The next layer defines two LSTM cells. Both are initialised with the default forget bias, in order to remember more information at the beginning of training. For these cells there is no drop-out.
-\lstinputlisting[language=Python,caption = BiRNN Layer, firstline=694, lastline=702]{code/rnn.py}
-Further on, the input is reshaped into a three dimensional tensor, to be compatible with the BiRNN layer, and the network is unrolled. 
-\lstinputlisting[language=Python,caption = BiRNN Layer, firstline=718, lastline=723]{code/rnn.py}
-Following, the previous outputs is reshaped again into a 2 dimensional tensor, and sent to the next fully connected layer. 
-This layer is similar to the first two, with the main operation being tensor multiplication and addition.
-Afterwards, ReLU and drop-out is applied.
-\lstinputlisting[language=Python,caption = Third fully connected layer, firstline=732, lastline=737]{code/rnn.py}
-The output layer, is used as the end point of the network.
-Multiplication and addition operations are applied to the previous output tensor. 
-At this point, the output was  transformed by the entire network. 
-The last step is to reshape the tensor back into a 3D form, after which it is passed to another function for decoding.
-\lstinputlisting[language=Python,caption = Output layer, firstline=746, lastline=748]{code/rnn.py}
+
+As shown in Subsection \ref{sub:BiRNN}, the model that is used in this DSR system is a recurrent neural network.
+
+This recurrent network is based on the standard LSTM cell, but used as a bidirectional layer. 
+The purpose is to recognize the context of the text, to improve the prediction. 
+The complete topology for the network is as follows: \\\\
+\todo{INSERT NICE PICTURE DESCRIPTION HERE} \\\\
+Described in figure X is the complete topology of the network used in the current implementation. It has a structure of 2-BiRNN-1-logits. In the beginning it has 2 fully connected layers, each consisting of 1024 neurons.
+
+\lstinputlisting[language=Python,caption = Changing file extensions , firstline=36, lastline=51]{code/txtFileMaker.py}
+
+Further on, the input is reshaped to be compatible with the BiRNN layer, consisting of two LSTM cells, each with 1024 neurons.
+One cell is used in the "forward" direction, and the other one in the "backward" direction, with the goal of understanding the current context.
+Following this step, the input is reshaped again and sent to the next fully connected layer.
+The final layer, the logits layer, is used as output of the network. At this point, the original input is transformed by every layer and sent for decoding.
+
+
