@@ -1,5 +1,5 @@
 \chapter{Machine Learning for Speech}\label{ch:machine_learning}
-The goal for this chapter is to understand different kinds of Artificial Neural Network (ANN), starting with a historical overview of older, but highly recognized machine learning techniques still used today. After the brief overview, ANN will be looked at in more detail and different configurations are shown. Leading on, a simple description on TensorFlow and respective APIs (with example code) is done in order to understand future code development. Finally, ending the chapter with a small comparison study to get a feeling for the different parameter values.
+The goal for this chapter is to understand different kinds of Artificial Neural Networks (ANN), starting with a historical overview of older, but highly recognized machine learning techniques still used today. After the brief overview, ANN will be looked at in more detail and different configurations are shown. Leading on, a simple description on TensorFlow and respective APIs (with example code) is done in order to understand future code development. Finally, ending the chapter with a small comparison study to get a feeling for the different parameter values.
 
 \section{Historical Overview}
 The following section will encapsulate different methods that 
@@ -25,7 +25,7 @@ By the probabilities of transition, there will be a shift from one state to anot
 \subsubsection{Dynamic Time Warping}
 
 Dynamic Time Warping (DTW) is an algorithm that compares words with pre-given reference words.
-It measures the patterns between two sequences that will vary in time or speed.\cite{togneri1990speech}
+It measures the patterns between two sequences that will vary in time or speed \cite{togneri1990speech}.
 To output speech, the algorithm tries to alter the time variable of the unknown speech until it matches one of the reference words.
 
 \subsubsection{Vector Quantization}
@@ -78,7 +78,7 @@ $\left\{i_1,i_2,i_3,...,i_n \right\}$, analogous to the electrical signals recei
 Those inputs are then multiplied with a weight vector
 $\left\{w_1,w_2,w_3,...,w_n \right\}$. 
 This is how each input gains a different relevance that will affect the output of the neuron.
-From $x$, it can be seen that the neuron computes a weighted sum of all its weights and biases, which they are passed onto the activation function to be mapped, analogous to the biological
+In Figure \ref{fig:AN} it can be seen that the neuron computes a weighted sum of all its weights and biases, which they are passed onto the activation function to be mapped, analogous to the biological
 basic function of the Soma and Axon respectively.
 This process is repeated for each neuron found in any layer of a neural network.
 
@@ -130,10 +130,10 @@ and the rectangle represents trained network layers.
 \end{figure}
 A side by side description of each layer of an LSTM and
 it`s mathematical formulation can be seen in the
-following figures, where the dot represents matrix
-multiplication.
+following figures, where the dot, i.e.(X.W), represents matrix
+multiplication.\\\\
 The first layer represents the forget gate.
-This is where we decide which information to keep and which to discard.
+This is where a decision is made on which information to keep and which to discard.
 The layer outputs a value between zero and one for each input because of the sigmoid function
 (represented as sigma in the equations below),
 meaning that a value of zero represents data that will be
@@ -156,7 +156,7 @@ From the above mentioned gates a new internal state C can be computed as:
 \begin{equation}
 	C_t= f * C_{t-1} + u*X` 
 \end{equation}
-Where the current state ($C_t$) is determined by what we want to forget ($f$), multiplied by the previous state ($C_t-1$) and added together with the update gate ($r$) times the input layer ($X`$).
+Where the current state ($C_t$) is determined by what was forgotten ($f$), multiplied by the previous state ($C_t-1$) and added together with the update gate ($r$) times the input layer ($X`$).
 \begin{figure}[H]
     \centering
         \includegraphics[width=0.5\textwidth]        
@@ -190,7 +190,7 @@ As such, the output of the neural network can be written as:
 Bidirectional Recurrent Neural Networks (BiRNN) are used to increase the 
 input information available to the network. As data flows in one direction, standard neural networks have inherited restrictions where 
 the future input cannot be accessed by the current state \cite{graves2005bidirectional}. Conversely,
-BRNNs do not require their input data to be fixed. Furthermore, their 
+BiRNNs do not require their input data to be fixed. Furthermore, their 
 future input information is available at the current state. This is done
 by connecting two hidden layers of opposite directions to the same output.
 
@@ -204,7 +204,7 @@ y_t &= W_{hy}*h_t + b_y
 \end{align}
 
 These equation expand on Section \ref{sec:ANN} and show how the neurons output a weighted sum of all the inputs and biases.
-Because of the promising results given by simple LSTM networks, combining them with the benefits given by BRNN, the gates showcased in 
+Because of the promising results given by simple LSTM networks, combining them with the benefits given by BiRNN, the gates showcased in 
 Subsection \ref{sub:LSTM} become:
 \begin{align}
 i_t &= \sigma(W_{xy} * x_t + W_{hi} * h_{t-1} + W_{ci} * c_{t-1} + b_i)
@@ -302,20 +302,20 @@ given in Table \ref{tab:Parameters}.
 
 %---------------------------------------------------
 \section{TensorFlow}
-TensorFlow provides multiple Application Programming Interfaces
+TensorFlow (TF) provides multiple Application Programming Interfaces
 (APIs) for machine learning. 
 The lowest level API "TensorFlow Core" provides complete programming control \cite{tensorflow2015-whitepaper}. 
 For those who require fine levels of control over their models,
 TensorFlow Core is a well-suited tool for the job. There are higher level APIs that are built on top of TensorFlow Core.
 These higher level APIs are typically easier to learn and use than Tensorflow Core \cite{tensorflow2015-whitepaper}.
 In addition, the higher level APIs such as "tf.estimator" helps with managing data sets, estimators,
-training and inferences (testing your trained network),
-as well as, making repetitive tasks easier and more consistent
+training and inferences (testing a trained network),
+as well as making repetitive tasks easier and more consistent
 \cite{tensorflow2015-whitepaper}.\\\\
 The subsection below will start with TensorFlow Core. 
 In order to gain an understanding of the basic principles that TensorFlow has to offer, a model shall be made. 
 In the subsection after that, the same model will be implemented with tf.estimator. 
-Knowing TensorFlow Core principles will give us a great mental model of how things are working internally when we use the more compact higher level API.
+Knowing TensorFlow Core principles will give us a great mental model of how things are working internally when the more compact higher level API is used.
 
 \subsection{Tensors}
 The central unit of data in TensorFlow is the tensor. 
@@ -342,7 +342,7 @@ To see the outcome of such a program,
 firstly the computational graph needs to be created and after that, it needs to be run. 
 This provides a contrast to normal code written in python and to display this, 
 the print function for a tensorflow constant is called bellow.
-\begin{lstlisting}[language=Python, caption=Printing output without sess.run().]
+\begin{lstlisting}[language=Python, label={lst:output}, caption=Printing output without sess.run().]
 node1 = tf.constant(3.0, dtype=tf.float32)
 node2 = tf.constant(4.0) # also tf.float32 implicitly
 print(node1, node2)
@@ -351,9 +351,9 @@ Output:
 Tensor("Const:0", shape=(), dtype=float32)
 Tensor("Const_1:0", shape=(), dtype=float32) 
 \end{lstlisting}
-As seen above, printing an element does not show the value that it holds and it rather shows the technical details behind,
+As seen in Listing \ref{lst:output}, printing an element does not show the value that it holds and it rather shows the technical details behind,
 such as the element being a constant of type float32.
-To investigate the contents of any element in tensorflow,
+To investigate the contents of any element in TF,
 an object of type session needs to be defined.
 When the new object is run, a new session is generated and the content of the element can be seen.
 All code written in tensorflow core follows this basic principle.
@@ -365,7 +365,7 @@ Output:
 [3.0]
 \end{lstlisting}
 Other basic elements in tensorflow are
-placeholders(tf.placeholder), they can be changed to accept external inputs and variables. Variables allow the system to
+placeholders (tf.placeholder), they can be changed to accept external inputs and variables. Variables allow the system to
 change its outputs while keeping the same inputs,
 this allows the model to be trainable. 
 
@@ -812,6 +812,6 @@ $\sim 12m 29s$.
 \end{table}        
     %-------------------------------------------------
 The final results show that Test5 with learning rate of 
-$0.1\%$ outperformed Test6 with a learning rate of $1\%$ by a long shot. The graph clearly shows the model didn't converge to zero at all, unlike Test5, meaning it didn't learn anything during training.
+$0.1\%$ outperformed Test6 with a learning rate of $1\%$ by a long shot. The graph clearly shows the model didn'tx converge to zero at all, unlike Test5, meaning it didn't learn anything during training.
 %----------------------------------------------------
 \todo{write a summary about all this}
