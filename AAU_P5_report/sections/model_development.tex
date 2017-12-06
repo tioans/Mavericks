@@ -151,7 +151,7 @@ The graph for the validation error rate (Figure \ref{fig:validation_error_fig}) 
 Model3 (BiRNN) is better therefore we go into more detail about it...
 
 As shown in Subsection \ref{sub:BiRNN}, the model that is used in this DSR system is a recurrent neural network.
-This recurrent network is based on the standard LSTM cell, and used as a bidirectional layer. 
+This recurrent network is based on the standard TensorFlow implementation of an LSTM cell, called "BasicLSTMCell", and used as a bidirectional layer. 
 There are two cells in the layer, one "forward" direction and one "backward" direction.
 Each cell is unrolled 1024 times, giving the layer 2048 elements. 
 The purpose is to recognize the context of the text, thus improving the prediction accuracy.
@@ -165,21 +165,26 @@ The complete topology for the network is as follows: \\\\
 \end{figure}
 Figure X shows the complete topology of the network used in the current implementation.
 The structure is: 2-BiRNN-1-output.
-In the beginning there are 2 fully connected layers, each consisting of 1024 neurons.
-
-\lstinputlisting[language=Python,caption = First fully connected layer, firstline=657, lastline=667]{code/rnn.py}
-
+In the beginning there are 2 fully connected layers, each consisting of 1024 neurons.\\
 The first layer is designed to accept input from a 2D tensor. However, the input tensor has 3 dimensions.
 To resolve this discrepancy, the input tensor is reshaped into a 2D representation. Two dimensions are merged, thus the 3D tensor becomes 2D, and is ready to be sent through the network.
 After the multiplication, the activation function is applied. 
 For this type of layer, ReLU activation is used. 
 The last operation in the layer applies drop-out on the neurons.
 To visualize elements over time, TensorFlow's TensorBoard utility is used, and various information is saved after every layer.
+\lstinputlisting[language=Python,caption = First fully connected layer, firstline=657, lastline=667]{code/rnn.py}
+The second layer has much of the same functionality as the first. However, they differ in the output dimension size, because the output of this layer is going to be the input for the bidirectional LSTM layer.
 \lstinputlisting[language=Python,caption = Second fully connected layer, firstline=669, lastline=678]{code/rnn.py}
-
-Further on, the input is reshaped to be compatible with the BiRNN layer, consisting of two LSTM cells, each with 1024 neurons.
-One cell is used in the "forward" direction, and the other one in the "backward" direction, with the goal of understanding the current context.
-Following this step, the input is reshaped again and sent to the next fully connected layer.
-The final layer, the logits layer, is used as output of the network. At this point, the original input is transformed by every layer and sent for decoding.
-
-
+The next layer defines two LSTM cells. Both are initialised with the default forget bias, in order to remember more information at the beginning of training. For these cells there is no drop-out.
+\lstinputlisting[language=Python,caption = BiRNN Layer, firstline=694, lastline=702]{code/rnn.py}
+Further on, the input is reshaped into a three dimensional tensor, to be compatible with the BiRNN layer, and the network is unrolled. 
+\lstinputlisting[language=Python,caption = BiRNN Layer, firstline=718, lastline=723]{code/rnn.py}
+Following, the previous outputs is reshaped again into a 2 dimensional tensor, and sent to the next fully connected layer. 
+This layer is similar to the first two, with the main operation being tensor multiplication and addition.
+Afterwards, ReLU and drop-out is applied.
+\lstinputlisting[language=Python,caption = Third fully connected layer, firstline=732, lastline=737]{code/rnn.py}
+The output layer, is used as the end point of the network.
+Multiplication and addition operations are applied to the previous output tensor. 
+At this point, the output was  transformed by the entire network. 
+The last step is to reshape the tensor back into a 3D form, after which it is passed to another function for decoding.
+\lstinputlisting[language=Python,caption = Output layer, firstline=746, lastline=748]{code/rnn.py}
