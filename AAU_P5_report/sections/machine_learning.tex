@@ -1,5 +1,5 @@
 \chapter{Machine Learning for Speech}\label{ch:machine_learning}
-The goal for this chapter is to understand different kinds of Artificial Neural Network (ANN), starting with a historical overview of older, but highly recognized machine learning technics still used today. After the brief overview, ANN will be looked at in more detail and different configurations are shown. Leading on, a simple description on TensorFlow and respective APIs (with example code) is done in order to understand future code development. Finally, ending the chapter with a small comparison study to get a feeling for the different parameter values.
+The goal for this chapter is to understand different kinds of Artificial Neural Network (ANN), starting with a historical overview of older, but highly recognized machine learning techniques still used today. After the brief overview, ANN will be looked at in more detail and different configurations are shown. Leading on, a simple description on TensorFlow and respective APIs (with example code) is done in order to understand future code development. Finally, ending the chapter with a small comparison study to get a feeling for the different parameter values.
 
 \section{Historical Overview}
 The following section will encapsulate different methods that 
@@ -45,7 +45,7 @@ They have the ability to acquire and maintain knowledge (information based) and 
 interlinked by a lot of interconnections
 (artificial synapses) \cite[p.~5]{Silva2016}.\\\\
 The human brain learns from its experiences, creating new neural pathways. These interconnected chains of neurons are stronger than others and can be modulated, or changed,
-following learning or during behavioral modifications.
+following learning or during behavioural modifications.
 The strength of a neural connection is given by a weighted value, called synaptic weights.
 
 \subsection{Artificial Neuron}
@@ -185,7 +185,7 @@ As such, the output of the neural network can be written as:
 	Y_t=\text{softmax}(H_t.W+b)
 \end{equation}
 %---------------------------------------------------
-\subsection{Bidirectional networks}
+\subsection{Bidirectional networks}\label{sub:BiRNN}
 
 Bidirectional Recurrent Neural Networks (BiRNN) are used to increase the 
 input information available to the network. As data flows in one direction, standard neural networks have inherited restrictions where 
@@ -260,12 +260,12 @@ A dropout rate of $40\%$ given to the neural network on the left hand side, whic
 
 %---------------------------------------------------
 \subsection{Batch normalisation}
-Statistics can be computed for each batch that is fed to the neural network so the average and the standard deviation can be computed. After computing them, subtracting the average and dividing by the standard deviation rescales and recenters the output. 
+Statistics can be computed for each batch that is fed to the neural network so the average and the standard deviation can be computed. After computing them, subtracting the average and dividing by the standard deviation rescales and re-enters the output. 
 In the equation, epsilon is added to avoid numerical problems as dividing by zero.
 \begin{equation}
     X= \dfrac{x - avg(x)}{stdev(x) + \epsilon} 
 \end{equation}
-The recentering and rescaling of the values can cause problems to
+The re-center and rescaling of the values can cause problems to
 the network for cases where data needs to be squeezed over 
 to one side of the spectrum.
 To solve those cases, two degrees of freedom are added, 

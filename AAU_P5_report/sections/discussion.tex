@@ -30,8 +30,31 @@ scripts detailed in Section \ref{sec:DataMining}.
    domain and distributed evenly on a scale mimicking the human ear. Without this step, the neural
    network wouldn't have been able to receive any input.\\
    
-   For the main part, which consisted of the design and development of the neural network model, a reference model was originally used for understanding and testing. The Stanford model of a simple LSTM neural network proved to be a strong starting point for our own neural networks. As it was used to get acquainted to all the different dependencies and intricacies that these systems posses. By reverse engineering the reference model, we were able to construct a series of more complex and better performing networks. By trial and error, the first fully functional model that outperformed the Stanford model was described in Section \ref{sec:NNComparison}. The addition of fully connected layers both before and after the core LSTM layers proved to be an efficient way of reducing the word error rate across all the testing range, clearly seen in Figure \ref{fig:validation_error_fig}. A further analysis of the state-of-the-art neural networks developed specifically for understanding speech revealed that a BiRNN could prove to be a better solution to the classical stacking of LSTM layers. From the idea that hidden vectors can compute previous and future states, a second model was pursued, having a BiRNN layer as its core. Seen in Figure \ref{fig:BiRNNFC}, the best performing model is shown as a combination of FC and BiRNN. \\
+   For the main part, which consisted of the design and development of the neural network model, a reference model was originally used for understanding and testing. The Stanford model of a simple LSTM neural network proved to be a strong starting point for our own neural networks. As it was used to get acquainted to all the different dependencies and intricacies that these systems posses. By reverse engineering the reference model, we were able to construct a series of more complex and better performing networks.\\
+    
+   By trial and error, the first fully functional model that outperformed the Stanford model was described in Section \ref{sec:NNComparison}. The addition of fully connected layers both before and after the core LSTM layers proved to be an efficient way of reducing the word error rate across all the testing range, clearly seen in Figure \ref{fig:validation_error_fig}. A further analysis of the state-of-the-art neural networks developed specifically for understanding speech revealed that a BiRNN could prove to be a better solution to the classical stacking of LSTM layers. From the idea that hidden vectors can compute previous and future states, a second model was pursued, having a BiRNN layer as its core. Seen in Figure \ref{fig:BiRNNFC}, the best performing model is shown as a combination of FC and BiRNN. \\
    
 Both models, LSTM and BiRNN were trained on the English language, by using the LibriSpeech set. To achieve this goal, a large number of parameters had to be tuned to ensure that the network didn't diverge during learning. As there is no predetermined way to set the parameters, training was done on an iterative process and the results were documented in Appendix \ref{ch:appClabel}.\\
 
-The next step was to distribute the SR system. The server was established on the computer which had the video card and where the neural network was designed. This was done in order to assure that the server had enough processing power to complete the tasks sent by the users. Via the LAN network any client that has access to the SR system can send a wave file and receive a written text file containing the transcription of their voice. 
+The next step was to distribute the SR system. The server was established on the computer which had the video card and where the neural network was designed. This was done in order to assure that the server had enough processing power to complete the tasks sent by the users. Via the LAN network any client that has access to the SR system can send a wave file and receive a written text file containing the transcription of their voice. \\
+
+For future development, a series of topics can be pursued for the 
+betterment of the DSR.
+ One of the key ideas pointed out in the report was that training data is 
+ crucial for the system, and as such, a first addition should constitute in the creation of even larger data sets. 
+ While a larger set of data will prove beneficial, sets that emulate real 
+ life speech, such as speech in a noisy environment or multiple speakers 
+ at the same time will greatly benefit the learning curve of any neural 
+ network. The scope of this project was limited by the hardware available 
+ at the time of this research paper, with such considerations, more 
+ powerful hardware will prove instrumental in reducing the processing time 
+ and increasing the efficiency of writing and developing better neural 
+ networks. Due to time constraints, a balance between the time that the 
+ network was training and time the models were developed had to be 
+ maintained. Moreover, data sets should be able to run 
+ for increased amounts of time to reduce the word error rate even further. \\
+ 
+ A major goal that can be achieved by building upon the results of this project is the creation of an information retrieval (IR) system. 
+ As data is returned in text format to the client, an IR system can search 
+ a predefined database, or use a web crawler to access specific web pages 
+ and return meaningful snippets of information related to the interests of the user.

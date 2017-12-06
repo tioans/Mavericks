@@ -60,7 +60,7 @@ These steps are expanded upon in the following subsections.
 \subsubsection{ Preprocessing}
 No matter how powerful and how advanced a computer is,
 it still works in discrete time.
-In order to represent an analogue signal on the computer, it has to be sampled according to the Nyquist–Shannon sampling theorem.
+In order to represent an analogue signal on the computer, it has to be sampled according to the Nyquist sampling theorem.
 This theorem states that the sampling frequency has to be at least double the frequency of the original signal in order to replicate the original signal without aliasing.
 For a better understanding of the process, a visual representation of the word "Hello" as it is formed for the input of the neural network is shown in the upper part of Figure\ref{fig:cyka}.
 
@@ -71,10 +71,10 @@ These sine waves have specific amplitudes and frequencies and while plotting the
 the dominant waves can be identified by the intensity of the amplitude.\\\\
 In the lower part of Figure \ref{fig:cyka}, a visual representation of the FFT is shown. 
 It can be seen that there are a lot of frequencies that make up the word "Hello". 
-The dominant ones are in the range of 500Hz. 
+The dominant ones are in the range of $500 Hz$. 
 Considering that this recording has a minimum amount of noise,
 we have to consider the full range of the frequencies,
-from zero and up to 3500Hz.
+from zero and up to 3500 Hz.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]		
@@ -86,7 +86,7 @@ from zero and up to 3500Hz.
 \subsubsection{Spectrogram}
 The spectrogram of the signal was computed from the FFT and it shows a visual representation of the spectrum of frequencies marked by the intensity of the color.
 After the spectrogram is sliced into 25 ms chunks, it is feed as the input to the network. 
-A neural network can find patterns in this data more easily than raw sound waves because certain patterns can be distinguished in the graph. Such a spectrogram can be seen in Appendix \ref{ch:appAlabel}, figure \ref{fig:Spectrogram}.
+A neural network can find patterns in this data more easily than raw sound waves because certain patterns can be distinguished in the graph. Such a spectrogram can be seen in Appendix \ref{ch:appAlabel}, Figure \ref{fig:Spectrogram}.
 
 \section{Modern analysis}\label{sec:Modernanalysis}
 In the last decade, the state-of-the-art speech recognition models were phonetic-based
@@ -100,7 +100,7 @@ furthermore a word to phoneme dictionary.
 \subsubsection{Mel Frequency Cepstrum Coefficients}
 Mel-frequency cepstral coefficients (MFCCs) are coefficients that collectively make up a Mel-frequency cepstral (MFC). 
 They are taken from a cepstral representation of the audio clip by finding the spectrum of the spectrum of the original audio file.
- Compared to normal cepstrum, in MFC, the frequency bands are spaced at equal distances on the mel scale.
+ Compared to normal cepstrum, in MFC, the frequency bands are spaced at equal distances on the Mel scale.
  This mimics a humans response to sound better that a linearly represented frequency band \cite{sahidullah2012design}.\\\\
 Speech is a continuous action, where the present utterance will affect the future one. Combined with the fact that the English language is not a phonetic means that a direct
 representation of each character to their sound is impossible. To overcome this problem, the neural network is trained on overlapping windows both before and after the current speech sample.\\\\
