@@ -46,12 +46,20 @@ Normal operation for the system is as follows:
 \item The server sends the text to the client
 \end{enumerate}
 The file sent by the client can be either a microphone recording stored as a .wav at run-time, or an existing .wav file. To store this file, the server expects to receive multiple chunks of a fixed byte size from the client, shown below:
-\lstinputlisting[language=Python, flexiblecolumns=true, caption=Server receiving file, firstline=30, lastline=35]{code/serverPy.py} 
+\lstinputlisting[language=Python, flexiblecolumns=true, caption=Server receiving file., firstline=30, lastline=35]{code/serverPy.py} 
 After a successful transfer, the server forks a new process. 
 This new process runs a script that loads the trained neural network and decodes the received audio file. A pipe is opened between the two processes for the decoded text to be sent back to the client.
-
-\lstinputlisting[language=Python, flexiblecolumns=true, caption=New process, firstline=39, lastline=40]{code/serverPy.py}
-The result is received by the client and displayed on screen.
+\lstinputlisting[language=Python, flexiblecolumns=true, caption=New process., firstline=39, lastline=40]{code/serverPy.py}
+When this script is called, the neural network is initialized.
+First,the set of operations which will handle tensors, called the computational graph, is loaded. 
+TensorFlow uses Python to build the "skeleton" of a neural network, and uses it to connect to the C++ runtime that handles the operations when data is inserted.
+Second, the final numerical values for all trained variables are loaded into the computational graph. At this point the network is ready to inference.
+\begin{lstlisting}[language=Python, flexiblecolumns=true, caption=Model restore.]
+self.saver.restore(self.sess, tf.train.latest_checkpoint(self.model_path))
+logger.info(section.format('Model loaded successfully for predictions!'))
+logger.info(section.format('Decoding client input data!'))
+\end{lstlisting}
+The decoded text is received by the client and displayed on screen.
 
 \section{Testing}
 

@@ -1,5 +1,6 @@
 \chapter{Discussion}\label{ch:discussion}
 
+\section{Discussion}
 In chapter two, specific success criteria were created to limit the scope and also allow for the project to be evaluated. This discussion will focus on what was accomplished in terms of success criteria and on the possible future steps to improve or advance this project. The list of success criteria from Section \ref{sec:PD}, Problem Delimitation is shown below:
 
 \begin{itemize}
@@ -37,6 +38,7 @@ Both models, LSTM and BiRNN were trained on the English language, by using the L
 
 The next step was to distribute the SR system. The server was established on the computer which had the video card and where the neural network was designed. This was done in order to assure that the server had enough processing power to complete the tasks sent by the users. Via the LAN network any client that has access to the SR system can send a wave file and receive a written text file containing the transcription of their voice. \\
 
+\section{Future work}
 For future development, a series of topics can be pursued for the 
 betterment of the DSR.
  One of the key ideas pointed out in the report was that training data is 
@@ -57,3 +59,13 @@ betterment of the DSR.
  As data is returned in text format to the client, an IR system can search 
  a predefined database, or use a web crawler to access specific web pages 
  and return meaningful snippets of information related to the predetermined interests of the user.
+
+Another improvement would target the distribution part of the system. TensorFlow Serving is a flexible, high-performance serving system for machine learning models. It is designed for production environments, and it provides an easy way to deploy new algorithms and experiments, without changing the server architecture. Illustrated in \ref{fig:TFServe}. It would provide a great option for testing different models efficiently.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.7\textwidth]		
+	{future_work/TensorFlowServing}
+	\caption{TensorFlow Serving \cite{TFServ}.}
+	\label{fig:TFServe}
+\end{figure}
