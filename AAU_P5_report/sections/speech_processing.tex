@@ -106,7 +106,7 @@ Speech is a continuous action, where the present utterance will affect the futur
 representation of each character to their sound is impossible. To overcome this problem, the neural network is trained on overlapping windows both before and after the current speech sample.\\\\
 In the model developed by us, nine slices of audio are used before and after the current index, adding up to $19$ time points for each window. With $26$ cepstral coefficients, this gives $494$ data points per $25ms$ observation, sampled at $16 000 Hz$ and seen in Listing \ref{lst:MFCC}.\\\
 
-\begin{lstlisting}[language = Python, label=lst:MFCC, caption = Example code to obtain MFCC features.]
+\begin{lstlisting}[language = Python, flexiblecolumns=true, label=lst:MFCC, caption = Example code to obtain MFCC features.]
 # Load wav files
 fs, audio = wav.read(audio_filename)
  
