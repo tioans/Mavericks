@@ -39,15 +39,16 @@ The format of the text files in this audio set is known. Using this information,
 
 The complete DSR system is the sum of all the previously described parts. Firstly, a recurrent neural network model was designed and implemented. Following, the model was trained on the available data.
 Afterwards, the distributed part was focused on. The VPN was set up, and the client-server architecture took form using Python based, TCP sockets.\\\\
-Normal operation for the system is as follows:\\
-1. The server is initialized\\
-2. The client connects to the server\\
-3. The client sends an audio file \\
-4. The server decodes the audio into text\\
-5. The server sends the text to the client\\
+Normal operation for the system is as follows:
+\begin{enumerate}
+\item The server is initialized
+\item The client connects to the server
+\item The client sends an audio file
+\item The server decodes the audio into text
+\item The server sends the text to the client
+\end{enumerate}
 The file sent by the client can be either a microphone recording stored as a .wav at run-time, or an existing .wav file. To store this file, the server expects to receive multiple chunks of a fixed byte size from the client, shown below:
 \lstinputlisting[language=Python,caption=Server receiving file, firstline=30, lastline=35]{code/serverPy.py} 
-
 After a successful transfer, the server forks a new process. 
 This new process runs a script that loads the trained neural network and decodes the received audio file. A pipe is opened between the two processes for the decoded text to be sent back to the client.
 
