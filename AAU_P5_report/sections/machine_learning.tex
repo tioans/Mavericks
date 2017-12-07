@@ -1,5 +1,5 @@
 \chapter{Machine Learning for Speech}\label{ch:machine_learning}
-The goal for this chapter is to understand different kinds of Artificial Neural Networks (ANN), starting with a historical overview of older, but highly recognized machine learning techniques still used today. After the brief overview, ANN will be looked at in more detail and different configurations are shown. Leading on, a simple description on TensorFlow and respective APIs (with example code) is done in order to understand future code development. Finally, ending the chapter with a small comparison study to get a feeling for the different parameter values.
+The goal of this chapter is to understand different kinds of Artificial Neural Networks (ANN), starting with a historical overview of older, but highly recognized machine learning techniques still used today. After the brief overview, ANN will be looked at in more detail and different configurations are shown. Leading on, a simple description on TensorFlow and respective APIs (with example code) is done in order to understand future code development. Finally, ending the chapter with a small comparison study to get a feeling for the different parameter values.
 
 \section{Historical Overview}
 The following section will encapsulate different methods that 
@@ -10,8 +10,8 @@ efficiency when large data sets are available.
 
 \subsubsection{Hidden Markov Model}
 
-The forward and backward recursions used in HMM  were
-created by Ruslan L. Stratonovich in 1960
+The forward and backward recursions used in HMM  
+were created by Ruslan L. Stratonovich in 1960
 \cite{stratonovich1960conditional}.
 It is the most successfully used pattern recognition technique used for speech recognition.
 In contrast to knowledge-based approaches, this model has
@@ -45,7 +45,7 @@ They have the ability to acquire and maintain knowledge (information based) and 
 interlinked by a lot of interconnections
 (artificial synapses) \cite[p.~5]{Silva2016}.\\\\
 The human brain learns from its experiences, creating new neural pathways. These interconnected chains of neurons are stronger than others and can be modulated, or changed,
-following learning or during behavioural modifications.
+following learning or during behavioral modifications.
 The strength of a neural connection is given by a weighted value, called synaptic weights.
 
 \subsection{Artificial Neuron}
@@ -78,13 +78,10 @@ $\left\{i_1,i_2,i_3,...,i_n \right\}$, analogous to the electrical signals recei
 Those inputs are then multiplied with a weight vector
 $\left\{w_1,w_2,w_3,...,w_n \right\}$. 
 This is how each input gains a different relevance that will affect the output of the neuron.
-In Figure \ref{fig:AN} it can be seen that the neuron computes a weighted sum of all its weights and biases, which they are passed onto the activation function to be mapped, analogous to the biological
-basic function of the Soma and Axon respectively.
+In Figure \ref{fig:AN} it can be seen that the neuron computes a weighted sum of all its weights and biases, which they are passed onto the activation function to be mapped, analogous to the biological function of the Soma and Axon respectively.
 This process is repeated for each neuron found in any layer of a neural network.
 
-%---------------------------------------------------
 \section{Types of Artificial Neural Networks}
-%---------------------------------------------------
 \subsection{Feed forward Network}
 This type of simple neural network is comprised of one input
 layer and one neural layer, which also acts as the output layer.
@@ -152,46 +149,43 @@ the next iteration.
 \end{equation}
 Similar to the forget gate, the LSTM structure also uses an update gate, to add new information to the system.
 As seen in Figure \ref{fig:Update}, the update gate generates the new values that will be used. This takes place by multiplying the update gate to the input layer, represented by $X`$ where a hyperbolic tangent is used as the activation function. This is given as an example, as the Rectified Linear Unit (ReLU) or the softmax activation work perfectly fine as well.  
-From the above mentioned gates a new internal state C can be computed as:
+From the above-mentioned gates, a new internal state C can be computed as:
 \begin{equation}
-	C_t= f * C_{t-1} + u*X` 
+    C_t= f * C_{t-1} + u*X` 
 \end{equation}
 Where the current state ($C_t$) is determined by what was forgotten ($f$), multiplied by the previous state ($C_t-1$) and added together with the update gate ($r$) times the input layer ($X`$).
 \begin{figure}[H]
     \centering
         \includegraphics[width=0.5\textwidth]        
         {machine_learning/04_Update}
-    		\caption{Update gate with the current state description.}
-    		\label{fig:Update}
+            \caption{Update gate with the current state description.}
+            \label{fig:Update}
 \end{figure}
 \begin{equation}
-	U= \sigma(X.W_u+b_u)
+    U= \sigma(X.W_u+b_u)
 \end{equation}    
 \begin{equation}     
-	X`=\tanh(X.W_c+b_c)
+    X`=\tanh(X.W_c+b_c)
 \end{equation}
 \begin{figure}[H]
     \centering
-    		\includegraphics[width=0.5\textwidth]    					{machine_learning/05_Result}
-    		\caption{Result gate added to the output function.}
-    		\label{fig:Result}
+            \includegraphics[width=0.5\textwidth]                        {machine_learning/05_Result}
+            \caption{Result gate added to the output function.}
+            \label{fig:Result}
 \end{figure}
 \begin{equation}
-	r= \sigma(X.W_r+b_r) 
+    r= \sigma(X.W_r+b_r) 
 \end{equation}    
 The third and last gate is the result gate ($r$), which uses the previous internal state of the LSTM to generate a new internal state.
 As such, the output of the neural network can be written as:
 \begin{equation}
-	Y_t=\text{softmax}(H_t.W+b)
+    Y_t=\text{softmax}(H_t.W+b)
 \end{equation}
 %---------------------------------------------------
 \subsection{Bidirectional networks}\label{sub:BiRNN}
 
-Bidirectional Recurrent Neural Networks (BiRNN) are used to increase the 
-input information available to the network. As data flows in one direction, standard neural networks have inherited restrictions where 
-the future input cannot be accessed by the current state \cite{graves2005bidirectional}. Conversely,
-BiRNNs do not require their input data to be fixed. Furthermore, their 
-future input information is available at the current state. This is done
+Bi-directional Recurrent Neural Networks (BiRNN) are used to increase the input information available to the network. As data flows in one direction, standard neural networks have inherited restrictions where the future input cannot be accessed by the current state \cite{graves2005bidirectional}. Conversely,
+BiRNNs do not require their input data to be fixed. Furthermore, their future input information is available at the current state. This is done
 by connecting two hidden layers of opposite directions to the same output.
 
 For an input sequence like: $X=\left\{x_1,x_2,x_3,...,x_n \right\}$, a 
@@ -203,7 +197,7 @@ h_t &= \sigma(W_{xh}*x_t + W_{hh}*h_{t-1} + b_h)\\
 y_t &= W_{hy}*h_t + b_y
 \end{align}
 
-These equation expand on Section \ref{sec:ANN} and show how the neurons output a weighted sum of all the inputs and biases.
+These equations expand on Section \ref{sec:ANN} and show how the neurons output a weighted sum of all the inputs and biases.
 Because of the promising results given by simple LSTM networks, combining them with the benefits given by BiRNN, the gates showcased in 
 Subsection \ref{sub:LSTM} become:
 \begin{align}
@@ -227,11 +221,11 @@ y_t &= W_{\overrightarrow{h}y} * \overrightarrow{h}_t + W_{\overleftarrow{h}y} *
 \end{align}
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.75\textwidth]		
-	{machine_learning/07_BiRNN}
-	\caption{Visual representation of the hidden layers of one BiRNN}
-	\label{fig:BiRNN}
+    \centering
+    \includegraphics[width=0.75\textwidth]        
+    {machine_learning/07_BiRNN}
+    \caption{Visual representation of the hidden layers of one BiRNN}
+    \label{fig:BiRNN}
 \end{figure}
 %---------------------------------------------------
 \subsection{Dropout}
@@ -249,13 +243,13 @@ YF = tf.nn.relu(tf.matmul(X, W)+ b)
 Y = tf.nn.dropout(Yf, pkeep)
 \end{lstlisting}
 For a visual representation of a dropout rate given to a neural network, it can be seen Figure \ref{fig:.4_dropout_rate}.
-A dropout rate of $40\%$ given to the neural network on the left hand side, which can be seen in the the neural network on the right hand side.
+A dropout rate of $40\%$ given to the neural network on the left-hand side, which can be seen in the neural network on the right-hand side.
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth, height = 0.3\textheight]		
-	{machine_learning/06_Dropoutpng}
-	\caption{A $0.4$ dropout rate on a four layer network.}
-	\label{fig:.4_dropout_rate}
+    \centering
+    \includegraphics[width=\textwidth, height = 0.3\textheight]        
+    {machine_learning/06_Dropoutpng}
+    \caption{A $0.4$ dropout rate on a four layer network.}
+    \label{fig:.4_dropout_rate}
 \end{figure}
 
 %---------------------------------------------------
@@ -332,7 +326,7 @@ Here are some examples of tensors:
 \subsection{TensorFlow Core}
 Getting started with TensorFlow is done by using the import statement. 
 This gives Python access to all of TensorFlow's classes,
-methods and symbols. It is called by the following statement:
+methods, and symbols. It is called by the following statement:
 \begin{lstlisting}[language=Python, flexiblecolumns=true, caption=Importing Tensorflow library.]
 import tensorflow as tf
 \end{lstlisting}
@@ -427,7 +421,7 @@ train_input_fn = tf.estimator.inputs.numpy_input_fn(
 eval_input_fn = tf.estimator.inputs.numpy_input_fn(
     {"x": x_eval}, y_eval, batch_size=4, num_epochs=1000, shuffle=False)
 
-# We can invoke 1000 training steps by invoking the  method and passing the
+# We can invoke 1000 training steps by invoking the method and passing the
 # training data set.
 estimator.train(input_fn=input_fn, steps=1000)
 
@@ -504,7 +498,7 @@ For consistency, all the tests are run for 25 Epochs.
 \subsection{Batch Size Test}
 %-----------------------------------------------------
 In this subsection three test from Table \ref{tab:six_tests_tab}  
-will be used for the batch size test has shown in Table \ref{tab:batch_tests_tab}. For each trial test only the batch size parameter as been changed.
+will be used for the batch size test has shown in Table \ref{tab:batch_tests_tab}. For each trial test only the batch size parameter has been changed.
 
     %Batch Size Test table
     %-------------------------------------------------
@@ -536,7 +530,7 @@ will be used for the batch size test has shown in Table \ref{tab:batch_tests_tab
 The following graph (Fig. \ref{fig:batch_test_error_fig}) and
 table (Tab. \ref{tab:batch_test_error_tab}) represent the error
 rate for the test data set (the one that is used to test the
-models accuracy after trainig). The results show that Test1 has
+models accuracy after training). The results show that Test1 has
 $\sim 13\%$ word error rate (WER) while Test2 and Test3 is
 $\sim 0\%$ WER.
 
@@ -610,7 +604,7 @@ $\sim 18m 50s$ and $\sim 14m 50s$ respectively.
     \label{tab:batch_train_error_tab}
 \end{table}    
     %-------------------------------------------------    
-The final results show that Test1 with the smaller batch size took significantly longer to train and had the worst accuracy. However, Test3 with the larger batch size took the least time and had the same accuracy as Test2.
+The final results show that Test1 with the smaller batch size took significantly longer to train and had the worst accuracy. However, Test3 with the larger batch size took the least amount of time and had the same accuracy as Test2.
 %-----------------------------------------------------
 
 \subsection{Dropout Test}
@@ -716,7 +710,7 @@ $\sim 18m 5s$ and $\sim 18m 10s$ respectively.
     \label{tab:drop_train_error_tab}
 \end{table}        
     %-------------------------------------------------
-The final results show that Test3 with no dropout and Test4 with a high dropout of $50\%$ had a slightly faster training time, However, the test error rate was slightly worse than Test2 with a dropout of $5\%$. Overall all three tests performed very well. \todo{check dropout percentage}
+The final results show that Test3 with no dropout and Test4 with a high dropout of $50\%$ had a slightly faster training time, However, the test error rate was slightly worse than Test2 with a dropout of $5\%$. Overall all three tests performed very well.
 %-----------------------------------------------------
 
 \subsection{Learning Rate Test}
@@ -810,8 +804,6 @@ $\sim 12m 29s$.
     \end{tabular}
     \label{tab:learning_train_error_tab}
 \end{table}        
-    %-------------------------------------------------
+
 The final results show that Test5 with learning rate of 
 $0.1\%$ outperformed Test6 with a learning rate of $1\%$ by a long shot. The graph clearly shows the model didn't converge to zero at all, unlike Test5, meaning it didn't learn anything during training.
-%----------------------------------------------------
-\todo{write a summary about all this}

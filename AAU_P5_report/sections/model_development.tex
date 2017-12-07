@@ -1,40 +1,39 @@
 \chapter{Model Development}\label{ch:model_development}
-One of the goals for this project was to research, design and compare different neural network topologies. 
+One of the goals of this project was to research, design and compare different neural network topologies. 
 Some of these were feed-forward and recurrent.
-Continuing, some neural networks were made deep, first by adding fully connected layers to the existing type feed-forward, CNN or RNN.
-Different configurations were tested, some proving to be efficient for achieving designated goals, and some less so.
+Continuing, some neural networks were made deep, first by adding fully connected layers to the existing type feed-forward or RNN.
+Different configurations were tested, some proving to be effective for achieving designated goals, and some less so.
 Subject to further research, we found that recurrent neural networks work best for speech recognition.
 Therefore  the following comparison will be based on different RNNs configurations.\\\\
-
 \section{Neural Network Comparison}\label{sec:NNComparison}
 
-In this chapter two models are developed based on the simple LSTM model from the silicon-valley-data-science RNN tutorial \cite{rubashkin2017}. Firstly these models (including "their simple LSTM model") will be trained and tested on a small data set with the numbers:\\\\
+In this chapter two models are developed based on the simple LSTM model from the silicon-valley-data-science RNN tutorial \cite{rubashkin2017}. Firstly these models (including "their simple LSTM model") will be trained and tested on a small dataset with the numbers:\\\\
 $\left\{zero, one, two, three, four, five, six, seven, eight, nine \right\}$,\\\\
-the same data used in Chapter \ref{ch:machine_learning} for the parameter comparison. After that, the best performing model shall be picked for a more detailed description (with code) and further training with a bigger data set of the English language.\\\\
-Before the comparison of the 3 models, lets take a look at their structure in the following diagrams.
-As mentioned earlier the two models that were developed are based on the silicon-valley-data-science simple LSTM model. Their model consist of two LSTM layers as shown in the diagram below (Figure \ref{fig:simple_LSTM}).
+the same data used in Chapter \ref{ch:machine_learning} for the parameter comparison. After that, the best performing model shall be picked for a more detailed description (with code) and further training with a bigger dataset of the English language.\\\\
+Before the comparison of the 3 models, let's take a look at their structure in the following diagrams.
+As mentioned earlier the two models that were developed are based on the silicon-valley-data-science simple LSTM model. Their model consists of two LSTM layers as shown in the diagram below (Figure \ref{fig:simple_LSTM}).
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=.35\textwidth]		
-	{model_development/01_simpleLSTM}
-	\caption{Simple LSTM model.}
-	\label{fig:simple_LSTM}
+    \centering
+    \includegraphics[width=.4\textwidth]        
+    {model_development/01_simpleLSTM}
+    \caption{Simple LSTM model.}
+    \label{fig:simple_LSTM}
 \end{figure}
 Based on model above, it was decided among us to make an addition of two fully connected (FC) layers before and one FC layer after the two LSTM layers (shown in Figure \ref{fig:simple_LSTMFC}), with the desire of gaining better accuracy.
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=.35\textwidth]		
-	{model_development/02_simpleLSTMFC}
-	\caption{Simple LSTM model with fully connected layers.}
-	\label{fig:simple_LSTMFC}
+    \centering
+    \includegraphics[width=.4\textwidth]        
+    {model_development/02_simpleLSTMFC}
+    \caption{Simple LSTM model with fully connected layers.}
+    \label{fig:simple_LSTMFC}
 \end{figure}
 After that, a decision was made to replace the to LSTM layers in the model above with one Bi-Directional LSTM layers (seen in Figure \ref{fig:BiRNNFC}), again with the desire to make a more accurate model
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=.35\textwidth]		
-	{model_development/03_BiRNN}
-	\caption{BiRNN model with fully connected layers.}
-	\label{fig:BiRNNFC}
+    \centering
+    \includegraphics[width=.4\textwidth]        
+    {model_development/03_BiRNN}
+    \caption{BiRNN model with fully connected layers.}
+    \label{fig:BiRNNFC}
 \end{figure}
 
 In order to have a fair comparison between these model the parameters values were made to be the same for all models as shown in Table \ref{tab:3models_tab}.
@@ -65,16 +64,16 @@ The respective models are mapped to the described ones in Table \ref{tab:3_model
 \end{table}
 \begin{table}[H]
 \centering
-	\caption{Models.}
-	\begin{tabular}{ l  c }
-	Model1 -\tikzcircle[pink, fill=pink]{3pt}- &
-	(simple LSTM Model)\\
-	Model2 -\tikzcircle[red, fill=red]{3pt}- &
-	(simple LSTM + FC Model)\\
-	Model3 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
-	(BiRNN + FC Model)\\
-	\end{tabular}
-	\label{tab:3_models}
+    \caption{Models.}
+    \begin{tabular}{ l  c }
+    Model1 -\tikzcircle[pink, fill=pink]{3pt}- &
+    (simple LSTM Model)\\
+    Model2 -\tikzcircle[red, fill=red]{3pt}- &
+    (simple LSTM + FC Model)\\
+    Model3 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
+    (BiRNN + FC Model)\\
+    \end{tabular}
+    \label{tab:3_models}
 \end{table}
 
 The following graph (Fig. \ref{fig:test_error_fig}) and
@@ -83,31 +82,31 @@ rate for the test data set. The results show that Model1 has $\sim 20\%$ word er
 Model2 and Model3 is $\sim 8\%$ and $\sim 0\%$ WER respectively.
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]		
-	{model_development/3models_comparison/test_error_rate_3models}
-	\caption{Test error rate.}
-	\label{fig:test_error_fig}
+    \centering
+    \includegraphics[width=\textwidth]        
+    {model_development/3models_comparison/test_error_rate_3models}
+    \caption{Test error rate.}
+    \label{fig:test_error_fig}
 \end{figure}
 
 \begin{table}[H]
 \centering
-	\caption{Test error rate results.}
-	\begin{tabular}{| l | c | c | c |}
-	\hline
-	Models & Value & Epoch & Duration \\
-	\hline
-	Model1 -\tikzcircle[pink, fill=pink]{3pt}- &
-	0.200 & 25.00 & 0s\\
-	\hline
-	Model2 -\tikzcircle[red, fill=red]{3pt}- &
-	0.080 & 25.00 & 0s\\
-	\hline
-	Model3 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
-	0.000 & 25.00 & 0s\\
-	\hline
-	\end{tabular}
-	\label{tab:test_error_tab}
+    \caption{Test error rate results.}
+    \begin{tabular}{| l | c | c | c |}
+    \hline
+    Models & Value & Epoch & Duration \\
+    \hline
+    Model1 -\tikzcircle[pink, fill=pink]{3pt}- &
+    0.200 & 25.00 & 0s\\
+    \hline
+    Model2 -\tikzcircle[red, fill=red]{3pt}- &
+    0.080 & 25.00 & 0s\\
+    \hline
+    Model3 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
+    0.000 & 25.00 & 0s\\
+    \hline
+    \end{tabular}
+    \label{tab:test_error_tab}
 \end{table}
 
 The following graph (Fig. \ref{fig:validation_error_fig}) and
@@ -116,31 +115,31 @@ rate for the validation data set. The results show that Model1 has took $\sim 7m
 Model2 and Model3 is $\sim 9m 8s$ and $\sim 11m 49s$ respectively.
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]		
-	{model_development/3models_comparison/validation_error_rate_3models}
-	\caption{Validation error rate.}
-	\label{fig:validation_error_fig}
+    \centering
+    \includegraphics[width=\textwidth]        
+    {model_development/3models_comparison/validation_error_rate_3models}
+    \caption{Validation error rate.}
+    \label{fig:validation_error_fig}
 \end{figure}
 
 \begin{table}[H]
 \centering
-	\caption{Validation error rate results.}
-	\begin{tabular}{| l | c | c | c |}
-	\hline
-	Models & Value & Epoch & Duration \\
-	\hline
-	Model1 -\tikzcircle[pink, fill=pink]{3pt}- &
-	0.1669 & 23.00 & 7m 9s\\
-	\hline
-	Model2 -\tikzcircle[red, fill=red]{3pt}- &
-	0.2030 & 23.00 & 9m 8s\\
-	\hline
-	Model3 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
-	0.01398 & 23.00 & 11m 49s\\
-	\hline
-	\end{tabular}
-	\label{tab:validation_error_tab}
+    \caption{Validation error rate results.}
+    \begin{tabular}{| l | c | c | c |}
+    \hline
+    Models & Value & Epoch & Duration \\
+    \hline
+    Model1 -\tikzcircle[pink, fill=pink]{3pt}- &
+    0.1669 & 23.00 & 7m 9s\\
+    \hline
+    Model2 -\tikzcircle[red, fill=red]{3pt}- &
+    0.2030 & 23.00 & 9m 8s\\
+    \hline
+    Model3 -\tikzcircle[turquoise, fill=turquoise]{3pt}- &
+    0.01398 & 23.00 & 11m 49s\\
+    \hline
+    \end{tabular}
+    \label{tab:validation_error_tab}
 \end{table}
 
 The final results show that Model1 was improved by adding the fully connected layers (Model2) from $\sim 20\%$ to $\sim 8\%$ WER and further improved by the replacing the two LSTMs by one Bi-Directional LSTM layer (Model3) from $\sim 8\%$ to $\sim 0\%$ WER.
@@ -148,94 +147,40 @@ The graph for the validation error rate (Figure \ref{fig:validation_error_fig}) 
 
 \section{Model Description}
 As shown in Chapter \ref{ch:model_development} under Neural Network Comparison, the model that is used in this DSR system is based on a bidirectional, Long-short Term Memory, recurrent neural network.
-As shown in Chapter \ref{ch:model_development} under Neural Network Comparison, the model that is used in this DSR system is based on a bidirectional, Long-short Term Memory , recurrent neural network.
+As shown in Chapter \ref{ch:model_development} under Neural Network Comparison, the model that is used in this DSR system is based on a bidirectional, Long-short Term Memory, recurrent neural network.
 This recurrent network is using the standard TensorFlow implementation of an LSTM cell, called "BasicLSTMCell", and used as a bidirectional layer. 
 There are two cells in the layer, one "forward" direction and one "backward" direction.
 Each cell is unrolled 1024 times, giving the layer 2048 elements. 
 The purpose is to recognize the context of the text, thus improving the prediction accuracy.
 The complete topology for the network is as follows: \\\\
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]		
-	{model_development/birnn_v2_graph}
-	\caption{Our BiRNN model graph.}
+    \centering
+    \includegraphics[width=\textwidth]        
+    {model_development/birnn_v2_graph}
+    \caption{Our BiRNN model graph.}
+    \label{fig:BiRNN_model}
 \end{figure}
-Figure X shows the complete topology of the network used in the current implementation.
-The structure is: 2-BiRNN-1-output.
-In the beginning there are 2 fully connected layers, each consisting of 1024 neurons.\\
+Figure \ref{fig:BiRNN_model} shows the complete topology of the network used in the current implementation.
+In the beginning, there are 2 fully connected layers, each consisting of 1024 neurons.\\
 The first layer is designed to accept input from a 2D tensor. However, the input tensor has 3 dimensions.
 To resolve this discrepancy, the input tensor is reshaped into a 2D representation. Two dimensions are merged, thus the 3D tensor becomes 2D, and is ready to be sent through the network.
 After the multiplication, the activation function is applied. 
 For this type of layer, ReLU activation is used. 
 The last operation in the layer applies drop-out on the neurons.
 To visualize elements over time, TensorFlow's TensorBoard utility is used, and various information is saved after every layer.
-\begin{lstlisting}[language=Python, flexiblecolumns=true, caption=First fully connected layer.]
-# 1st layer
-with tf.name_scope('fc1'):
-    b1 = variable_on_cpu('b1', [n_hidden_1], tf.random_normal_initializer(stddev=b1_stddev))
-    h1 = variable_on_cpu('h1', [n_input + 2 * n_input * n_context, n_hidden_1],tf.random_normal_initializer(stddev=h1_stddev))                        
-    layer_1 = tf.minimum(tf.nn.relu(tf.add(tf.matmul(batch_x, h1), b1)), relu_clip)# clipped relu op
-    layer_1 = tf.nn.dropout(layer_1, (1.0 - dropout[0]))
-
-    tf.summary.histogram("weights", h1)
-    tf.summary.histogram("biases", b1)
-    tf.summary.histogram("activations", layer_1)
-\end{lstlisting}
+\lstinputlisting[language=Python,caption = First fully connected layer, firstline=657, lastline=667]{code/rnn.py}
 The second layer has much of the same functionality as the first. However, they differ in the output dimension size, because the output of this layer is going to be the input for the bidirectional LSTM layer.
-\begin{lstlisting}[language=Python, flexiblecolumns=true, caption=Second fully connected layer.]
-# 2nd layer
-with tf.name_scope('fc2'):
-    b2 = variable_on_cpu('b2', [n_hidden_3], tf.random_normal_initializer(stddev=b2_stddev))
-    h2 = variable_on_cpu('h2', [n_hidden_1, n_hidden_3], tf.random_normal_initializer(stddev=h2_stddev))
-    layer_2 = tf.minimum(tf.nn.relu(tf.add(tf.matmul(layer_1, h2), b2)), relu_clip)
-    layer_2 = tf.nn.dropout(layer_2, (1.0 - dropout[1]))
-
-    tf.summary.histogram("weights", h2)
-    tf.summary.histogram("biases", b2)
-    tf.summary.histogram("activations", layer_2)
-\end{lstlisting}
-The next layer defines two LSTM cells. Both are initialised with the default forget bias, in order to remember more information at the beginning of training. For these cells there is no drop-out.
-\begin{lstlisting}[language=Python, flexiblecolumns=true, caption=BiRNN Layer.]
-# LSTM layer
-with tf.name_scope('lstm'):
-    # Forward direction cell:
-    lstm_fw_cell = tf.contrib.rnn.BasicLSTMCell(n_cell_dim, forget_bias=1.0, state_is_tuple=True)
-    lstm_fw_cell = tf.contrib.rnn.DropoutWrapper(lstm_fw_cell,
-                                                 input_keep_prob=1.0 - dropout[3],
-                                                 output_keep_prob=1.0 - dropout[3])
-    # Backward direction cell:
-    lstm_bw_cell = tf.contrib.rnn.BasicLSTMCell(n_cell_dim, forget_bias=1.0, state_is_tuple=True)
-    lstm_bw_cell = tf.contrib.rnn.DropoutWrapper(lstm_bw_cell,
-                                                 input_keep_prob=1.0 - dropout[4],
-                                                 output_keep_prob=1.0 - dropout[4])                                       \end{lstlisting}
-Further on, the input is reshaped into a three dimensional tensor, to be compatible with the BiRNN layer, and the network is unrolled. 
-\begin{lstlisting}[language=Python, flexiblecolumns=true, caption=BiRNN Layer.]
-outputs, output_states = tf.nn.bidirectional_dynamic_rnn(cell_fw=lstm_fw_cell,
-                                                         cell_bw=lstm_bw_cell,
-                                                         inputs=layer_2,
-                                                         dtype=tf.float32,
-                                                         time_major=True,
-                                                         sequence_length=seq_length\end{lstlisting}
-Following, the previous outputs is reshaped again into a 2 dimensional tensor, and sent to the next fully connected layer. 
+\lstinputlisting[language=Python,caption = Second fully connected layer, firstline=669, lastline=678]{code/rnn.py}
+The next layer defines two LSTM cells. Both are initialized with the default forget bias, in order to remember more information at the beginning of training. For these cells, there is no dropout.
+\lstinputlisting[language=Python,caption = BiRNN Layer, firstline=694, lastline=702]{code/rnn.py}
+Further on, the input is reshaped into a three-dimensional tensor, to be compatible with the BiRNN layer, and the network is unrolled. 
+\lstinputlisting[language=Python,caption = BiRNN Layer, firstline=718, lastline=723]{code/rnn.py}
+Following, the previous outputs is reshaped again into a two-dimensional tensor and sent to the next fully connected layer. 
 This layer is similar to the first two, with the main operation being tensor multiplication and addition.
 Afterwards, ReLU and drop-out is applied.
-\begin{lstlisting}[language=Python, flexiblecolumns=true, caption=Third fully connected layer.]
-with tf.name_scope('fc3'):
-    # Now we feed `outputs` to the fifth hidden layer(third fully connected layer) with clipped RELU activation and dropout
-    b5 = variable_on_cpu('b5', [n_hidden_5], tf.random_normal_initializer(stddev=b5_stddev))
-    h5 = variable_on_cpu('h5', [(2 * n_cell_dim), n_hidden_5], tf.random_normal_initializer(stddev=h5_stddev))
-    layer_5 = tf.minimum(tf.nn.relu(tf.add(tf.matmul(outputs, h5), b5)), relu_clip)
-    layer_5 = tf.nn.dropout(layer_5, (1.0 - dropout[5]))
-\end{lstlisting}
+\lstinputlisting[language=Python,caption = Third fully connected layer, firstline=732, lastline=737]{code/rnn.py}
 The output layer, is used as the end point of the network.
 Multiplication and addition operations are applied to the previous output tensor. 
-At this point, the output was  transformed by the entire network. 
+At this point, the output was transformed by the entire network. 
 The last step is to reshape the tensor back into a 3D form, after which it is passed to another function for decoding.
-\begin{lstlisting}[language=Python, flexiblecolumns=true, caption=Output layer.]
-with tf.name_scope('outputs'):
-    # Now we apply the weight matrix `h6` and bias `b6` to the output of `layer_5`
-    # creating `n_classes` dimensional vectors, the logits.
-    b6 = variable_on_cpu('b6', [n_hidden_6], tf.random_normal_initializer(stddev=b6_stddev))
-    h6 = variable_on_cpu('h6', [n_hidden_5, n_hidden_6], tf.random_normal_initializer(stddev=h6_stddev))
-    layer_6 = tf.add(tf.matmul(layer_5, h6), b6)
-\end{lstlisting}
+\lstinputlisting[language=Python,caption = Output layer, firstline=746, lastline=748]{code/rnn.py}

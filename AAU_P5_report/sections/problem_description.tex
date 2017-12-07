@@ -1,60 +1,57 @@
 \chapter{Problem Description}\label{ch:problem_description}
 %---------------------------------------------------------
 \section{Problem Description}
-
-As mentioned above, the final goal for this project is to develop a distributed speech recognition (DSR) system.
+As mentioned above, the final goal of the project is to develop a distributed speech recognition (DSR) system.
 In order to achieve this goal we need to gain a fundamental understanding in the field of machine learning and computer networks.\\
 
-%---------------------------------------------------------
 \section{Tools}
-The following information is a selection of the relevant software and hardware tools used to implement the Graphics Processing Unit (GPU) accelerated training:
+The following information is a selection of the relevant software and hardware tools used to implement graphics processing unit (GPU) accelerated training:
 
 \subsubsection{Software Tools}
 \begin{itemize}
-	\item TensorFlow 1.3.0
-	\item Visual Studio 2015
-	\item cuDNN 8.0
-	\item Python 3.6
-	\item Linux ubuntu
-	\item MATLAB  R2017b
+    \item TensorFlow 1.3.0
+    \item Visual Studio 2015
+    \item cuDNN 8.0
+    \item Python 3.6
+    \item Linux ubuntu
+    \item MATLAB  R2017b
 \end{itemize}
 
 \subsubsection{Hardware Tools}
 \begin{itemize}
-	\item Intel Computer
-	\item Nvidia Geforce GTX 1070 \\
+    \item Supermicro C7Z87 motherboard
+    \item Intel I7 4770 CPU
+    \item NVIDIA Geforce GTX 1070 GPU
+    \item DDR3 RAM 8GB
+    \item 320GB hard drive
+    \item Supermicro PWS-502-PQ 500W
 \end{itemize}
 
 \subsubsection{Setup}
+As seen in the listing above, the Nvidia GTX 1070 was the main unit used for training neural networks.
+Supporting 1920 CUDA cores, a standard memory configuration of 8 GB GDDR5 and a maximum power consumption of  $150W$ \cite{GPU}. It was added to a computer with an Intel Core I7-4770 CPU and 8 GB of RAM memory. The operating system was Windows 7 Enterprise.
 
-The GPU used in this project was a Nvidia GTX 1070 card with 1920 CUDA cores, a standard Memory Configuration of 8 GB GDDR5 and a maximum power consumption of $150W$ \cite{GPU}. It was added to a computer with an Intel Core I7-4770 CPU and 8 GB of RAM memory. The operating system was Windows 7 Enterprise.
-
-
-%---------------------------------------------------------
 \section{Problem Delimitation}\label{sec:PD}
 To ensure that the project meets the desired scope,
-specific success criteria are formed which will be
+specific success criteria were formed which will be
 evaluated during the final stages of the report.
-The following list of requirements are the desired
+The following list of requirements is the desired
 success criteria, where the focus will be on reaching
 the given goals:
 \begin{itemize}
-	\item Data mining
-	\item Choose a filter
-	\item Design a deep neural network model
-	\item Train for the English language
-	\item Create a Client/Server framework
-	\item Implement the distributed model
+    \item Data mining
+    \item Choose a filter
+    \item Design a deep neural network model
+    \item Train for the English language
+    \item Create a Client/Server framework
+    \item Implement the distributed model
 \end{itemize}
-A key component of neural networks is data. To increase their performance, using a large data set is necessary. As open-source, compatible, training data sets are hard to come by, data mining algorithms are created. This will allow the available data to fit the needs of the developed model.\\\\
-Any real life sequence of recorded speech has some amount of noise, making it harder for the neural network to understand spoken words.
+A key component of neural networks is data. To increase their performance, using a large data set is necessary. As open-source, compatible, training data sets are hard to come by, data mining algorithms were created. This will allow the available data to fit the needs of the developed model.\\\\
+Any real-life sequence of recorded speech has some amount of noise, making it harder for the neural network to understand spoken words.
 This can lead to errors that alter the word beyond recognition. 
 To ameliorate this problem, a filter that mimics the human
 ear is the best fit for such a project.\\\\
-Along the report, a historical analysis of different knowledge
-based solutions to the recognition of human speech is made.
+Along the report, a historical analysis of different knowledge-based solutions to the recognition of human speech is made.
 By studying the existing literature and comparing open-source projects, a neural network can be built, with the scope of reducing the error rate and training time as much
 as possible.\\\\
 A Client/Server set-up allows for running different parts of the DSR system, on multiple, internet connected machines. This allows for the more demanding tasks to be processed remotely, minimizing the impact for the end-user.
-
-%---------------------------------------------------------

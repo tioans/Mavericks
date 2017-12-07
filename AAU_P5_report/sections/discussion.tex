@@ -2,16 +2,14 @@
 
 \section{Discussion}
 In chapter two, specific success criteria were created to limit the scope and also allow for the project to be evaluated. This discussion will focus on what was accomplished in terms of success criteria and on the possible future steps to improve or advance this project. The list of success criteria from Section \ref{sec:PD}, Problem Delimitation is shown below:
-
 \begin{itemize}
-	\item Data mining
-	\item Choose a filter
-	\item Design a deep neural network model
-	\item Train for the English language
-	\item Create a Client/Server framework
-	\item Implement the distributed model
+    \item Data mining
+    \item Choose a filter
+    \item Design a deep neural network model
+    \item Train for the English language
+    \item Create a Client/Server framework
+    \item Implement the distributed model
 \end{itemize} 
-
 In order to use the OpenSLR training set, it was crucial to develop and use the 
 scripts detailed in Section \ref{sec:DataMining}.
  Having an algorithm capable of following a path from a main folder and its sub-folders to convert all the necessary files to the right format meant that the 
@@ -28,15 +26,11 @@ scripts detailed in Section \ref{sec:DataMining}.
    using the 26 cepstrum coefficient to shape information to be fed to the first 
    layer of of neurons. With the MFC, the signal used as an input is converted to the frequency
    domain and distributed evenly on a scale mimicking the human ear. Without this step, the neural
-   network wouldn't have been able to receive any input.\\
-   
-   For the main part, which consisted of the design and development of the neural network model, a reference model was originally used for understanding and testing. The Stanford model of a simple LSTM neural network proved to be a strong starting point for our own neural networks. As it was used to get acquainted to all the different dependencies and intricacies that these systems posses. By reverse engineering the reference model, we were able to construct a series of more complex and better performing networks.\\
-    
-   By trial and error, the first fully functional model that outperformed the Stanford model was described in Section \ref{sec:NNComparison}. The addition of fully connected layers both before and after the core LSTM layers proved to be an efficient way of reducing the word error rate across all the testing range, clearly seen in Figure \ref{fig:validation_error_fig}. A further analysis of the state-of-the-art neural networks developed specifically for understanding speech revealed that a BiRNN could prove to be a better solution to the classical stacking of LSTM layers. From the idea that hidden vectors can compute previous and future states, a second model was pursued, having a BiRNN layer as its core. Seen in Figure \ref{fig:BiRNNFC}, the best performing model is shown as a combination of FC and BiRNN. \\
-   
-Both models, LSTM and BiRNN were trained on the English language, by using the LibriSpeech set. To achieve this goal, a large number of parameters had to be tuned to ensure that the network didn't diverge during learning. As there is no predetermined way to set the parameters, training was done on an iterative process and the results were documented in Appendix \ref{ch:appClabel}.\\
-
-The next step was to distribute the SR system. The server was established on the computer which had the video card and where the neural network was designed. This was done in order to assure that the server had enough processing power to complete the tasks sent by the users. Via the LAN network any client that has access to the SR system can send a wave file and receive a written text file containing the transcription of their voice. \\
+   network wouldn't have been able to receive any input.\\\\
+For the main part, which consisted of the design and development of the neural network model, a reference model was originally used for understanding and testing. The Stanford model of a simple LSTM neural network proved to be a strong starting point for our own neural networks. As it was used to get acquainted to all the different dependencies and intricacies that these systems posses. By reverse engineering the reference model, we were able to construct a series of more complex and better performing networks.\\\\ 
+By trial and error, the first fully functional model that outperformed the Stanford model was described in Section \ref{sec:NNComparison}. The addition of fully connected layers both before and after the core LSTM layers proved to be an efficient way of reducing the word error rate across all the testing range, clearly seen in Figure \ref{fig:validation_error_fig}. A further analysis of the state-of-the-art neural networks developed specifically for understanding speech revealed that a BiRNN could prove to be a better solution to the classical stacking of LSTM layers. From the idea that hidden vectors can compute previous and future states, a second model was pursued, having a BiRNN layer as its core. Seen in Figure \ref{fig:BiRNNFC}, the best performing model is shown as a combination of FC and BiRNN. \\\\
+Both models, LSTM and BiRNN were trained on the English language, by using the LibriSpeech set. To achieve this goal, a large number of parameters had to be tuned to ensure that the network didn't diverge during learning. As there is no predetermined way to set the parameters, training was done on an iterative process and the results were documented in Appendix \ref{ch:appClabel}.\\\\
+The next step was to distribute the SR system. The server was established on the computer which had the video card and where the neural network was designed. This was done in order to assure that the server had enough processing power to complete the tasks sent by the users. Via the LAN network any client that has access to the SR system can send a wave file and receive a written text file containing the transcription of their voice.
 
 \section{Future work}
 For future development, a series of topics can be pursued for the 
@@ -53,19 +47,16 @@ betterment of the DSR.
  networks. Due to time constraints, a balance between the time that the 
  network was training and time the models were developed had to be 
  maintained. Moreover, data sets should be able to run 
- for increased amounts of time to reduce the word error rate even further. \\
- 
- A major goal that can be achieved by building upon the results of this project is the creation of an information retrieval (IR) system. 
+ for increased amounts of time to reduce the word error rate even further.\\\\
+A major goal that can be achieved by building upon the results of this project is the creation of an information retrieval (IR) system. 
  As data is returned in text format to the client, an IR system can search 
  a predefined database, or use a web crawler to access specific web pages 
- and return meaningful snippets of information related to the predetermined interests of the user.
-
+ and return meaningful snippets of information related to the predetermined interests of the user.\\\\
 Another improvement would target the distribution part of the system. TensorFlow Serving is a flexible, high-performance serving system for machine learning models. It is designed for production environments, and it provides an easy way to deploy new algorithms and experiments, without changing the server architecture. Illustrated in \ref{fig:TFServe}. It would provide a great option for testing different models efficiently.
-
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=.7\textwidth]		
-	{future_work/TensorFlowServing}
-	\caption{TensorFlow Serving \cite{TFServ}.}
-	\label{fig:TFServe}
+    \centering
+    \includegraphics[width=.7\textwidth]        
+    {future_work/TensorFlowServing}
+    \caption{TensorFlow Serving \cite{TFServ}.}
+    \label{fig:TFServe}
 \end{figure}

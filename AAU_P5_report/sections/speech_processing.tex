@@ -1,6 +1,6 @@
 \chapter{Speech Processing}\label{ch:speech_processing}
 Speech is an effortless and highly efficient form of communication.
-Continuous speech recognition software is readily available from stores and it allows the user to interact with its surrounding without the need of written commands
+Continuous speech recognition software is readily available from stores and it allows the user to interact with its surrounding without the need for written commands
 \cite[p.~396]{callan2003artificial}. Amazon`s Alexa 
 \cite{Alexa} and Microsoft`s Cortana 
 \cite{Cortana} are perfect examples of home companions that are able to perform basic tasks received via voice commands.\\\\
@@ -8,10 +8,9 @@ As speech recognition increases in accuracy, this technology will make the leap 
 This idea is further backed up by the fact that people tend to speak much faster than they are able to type \cite{Speed}.
 In some cases, speech can be three times faster in conveying information than typing, and for professional debaters,
 speaking can be even six times faster.
-\todo{We looked over until here...}
 
 \section{Classical overview}
-Words are carried as sound waves, which are analogue signals.
+Words are carried as sound waves, which are analog signals.
 In order for speech to be processed,
 it needs to be run through a signal processor that selects the frequencies and amplitude of the signal.
 Further on, the signal is mapped to individual sound units called phones.
@@ -19,16 +18,16 @@ These phones need to be identified and grouped in such a way to ensure that each
 otherwise, words would be impossible to distinguish from one another.
 \begin{table}[H]
 \centering
-	\caption{Phones.}
-	\label{my-label}
-	\begin{tabular}{l l}
-		{[}ay{]} & \underline{ir}is \\
-		{[}b{]}  & \underline{b}in  \\
-		{[}er{]} & \underline{bir}d \\
-		{[}l{]}  & \underline{l}ip  \\
-		{[}p{]}  & \underline{p}in  \\
-		{[}th{]} & \underline{thi}n
-	\end{tabular}
+    \caption{Phones.}
+    \label{my-label}
+    \begin{tabular}{l l}
+        {[}ay{]} & \underline{ir}is \\
+        {[}b{]}  & \underline{b}in  \\
+        {[}er{]} & \underline{bir}d \\
+        {[}l{]}  & \underline{l}ip  \\
+        {[}p{]}  & \underline{p}in  \\
+        {[}th{]} & \underline{thi}n
+    \end{tabular}
 \end{table}
 Phones can have different sounds depending on the context. 
 For example, the phone \textbf{th} in the word \textit{three} has a different sound to \textbf{th} in \textit{then}. 
@@ -43,13 +42,13 @@ when speech needs to be synthesized.
 Sound waves that carry human speech are variations in air pressure.
 The key components of a sound wave are its \textbf{amplitude},
 which measure the intensity of the sound and the \textbf{frequency}, which describes the rate at which the amplitude varies over time.
-When speaking in a microphone,
+When speaking into a microphone,
 the change in air pressure causes the diaphragm to oscillate.
 The size of the oscillations is directly proportional to the amplitude of the signal,
 while the rate at which the diaphragm oscillates represents the rate at which the air pressure changes.
 At specific time intervals,
 the signal can be sampled and the data can be used in a wide array of digital signal processing tools.
-For example, the digital signal can be plotted as a two dimensional plot,
+For example, the digital signal can be plotted as a two-dimensional plot,
 where the y-axis defines the amplitude and the x-axis shows the time.
 The frequency can be easily be determined from the plot as the number of cycles that the signal does per second.\\\\
 Although a visual difference can be seen when plotting vowels and consonants,
@@ -60,12 +59,12 @@ These steps are expanded upon in the following subsections.
 \subsubsection{ Preprocessing}
 No matter how powerful and how advanced a computer is,
 it still works in discrete time.
-In order to represent an analogue signal on the computer, it has to be sampled according to the Nyquist sampling theorem.
+In order to represent an analog signal on the computer, it has to be sampled according to the Nyquist sampling theorem.
 This theorem states that the sampling frequency has to be at least double the frequency of the original signal in order to replicate the original signal without aliasing.
 For a better understanding of the process, a visual representation of the word "Hello" as it is formed for the input of the neural network is shown in the upper part of Figure \ref{fig:cyka}.
 
 \subsubsection{ Fourier transform}
-To analyse a discrete signal we use the Fourier transform. 
+To analyze a discrete signal we use the Fourier transform. 
 This allows us to convert the signal in the frequency domain and deconstruct it in a series of simple sine waves. 
 These sine waves have specific amplitudes and frequencies and while plotting the FFT of the signal, 
 the dominant waves can be identified by the intensity of the amplitude.\\\\
@@ -76,11 +75,11 @@ Considering that this recording has a minimum amount of noise,
 we have to consider the full range of the frequencies,
 from zero and up to 3500 Hz.
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.75\textwidth]		
-	{speech_processing/03_FFTpluswaveform}
-	\caption{Waveform and FFT computed for the word "Hello".}
-	\label{fig:cyka}
+    \centering
+    \includegraphics[width=0.75\textwidth]        
+    {speech_processing/03_FFTpluswaveform}
+    \caption{Waveform and FFT computed for the word "Hello".}
+    \label{fig:cyka}
 \end{figure}
 
 \subsubsection{Spectrogram}
@@ -95,13 +94,13 @@ data, like the Hidden Markov Model (HMM) require both text and speech data and,
 furthermore a word to phoneme dictionary.
  Even though these models can be made more accurate when speech data is correlated with phoneme transcriptions, this is a gargantuan task to be attempted by hand. This makes 
  phoneme-level transcriptions less likely to be used on large data sets.
-  Both  speech recognizers of the past and today  rely on segmenting sound waves, but word based processing is far more efficient in modern speech recognizer (SR) systems.
+  Both speech recognizers of the past and today rely on segmenting sound waves, but word based processing is far more efficient in modern speech recognizer (SR) systems.
   
 \subsubsection{Mel Frequency Cepstrum Coefficients}
 Mel-frequency cepstral coefficients (MFCCs) are coefficients that collectively make up a Mel-frequency cepstral (MFC). 
 They are taken from a cepstral representation of the audio clip by finding the spectrum of the spectrum of the original audio file.
  Compared to normal cepstrum, in MFC, the frequency bands are spaced at equal distances on the Mel scale.
- This mimics a humans response to sound better that a linearly represented frequency band \cite{sahidullah2012design}.\\\\
+ This mimics a humans response to sound better than a linearly represented frequency band \cite{sahidullah2012design}.\\\\
 Speech is a continuous action, where the present utterance will affect the future one. Combined with the fact that the English language is not a phonetic language means that a direct
 representation of each character to their sound is impossible. To overcome this problem, the neural network is trained on overlapping windows both before and after the current speech sample.\\\\
 In the model developed by us, nine slices of audio are used before and after the current index, adding up to $19$ time points for each window. With $26$ cepstral coefficients, this gives $494$ data points per $25ms$ observation, sampled at $16 000 Hz$ and seen in Listing \ref{lst:MFCC}.\\\
@@ -127,10 +126,9 @@ for time_slice in range(train_inputs.shape[0]):
 \end{lstlisting}
  
 \subsection{Connectionist Temporal Classification loss function}
- Discarding the use of phonemes for neural networks can be done by switching to an
- objective function that computes predictions at the character-level transcription.\\\\
+ Discarding the use of phonemes for neural networks can be done by switching to an objective function that computes predictions at the character-level transcription.\\\\
 Connectionist Temporal Classification (CTC) provides probabilities for multiple sets, encapsulating all possible character-level transcriptions of the speech sample.
 The network uses the objective function to choose the highest probability for a transcription and calculates the error rate. The error is generated by comparing the
 predicted result to the absolute value of the transcript before updating the weights of the network during training \cite{Great}.\\\\
 The character-level error used by the CTC loss function is different from the Levenshtein \cite{stratonovich1960conditional} word error distance that is used in traditional models. Considering that the scope of this project is limited to the English language, it is important to know
-that the character versus error rate will be quite different, because English is a non-phonetic language. An in depth analysis of the CTC inner works can be found in \cite{CTC1} and \cite{CTC2}. 
+that the character versus error rate will be quite different because English is a non-phonetic language. An in-depth analysis of the CTC inner works can be found in \cite{CTC1} and \cite{CTC2}.
