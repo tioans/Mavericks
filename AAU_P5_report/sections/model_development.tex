@@ -147,21 +147,13 @@ The final results show that Model1 was improved by adding the fully connected la
 The graph for the validation error rate (Figure \ref{fig:validation_error_fig}) clearly shows the three distinct lines in "parallel" with each other. The top line being the least accurate and the bottom one being the most.
 
 \section{Model Description}
-<<<<<<< HEAD
 As shown in Chapter \ref{ch:model_development} under Neural Network Comparison, the model that is used in this DSR system is based on a bidirectional, Long-short Term Memory, recurrent neural network.
-=======
 As shown in Chapter \ref{ch:model_development} under Neural Network Comparison, the model that is used in this DSR system is based on a bidirectional, Long-short Term Memory , recurrent neural network.
->>>>>>> 65e88503a18a0da70a792d603725940342bca980
 This recurrent network is using the standard TensorFlow implementation of an LSTM cell, called "BasicLSTMCell", and used as a bidirectional layer. 
 There are two cells in the layer, one "forward" direction and one "backward" direction.
 Each cell is unrolled 1024 times, giving the layer 2048 elements. 
 The purpose is to recognize the context of the text, thus improving the prediction accuracy.
 The complete topology for the network is as follows: \\\\
-<<<<<<< HEAD
-\todo{Make full page png}
-=======
-
->>>>>>> 65e88503a18a0da70a792d603725940342bca980
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]		
