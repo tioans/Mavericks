@@ -9,8 +9,10 @@ Due to the fact that multiple devices are in various locations and on different 
 OpenVPN is the open-source software application that was utilized here. 
 It implements VPN techniques for creating secure point-to-point connections in routed or bridged configurations and remote access. 
 A custom security protocol, based on SSL/TLS is enforced on the network, and it is capable of traversing network address translators (NATs) and firewalls.\\
-For the current project, OpenVPN was used in a multiclient-server configuration. Authentication certificates were released for every client that required access on the network.
-
+For the current project, OpenVPN was used in a multiclient-server configuration. The server itself was installed on a Raspberry Pi 3.
+Authentication certificates were released for every client that required access on the network. 
+The network setup is shown in Figure 6.1:
+\todo{REFERENCE WIKI + Openvpn}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]		
@@ -20,3 +22,12 @@ For the current project, OpenVPN was used in a multiclient-server configuration.
 \end{figure}
 
 \section{Sockets}
+
+Network sockets are software interfaces that allow communication between two different processes on the same or on different machines.
+Most often utilized in client-server frameworks, a network socket represents one endpoint in a communication flow between two programs.\\\\
+In this project TCP sockets were implemented in Python to provide support for a variety of desktop based operating systems.
+When the server is initialized, it creates a socket and listens for incoming requests.
+\lstinputlisting[language=Python,caption = Server initialization, firstline=13, lastline=17]{code/serverPy.py}
+On the client side, another TCP socket is created and using the server's IP address and port number, a connection is established. 
+\lstinputlisting[language=Python,caption = Client initialization, firstline=5, lastline=7]{code/client.py}
+Following a successful connection, the client sends audio information to the server, which will return the decoded data in text form. 
