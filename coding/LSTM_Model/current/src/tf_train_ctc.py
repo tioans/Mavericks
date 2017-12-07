@@ -369,7 +369,7 @@ class Tf_train_ctc(object):
                 self.n_context
             )
         else:
-            raise ValueError('network_type must be SimpleLSTM, BiRNN, LSTM or BiRNN_V2')
+            raise ValueError('network_type must be SimpleLSTM, BiRNN, LSTM, BiRNN_V2, BiRNN_V3')
         self.summary_op = tf.summary.merge([summary_op])
 
     def setup_loss_function(self):
