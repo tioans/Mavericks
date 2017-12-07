@@ -15,7 +15,7 @@ Before the comparison of the 3 models, lets take a look at their structure in th
 As mentioned earlier the two models that were developed are based on the silicon-valley-data-science simple LSTM model. Their model consist of two LSTM layers as shown in the diagram below (Figure \ref{fig:simple_LSTM}).
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=.4\textwidth]		
+	\includegraphics[width=.35\textwidth]		
 	{model_development/01_simpleLSTM}
 	\caption{Simple LSTM model.}
 	\label{fig:simple_LSTM}
@@ -23,7 +23,7 @@ As mentioned earlier the two models that were developed are based on the silicon
 Based on model above, it was decided among us to make an addition of two fully connected (FC) layers before and one FC layer after the two LSTM layers (shown in Figure \ref{fig:simple_LSTMFC}), with the desire of gaining better accuracy.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=.4\textwidth]		
+	\includegraphics[width=.35\textwidth]		
 	{model_development/02_simpleLSTMFC}
 	\caption{Simple LSTM model with fully connected layers.}
 	\label{fig:simple_LSTMFC}
@@ -31,7 +31,7 @@ Based on model above, it was decided among us to make an addition of two fully c
 After that, a decision was made to replace the to LSTM layers in the model above with one Bi-Directional LSTM layers (seen in Figure \ref{fig:BiRNNFC}), again with the desire to make a more accurate model
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=.4\textwidth]		
+	\includegraphics[width=.35\textwidth]		
 	{model_development/03_BiRNN}
 	\caption{BiRNN model with fully connected layers.}
 	\label{fig:BiRNNFC}
@@ -169,19 +169,73 @@ After the multiplication, the activation function is applied.
 For this type of layer, ReLU activation is used. 
 The last operation in the layer applies drop-out on the neurons.
 To visualize elements over time, TensorFlow's TensorBoard utility is used, and various information is saved after every layer.
-\lstinputlisting[language=Python,caption = First fully connected layer, firstline=657, lastline=667]{code/rnn.py}
+\begin{lstlisting}[language=Python, flexiblecolumns=true, caption=First fully connected layer.]
+# 1st layer
+with tf.name_scope('fc1'):
+    b1 = variable_on_cpu('b1', [n_hidden_1], tf.random_normal_initializer(stddev=b1_stddev))
+    h1 = variable_on_cpu('h1', [n_input + 2 * n_input * n_context, n_hidden_1],tf.random_normal_initializer(stddev=h1_stddev))                        
+    layer_1 = tf.minimum(tf.nn.relu(tf.add(tf.matmul(batch_x, h1), b1)), relu_clip)# clipped relu op
+    layer_1 = tf.nn.dropout(layer_1, (1.0 - dropout[0]))
+
+    tf.summary.histogram("weights", h1)
+    tf.summary.histogram("biases", b1)
+    tf.summary.histogram("activations", layer_1)
+\end{lstlisting}
 The second layer has much of the same functionality as the first. However, they differ in the output dimension size, because the output of this layer is going to be the input for the bidirectional LSTM layer.
-\lstinputlisting[language=Python,caption = Second fully connected layer, firstline=669, lastline=678]{code/rnn.py}
+\begin{lstlisting}[language=Python, flexiblecolumns=true, caption=Second fully connected layer.]
+# 2nd layer
+with tf.name_scope('fc2'):
+    b2 = variable_on_cpu('b2', [n_hidden_3], tf.random_normal_initializer(stddev=b2_stddev))
+    h2 = variable_on_cpu('h2', [n_hidden_1, n_hidden_3], tf.random_normal_initializer(stddev=h2_stddev))
+    layer_2 = tf.minimum(tf.nn.relu(tf.add(tf.matmul(layer_1, h2), b2)), relu_clip)
+    layer_2 = tf.nn.dropout(layer_2, (1.0 - dropout[1]))
+
+    tf.summary.histogram("weights", h2)
+    tf.summary.histogram("biases", b2)
+    tf.summary.histogram("activations", layer_2)
+\end{lstlisting}
 The next layer defines two LSTM cells. Both are initialised with the default forget bias, in order to remember more information at the beginning of training. For these cells there is no drop-out.
-\lstinputlisting[language=Python,caption = BiRNN Layer, firstline=694, lastline=702]{code/rnn.py}
+\begin{lstlisting}[language=Python, flexiblecolumns=true, caption=BiRNN Layer.]
+# LSTM layer
+with tf.name_scope('lstm'):
+    # Forward direction cell:
+    lstm_fw_cell = tf.contrib.rnn.BasicLSTMCell(n_cell_dim, forget_bias=1.0, state_is_tuple=True)
+    lstm_fw_cell = tf.contrib.rnn.DropoutWrapper(lstm_fw_cell,
+                                                 input_keep_prob=1.0 - dropout[3],
+                                                 output_keep_prob=1.0 - dropout[3])
+    # Backward direction cell:
+    lstm_bw_cell = tf.contrib.rnn.BasicLSTMCell(n_cell_dim, forget_bias=1.0, state_is_tuple=True)
+    lstm_bw_cell = tf.contrib.rnn.DropoutWrapper(lstm_bw_cell,
+                                                 input_keep_prob=1.0 - dropout[4],
+                                                 output_keep_prob=1.0 - dropout[4])                                       \end{lstlisting}
 Further on, the input is reshaped into a three dimensional tensor, to be compatible with the BiRNN layer, and the network is unrolled. 
-\lstinputlisting[language=Python,caption = BiRNN Layer, firstline=718, lastline=723]{code/rnn.py}
+\begin{lstlisting}[language=Python, flexiblecolumns=true, caption=BiRNN Layer.]
+outputs, output_states = tf.nn.bidirectional_dynamic_rnn(cell_fw=lstm_fw_cell,
+                                                         cell_bw=lstm_bw_cell,
+                                                         inputs=layer_2,
+                                                         dtype=tf.float32,
+                                                         time_major=True,
+                                                         sequence_length=seq_length\end{lstlisting}
 Following, the previous outputs is reshaped again into a 2 dimensional tensor, and sent to the next fully connected layer. 
 This layer is similar to the first two, with the main operation being tensor multiplication and addition.
 Afterwards, ReLU and drop-out is applied.
-\lstinputlisting[language=Python,caption = Third fully connected layer, firstline=732, lastline=737]{code/rnn.py}
+\begin{lstlisting}[language=Python, flexiblecolumns=true, caption=Third fully connected layer.]
+with tf.name_scope('fc3'):
+    # Now we feed `outputs` to the fifth hidden layer(third fully connected layer) with clipped RELU activation and dropout
+    b5 = variable_on_cpu('b5', [n_hidden_5], tf.random_normal_initializer(stddev=b5_stddev))
+    h5 = variable_on_cpu('h5', [(2 * n_cell_dim), n_hidden_5], tf.random_normal_initializer(stddev=h5_stddev))
+    layer_5 = tf.minimum(tf.nn.relu(tf.add(tf.matmul(outputs, h5), b5)), relu_clip)
+    layer_5 = tf.nn.dropout(layer_5, (1.0 - dropout[5]))
+\end{lstlisting}
 The output layer, is used as the end point of the network.
 Multiplication and addition operations are applied to the previous output tensor. 
 At this point, the output was  transformed by the entire network. 
 The last step is to reshape the tensor back into a 3D form, after which it is passed to another function for decoding.
-\lstinputlisting[language=Python,caption = Output layer, firstline=746, lastline=748]{code/rnn.py}
+\begin{lstlisting}[language=Python, flexiblecolumns=true, caption=Output layer.]
+with tf.name_scope('outputs'):
+    # Now we apply the weight matrix `h6` and bias `b6` to the output of `layer_5`
+    # creating `n_classes` dimensional vectors, the logits.
+    b6 = variable_on_cpu('b6', [n_hidden_6], tf.random_normal_initializer(stddev=b6_stddev))
+    h6 = variable_on_cpu('h6', [n_hidden_5, n_hidden_6], tf.random_normal_initializer(stddev=h6_stddev))
+    layer_6 = tf.add(tf.matmul(layer_5, h6), b6)
+\end{lstlisting}
