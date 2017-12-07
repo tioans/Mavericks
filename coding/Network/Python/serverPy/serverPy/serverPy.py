@@ -2,7 +2,6 @@ import socket
 import shutil
 import sys
 import subprocess
-import multiprocessing as mp
 import os
 
 class raiseExcept(Exception):

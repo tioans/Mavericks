@@ -27,7 +27,17 @@ Network sockets are software interfaces that allow communication between two dif
 Most often utilized in client-server frameworks, a network socket represents one endpoint in a communication flow between two programs.\\\\
 In this project TCP sockets were implemented in Python to provide support for a variety of desktop based operating systems.
 When the server is initialized, it creates a socket and listens for incoming requests.
-\lstinputlisting[language=Python,caption = Server initialization, firstline=13, lastline=17]{code/serverPy.py}
+\begin{lstlisting}[language=Python, flexiblecolumns=true, caption=Server initialization.]
+(HOST,PORT) = (server_ip,port)
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind((HOST, PORT))
+s.listen(numb_of_clients)
+return s
+\end{lstlisting}
 On the client side, another TCP socket is created and using the server's IP address and port number, a connection is established. 
-\lstinputlisting[language=Python,caption = Client initialization, firstline=5, lastline=7]{code/client.py}
+\begin{lstlisting}[language=Python, flexiblecolumns=true, caption=Client initialization.]
+(HOST,PORT)=('10.8.0.2',2001)
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);
+s.connect((HOST,PORT))
+\end{lstlisting}
 Following a successful connection, the client sends audio information to the server, which will return the decoded data in text form. 

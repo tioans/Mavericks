@@ -18,22 +18,20 @@ As presented above, the OpenSLR corpus provides many features for training neura
 As presented above, the OpenSLR corpus provides many features for training neural networks. It is especially efficient for speech recognition systems. However, the current implementation was designed to use pairs of \textbf{.wav} files and \textbf{.txt} files as input. Each \textbf{.wav} file represents the audio information that is encoded into the corresponding \textbf{.txt} file, more specifically short paragraphs.\\\\
 Unfortunately, this data set is prepared in a different format. There is a single \textbf{.txt} file that corresponds to many \textbf{.wav} files and these are organized in bigger sets. Because of this, the data in its original form is not usable for the current neural network. To prepare the data, certain scripts were implemented in Python.\\\\
 The first algorithm is designed to navigate a folder path and its sub-folders to convert all \textbf{.flac} files to \textbf{.wav}. It uses the os and pydub libraries. 
-To access every sub-folder in the path, os.walk is used. This function returns the root folder and a list of files and directories in root.\\\\
-The first algorithm is designed to navigate a folder path and its sub-folders to convert all .flac files to .wav. It uses the os and pydub libraries. To access every sub-folder in the path, os.walk is used. This function returns the root folder and a list of files and directories in root, after which an internal folder becomes the new root.
-
-\lstinputlisting[language=Python, firstline=37, lastline=51]{code/FlacToWavPy.py}
+To access every sub-folder in the path, os.walk is used. This function returns the root folder and a list of files and directories in root, after which an internal folder becomes the new root\\
+\lstinputlisting[language=Python, flexiblecolumns=true, caption=Folder navigator. , firstline=37, lastline=51]{code/FlacToWavPy.py}
 
 The conversion is handled by another function that uses the pydub library to load the .flac, parse the name and   export the converted .wav file.
 
-\lstinputlisting[language=Python, firstline=25, lastline=35]{code/FlacToWavPy.py}
+\lstinputlisting[language=Python, flexiblecolumns=true, caption=Flac to wav conversion. , firstline=25, lastline=35]{code/FlacToWavPy.py}
 
 The second algorithm navigates the folders in the same way, by using the os.walk method. Then it checks for .txt files by parsing their name. 
 
-\lstinputlisting[language=Python, firstline=13, lastline=22]{code/txtFileMaker.py}
+\lstinputlisting[language=Python, flexiblecolumns=true, caption=Text file check. , firstline=13, lastline=22]{code/txtFileMaker.py}
 
 The format of the text files in this audio set is known. Using this information, the file name and content is parsed, creating new text files for every paragraph that corresponds to a flac file. This is achieved by exploiting the file name in relation to the beginning and end of each paragraph inside the file.
  
-\lstinputlisting[language=Python, firstline=36, lastline=51]{code/txtFileMaker.py} 
+\lstinputlisting[language=Python, flexiblecolumns=true, caption=Text file parsing. , firstline=36, lastline=51]{code/txtFileMaker.py} 
  
 \section{DSR System Implementation}
 
@@ -48,11 +46,11 @@ Normal operation for the system is as follows:
 \item The server sends the text to the client
 \end{enumerate}
 The file sent by the client can be either a microphone recording stored as a .wav at run-time, or an existing .wav file. To store this file, the server expects to receive multiple chunks of a fixed byte size from the client, shown below:
-\lstinputlisting[language=Python,caption=Server receiving file, firstline=30, lastline=35]{code/serverPy.py} 
+\lstinputlisting[language=Python, flexiblecolumns=true, caption=Server receiving file, firstline=30, lastline=35]{code/serverPy.py} 
 After a successful transfer, the server forks a new process. 
 This new process runs a script that loads the trained neural network and decodes the received audio file. A pipe is opened between the two processes for the decoded text to be sent back to the client.
 
-\lstinputlisting[language=Python,caption=New process, firstline=39, lastline=40]{code/serverPy.py}
+\lstinputlisting[language=Python, flexiblecolumns=true, caption=New process, firstline=39, lastline=40]{code/serverPy.py}
 The result is received by the client and displayed on screen.
 
 \section{Testing}
