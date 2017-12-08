@@ -103,9 +103,9 @@ They are taken from a cepstral representation of the audio clip by finding the s
  This mimics a humans response to sound better than a linearly represented frequency band \cite{sahidullah2012design}.\\\\
 Speech is a continuous action, where the present utterance will affect the future one. Combined with the fact that the English language is not a phonetic language means that a direct
 representation of each character to their sound is impossible. To overcome this problem, the neural network is trained on overlapping windows both before and after the current speech sample.\\\\
-In the model developed by us, nine slices of audio are used before and after the current index, adding up to $19$ time points for each window. With $26$ cepstral coefficients, this gives $494$ data points per $25ms$ observation, sampled at $16 000 Hz$ and seen in Listing \ref{lst:MFCC}.\\\
+In the model developed by us, nine slices of audio are used before and after the current index, adding up to $19$ time points for each window. With $26$ cepstral coefficients, this gives $494$ data points per $25ms$ observation, sampled at $16 000 Hz$ and seen in Listing \ref{lst:MFCC} .\\\
 
-\begin{lstlisting}[language = Python, flexiblecolumns=true, label=lst:MFCC, caption = Example code to obtain MFCC features.]
+\begin{lstlisting}[language = Python, flexiblecolumns=true, label=lst:MFCC, caption = Example code to obtain MFCC features \cite{rubashkin2017}.]
 # Load wav files
 fs, audio = wav.read(audio_filename)
  

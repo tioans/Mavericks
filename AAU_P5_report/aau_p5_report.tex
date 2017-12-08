@@ -21,7 +21,8 @@
 	\pdfbookmark[0]{Contents}{label:contents}
 	\pagestyle{fancy} %enable headers and footers again
 	\tableofcontents
-	\listoftodos
+	
+	%\listoftodos
 	
 	\input{sections/preface.tex}	
 	\input{sections/acronyms.tex}
@@ -52,6 +53,7 @@
 	\printbibliography[heading=bibintoc]
 	\label{bib:mybiblio}
 	
+	\chapter{Appendix}
 	\appendix
 	\renewcommand\chaptername{Appendix}
 	\input{sections/appendixA.tex}

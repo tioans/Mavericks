@@ -60,12 +60,37 @@ logger.info(section.format('Decoding client input data!'))
 The decoded text is received by the client and displayed on screen.
 
 \section{Testing}
-The original speech sent to the server was: "he began a confused complaint against the wizard who had vanished behind the curtain on the left".
+The testing methodolody was to simulate the real world application for the DSR system. In order to test the DSR system, the model was given different speech samples to decode into text. The nature of the tests implies that there are no labes for the system to calculate the error rate.\\\\
+The following tests show the original speech and the respective decoded speech:
 
+\subsubsection{Test 1}
+Original speech: "he began a confused complaint against the wizard who had vanished behind the curtain on the left".
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]        
     {implementation/client_server_conn}
-    \caption{Client side sending message and recieving prediction from server side.}
+    \caption{Model prediction for first sample.}
     \label{fig:client_server_conn}
 \end{figure}
+
+\subsubsection{Test 2}
+Original speech: "now open your mouth and speek if your thoughts incline ever so little towards fuming you will say fuming furious if they turned by even a hairs breath towards furious you will say furious fuming but"
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]        
+    {implementation/server_prediction_2}
+    \caption{Model prediction for second sample.}
+    \label{fig:client_server_conn}
+\end{figure}
+
+\subsubsection{Test 3}
+Original speech: "the side of the slew which was next his own house"
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]        
+    {implementation/server_prediction_3}
+    \caption{Model prediction for third sample.}
+    \label{fig:client_server_conn}
+\end{figure}
+
+Based on the results, even though there some gramatical and contextual mistakes, the validity of the neural network is proven. This is especially relevant considering the hardware limitation and time constraints. The model only trained on the number set and on the 6.3 GB of "clean" speech, representing approx. 100 hours.
