@@ -1,5 +1,5 @@
 \chapter{Machine Learning for Speech}\label{ch:machine_learning}
-The goal of this chapter is to understand different kinds of Artificial Neural Networks (ANN), starting with a historical overview of older, but highly recognized machine learning techniques still used today. After the brief overview, ANN will be looked at in more detail and different configurations are shown. Leading on, a simple description on TensorFlow and respective APIs (with example code) is done in order to understand future code development. Finally, ending the chapter with a small comparison study to get a feeling for the different parameter values.
+The goal of this chapter is to understand different kinds of Artificial Neural Networks (ANNs), starting with a historical overview of older, but highly recognized machine learning techniques still used today. After the brief overview, ANN will be looked at in more detail and different configurations are shown. Leading on, a simple description on TensorFlow and respective APIs (with example code) is done in order to understand future code development. Finally, ending the chapter with a small comparison study to get a feeling for the different parameter values.
 
 \section{Historical Overview}
 The following section will encapsulate different methods that 
@@ -11,8 +11,8 @@ efficiency when large data sets are available.
 \subsubsection{Hidden Markov Model}
 
 The forward and backward recursions used in HMM  
-were created by Ruslan L. Stratonovich in 1960
-\cite{stratonovich1960conditional}.
+were created in 1960
+by Ruslan L. Stratonovich \cite{stratonovich1960conditional}.
 It is the most successfully used pattern recognition technique used for speech recognition.
 In contrast to knowledge-based approaches, this model has
 a strong and secure mathematical foundation
@@ -182,8 +182,7 @@ As such, the output of the neural network can be written as:
     Y_t=\text{softmax}(H_t.W+b)
 \end{equation}
 %---------------------------------------------------
-\subsection{Bidirectional networks}\label{sub:BiRNN}
-
+\subsection{Bi-directional Neural Networks}\label{sub:BiRNN}
 Bi-directional Recurrent Neural Networks (BiRNN) are used to increase the input information available to the network. As data flows in one direction, standard neural networks have inherited restrictions where the future input cannot be accessed by the current state \cite{graves2005bidirectional}. Conversely,
 BiRNNs do not require their input data to be fixed. Furthermore, their future input information is available at the current state. This is done
 by connecting two hidden layers of opposite directions to the same output.
@@ -228,8 +227,8 @@ y_t &= W_{\overrightarrow{h}y} * \overrightarrow{h}_t + W_{\overleftarrow{h}y} *
     \label{fig:BiRNN}
 \end{figure}
 %---------------------------------------------------
+\section{Types of Regulation Techniques}
 \subsection{Dropout}
-
 Dropout is a regularization technique that involves shooting the neurons.
 It is applied after the activation function of each layer with the notable exception of the input and output layer.
 A percentage is used to determine the number of neurons that will remain in the networks.
@@ -253,7 +252,7 @@ A dropout rate of $40\%$ given to the neural network on the left-hand side, whic
 \end{figure}
 
 %---------------------------------------------------
-\subsection{Batch normalisation}
+\subsection{Batch Normalisation}
 Statistics can be computed for each batch that is fed to the neural network so the average and the standard deviation can be computed. After computing them, subtracting the average and dividing by the standard deviation rescales and re-enters the output. 
 In the equation, epsilon is added to avoid numerical problems as dividing by zero.
 \begin{equation}

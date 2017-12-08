@@ -152,7 +152,8 @@ This recurrent network is using the standard TensorFlow implementation of an LST
 There are two cells in the layer, one "forward" direction and one "backward" direction.
 Each cell is unrolled 1024 times, giving the layer 2048 elements. 
 The purpose is to recognize the context of the text, thus improving the prediction accuracy.
-The complete topology for the network is as follows: \\\\
+The complete topology for the network is as follows (an expanded version of Figure \ref{fig:BiRNN_model} can be found in
+Appendix \ref{ch:appBlabel}): \\\\
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]        
@@ -161,7 +162,7 @@ The complete topology for the network is as follows: \\\\
     \label{fig:BiRNN_model}
 \end{figure}
 Figure \ref{fig:BiRNN_model} shows the complete topology of the network used in the current implementation.
-In the beginning, there are 2 fully connected layers, each consisting of 1024 neurons.\\
+In the beginning, there are 2 fully connected layers, each consisting of 1024 neurons.\\\\
 The first layer is designed to accept input from a 2D tensor. However, the input tensor has 3 dimensions.
 To resolve this discrepancy, the input tensor is reshaped into a 2D representation. Two dimensions are merged, thus the 3D tensor becomes 2D, and is ready to be sent through the network.
 After the multiplication, the activation function is applied. 

@@ -6,10 +6,10 @@ The VPN extends a private network over a public network and enables devices to s
 Due to the fact that multiple devices are in various locations and on different networks, some of which have security protocols enabled, direct communication between these devices is not possible without a VPN.\\\\
 OpenVPN is the open-source software application that was utilized here. 
 It implements VPN techniques for creating secure point-to-point connections in routed or bridged configurations and remote access. 
-A custom security protocol, based on SSL/TLS is enforced on the network, and it is capable of traversing network address translators (NATs) and firewalls.\\
+A custom security protocol, based on SSL/TLS is enforced on the network, and it is capable of traversing network address translators (NATs) and firewalls.\\\\
 For the current project, OpenVPN was used in a multiclient-server configuration. The server itself was installed on a Raspberry Pi 3.
-Authentication certificates were released for every client that required access to the network \cite{OpnVPN}.\\ 
-The network setup is shown in Figure 6.1.
+Authentication certificates were released for every client that required access to the network \cite{OpnVPN}.
+The network setup is shown in Figure \ref{fig:vpn_uni_diagram}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]        
@@ -19,7 +19,6 @@ The network setup is shown in Figure 6.1.
 \end{figure}
 
 \section{Sockets}
-
 Network sockets are software interfaces that allow communication between two different processes on the same or on different machines.
 Most often utilized in client-server frameworks, a network socket represents one endpoint in a communication flow between two programs.\\\\
 In this project, TCP sockets were implemented in Python to provide support for a variety of desktop-based operating systems.
