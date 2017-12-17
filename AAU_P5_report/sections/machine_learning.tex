@@ -107,7 +107,7 @@ Firstly used in 1997 by Sepp Hochreiter and Jürgen Schmidhuber
 Nowadays, after further refinement,
 LSTMs work incredibly well on various problems and give better results for most problems that require RNNs.
 They remember information for long periods of time by default, making them the perfect fit to avoid long-term dependency problems.\\\\
-LSTMs have a chain-like structure of four layers, with repeating modules that interact in specific ways. For simplicity, in the following explanation of the internal states of an LSTM, the input $X$ will represent the normal input to the network concatenated with the previous state, $X = x_i | h_{t-1}$.
+LSTMs have a chain-like structure of four layers, with repeating modules that interact in specific ways. For simplicity, in the following explanation of the internal states of an LSTM, the input $X$ will represent the normal input to the network concatenated with the previous state, $X = x_t | h_{t-1}$.
 \begin{figure}[H]
 \centering
     \includegraphics[width=\textwidth]    
