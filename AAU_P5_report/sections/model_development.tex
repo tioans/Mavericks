@@ -173,15 +173,15 @@ To visualize elements over time, TensorFlow's TensorBoard utility is used, and v
 The second layer has much of the same functionality as the first. However, they differ in the output dimension size, because the output of this layer is going to be the input for the bi-directional LSTM layer.
 \lstinputlisting[language=Python,caption = Second fully connected layer, flexiblecolumns=true, firstline=669, lastline=678]{code/rnn.py}
 The next layer defines two LSTM cells. Both are initialized with the default forget bias, in order to remember more information at the beginning of training. For these cells, there is no dropout.
-\lstinputlisting[language=Python,caption = BiRNN Layer, flexiblecolumns=true, firstline=694, lastline=702]{code/rnn.py}
+\lstinputlisting[language=Python,caption = BiRNN Layer, flexiblecolumns=true, firstline=694, lastline=704]{code/rnn.py}
 Further on, the input is reshaped into a three-dimensional tensor, to be compatible with the BiRNN layer, and the network is unrolled. 
-\lstinputlisting[language=Python,caption = BiRNN Layer, flexiblecolumns=true, firstline=718, lastline=723]{code/rnn.py}
+\lstinputlisting[language=Python,caption = BiRNN Layer, flexiblecolumns=true, firstline=712, lastline=719]{code/rnn.py}
 Following, the previous outputs is reshaped again into a two-dimensional tensor and sent to the next fully connected layer. 
 This layer is similar to the first two, with the main operation being tensor multiplication and addition.
 Afterwards, ReLU and drop-out is applied.
-\lstinputlisting[language=Python,caption = Third fully connected layer, flexiblecolumns=true, firstline=732, lastline=737]{code/rnn.py}
+\lstinputlisting[language=Python,caption = Third fully connected layer, flexiblecolumns=true, firstline=726, lastline=735]{code/rnn.py}
 The output layer, is used as the end point of the network.
 Multiplication and addition operations are applied to the previous output tensor. 
 At this point, the output was transformed by the entire network. 
 The last step is to reshape the tensor back into a 3D form, after which it is passed to another function for decoding.
-\lstinputlisting[language=Python,caption = Output layer, firstline=746, lastline=748]{code/rnn.py}
+\lstinputlisting[language=Python,caption = Output layer, firstline=737, lastline=746]{code/rnn.py}

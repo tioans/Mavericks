@@ -105,6 +105,7 @@ Speech is a continuous action, where the present utterance will affect the futur
 representation of each character to their sound is impossible. To overcome this problem, the neural network is trained on overlapping windows both before and after the current speech sample.\\\\
 In the model developed by us, nine slices of audio are used before and after the current index, adding up to $19$ time points for each window. With $26$ cepstral coefficients, this gives $494$ data points per $25ms$ observation, sampled at $16 000 Hz$ and seen in Listing \ref{lst:MFCC} .\\\
 
+\vbox{%
 \begin{lstlisting}[language = Python, flexiblecolumns=true, label=lst:MFCC, caption = Example code to obtain MFCC features \cite{rubashkin2017}.]
 # Load wav files
 fs, audio = wav.read(audio_filename)
@@ -124,6 +125,7 @@ for time_slice in range(train_inputs.shape[0]):
     data_source_past = orig_inputs[max(0, time_slice - numcontext):time_slice]
     assert(len(empty_source_past) + len(data_source_past) == numcontext)
 \end{lstlisting}
+}
  
 \subsection{Connectionist Temporal Classification Loss Function}
  Discarding the use of phonemes for neural networks can be done by switching to an objective function that computes predictions at the character-level transcription.\\\\

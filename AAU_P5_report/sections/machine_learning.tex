@@ -245,7 +245,7 @@ For a visual representation of a dropout rate given to a neural network, it can 
 A dropout rate of $40\%$ given to the neural network on the left-hand side, which can be seen in the neural network on the right-hand side.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth, height = 0.3\textheight]        
+    \includegraphics[width=\textwidth, height = 0.29\textheight]        
     {machine_learning/06_Dropoutpng}
     \caption{A $0.4$ dropout rate on a four layer network.}
     \label{fig:.4_dropout_rate}
@@ -391,6 +391,7 @@ Making the entire process of writing an algorithm and maintaining it be less ted
 Although the estimator library has a set of predefined models to make things easier, a custom model can be created while keeping the high
 level abstraction of the data set, training, and feeding.
 A linear regression algorithm built with tf.estimator is included below to show how the library works \cite{Estimator}:
+\vbox{%
 \begin{lstlisting}[language=Python, flexiblecolumns=true, caption=Linear regression algorithm built with tf.estimator.]
 import numpy as np
 import tensorflow as tf
@@ -431,6 +432,7 @@ eval_metrics = estimator.evaluate(input_fn=eval_input_fn)
 print("train metrics: %r"% train_metrics)
 print("eval metrics: %r"% eval_metrics)
 \end{lstlisting}
+}
 
 %---------------------------------------------------
 \section{Batch Size, Dropout and Learning Rate Comparison}
