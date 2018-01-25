@@ -4,8 +4,6 @@
 \subsubsection{Data Set}
 Any neural network requires data in order to learn and become useful. As such, the training data is an important part of the learning process. For this implementation, the OpenSLR LibriSpeech ASR corpus was imported to provide training data.\\\\
 The LibriSpeech is comprised of approximately 1000 hours of 16kHz English read speech in .flac format and was prepared by Vassil Panayotov with the assistance of Daniel Povey. It is based on audio books from the LibriVox project that have been segmented and aligned. It contains 3 different sets, differentiated by type and size.\\\\
-Any neural network requires data in order to learn and become useful. As such, the training data is an important part of the learning process. For this implementation, the OpenSLR LibriSpeech ASR corpus was imported to provide training data.
-The LibriSpeech set is comprised of approximately 1000 hours of 16kHz English read speech in .flac format and was prepared by Vassil Panayotov with the assistance of Daniel Povey. It is based on audio books from the LibriVox project that have been segmented and aligned. It contains 3 different sets, differentiated by type and size.\\\\
 The first, and smallest one is made of 6.3 GB of "clean" speech, representing approx. 100 hours. "Clean" speech refers to audio recordings where noise and disturbances that might corrupt their quality were eliminated as much as possible.
 The second set is made of 23 GB of "clean" speech that represents approx. 360 hours.\\\\
 The final set is made of 30 GB of "other" speech, representing approx. 500 hours of audio. "Other" speech refers to recordings that contain a certain degree of audio disturbance.
@@ -27,6 +25,7 @@ The format of the text files in this audio set is known. Using this information,
 \section{DSR System Implementation}
 The complete DSR system is the sum of all the previously described parts. Firstly, a recurrent neural network model was designed and implemented. Following, the model was trained on the available data.
 Afterwards, the distributed part was focused on. The VPN was set up, and the client-server architecture took form using Python-based, TCP sockets.\\\\
+\vbox{%
 Normal operation of the system is as follows:
 \begin{enumerate}
 \item The server is initialized
@@ -35,6 +34,7 @@ Normal operation of the system is as follows:
 \item The server decodes the audio into text
 \item The server sends the text to the client
 \end{enumerate}
+}
 The file sent by the client can be either a microphone recording stored as a .wav at run-time or an existing .wav file. To store this file, the server expects to receive multiple chunks of a fixed byte size from the client, shown below:
 \lstinputlisting[language=Python, flexiblecolumns=true, caption=Server receiving file., firstline=30, lastline=35]{code/serverPy.py} 
 After a successful transfer, the server forks a new process. 
